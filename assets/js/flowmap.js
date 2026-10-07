@@ -367,7 +367,8 @@
     function textOf(h) { return h.text.replace(/\{T\}/g, ticket); }
     function timeOf(h, i) { return h.night ? UI.night : clock(sc.start, i * sc.step); }
 
-    if (reduceMotion || opts.instant) {
+    // Mouvement réduit : pas d'animation automatique, mais un clic du visiteur lance le signal lumineux.
+    if (opts.instant || (reduceMotion && !opts.user)) {
       sc.hops.forEach(function (h, i) { addLog(timeOf(h, i), h, textOf(h)); });
       showResult(sc);
       return;
