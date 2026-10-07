@@ -81,7 +81,7 @@
               <div class="figure-frame">
                 <svg class="diagram" viewBox="0 0 760 370" role="img" aria-labelledby="s1-title s1-desc">
                   <title id="s1-title">Handling an incoming message</title>
-                  <desc id="s1-desc">The client writes to the support address. The script checks whether a ticket number is already in the thread. If not, it creates a row and sends an acknowledgement. If so, it updates the existing row and sets it back to New. Either way, the tracking spreadsheet is up to date.</desc>
+                  <desc id="s1-desc">The client writes to the support address. The script checks whether a ticket number is already in the thread. If not, it creates a row and sends an acknowledgement. If so, it updates the existing row instead of creating a new one. Either way, the tracking spreadsheet is up to date.</desc>
                   <defs>
                     <marker id="s1-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="head" d="M0,0 L10,5 L0,10 z"/></marker>
                   </defs>
@@ -116,8 +116,8 @@
 
                   <rect class="box" x="420" y="200" width="300" height="74" rx="8"/>
                   <text class="t t--b" x="438" y="224">Existing row updated</text>
-                  <text class="t--s" x="438" y="244">no duplicate, the follow-up moves up</text>
-                  <text class="t--s" x="438" y="262">status set back to “New”</text>
+                  <text class="t--s" x="438" y="244">no duplicate, reply attached</text>
+                  <text class="t--s" x="438" y="262">same request, tracking continues</text>
 
                   <path class="line" d="M210,274 V306" marker-end="url(#s1-arrow)"/>
                   <path class="line" d="M570,274 V306" marker-end="url(#s1-arrow)"/>
@@ -131,16 +131,16 @@
             </figure>
 
             <h3>One ticket per request, not per message</h3>
-            <p>The main difficulty lay in email threads. Without special handling, a client who sends three messages about the same problem generates three tickets, and the spreadsheet becomes unusable within a few weeks. So I wrote reply detection: the script finds the ticket number in the thread, updates the existing row instead of creating a new one, and sets it back to “New” so that it comes back to the team's attention.</p>
+            <p>The main difficulty lay in email threads. Without special handling, a client who sends three messages about the same problem generates three tickets, and the spreadsheet becomes unusable within a few weeks. So I wrote reply detection: the script finds the ticket number in the thread, updates the existing row instead of creating a new one. It is the same client with the same request, so the ticket carries on from where it was.</p>
 
             <h3>Automate the execution, not the judgement</h3>
-            <p>The split is deliberately clear-cut. The script creates the row, assigns the number, sends the acknowledgement, applies the colour and recognises follow-ups. The other three status changes remain manual, because they require judging the real state of a request.</p>
+            <p>The split is deliberately clear-cut. The script creates the row as “New”, assigns the number, sends the acknowledgement, applies the colour and attaches follow-ups to the right ticket. Every status change after that remains manual, because they require judging the real state of a request.</p>
 
             <figure class="figure">
               <div class="figure-frame">
                 <svg class="diagram" viewBox="0 0 760 190" role="img" aria-labelledby="s2-title s2-desc">
                   <title id="s2-title">Lifecycle of a ticket</title>
-                  <desc id="s2-desc">Four statuses: New, In progress, Waiting for client, Resolved. The change to New is automatic, both on creation and when the client follows up. The other three transitions are made by hand by the technician.</desc>
+                  <desc id="s2-desc">Four statuses: New, In progress, Waiting for client, Resolved. The New status is set automatically on creation. The other transitions are made by hand by the technician. When the client replies, the reply is attached to the same ticket, which keeps its status.</desc>
                   <defs>
                     <marker id="s2-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="head" d="M0,0 L10,5 L0,10 z"/></marker>
                     <marker id="s2-arrow-ok" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="head--ok" d="M0,0 L10,5 L0,10 z"/></marker>
@@ -163,11 +163,11 @@
                   <path class="line" d="M370,65 H386" marker-end="url(#s2-arrow)"/>
                   <path class="line" d="M560,65 H576" marker-end="url(#s2-arrow)"/>
 
-                  <path class="line line--ok" d="M475,92 V140 H95 V96" marker-end="url(#s2-arrow-ok)"/>
-                  <text class="t--ok" x="285" y="162" text-anchor="middle">the client replies: the row goes back to “New”</text>
+                  <path class="line line--ok" d="M445,92 V132 H505 V96" marker-end="url(#s2-arrow-ok)"/>
+                  <text class="t--ok" x="475" y="156" text-anchor="middle">the client replies: same ticket, row updated, no duplicate</text>
                 </svg>
               </div>
-              <figcaption>Lifecycle of a ticket. Only the transitions to “New” are made by the script.</figcaption>
+              <figcaption>Lifecycle of a ticket. The script creates the ticket as “New” and attaches the client's replies to the same ticket; the technician moves the status forward.</figcaption>
             </figure>
 
             <h3>A guide for the next newcomer</h3>

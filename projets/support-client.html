@@ -81,7 +81,7 @@
               <div class="figure-frame">
                 <svg class="diagram" viewBox="0 0 760 370" role="img" aria-labelledby="s1-title s1-desc">
                   <title id="s1-title">Traitement d'un message entrant</title>
-                  <desc id="s1-desc">Le client écrit à l'adresse du support. Le script vérifie si un numéro de ticket figure déjà dans le fil. Si non, il crée une ligne et envoie un accusé de réception. Si oui, il met à jour la ligne existante et la repasse en Nouveau. Dans les deux cas, le tableau de suivi est à jour.</desc>
+                  <desc id="s1-desc">Le client écrit à l'adresse du support. Le script vérifie si un numéro de ticket figure déjà dans le fil. Si non, il crée une ligne et envoie un accusé de réception. Si oui, il met à jour la ligne existante, sans en créer de nouvelle. Dans les deux cas, le tableau de suivi est à jour.</desc>
                   <defs>
                     <marker id="s1-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="head" d="M0,0 L10,5 L0,10 z"/></marker>
                   </defs>
@@ -116,8 +116,8 @@
 
                   <rect class="box" x="420" y="200" width="300" height="74" rx="8"/>
                   <text class="t t--b" x="438" y="224">Ligne existante mise à jour</text>
-                  <text class="t--s" x="438" y="244">pas de doublon, la relance remonte</text>
-                  <text class="t--s" x="438" y="262">statut repassé à « Nouveau »</text>
+                  <text class="t--s" x="438" y="244">pas de doublon, réponse rattachée</text>
+                  <text class="t--s" x="438" y="262">même demande, le suivi continue</text>
 
                   <path class="line" d="M210,274 V306" marker-end="url(#s1-arrow)"/>
                   <path class="line" d="M570,274 V306" marker-end="url(#s1-arrow)"/>
@@ -131,16 +131,16 @@
             </figure>
 
             <h3>Un ticket par demande, pas par message</h3>
-            <p>La difficulté principale tenait aux fils de discussion. Sans traitement particulier, un client qui envoie trois messages sur le même problème génère trois tickets, et le tableau devient inexploitable en quelques semaines. J'ai donc écrit une détection des réponses : le script retrouve le numéro de ticket dans le fil, met à jour la ligne existante au lieu d'en créer une nouvelle, et la repasse en « Nouveau » pour qu'elle revienne dans l'attention de l'équipe.</p>
+            <p>La difficulté principale tenait aux fils de discussion. Sans traitement particulier, un client qui envoie trois messages sur le même problème génère trois tickets, et le tableau devient inexploitable en quelques semaines. J'ai donc écrit une détection des réponses : le script retrouve le numéro de ticket dans le fil, met à jour la ligne existante au lieu d'en créer une nouvelle. C'est le même client et la même demande : le ticket poursuit son cycle là où il en était.</p>
 
             <h3>Automatiser l'exécution, pas le jugement</h3>
-            <p>Le partage est volontairement net. Le script crée la ligne, attribue le numéro, envoie l'accusé, applique la couleur et reconnaît les relances. Les trois autres passages de statut restent manuels, parce qu'ils supposent de juger l'état réel d'une demande.</p>
+            <p>Le partage est volontairement net. Le script crée la ligne en « Nouveau », attribue le numéro, envoie l'accusé, applique la couleur et rattache les relances au bon ticket. Tous les changements de statut ensuite restent manuels, parce qu'ils supposent de juger l'état réel d'une demande.</p>
 
             <figure class="figure">
               <div class="figure-frame">
                 <svg class="diagram" viewBox="0 0 760 190" role="img" aria-labelledby="s2-title s2-desc">
                   <title id="s2-title">Cycle de vie d'un ticket</title>
-                  <desc id="s2-desc">Quatre statuts : Nouveau, En cours, En attente client, Résolu. Le passage en Nouveau est automatique, à la création comme lors d'une relance du client. Les trois autres transitions sont faites à la main par le technicien.</desc>
+                  <desc id="s2-desc">Quatre statuts : Nouveau, En cours, En attente client, Résolu. Le statut Nouveau est attribué automatiquement à la création. Les autres transitions sont faites à la main par le technicien. Quand le client répond, sa réponse est rattachée au même ticket, qui garde son statut.</desc>
                   <defs>
                     <marker id="s2-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="head" d="M0,0 L10,5 L0,10 z"/></marker>
                     <marker id="s2-arrow-ok" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="head--ok" d="M0,0 L10,5 L0,10 z"/></marker>
@@ -163,11 +163,11 @@
                   <path class="line" d="M370,65 H386" marker-end="url(#s2-arrow)"/>
                   <path class="line" d="M560,65 H576" marker-end="url(#s2-arrow)"/>
 
-                  <path class="line line--ok" d="M475,92 V140 H95 V96" marker-end="url(#s2-arrow-ok)"/>
-                  <text class="t--ok" x="285" y="162" text-anchor="middle">le client répond : la ligne repasse en « Nouveau »</text>
+                  <path class="line line--ok" d="M445,92 V132 H505 V96" marker-end="url(#s2-arrow-ok)"/>
+                  <text class="t--ok" x="475" y="156" text-anchor="middle">le client répond : même ticket, la ligne est mise à jour, sans doublon</text>
                 </svg>
               </div>
-              <figcaption>Cycle de vie d'un ticket. Seules les transitions vers « Nouveau » sont produites par le script.</figcaption>
+              <figcaption>Cycle de vie d'un ticket. Le script crée le ticket en « Nouveau » et rattache les réponses du client au même ticket ; le technicien fait avancer le statut.</figcaption>
             </figure>
 
             <h3>Un guide pour l'arrivant suivant</h3>

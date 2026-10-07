@@ -57,7 +57,7 @@
         { from: "support", to: "sheets", text: "Aucun numéro dans le fil : nouvelle ligne {T}, statut « Nouveau »." },
         { from: "support", to: "gmail", text: "Accusé de réception envoyé au client, avec le numéro {T}." },
         { from: "client", to: "support", text: "Le client relance dans le même fil." },
-        { from: "support", to: "sheets", text: "Numéro {T} retrouvé : la ligne existante repasse en « Nouveau ». Pas de doublon." }
+        { from: "support", to: "sheets", text: "Numéro {T} retrouvé : même demande, la ligne existante est mise à jour. Pas de doublon." }
       ],
       result: { status: "prod", label: "En production", text: "Depuis début août 2026, chez Good iD.", href: "projets/support-client.html" }
     },
@@ -128,7 +128,7 @@
         "No ticket number in the thread: new row {T}, status “New”.",
         "Acknowledgement sent to the client, with number {T}.",
         "The client follows up in the same thread.",
-        "Number {T} found: the existing row goes back to “New”. No duplicate."] },
+        "Number {T} found: same request, the existing row is updated. No duplicate."] },
       inventaire: { chip: "A box to log", label: "In production", text: "Since 12 June 2026; 81 devices logged.", hops: [
         "One button, the camera opens: photo of the box label.",
         "Template-based reading: model and serial number taken from calibrated zones.",

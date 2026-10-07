@@ -125,7 +125,7 @@
   });
 
   btnReply.addEventListener("click", function () {
-    // Relance sur le fil le plus récent qui n'est pas déjà « Nouveau », sinon sur le dernier fil.
+    // Relance sur un fil déjà traité si possible, sinon sur le dernier fil.
     var candidates = threads.filter(function (t) { return threadRows(t.id).length; });
     var target = candidates.filter(function (t) {
       return threadRows(t.id).every(function (r) { return r.status !== "nouveau"; });
@@ -134,8 +134,8 @@
     var existing = threadRows(target.id);
 
     if (dedup.checked) {
-      existing.forEach(function (r) { r.status = "nouveau"; r.time = tick(); r.flash = true; });
-      say(L("Numéro " + existing[0].ticket + " retrouvé dans le fil : la ligne est mise à jour et repasse en « Nouveau ». Aucun doublon.", "Number " + existing[0].ticket + " found in the thread: the row is updated and goes back to “New”. No duplicate."));
+      existing.forEach(function (r) { r.time = tick(); r.flash = true; });
+      say(L("Numéro " + existing[0].ticket + " retrouvé dans le fil : même client, même demande. La ligne est mise à jour et le ticket garde son statut. Aucun doublon.", "Number " + existing[0].ticket + " found in the thread: same client, same request. The row is updated and the ticket keeps its status. No duplicate."));
     } else {
       var row = { ticket: ticket(), thread: target.id, time: tick(), status: "nouveau", flash: true };
       rows.unshift(row);
