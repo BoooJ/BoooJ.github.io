@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Système de support client · Paul Morel</title>
+  <meta name="description" content="Conception et mise en production d'un système de tickets sous Google Apps Script et Gmail pour l'équipe support d'un intégrateur Google.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=JetBrains+Mono:wght@400;500&family=Public+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+  <link rel="alternate" hreflang="en" href="../en/projets/support-client.html">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/sim-tickets.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="wordmark" href="../index.html">Paul Morel</a>
+      <nav class="site-nav" aria-label="Navigation principale">
+        <ul>
+          <li><a href="../index.html#projets" aria-current="page">Projets</a></li>
+          <li><a href="../index.html#competences">Compétences</a></li>
+          <li><a href="../index.html#a-propos">À propos</a></li>
+          <li><a href="../passions.html">Passions</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a class="lang-switch" href="../en/projets/support-client.html" hreflang="en" lang="en" title="English version">EN</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Changer de thème">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>
+        </button>
+        <a class="btn" href="../cv/Paul_Morel_CV.pdf" download>CV (PDF)</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <div class="wrap">
+      <header class="case-head">
+        <p class="breadcrumb"><a href="../index.html#projets">Tous les projets</a></p>
+        <p class="case-kind"><strong>Stage de fin d'études</strong>, mission interne, en production</p>
+        <h1>Un système de tickets là où il n'y en avait aucun</h1>
+        <p class="case-lede">Chez Good iD, les demandes des clients arrivaient dans des boîtes individuelles, sans numéro ni suivi. J'ai conçu et mis en production le dispositif dont l'équipe support se sert aujourd'hui : une adresse unique, un tableau de suivi et un script qui numérote, accuse réception et regroupe les relances.</p>
+      </header>
+
+      <div class="case-body">
+        <aside class="case-meta" aria-label="Fiche du projet">
+          <dl>
+            <div><dt>Cadre</dt><dd>Good iD, intégrateur partenaire Google (Clichy), équipe technique</dd></div>
+            <div><dt>Période</dt><dd>Juillet à août 2026</dd></div>
+            <div><dt>Mon rôle</dt><dd>Conception, développement, recette et mise en service, seul, avec revue par le responsable technique qui avait commandé l'outil</dd></div>
+            <div><dt>Outils</dt><dd><ul><li>Google Apps Script (JavaScript)</li><li>Gmail, Google Sheets</li><li>Administration Google Workspace</li><li>Gemini, pour les premières versions du code</li></ul></dd></div>
+            <div><dt>État à mon départ</dt><dd><span class="status status--prod">En production</span></dd></div>
+          </dl>
+        </aside>
+
+        <div class="case-content">
+          <section>
+            <h2>Contexte et objectif</h2>
+            <p>Good iD vend des licences Google Workspace et Google Cloud, puis accompagne ses clients : migration, formation, support. Avant juillet 2026, l'entreprise n'avait aucun système centralisé pour traiter les demandes. Une demande pouvait être traitée deux fois, ou pas du tout, sans que personne ne s'en aperçoive.</p>
+            <p>Le responsable technique m'a demandé de concevoir un dispositif pour l'équipe support et pour les clients sous contrat de maintien en condition opérationnelle. Le socle existait déjà : un tableur Google et un script connecté dessus suffisaient, sans outil externe ni budget. C'est l'une des raisons pour lesquelles cette solution a été retenue.</p>
+          </section>
+
+          <section>
+            <h2>Mon rôle</h2>
+            <p>J'ai porté le projet de bout en bout : définition des conventions (statuts, colonnes, qui met à jour quoi), développement du script, rédaction du guide d'accueil, recette et mise en service. Le cadrage et la revue se sont faits avec le responsable technique lors de deux réunions dédiées, les 17 et 20 juillet.</p>
+            <p>Je n'ai pas traité les demandes moi-même : elles sont prises en charge par l'équipe support. Mon rôle s'est arrêté à la mise en service, une dizaine de jours avant la fin de mon stage.</p>
+          </section>
+
+          <section>
+            <h2>Ce que j'ai fait</h2>
+
+            <h3>Une adresse, un tableau, un script</h3>
+            <p>Les clients écrivent à une adresse générique de support. Chaque message entrant crée une ligne dans un tableau Google Sheets : numéro de ticket unique, date, client, objet, extrait du message, statut, et un lien qui ouvre directement le fil dans Gmail. Le script envoie l'accusé de réception avec le numéro, et la ligne entière prend la couleur de son statut.</p>
+
+            <figure class="figure">
+              <div class="figure-frame">
+                <svg class="diagram" viewBox="0 0 760 370" role="img" aria-labelledby="s1-title s1-desc">
+                  <title id="s1-title">Traitement d'un message entrant</title>
+                  <desc id="s1-desc">Le client écrit à l'adresse du support. Le script vérifie si un numéro de ticket figure déjà dans le fil. Si non, il crée une ligne et envoie un accusé de réception. Si oui, il met à jour la ligne existante et la repasse en Nouveau. Dans les deux cas, le tableau de suivi est à jour.</desc>
+                  <defs>
+                    <marker id="s1-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="head" d="M0,0 L10,5 L0,10 z"/></marker>
+                  </defs>
+                  <rect class="box" x="10" y="20" width="160" height="52" rx="8"/>
+                  <text class="t t--b" x="90" y="51" text-anchor="middle">E-mail du client</text>
+
+                  <rect class="box" x="210" y="20" width="170" height="52" rx="8"/>
+                  <text class="t t--b" x="295" y="43" text-anchor="middle">Adresse générique</text>
+                  <text class="t--s" x="295" y="61" text-anchor="middle">du support</text>
+
+                  <rect class="box--key" x="420" y="20" width="160" height="52" rx="8"/>
+                  <text class="t--inv" x="500" y="43" text-anchor="middle">Script Apps Script</text>
+                  <text class="t--s" x="500" y="61" text-anchor="middle" style="fill: var(--paper); opacity: .8">exécution automatique</text>
+
+                  <path class="line" d="M170,46 H206" marker-end="url(#s1-arrow)"/>
+                  <path class="line" d="M380,46 H416" marker-end="url(#s1-arrow)"/>
+
+                  <rect class="box" x="395" y="108" width="210" height="52" rx="8" style="stroke-dasharray: 5 4"/>
+                  <text class="t t--b" x="500" y="131" text-anchor="middle">N° de ticket déjà</text>
+                  <text class="t t--b" x="500" y="149" text-anchor="middle">présent dans le fil ?</text>
+                  <path class="line" d="M500,72 V104" marker-end="url(#s1-arrow)"/>
+
+                  <path class="line" d="M395,134 H210 V196" marker-end="url(#s1-arrow)"/>
+                  <text class="t--s" x="300" y="126" text-anchor="middle">non</text>
+                  <path class="line" d="M560,160 V196" marker-end="url(#s1-arrow)"/>
+                  <text class="t--s" x="572" y="183">oui</text>
+
+                  <rect class="box" x="40" y="200" width="340" height="74" rx="8"/>
+                  <text class="t t--b" x="58" y="224">Nouvelle ligne</text>
+                  <text class="t--code" x="58" y="244">T-xxxxxx · date · client · objet · extrait</text>
+                  <text class="t--s" x="58" y="262">+ accusé de réception envoyé avec le numéro</text>
+
+                  <rect class="box" x="420" y="200" width="300" height="74" rx="8"/>
+                  <text class="t t--b" x="438" y="224">Ligne existante mise à jour</text>
+                  <text class="t--s" x="438" y="244">pas de doublon, la relance remonte</text>
+                  <text class="t--s" x="438" y="262">statut repassé à « Nouveau »</text>
+
+                  <path class="line" d="M210,274 V306" marker-end="url(#s1-arrow)"/>
+                  <path class="line" d="M570,274 V306" marker-end="url(#s1-arrow)"/>
+
+                  <rect class="box--ok" x="130" y="310" width="500" height="50" rx="8"/>
+                  <text class="t t--b" x="380" y="332" text-anchor="middle">Tableau de suivi (Google Sheets)</text>
+                  <text class="t--s" x="380" y="350" text-anchor="middle">une ligne par demande, colorée selon son statut, lien direct vers le fil Gmail</text>
+                </svg>
+              </div>
+              <figcaption>Traitement d'un message entrant. Schéma redessiné à partir de ma conception ; aucune donnée client.</figcaption>
+            </figure>
+
+            <h3>Un ticket par demande, pas par message</h3>
+            <p>La difficulté principale tenait aux fils de discussion. Sans traitement particulier, un client qui envoie trois messages sur le même problème génère trois tickets, et le tableau devient inexploitable en quelques semaines. J'ai donc écrit une détection des réponses : le script retrouve le numéro de ticket dans le fil, met à jour la ligne existante au lieu d'en créer une nouvelle, et la repasse en « Nouveau » pour qu'elle revienne dans l'attention de l'équipe.</p>
+
+            <h3>Automatiser l'exécution, pas le jugement</h3>
+            <p>Le partage est volontairement net. Le script crée la ligne, attribue le numéro, envoie l'accusé, applique la couleur et reconnaît les relances. Les trois autres passages de statut restent manuels, parce qu'ils supposent de juger l'état réel d'une demande.</p>
+
+            <figure class="figure">
+              <div class="figure-frame">
+                <svg class="diagram" viewBox="0 0 760 190" role="img" aria-labelledby="s2-title s2-desc">
+                  <title id="s2-title">Cycle de vie d'un ticket</title>
+                  <desc id="s2-desc">Quatre statuts : Nouveau, En cours, En attente client, Résolu. Le passage en Nouveau est automatique, à la création comme lors d'une relance du client. Les trois autres transitions sont faites à la main par le technicien.</desc>
+                  <defs>
+                    <marker id="s2-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="head" d="M0,0 L10,5 L0,10 z"/></marker>
+                    <marker id="s2-arrow-ok" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="head--ok" d="M0,0 L10,5 L0,10 z"/></marker>
+                  </defs>
+                  <text class="t--ok" x="95" y="26" text-anchor="middle">automatique</text>
+                  <text class="t--s" x="285" y="26" text-anchor="middle">manuel</text>
+                  <text class="t--s" x="475" y="26" text-anchor="middle">manuel</text>
+                  <text class="t--s" x="665" y="26" text-anchor="middle">manuel</text>
+
+                  <rect class="box--ok" x="10" y="38" width="170" height="54" rx="8"/>
+                  <text class="t t--b" x="95" y="70" text-anchor="middle">Nouveau</text>
+                  <rect class="box" x="200" y="38" width="170" height="54" rx="8"/>
+                  <text class="t t--b" x="285" y="70" text-anchor="middle">En cours</text>
+                  <rect class="box" x="390" y="38" width="170" height="54" rx="8"/>
+                  <text class="t t--b" x="475" y="70" text-anchor="middle">En attente client</text>
+                  <rect class="box" x="580" y="38" width="170" height="54" rx="8"/>
+                  <text class="t t--b" x="665" y="70" text-anchor="middle">Résolu</text>
+
+                  <path class="line" d="M180,65 H196" marker-end="url(#s2-arrow)"/>
+                  <path class="line" d="M370,65 H386" marker-end="url(#s2-arrow)"/>
+                  <path class="line" d="M560,65 H576" marker-end="url(#s2-arrow)"/>
+
+                  <path class="line line--ok" d="M475,92 V140 H95 V96" marker-end="url(#s2-arrow-ok)"/>
+                  <text class="t--ok" x="285" y="162" text-anchor="middle">le client répond : la ligne repasse en « Nouveau »</text>
+                </svg>
+              </div>
+              <figcaption>Cycle de vie d'un ticket. Seules les transitions vers « Nouveau » sont produites par le script.</figcaption>
+            </figure>
+
+            <h3>Un guide pour l'arrivant suivant</h3>
+            <p>Un outil de tickets ne sert à rien si chaque nouvel arrivant doit demander comment s'y connecter. J'ai rédigé un guide d'accueil de deux pages : configurer Gmail pour répondre sous l'adresse du support, lire le tableau colonne par colonne, suivre le cycle de vie d'un ticket. Il insiste sur un point que j'avais sous-estimé : vérifier le champ « De : » avant chaque réponse. Un client qui reçoit une réponse d'une adresse nominative répond ensuite à cette adresse, et sa demande sort du circuit.</p>
+
+            <h3>Recette et mise en service</h3>
+            <ul>
+              <li>7 juillet : premier ticket de test.</li>
+              <li>17 et 20 juillet : cadrage et revue avec le responsable technique.</li>
+              <li>27 juillet : recette technique, avec plusieurs tickets de qualification et la vérification des adresses de support, dont une adresse dédiée à un client.</li>
+              <li>Début août : mise en production.</li>
+            </ul>
+            <p>Le système a aussi reçu un lien de renvoi dans les e-mails : il reporte le numéro du ticket dans la recherche Gmail et mène directement au fil concerné.</p>
+          </section>
+
+          <section class="sim" data-sim="tickets" aria-labelledby="sim-t-title">
+            <span class="sim-tag">Maquette interactive, données fictives</span>
+            <div class="sim-head">
+              <h2 id="sim-t-title">Essayez le tableau de suivi</h2>
+              <p>Jouez le client, puis le technicien en changeant les statuts. Désactivez la détection des relances pour voir ce que le script évite. Adresses et objets sont fictifs ; le vrai tableau contient des données clients et n'est pas montré.</p>
+            </div>
+            <div class="sim-controls">
+              <button class="sim-btn" type="button" data-act="new">Un client écrit</button>
+              <button class="sim-btn sim-btn--quiet" type="button" data-act="reply" disabled>Le client relance dans le même fil</button>
+              <label class="sim-switch"><input type="checkbox" data-opt="dedup" checked> Détection des relances</label>
+            </div>
+            <div class="tk-wrap">
+              <table class="tk-table">
+                <caption class="visually-hidden">Tableau de suivi fictif</caption>
+                <thead><tr><th scope="col">Ticket</th><th scope="col">Reçu</th><th scope="col">Client</th><th scope="col">Objet</th><th scope="col">Statut</th></tr></thead>
+                <tbody data-rows></tbody>
+              </table>
+            </div>
+            <p class="sim-log" data-log aria-live="polite">Le script attend un message.</p>
+            <dl class="sim-stats">
+              <div><dt>Demandes</dt><dd data-stat="threads">0</dd></div>
+              <div><dt>Lignes</dt><dd data-stat="rows">0</dd></div>
+              <div><dt>Doublons</dt><dd data-stat="dups">0</dd></div>
+            </dl>
+          </section>
+
+          <section>
+            <h2>Résultats vérifiables</h2>
+            <ul class="results">
+              <li><span class="proof proof--fact">Constaté</span><span>Système en production depuis début août 2026, là où l'entreprise n'avait aucun outil de suivi des demandes.</span></li>
+              <li><span class="proof proof--count">Compté</span><span>21 tickets réels qualifiés dans les jours suivant la mise en service, pour un client, d'après le tableau de suivi.</span></li>
+              <li><span class="proof proof--estimate">Ordre de grandeur</span><span>Environ cinq demandes par jour tous clients confondus, selon l'équipe. Ce chiffre n'est pas une mesure de ma part et ne porte pas sur la même période.</span></li>
+              <li><span class="proof proof--fact">Constaté</span><span>Guide d'accueil de l'équipe support livré ; un repreneur est identifié dans l'équipe technique et dispose des accès.</span></li>
+            </ul>
+            <div class="legend" aria-label="Légende des marqueurs">
+              <span><span class="proof proof--count">Compté</span> relevé dans l'outil</span>
+              <span><span class="proof proof--estimate">Estimé</span> sans protocole de mesure</span>
+              <span><span class="proof proof--fact">Constaté</span> fait daté et documenté</span>
+            </div>
+          </section>
+
+          <section>
+            <h2>Limites et ce que je ferais ensuite</h2>
+            <ul>
+              <li><strong>Une erreur livrée.</strong> À la première exécution sur l'environnement réel, la notification ne partait pas : une ligne de code restait liée à l'environnement de test. Corrigée avec le responsable technique. J'en retiens qu'un script validé en test ne l'est pas tant qu'il n'a pas tourné une fois sur le compte et les ressources qui seront les siens.</li>
+              <li><strong>Repérer les demandes qui stagnent.</strong> Le tableau dit où en est une demande, pas depuis quand. Il faudrait horodater chaque changement de statut pour calculer l'ancienneté.</li>
+              <li><strong>Capitaliser.</strong> Un champ « cause » à la clôture permettrait de savoir, au bout de quelques mois, si les demandes se ressemblent. Je l'avais proposé sans l'ajouter.</li>
+              <li><strong>Maintenance.</strong> Il manque une note d'une page sur l'origine des données et la conduite à tenir en cas de panne, notamment si la structure du tableau change.</li>
+            </ul>
+            <div class="note">
+              <p>Sur l'IA générative : Gemini m'a permis de passer de plusieurs jours à quelques heures pour obtenir un script qui tourne. La règle interne interdisait d'y soumettre des données client ; j'ai donc décrit les problèmes de façon abstraite, avec des données fictives. Le temps gagné à l'écriture doit être réinvesti dans les tests : c'est la règle que je me suis fixée depuis.</p>
+            </div>
+          </section>
+
+          <nav class="case-next" aria-label="Autres projets">
+            <a href="../index.html#projets"><span>Retour</span><strong>Tous les projets</strong></a>
+            <a href="inventaire-ocr.html"><span>Projet suivant</span><strong>Inventaire du matériel par OCR</strong></a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Paul Morel, ingénieur cloud et cybersécurité (ISEP 2026)</p>
+      <p>Clients et collègues ne sont pas nommés, par confidentialité.</p>
+    </div>
+  </footer>
+</body>
+</html>

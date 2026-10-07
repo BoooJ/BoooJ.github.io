@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Paul Morel · Ingénieur cloud et cybersécurité</title>
+  <meta name="description" content="Portfolio de Paul Morel, élève-ingénieur ISEP en cybersécurité : automatisations Google Workspace, services Node.js et API, avec des maquettes interactives de chaque projet.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=JetBrains+Mono:wght@400;500&family=Public+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+  <link rel="alternate" hreflang="en" href="en/index.html">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/flowmap.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="wordmark" href="#contenu">Paul Morel</a>
+      <nav class="site-nav" aria-label="Navigation principale">
+        <ul>
+          <li><a href="#projets">Projets</a></li>
+          <li><a href="#competences">Compétences</a></li>
+          <li><a href="#a-propos">À propos</a></li>
+          <li><a href="passions.html">Passions</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a class="lang-switch" href="en/index.html" hreflang="en" lang="en" title="English version">EN</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Changer de thème">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>
+        </button>
+        <a class="btn" href="cv/Paul_Morel_CV.pdf" download>CV (PDF)</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenu">
+
+    <!-- ============ Présentation et carte des flux ============ -->
+    <section class="hero" aria-labelledby="nom">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="hero-role">Élève-ingénieur ISEP en cybersécurité, diplôme attendu en octobre 2026</p>
+          <h1 class="hero-name" id="nom"><span>Paul</span><span>Morel</span></h1>
+          <p class="hero-lede">Je relie des outils entre eux pour que le travail répétitif se fasse seul, et je laisse à l'humain les décisions qui lui reviennent.</p>
+          <p class="hero-sub">Deux stages d'automatisation : Google Workspace chez un intégrateur partenaire de Google, Node.js et API La Poste pour un label de musique. Je cherche un poste d'ingénieur logiciel, cloud ou cybersécurité, en France ou à l'étranger.</p>
+          <div class="hero-actions">
+            <a class="btn" href="#projets">Voir les projets</a>
+            <a class="btn btn--quiet" href="cv/Paul_Morel_CV.pdf" download>Télécharger le CV</a>
+          </div>
+          <ul class="hero-facts">
+            <li><span><strong>2 outils en production</strong> chez Good iD, intégrateur partenaire de Google : support client et inventaire.</span></li>
+            <li><span><strong>Node.js et API REST</strong> : un service de bordereaux La Poste livré pour The Lost Recordings.</span></li>
+            <li><span><strong>Anglais C1</strong>, ouvert à un poste en France comme à l'étranger.</span></li>
+          </ul>
+          <nav class="jump" aria-label="Accès rapide">
+            <a href="#projets">Projets</a><a href="#vitrine">Vidéos et pubs</a><a href="#competences">Compétences</a><a href="passions.html">Passions</a><a href="#contact">Contact</a>
+          </nav>
+        </div>
+
+        <div class="flowmap" data-flowmap>
+          <div class="flowmap-head">
+            <h2>Carte des flux</h2>
+            <p>Mes projets, vus comme des circuits.</p>
+          </div>
+          <ol class="fm-howto">
+            <li><b>1</b><span>Chaque ligne est un projet : un événement à gauche, l'outil que j'ai construit au centre, les services qu'il relie à droite.</span></li>
+            <li><b>2</b><span>Choisissez un scénario ci-dessous : un signal lumineux parcourt le circuit.</span></li>
+            <li><b>3</b><span>Le journal explique chaque étape, puis mène à l'étude de cas.</span></li>
+          </ol>
+          <div class="flowmap-scenarios" data-fm-scenarios role="group" aria-label="Scénarios"></div>
+          <div class="flowmap-canvas">
+            <svg viewBox="0 0 700 570" aria-hidden="true" focusable="false" data-fm-svg></svg>
+          </div>
+          <ol class="flowmap-log" data-fm-log>
+            <li><span class="fm-empty">Choisissez un scénario pour le voir s'exécuter.</span></li>
+          </ol>
+          <div class="flowmap-result" data-fm-result></div>
+          <noscript><p class="fm-empty">La carte animée a besoin de JavaScript. Les projets sont décrits juste en dessous.</p></noscript>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Projets ============ -->
+    <section class="section" id="projets" aria-labelledby="projets-titre">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="projets-titre">Projets</h2>
+          <p>Cinq réalisations, choisies pour ce qu'elles prouvent. Chaque page détaille le contexte, mon rôle exact, ce qui est mesuré et ce qui ne l'est pas, avec une maquette à manipuler.</p>
+        </div>
+
+        <ol class="projects">
+          <li class="project">
+            <a href="projets/support-client.html">
+              <div class="project-thumb"><svg class="thumb" viewBox="0 0 160 120" aria-hidden="true"><rect class="bg" width="160" height="120"/><rect class="dim" x="16" y="20" width="128" height="17" rx="3"/><rect class="tx" x="23" y="26" width="34" height="4" rx="2" opacity=".55"/><rect class="tx" x="64" y="26" width="30" height="4" rx="2" opacity=".3"/><rect class="ok" x="110" y="24" width="28" height="9" rx="4.5"/><rect class="dim" x="16" y="43" width="128" height="17" rx="3"/><rect class="tx" x="23" y="49" width="34" height="4" rx="2" opacity=".55"/><rect class="tx" x="64" y="49" width="30" height="4" rx="2" opacity=".3"/><rect class="am" x="110" y="47" width="28" height="9" rx="4.5"/><rect class="dim" x="16" y="66" width="128" height="17" rx="3"/><rect class="tx" x="23" y="72" width="34" height="4" rx="2" opacity=".55"/><rect class="tx" x="64" y="72" width="30" height="4" rx="2" opacity=".3"/><rect class="ok" x="110" y="70" width="28" height="9" rx="4.5"/><rect class="dim" x="16" y="89" width="128" height="17" rx="3"/><rect class="tx" x="23" y="95" width="34" height="4" rx="2" opacity=".55"/><rect class="tx" x="64" y="95" width="30" height="4" rx="2" opacity=".3"/><rect class="dim" x="110" y="93" width="28" height="9" rx="4.5"/></svg></div>
+              <p class="project-kind"><strong>Stage de fin d'études</strong>Good iD, mission interne</p>
+              <div>
+                <h3>Système de support client</h3>
+                <p class="project-summary">Une adresse, un tableau et un script Apps Script qui numérote les demandes, accuse réception et regroupe les relances d'un même fil. 21 tickets réels qualifiés dans les premiers jours.</p>
+              </div>
+              <p class="project-tools"><span class="status status--prod">En production</span><br>Apps Script, Gmail, Google Sheets</p>
+            </a>
+          </li>
+          <li class="project">
+            <a href="projets/inventaire-ocr.html">
+              <div class="project-thumb"><svg class="thumb" viewBox="0 0 160 120" aria-hidden="true"><rect class="bg" width="160" height="120"/><rect x="34" y="12" width="92" height="96" rx="4" fill="#fbfaf6"/><rect x="42" y="22" width="40" height="4" rx="1" fill="#b9b5ab"/><rect x="42" y="34" width="62" height="4" rx="1" fill="#b9b5ab"/><rect x="42" y="46" width="56" height="4" rx="1" fill="#b9b5ab"/><rect x="42" y="58" width="70" height="4" rx="1" fill="#b9b5ab"/><rect x="42" y="70" width="0" height="4" rx="1" fill="#b9b5ab"/><rect x="42" y="82" width="48" height="4" rx="1" fill="#b9b5ab"/><rect x="42" y="94" width="60" height="4" rx="1" fill="#b9b5ab"/><rect x="42" y="70" width="76" height="8" fill="#2b2b2b" opacity=".75"/><rect x="38" y="54" width="84" height="12" rx="2" fill="rgba(103,209,177,.18)"/><rect class="okl" x="38" y="54" width="84" height="12" rx="2"/></svg></div>
+              <p class="project-kind"><strong>Stage de fin d'études</strong>Good iD, mission interne</p>
+              <div>
+                <h3>Inventaire du matériel par OCR</h3>
+                <p class="project-summary">Une application AppSheet lit l'étiquette du carton au lieu de la faire recopier à la main. 81 équipements enregistrés depuis sa mise en service le 12 juin 2026.</p>
+              </div>
+              <p class="project-tools"><span class="status status--prod">En production</span><br>AppSheet, OCR, Google Sheets</p>
+            </a>
+          </li>
+          <li class="project">
+            <a href="projets/licences-flex.html">
+              <div class="project-thumb"><svg class="thumb" viewBox="0 0 160 120" aria-hidden="true"><rect class="bg" width="160" height="120"/><rect class="ok" x="14" y="20" width="9" height="9" rx="1.5"/><rect class="ok" x="26" y="20" width="9" height="9" rx="1.5"/><rect class="ok" x="38" y="20" width="9" height="9" rx="1.5"/><rect class="ok" x="50" y="20" width="9" height="9" rx="1.5"/><rect class="ok" x="62" y="20" width="9" height="9" rx="1.5"/><rect class="ok" x="74" y="20" width="9" height="9" rx="1.5"/><rect class="ok" x="86" y="20" width="9" height="9" rx="1.5"/><rect class="am" x="98" y="20" width="9" height="9" rx="1.5"/><rect class="ok" x="110" y="20" width="9" height="9" rx="1.5"/><rect class="ok" x="122" y="20" width="9" height="9" rx="1.5"/><rect class="ok" x="134" y="20" width="9" height="9" rx="1.5"/><rect class="ok" x="14" y="34" width="9" height="9" rx="1.5"/><rect class="ok" x="26" y="34" width="9" height="9" rx="1.5"/><rect class="dim" x="38" y="34" width="9" height="9" rx="1.5"/><rect class="ok" x="50" y="34" width="9" height="9" rx="1.5"/><rect class="ok" x="62" y="34" width="9" height="9" rx="1.5"/><rect class="dim" x="74" y="34" width="9" height="9" rx="1.5"/><rect class="dim" x="86" y="34" width="9" height="9" rx="1.5"/><rect class="am" x="98" y="34" width="9" height="9" rx="1.5"/><rect class="ok" x="110" y="34" width="9" height="9" rx="1.5"/><rect class="dim" x="122" y="34" width="9" height="9" rx="1.5"/><rect class="ok" x="134" y="34" width="9" height="9" rx="1.5"/><rect class="dim" x="14" y="48" width="9" height="9" rx="1.5"/><rect class="ok" x="26" y="48" width="9" height="9" rx="1.5"/><rect class="ok" x="38" y="48" width="9" height="9" rx="1.5"/><rect class="ok" x="50" y="48" width="9" height="9" rx="1.5"/><rect class="ok" x="62" y="48" width="9" height="9" rx="1.5"/><rect class="dim" x="74" y="48" width="9" height="9" rx="1.5"/><rect class="ok" x="86" y="48" width="9" height="9" rx="1.5"/><rect class="am" x="98" y="48" width="9" height="9" rx="1.5"/><rect class="dim" x="110" y="48" width="9" height="9" rx="1.5"/><rect class="dim" x="122" y="48" width="9" height="9" rx="1.5"/><rect class="dim" x="134" y="48" width="9" height="9" rx="1.5"/><rect class="ok" x="14" y="62" width="9" height="9" rx="1.5"/><rect class="ok" x="26" y="62" width="9" height="9" rx="1.5"/><rect class="ok" x="38" y="62" width="9" height="9" rx="1.5"/><rect class="dim" x="50" y="62" width="9" height="9" rx="1.5"/><rect class="dim" x="62" y="62" width="9" height="9" rx="1.5"/><rect class="dim" x="74" y="62" width="9" height="9" rx="1.5"/><rect class="dim" x="86" y="62" width="9" height="9" rx="1.5"/><rect class="am" x="98" y="62" width="9" height="9" rx="1.5"/><rect class="dim" x="110" y="62" width="9" height="9" rx="1.5"/><rect class="dim" x="122" y="62" width="9" height="9" rx="1.5"/><rect class="dim" x="134" y="62" width="9" height="9" rx="1.5"/><rect class="dim" x="14" y="76" width="9" height="9" rx="1.5"/><rect class="dim" x="26" y="76" width="9" height="9" rx="1.5"/><rect class="dim" x="38" y="76" width="9" height="9" rx="1.5"/><rect class="dim" x="50" y="76" width="9" height="9" rx="1.5"/><rect class="dim" x="62" y="76" width="9" height="9" rx="1.5"/><rect class="dim" x="74" y="76" width="9" height="9" rx="1.5"/><rect class="dim" x="86" y="76" width="9" height="9" rx="1.5"/><rect class="ok" x="98" y="76" width="9" height="9" rx="1.5"/><rect class="dim" x="110" y="76" width="9" height="9" rx="1.5"/><rect class="dim" x="122" y="76" width="9" height="9" rx="1.5"/><rect class="dim" x="134" y="76" width="9" height="9" rx="1.5"/><rect class="dim" x="14" y="90" width="9" height="9" rx="1.5"/><rect class="ok" x="26" y="90" width="9" height="9" rx="1.5"/><rect class="dim" x="38" y="90" width="9" height="9" rx="1.5"/><rect class="dim" x="50" y="90" width="9" height="9" rx="1.5"/><rect class="dim" x="62" y="90" width="9" height="9" rx="1.5"/><rect class="dim" x="74" y="90" width="9" height="9" rx="1.5"/><rect class="dim" x="86" y="90" width="9" height="9" rx="1.5"/><rect class="dim" x="98" y="90" width="9" height="9" rx="1.5"/><rect class="dim" x="110" y="90" width="9" height="9" rx="1.5"/><rect class="dim" x="122" y="90" width="9" height="9" rx="1.5"/><rect class="dim" x="134" y="90" width="9" height="9" rx="1.5"/></svg></div>
+              <p class="project-kind"><strong>Stage de fin d'études</strong>Good iD, outil interne</p>
+              <div>
+                <h3>Licences de test attribuées et reprises</h3>
+                <p class="project-summary">La licence est accordée à la connexion et reprise chaque nuit : les licences oubliées, facturées chaque mois, ne peuvent plus s'accumuler.</p>
+              </div>
+              <p class="project-tools"><span class="status status--test">Fonctionnel en test</span><br>Apps Script, API d'administration Workspace</p>
+            </a>
+          </li>
+          <li class="project">
+            <a href="projets/bordereaux-la-poste.html">
+              <div class="project-thumb"><svg class="thumb" viewBox="0 0 160 120" aria-hidden="true"><rect class="bg" width="160" height="120"/><path class="ln" d="M46 50 H62 M104 50 H120 M83 66 V82"/><rect class="dim" x="10" y="36" width="36" height="28" rx="5"/><rect x="62" y="34" width="42" height="32" rx="5" fill="#153634" stroke="#67d1b1" stroke-width="2"/><rect class="dim" x="120" y="36" width="30" height="28" rx="5"/><rect x="71" y="82" width="24" height="28" rx="3" fill="#e6eeec"/><text x="83" y="100" font-size="8" font-weight="700" text-anchor="middle" fill="#10202a" font-family="sans-serif">PDF</text><circle class="ok" cx="55" cy="50" r="3.5"/></svg></div>
+              <p class="project-kind"><strong>Stage de deuxième année</strong>The Lost Recordings</p>
+              <div>
+                <h3>Bordereaux La Poste automatisés</h3>
+                <p class="project-summary">Un service Node.js crée les bordereaux de dépôt par l'API de La Poste et les rattache aux expéditions suivies dans Airtable.</p>
+              </div>
+              <p class="project-tools"><span class="status status--done">Livré</span><br>Node.js, API REST, Cloud Storage, Heroku</p>
+            </a>
+          </li>
+          <li class="project">
+            <a href="projets/e-commerce.html">
+              <div class="project-thumb"><img src="assets/video/bracelet-tech.jpg" alt="" loading="lazy"></div>
+              <p class="project-kind"><strong>Projet personnel</strong>E-commerce en dropshipping</p>
+              <div>
+                <h3>Boutiques e-commerce avec des agents IA</h3>
+                <p class="project-summary">Des thèmes Shopify écrits par des agents IA, publiés avec sauvegarde, journal et recette, et une campagne publicitaire en danois.</p>
+              </div>
+              <p class="project-tools"><span class="status status--doc">Projet personnel</span><br>Shopify, Claude Code, Codex, GPT Image</p>
+            </a>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ Vidéos et publicités ============ -->
+    <section class="section" id="vitrine" aria-labelledby="vitrine-titre">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="vitrine-titre">Vidéos et publicités</h2>
+          <p>Mes créations pour mes boutiques en ligne : des vidéos générées par IA sous ma direction, puis montées. Elles se lancent sans le son quand elles apparaissent à l'écran.</p>
+        </div>
+        <ul class="reel" data-reel>
+            <li>
+              <figure class="clip-fig">
+                <div class="clip"><video data-clip muted loop playsinline preload="none" poster="assets/video/bracelet-reveil.jpg" src="assets/video/bracelet-reveil.mp4" aria-label="Le réveil silencieux"></video><button class="clip-play" type="button" aria-label="Lire la vidéo"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></button></div>
+                <figcaption class="clip-caption"><strong>Le réveil silencieux</strong>Bracelet-réveil, format story</figcaption>
+              </figure>
+            </li>
+            <li>
+              <figure class="clip-fig">
+                <div class="clip"><video data-clip muted loop playsinline preload="none" poster="assets/video/bracelet-tech.jpg" src="assets/video/bracelet-tech.mp4" aria-label="Le produit en studio"></video><button class="clip-play" type="button" aria-label="Lire la vidéo"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></button></div>
+                <figcaption class="clip-caption"><strong>Le produit en studio</strong>Bracelet-réveil, plan produit</figcaption>
+              </figure>
+            </li>
+            <li>
+              <figure class="clip-fig">
+                <div class="clip"><video data-clip muted loop playsinline preload="none" poster="assets/video/bracelet-couleurs.jpg" src="assets/video/bracelet-couleurs.mp4" aria-label="Cinq couleurs"></video><button class="clip-play" type="button" aria-label="Lire la vidéo"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></button></div>
+                <figcaption class="clip-caption"><strong>Cinq couleurs</strong>Bracelet-réveil, gamme</figcaption>
+              </figure>
+            </li>
+            <li>
+              <figure class="clip-fig">
+                <div class="clip"><video data-clip muted loop playsinline preload="none" poster="assets/video/bracelet-holo.jpg" src="assets/video/bracelet-holo.mp4" aria-label="L'heure en hologramme"></video><button class="clip-play" type="button" aria-label="Lire la vidéo"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></button></div>
+                <figcaption class="clip-caption"><strong>L'heure en hologramme</strong>Bracelet-réveil, effet visuel</figcaption>
+              </figure>
+            </li>
+            <li>
+              <figure class="clip-fig">
+                <div class="clip"><video data-clip muted loop playsinline preload="none" poster="assets/video/collier-lettres.jpg" src="assets/video/collier-lettres.mp4" aria-label="Une lettre, un prénom"></video><button class="clip-play" type="button" aria-label="Lire la vidéo"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></button></div>
+                <figcaption class="clip-caption"><strong>Une lettre, un prénom</strong>Collier à initiale, plans produit</figcaption>
+              </figure>
+            </li>
+        </ul>
+        <p class="reel-note"><a href="projets/e-commerce.html#videos">Voir toutes les vidéos, la boutique en immersion et la campagne danoise</a></p>
+      </div>
+    </section>
+
+    <!-- ============ Aussi réalisé ============ -->
+    <section class="section" id="aussi" aria-labelledby="aussi-titre">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="aussi-titre">Aussi réalisé</h2>
+          <p>Des missions plus courtes et des travaux d'école, en bref.</p>
+        </div>
+
+        <div class="also">
+          <article class="also-item">
+            <p class="also-kind">Stage, mission client, avril 2026</p>
+            <h3>Une salle de visioconférence chez un client</h3>
+            <p>En binôme, pour un groupe de courtage en assurances : unité centrale ChromeOS pré-enrôlée en atelier sur le domaine du client, barre son et caméra, tablette de contrôle, appels de test, recette photo et bordereau de prêt signé. J'en ai tiré un guide d'installation pas à pas.</p>
+            <details>
+              <summary>Explorer le plan de câblage</summary>
+              <div class="wiring" data-wiring>
+                <div class="wiring-frame">
+                  <svg viewBox="0 0 640 320" role="group" aria-label="Plan de câblage d'une salle de visioconférence">
+                    <path class="w-cable" data-for="uc ecran" d="M320,130 V54"/>
+                    <text class="w-tag" data-for="uc ecran" x="328" y="96">HDMI</text>
+                    <path class="w-cable" data-for="barre uc" d="M170,158 H230"/>
+                    <text class="w-tag" data-for="barre uc" x="200" y="150" text-anchor="middle">USB-C</text>
+                    <path class="w-cable" data-for="tablette uc" d="M470,115 L410,144"/>
+                    <text class="w-tag" data-for="tablette uc" x="434" y="120" text-anchor="middle">USB-C</text>
+                    <path class="w-cable" data-for="uc poe" d="M410,172 L470,236"/>
+                    <text class="w-tag" data-for="uc poe" x="446" y="196">Ethernet</text>
+                    <path class="w-cable" data-for="poe tablette" d="M545,220 V140"/>
+                    <text class="w-tag" data-for="poe tablette" x="553" y="184">PoE</text>
+                    <path class="w-cable" data-for="micro barre" d="M95,260 V186"/>
+                    <text class="w-tag" data-for="micro barre" x="103" y="228">Micro</text>
+                    <path class="w-cable" data-for="secteur uc" d="M320,268 V186"/>
+                    <text class="w-tag" data-for="secteur uc" x="328" y="232">Secteur</text>
+                    <path class="w-cable" data-for="secteur barre" d="M240,290 H196 V176 H170"/>
+                    <text class="w-tag" data-for="secteur barre" x="202" y="262">Secteur</text>
+
+                    <g class="w-dev" data-dev="ecran" tabindex="0" role="button" aria-label="Écran d'affichage"><rect x="240" y="10" width="160" height="44" rx="8"/><text x="320" y="37" text-anchor="middle">Écran</text></g>
+                    <g class="w-dev w-dev--core" data-dev="uc" tabindex="0" role="button" aria-label="Unité centrale ChromeOS"><rect x="230" y="130" width="180" height="56" rx="8"/><text x="320" y="163" text-anchor="middle">Unité centrale</text></g>
+                    <g class="w-dev" data-dev="barre" tabindex="0" role="button" aria-label="Barre son et caméra"><rect x="20" y="130" width="150" height="56" rx="8"/><text x="95" y="163" text-anchor="middle">Barre son et caméra</text></g>
+                    <g class="w-dev" data-dev="micro" tabindex="0" role="button" aria-label="Microphones"><rect x="20" y="260" width="150" height="44" rx="8"/><text x="95" y="287" text-anchor="middle">Microphones</text></g>
+                    <g class="w-dev" data-dev="tablette" tabindex="0" role="button" aria-label="Tablette de contrôle"><rect x="470" y="90" width="150" height="50" rx="8"/><text x="545" y="120" text-anchor="middle">Tablette</text></g>
+                    <g class="w-dev" data-dev="poe" tabindex="0" role="button" aria-label="Boîtier de conversion PoE"><rect x="470" y="220" width="150" height="50" rx="8"/><text x="545" y="250" text-anchor="middle">Boîtier PoE</text></g>
+                    <g class="w-dev" data-dev="secteur" tabindex="0" role="button" aria-label="Alimentation secteur"><rect x="240" y="268" width="160" height="44" rx="8"/><text x="320" y="295" text-anchor="middle">Secteur</text></g>
+                  </svg>
+                </div>
+                <p class="wiring-readout" data-wiring-readout aria-live="polite">Touchez un appareil pour voir ses câbles.</p>
+              </div>
+            </details>
+          </article>
+
+          <article class="also-item">
+            <p class="also-kind">Stage, document d'avant-vente, mars et avril 2026</p>
+            <h3>Comparatif Google Meet et Neat Bar Pro</h3>
+            <p>Sur un appareil réel, j'ai réparti paramètre par paramètre ce que gèrent la console Google et la plateforme du constructeur. Le document est devenu un support d'avant-vente ; il explique notamment qu'« incompatible », dans la console, veut dire « géré par le constructeur », et non « mal intégré ».</p>
+          </article>
+
+          <article class="also-item">
+            <p class="also-kind">Stage, avril 2026</p>
+            <h3>Un équipement hors de son cadre, validé en un week-end</h3>
+            <p>Faire fonctionner un écran de visioconférence avec Google Meet alors qu'il n'est pas prévu pour : j'ai d'abord dit ce que je ne connaissais pas, puis validé un contournement en showroom du vendredi au lundi. Livré comme une réponse ponctuelle, avec ses conditions de validité, et non comme une solution supportée.</p>
+          </article>
+
+          <article class="also-item">
+            <p class="also-kind">Stage, outil interne, mars et avril 2026</p>
+            <h3>Consolidation des plannings de formation</h3>
+            <p>Un tableau relié aux agendas Google rassemble les sessions et leurs participants. En les rapprochant, il a rendu visibles des sessions sans liste de participants, un point qui compte pour un organisme de formation certifié.</p>
+          </article>
+
+          <article class="also-item">
+            <p class="also-kind">ISEP, sécurité des réseaux, 2025, travail individuel</p>
+            <h3>Reconnaissance d'une machine vulnérable</h3>
+            <p>Depuis Kali Linux, cartographie d'une machine Metasploitable 2 avec nmap : découverte du réseau, 13 services et leurs versions, détection du système, test de filtrage. Identification de portes dérobées connues, dont celles de vsftpd 2.3.4 et d'UnrealIRCd.</p>
+          </article>
+
+          <article class="also-item">
+            <p class="also-kind">ISEP, communications numériques, 2025, en binôme</p>
+            <h3>Décoder un signal radio</h3>
+            <p>Sous MATLAB, une chaîne de réception complète : analyse du spectre, correction du décalage de fréquence, synchronisation de trame par séquence de Barker, estimation du canal, démodulation 16-QAM et décodage Hamming (7,4), jusqu'au message caché en clair.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Compétences ============ -->
+    <section class="section" id="competences" aria-labelledby="competences-titre">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="competences-titre">Compétences</h2>
+          <p>Pas de jauge ni de pourcentage : chaque compétence renvoie aux projets qui la prouvent. Choisissez un projet pour voir ce qu'il a mobilisé.</p>
+        </div>
+
+        <div class="skills" data-skills>
+          <div class="skills-filter" role="group" aria-label="Filtrer par projet">
+            <button class="seg" type="button" data-skill-filter="all" aria-pressed="true">Toutes</button>
+            <button class="seg pf p1" type="button" data-skill-filter="1" aria-pressed="false"><i aria-hidden="true"></i>Support client</button>
+            <button class="seg pf p2" type="button" data-skill-filter="2" aria-pressed="false"><i aria-hidden="true"></i>Inventaire OCR</button>
+            <button class="seg pf p3" type="button" data-skill-filter="3" aria-pressed="false"><i aria-hidden="true"></i>Licences</button>
+            <button class="seg pf p4" type="button" data-skill-filter="4" aria-pressed="false"><i aria-hidden="true"></i>Bordereaux</button>
+            <button class="seg pf p5" type="button" data-skill-filter="5" aria-pressed="false"><i aria-hidden="true"></i>E-commerce</button>
+            <button class="seg pf p6" type="button" data-skill-filter="6" aria-pressed="false"><i aria-hidden="true"></i>Formation ISEP</button>
+          </div>
+          <p class="skills-summary" data-skills-summary aria-live="polite"></p>
+          <div class="skill-groups">
+            <section class="skill-group" aria-label="Automatisation et cloud">
+              <header class="skill-group-head"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18h10a4 4 0 0 0 .6-7.96A6 6 0 0 0 6.2 9.1 4.5 4.5 0 0 0 7 18z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><h3>Automatisation et cloud</h3><span>8 compétences</span></header>
+              <ul class="skill-list">
+                <li class="skill" data-p="1 3"><span class="skill-name">Google Apps Script</span><span class="skill-note">JavaScript côté Google</span><span class="skill-pills"><a class="pill p1" href="projets/support-client.html">Support client</a><a class="pill p3" href="projets/licences-flex.html">Licences</a></span></li>
+                <li class="skill" data-p="2"><span class="skill-name">AppSheet et OCR</span><span class="skill-note">application sans code</span><span class="skill-pills"><a class="pill p2" href="projets/inventaire-ocr.html">Inventaire OCR</a></span></li>
+                <li class="skill" data-p="1 3"><span class="skill-name">Administration Google Workspace</span><span class="skill-note">Gmail, annuaire, licences</span><span class="skill-pills"><a class="pill p1" href="projets/support-client.html">Support client</a><a class="pill p3" href="projets/licences-flex.html">Licences</a></span></li>
+                <li class="skill" data-p="4"><span class="skill-name">Node.js et Express</span><span class="skill-note">service web</span><span class="skill-pills"><a class="pill p4" href="projets/bordereaux-la-poste.html">Bordereaux</a></span></li>
+                <li class="skill" data-p="3 4"><span class="skill-name">API REST</span><span class="skill-note">La Poste, Airtable, Google</span><span class="skill-pills"><a class="pill p3" href="projets/licences-flex.html">Licences</a><a class="pill p4" href="projets/bordereaux-la-poste.html">Bordereaux</a></span></li>
+                <li class="skill" data-p="4"><span class="skill-name">Stockage et hébergement cloud</span><span class="skill-note">Google Cloud Storage, Heroku</span><span class="skill-pills"><a class="pill p4" href="projets/bordereaux-la-poste.html">Bordereaux</a></span></li>
+                <li class="skill" data-p="5"><span class="skill-name">Shopify et Shopify CLI</span><span class="skill-note">thèmes, mises en ligne</span><span class="skill-pills"><a class="pill p5" href="projets/e-commerce.html">E-commerce</a></span></li>
+                <li class="skill" data-p="1 5"><span class="skill-name">IA générative pour coder</span><span class="skill-note">Gemini, Claude Code, Codex</span><span class="skill-pills"><a class="pill p1" href="projets/support-client.html">Support client</a><a class="pill p5" href="projets/e-commerce.html">E-commerce</a></span></li>
+              </ul>
+            </section>
+            <section class="skill-group" aria-label="Sécurité et réseaux">
+              <header class="skill-group-head"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v6c0 4.2-3 7.7-7 9-4-1.3-7-4.8-7-9V6z M9 12l2 2 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/></svg><h3>Sécurité et réseaux</h3><span>5 compétences</span></header>
+              <ul class="skill-list">
+                <li class="skill" data-p="2 3"><span class="skill-name">Conception sûre</span><span class="skill-note">droits limités, réversibilité</span><span class="skill-pills"><a class="pill p2" href="projets/inventaire-ocr.html">Inventaire OCR</a><a class="pill p3" href="projets/licences-flex.html">Licences</a></span></li>
+                <li class="skill" data-p="1 4 5"><span class="skill-name">Protection des données</span><span class="skill-note">données client et personnelles</span><span class="skill-pills"><a class="pill p1" href="projets/support-client.html">Support client</a><a class="pill p4" href="projets/bordereaux-la-poste.html">Bordereaux</a><a class="pill p5" href="projets/e-commerce.html">E-commerce</a></span></li>
+                <li class="skill" data-p="6"><span class="skill-name">Reconnaissance et vulnérabilités</span><span class="skill-note">Kali Linux, nmap</span><span class="skill-pills"><span class="pill p6">Formation ISEP</span></span></li>
+                <li class="skill" data-p="6"><span class="skill-name">Réseaux</span><span class="skill-note">commutation Cisco, VLAN</span><span class="skill-pills"><span class="pill p6">Formation ISEP</span></span></li>
+                <li class="skill" data-p="6"><span class="skill-name">Communications numériques</span><span class="skill-note">MATLAB, traitement du signal</span><span class="skill-pills"><span class="pill p6">Formation ISEP</span></span></li>
+              </ul>
+            </section>
+            <section class="skill-group" aria-label="Conduite de projet">
+              <header class="skill-group-head"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 21V4m0 0h11l-2 4 2 4H5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/></svg><h3>Conduite de projet</h3><span>5 compétences</span></header>
+              <ul class="skill-list">
+                <li class="skill" data-p="1 4"><span class="skill-name">Cadrage et recette</span><span class="skill-note">avec un commanditaire</span><span class="skill-pills"><a class="pill p1" href="projets/support-client.html">Support client</a><a class="pill p4" href="projets/bordereaux-la-poste.html">Bordereaux</a></span></li>
+                <li class="skill" data-p="1 2 4"><span class="skill-name">Documentation pour d'autres</span><span class="skill-note">guides, supports, notes</span><span class="skill-pills"><a class="pill p1" href="projets/support-client.html">Support client</a><a class="pill p2" href="projets/inventaire-ocr.html">Inventaire OCR</a><a class="pill p4" href="projets/bordereaux-la-poste.html">Bordereaux</a></span></li>
+                <li class="skill" data-p="5"><span class="skill-name">Mise en ligne maîtrisée</span><span class="skill-note">sauvegarde, journal, retour arrière</span><span class="skill-pills"><a class="pill p5" href="projets/e-commerce.html">E-commerce</a></span></li>
+                <li class="skill" data-p="2"><span class="skill-name">Conception pour le terrain</span><span class="skill-note">usage debout, à une main</span><span class="skill-pills"><a class="pill p2" href="projets/inventaire-ocr.html">Inventaire OCR</a></span></li>
+                <li class="skill" data-p="5"><span class="skill-name">Création visuelle avec l'IA</span><span class="skill-note">vidéos et publicités générées puis montées</span><span class="skill-pills"><a class="pill p5" href="projets/e-commerce.html">E-commerce</a></span></li>
+              </ul>
+            </section>
+          </div>
+          <p class="matrix-note">Chaque compétence renvoie aux projets où elle a servi. « Formation ISEP » regroupe travaux pratiques et projets d'école. Langages pratiqués aussi en cours : Python, Java, HTML et CSS.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ À propos ============ -->
+    <section class="section" id="a-propos" aria-labelledby="a-propos-titre">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="a-propos-titre">À propos</h2>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-text">
+            <h3>En bref</h3>
+            <p>Élève-ingénieur à l'ISEP, à Paris, en parcours cybersécurité, j'obtiens mon diplôme en octobre 2026. J'ai passé mon dernier semestre de cours en Erasmus à l'ISCTE de Lisbonne, en apprentissage automatique et en informatique, après un cycle préparatoire international dont six mois à Prague.</p>
+            <p>En stage, j'ai surtout construit des outils, et j'ai pris goût à ce qui vient après : la recette, la documentation, la transmission. Je veux concevoir des systèmes qui tiennent dans la durée, dans le logiciel, le cloud ou la sécurité.</p>
+
+            <h3>Ce que mes stages m'ont appris</h3>
+            <ul class="lessons">
+              <li>J'écris les critères de réussite avant de développer, pas après.</li>
+              <li>Un script validé en test ne l'est vraiment qu'après une exécution sur l'environnement réel.</li>
+              <li>J'automatise l'exécution d'une tâche, pas le jugement qui la fonde.</li>
+              <li>Un outil vaut par ce qui reste après mon départ : un repreneur, une documentation, une note de maintenance.</li>
+              <li>Le temps que l'IA me fait gagner à l'écriture, je le réinvestis dans les tests.</li>
+            </ul>
+
+            <h3>En dehors du travail</h3>
+            <p>Counter-Strike en compétition (niveau 10 sur FACEIT), guitare côté rock, piano côté Chopin et Rachmaninoff. <a href="passions.html">Tout est sur ma page Passions : mes chiffres FACEIT, l'esport et un test de réflexes à essayer.</a></p>
+          </div>
+
+          <div>
+            <h3 class="visually-hidden">Parcours</h3>
+            <ol class="timeline">
+              <li class="is-work"><time>Février à août 2026</time><strong>Stage de fin d'études, Good iD</strong><span>Intégrateur partenaire Google, Clichy : ingénierie cloud et Google Workspace</span></li>
+              <li><time>Septembre 2025 à février 2026</time><strong>Erasmus, ISCTE, Lisbonne</strong><span>Apprentissage automatique et informatique, cours en anglais</span></li>
+              <li class="is-work"><time>Septembre 2024 à janvier 2025</time><strong>Stage, The Lost Recordings</strong><span>Automatisation logicielle : Node.js, API La Poste, à distance</span></li>
+              <li><time>2023 à 2026</time><strong>ISEP, cycle ingénieur</strong><span>Parcours cybersécurité : sécurité, réseaux et sécurité des réseaux</span></li>
+              <li class="is-work"><time>Mai et juin 2023</time><strong>Stage, TravelGreen</strong><span>Développement web : HTML, CSS, Java et PHP</span></li>
+              <li><time>2020 à 2023</time><strong>Cycle préparatoire international</strong><span>ISEP et Faculté de génie électrique de Prague (six mois)</span></li>
+              <li class="is-work"><time>Étés 2020, 2022, 2023 et 2025</time><strong>Conseiller clientèle, Crédit Agricole</strong><span>Accueil des clients, collecte de données personnelles selon les règles « connaître son client »</span></li>
+            </ol>
+
+            <div class="facts">
+              <div>
+                <h3>Certifications Google</h3>
+                <ul>
+                  <li>Workspace Transformation Course <small>20 février 2026, score de 100 %</small></li>
+                  <li>Chrome Enterprise Premium, Proficiency Badge <small>16 mars 2026</small></li>
+                  <li>Google Workspace Deployment Services, Technical Credential</li>
+                  <li>Google Cloud et Google Workspace, Sales Credentials</li>
+                </ul>
+              </div>
+              <div>
+                <h3>Langues</h3>
+                <ul>
+                  <li>Français <small>langue maternelle</small></li>
+                  <li>Anglais <small>C1</small></li>
+                  <li>Espagnol <small>B1</small></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Contact ============ -->
+    <section class="section" id="contact" aria-labelledby="contact-titre">
+      <div class="wrap contact">
+        <div>
+          <h2 id="contact-titre">Ouvrir un ticket</h2>
+          <p>Un poste, une mission, une question : écrivez-moi. L'objet de l'e-mail contient déjà un numéro de ticket, <span class="contact-ticket" data-ticket>T-000000</span>, comme dans le système de support que j'ai construit.</p>
+        </div>
+        <ul class="contact-links">
+          <li>
+            <a href="mailto:pauleao02@gmail.com?subject=Prise%20de%20contact" data-mailto>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v12H3z M3 7l9 6 9-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+              <span>Écrire un e-mail<small>pauleao02@gmail.com</small></span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/morel-paul" target="_blank" rel="me noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h3.5v11H4z M5.75 3.5a2 2 0 1 1 0 4 2 2 0 0 1 0-4z M10 9h3.3v1.6c.5-.9 1.7-1.9 3.5-1.9 3.6 0 4.2 2.3 4.2 5.3V20h-3.5v-5.3c0-1.3 0-2.9-1.8-2.9s-2.1 1.4-2.1 2.8V20H10z" fill="currentColor"/></svg>
+              <span>LinkedIn<small>linkedin.com/in/morel-paul</small></span>
+            </a>
+          </li>
+          <li>
+            <a href="cv/Paul_Morel_CV.pdf" download>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>Télécharger le CV<small>PDF, une page, en anglais</small></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Paul Morel, 2026</p>
+      <p>Site statique, sans cookie ni mesure d'audience. Clients et collègues ne sont pas nommés.</p>
+    </div>
+  </footer>
+
+  <div class="toast" data-toast role="status" hidden></div>
+</body>
+</html>

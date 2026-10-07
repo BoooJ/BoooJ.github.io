@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bordereaux La Poste automatisés · Paul Morel</title>
+  <meta name="description" content="Service Node.js qui crée les bordereaux de dépôt La Poste par API et les rattache aux expéditions dans Airtable, hébergé sur Heroku avec stockage Google Cloud.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=JetBrains+Mono:wght@400;500&family=Public+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+  <link rel="alternate" hreflang="en" href="../en/projets/bordereaux-la-poste.html">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/sim-replay.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="wordmark" href="../index.html">Paul Morel</a>
+      <nav class="site-nav" aria-label="Navigation principale">
+        <ul>
+          <li><a href="../index.html#projets" aria-current="page">Projets</a></li>
+          <li><a href="../index.html#competences">Compétences</a></li>
+          <li><a href="../index.html#a-propos">À propos</a></li>
+          <li><a href="../passions.html">Passions</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a class="lang-switch" href="../en/projets/bordereaux-la-poste.html" hreflang="en" lang="en" title="English version">EN</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Changer de thème">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>
+        </button>
+        <a class="btn" href="../cv/Paul_Morel_CV.pdf" download>CV (PDF)</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <div class="wrap">
+      <header class="case-head">
+        <p class="breadcrumb"><a href="../index.html#projets">Tous les projets</a></p>
+        <p class="case-kind"><strong>Stage de deuxième année</strong>, mission pour l'entreprise, livrée</p>
+        <h1>Des bordereaux d'envoi créés par API, sans ressaisie</h1>
+        <p class="case-lede">The Lost Recordings restaure des enregistrements rares et les vend sur vinyle et CD dans le monde entier. Pour son entrepôt, j'ai développé en Node.js un service qui crée les bordereaux de dépôt La Poste par API et les rattache automatiquement aux expéditions suivies dans Airtable.</p>
+      </header>
+
+      <div class="case-body">
+        <aside class="case-meta" aria-label="Fiche du projet">
+          <dl>
+            <div><dt>Cadre</dt><dd>The Lost Recordings, très petite entreprise sans locaux : stage entièrement à distance, logistique gérée depuis un entrepôt en région</dd></div>
+            <div><dt>Période</dt><dd>2 septembre 2024 au 10 janvier 2025</dd></div>
+            <div><dt>Mon rôle</dt><dd>Seul développeur du projet ; architecture définie avec le responsable logistique et validée par le dirigeant</dd></div>
+            <div><dt>Outils</dt><dd><ul><li>Node.js, Express</li><li>API REST Delivengo (La Poste), puis Colissimo</li><li>Airtable et son API</li><li>Google Cloud Storage</li><li>Heroku, Git</li></ul></dd></div>
+            <div><dt>État à mon départ</dt><dd><span class="status status--done">Livré et hébergé</span></dd></div>
+          </dl>
+        </aside>
+
+        <div class="case-content">
+          <section>
+            <h2>Contexte et objectif</h2>
+            <p>L'entreprise grandissait vite, avec des ventes sur tous les continents, et préparait le Black Friday et la sortie de nouveaux disques. Les expéditions étaient suivies dans Airtable, et produire les bordereaux de dépôt La Poste demandait du temps, des efforts et un coût.</p>
+            <p>Ma mission : coder une application autonome qui génère le bordereau quand une commande est prête à partir, et qui s'intègre aux outils déjà en place. J'étais le premier stagiaire de l'entreprise, et Node.js, imposé pour le projet, était nouveau pour moi.</p>
+          </section>
+
+          <section>
+            <h2>Ce que j'ai fait</h2>
+            <h3>Comprendre l'API avant d'écrire du code</h3>
+            <p>J'ai commencé par l'étude de l'API Delivengo : types de requêtes, codes d'erreur, format des réponses. En parallèle, j'ai appris Node.js et comparé des solutions d'hébergement et de stockage. Avec le responsable logistique, nous avons ensuite schématisé les échanges entre l'application, Airtable, l'hébergeur et le stockage, et découpé le travail : code en local, puis récupération des documents, envoi vers Airtable, enfin hébergement.</p>
+
+            <section class="sim" data-sim="replay" aria-labelledby="sim-r-title">
+              <span class="sim-tag">Rejeu animé, données fictives</span>
+              <div class="sim-head">
+                <h2 id="sim-r-title">Le parcours d'une demande</h2>
+                <p>Envoyez une demande, ou trois d'un coup : la file d'attente les traite l'une après l'autre, et le schéma s'allume à chaque étape. Numéros fictifs ; le code et les identifiants ne sont pas publiés.</p>
+              </div>
+              <div class="figure-frame">
+                <svg class="diagram" viewBox="0 0 760 270" role="img" aria-labelledby="b1-title b1-desc">
+                  <title id="b1-title">Architecture du service de bordereaux</title>
+                  <desc id="b1-desc">Airtable envoie la liste des plis prêts au service Node.js hébergé sur Heroku. Le service interroge l'API Delivengo pour retrouver chaque pli, crée le dépôt et reçoit le PDF du bordereau. Il stocke le PDF dans Google Cloud Storage, puis met à jour l'expédition dans Airtable avec le bordereau en pièce jointe et le numéro de dépôt.</desc>
+                  <defs>
+                    <marker id="b1-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="head" d="M0,0 L10,5 L0,10 z"/></marker>
+                  </defs>
+                  <rect class="box" data-step="1" x="10" y="30" width="180" height="72" rx="8"/>
+                  <text class="t t--b" x="100" y="58" text-anchor="middle">Airtable</text>
+                  <text class="t--s" x="100" y="78" text-anchor="middle">expéditions prêtes</text>
+
+                  <rect class="box--key" data-step="0" x="270" y="30" width="220" height="72" rx="8"/>
+                  <text class="t--inv" x="380" y="58" text-anchor="middle">Service Node.js (Express)</text>
+                  <text class="t--s" x="380" y="78" text-anchor="middle" style="fill: var(--paper); opacity: .8">Heroku, file d'attente</text>
+
+                  <rect class="box" data-step="2" x="570" y="30" width="180" height="72" rx="8"/>
+                  <text class="t t--b" x="660" y="58" text-anchor="middle">API Delivengo</text>
+                  <text class="t--s" x="660" y="78" text-anchor="middle">La Poste</text>
+
+                  <path class="line" data-step="1" d="M190,66 H266" marker-end="url(#b1-arrow)"/>
+                  <text class="t--code" x="228" y="58" text-anchor="middle">POST /depot</text>
+
+                  <path class="line" data-step="2" d="M490,52 H566" marker-end="url(#b1-arrow)"/>
+                  <text class="t--s" x="528" y="44" text-anchor="middle">plis, dépôt</text>
+                  <path class="line" data-step="3" d="M566,82 H494" marker-end="url(#b1-arrow)"/>
+                  <text class="t--s" x="530" y="98" text-anchor="middle">PDF (base64)</text>
+
+                  <path class="line" data-step="4" d="M460,102 V140 H660 V176" marker-end="url(#b1-arrow)"/>
+                  <text class="t--s" x="560" y="133" text-anchor="middle">envoi du PDF</text>
+                  <rect class="box--soft" data-step="4" x="570" y="180" width="180" height="72" rx="8"/>
+                  <text class="t t--b" x="660" y="208" text-anchor="middle">Google Cloud Storage</text>
+                  <text class="t--s" x="660" y="228" text-anchor="middle">PDF du bordereau</text>
+
+                  <path class="line" data-step="5" d="M300,102 V140 H120 V176" marker-end="url(#b1-arrow)"/>
+                  <text class="t--s" x="210" y="133" text-anchor="middle">mise à jour</text>
+                  <rect class="box--ok" data-step="5" x="10" y="180" width="260" height="72" rx="8"/>
+                  <text class="t t--b" x="140" y="208" text-anchor="middle">Expédition mise à jour</text>
+                  <text class="t--s" x="140" y="228" text-anchor="middle">bordereau en pièce jointe, n° de dépôt</text>
+                </svg>
+              </div>
+              <div class="sim-controls">
+                <button class="sim-btn" type="button" data-act="one">Envoyer une demande</button>
+                <button class="sim-btn sim-btn--quiet" type="button" data-act="three">Envoyer trois demandes d'un coup</button>
+              </div>
+              <div class="rp-queue" data-queue></div>
+              <ol class="rp-console" data-console aria-live="polite">
+                <li class="muted">$ npm start</li>
+                <li class="muted">Serveur en écoute sur le port 3000</li>
+              </ol>
+            </section>
+
+            <h3>Le service</h3>
+            <ul>
+              <li>Une route reçoit d'Airtable la liste des plis à déposer et rejette les requêtes mal formées.</li>
+              <li>Une file d'attente traite les demandes une par une, et chacune reçoit sa propre réponse une fois son dépôt terminé.</li>
+              <li>Pour chaque pli, le service retrouve son identifiant auprès de l'API, puis crée le dépôt et récupère le bordereau en PDF.</li>
+              <li>Le PDF est stocké dans Google Cloud Storage, et l'expédition correspondante est mise à jour dans Airtable : bordereau en pièce jointe et numéro de dépôt.</li>
+              <li>Chaque étape écrit un message d'erreur explicite dans les journaux, pour savoir immédiatement où une demande a échoué.</li>
+            </ul>
+            <p>J'ai ensuite décliné le même schéma pour l'API Colissimo, sur la seconde mission du même type.</p>
+
+            <h3>Les difficultés</h3>
+            <ul>
+              <li><strong>Une documentation d'API imprécise</strong>, en particulier pour récupérer les PDF et former les requêtes : j'ai avancé à partir des codes d'erreur renvoyés, de la documentation et de forums de développeurs.</li>
+              <li><strong>Un format incompatible.</strong> L'API renvoie le bordereau sous une forme qu'Airtable ne sait pas joindre directement. D'où l'étape de stockage intermédiaire dans Google Cloud Storage.</li>
+              <li><strong>Un périmètre à clarifier.</strong> Je pensais au départ devoir construire une interface graphique ; ce n'était pas attendu. Des échanges réguliers ont permis de recadrer l'objectif.</li>
+              <li><strong>Les tests</strong> ont porté sur la fiabilité des appels à l'API, l'interaction avec Airtable et la génération des bordereaux, en vérifiant qu'aucune information sensible n'arrivait dans les données Airtable.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Résultats vérifiables</h2>
+            <ul class="results">
+              <li><span class="proof proof--fact">Constaté</span><span>Service livré et hébergé sur Heroku, avec une documentation et un dépôt Git remis à l'entreprise pour sa maintenance.</span></li>
+              <li><span class="proof proof--estimate">Estimé</span><span>Coût d'hébergement et de stockage d'environ deux centimes d'euros par mois, selon mon rapport de stage.</span></li>
+              <li><span class="proof proof--fact">Constaté</span><span>Le temps gagné sur la préparation des envois n'a pas été mesuré ; je ne l'avance donc pas.</span></li>
+            </ul>
+            <div class="legend" aria-label="Légende des marqueurs">
+              <span><span class="proof proof--count">Compté</span> relevé dans l'outil</span>
+              <span><span class="proof proof--estimate">Estimé</span> sans protocole de mesure</span>
+              <span><span class="proof proof--fact">Constaté</span> fait daté et documenté</span>
+            </div>
+          </section>
+
+          <section>
+            <h2>Ce que ce stage m'a appris</h2>
+            <p>Lire une documentation d'API et en déduire les bonnes requêtes, apprendre un langage sur le tas en un mois, et concevoir un service pensé pour être maintenu par d'autres : c'est la première fois que je rédigeais une documentation professionnelle. Travailler entièrement à distance, avec un seul interlocuteur souvent occupé, m'a aussi obligé à chercher seul avant de demander.</p>
+          </section>
+
+          <nav class="case-next" aria-label="Autres projets">
+            <a href="licences-flex.html"><span>Projet précédent</span><strong>Licences de test attribuées et reprises</strong></a>
+            <a href="e-commerce.html"><span>Projet suivant</span><strong>Boutiques e-commerce</strong></a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Paul Morel, ingénieur cloud et cybersécurité (ISEP 2026)</p>
+      <p>Clients et collègues ne sont pas nommés, par confidentialité.</p>
+    </div>
+  </footer>
+</body>
+</html>

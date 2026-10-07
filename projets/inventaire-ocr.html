@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Inventaire du matériel par OCR · Paul Morel</title>
+  <meta name="description" content="Application AppSheet qui lit les étiquettes des cartons par reconnaissance optique pour inventorier le matériel informatique reçu, en production depuis juin 2026.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=JetBrains+Mono:wght@400;500&family=Public+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+  <link rel="alternate" hreflang="en" href="../en/projets/inventaire-ocr.html">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/sim-ocr.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="wordmark" href="../index.html">Paul Morel</a>
+      <nav class="site-nav" aria-label="Navigation principale">
+        <ul>
+          <li><a href="../index.html#projets" aria-current="page">Projets</a></li>
+          <li><a href="../index.html#competences">Compétences</a></li>
+          <li><a href="../index.html#a-propos">À propos</a></li>
+          <li><a href="../passions.html">Passions</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a class="lang-switch" href="../en/projets/inventaire-ocr.html" hreflang="en" lang="en" title="English version">EN</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Changer de thème">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>
+        </button>
+        <a class="btn" href="../cv/Paul_Morel_CV.pdf" download>CV (PDF)</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <div class="wrap">
+      <header class="case-head">
+        <p class="breadcrumb"><a href="../index.html#projets">Tous les projets</a></p>
+        <p class="case-kind"><strong>Stage de fin d'études</strong>, mission interne, en production</p>
+        <h1>Photographier l'étiquette plutôt que recopier le numéro</h1>
+        <p class="case-lede">Le matériel reçu au bureau était inventorié à la main : on recopiait le modèle et le numéro de série du carton vers un tableur. J'ai construit une application AppSheet qui lit l'étiquette par reconnaissance optique. Elle est en production depuis le 12 juin 2026.</p>
+      </header>
+
+      <div class="case-body">
+        <aside class="case-meta" aria-label="Fiche du projet">
+          <dl>
+            <div><dt>Cadre</dt><dd>Good iD, équipe technique : matériel ChromeOS et de visioconférence reçu avant déploiement chez les clients</dd></div>
+            <div><dt>Période</dt><dd>Mai au 12 juin 2026</dd></div>
+            <div><dt>Mon rôle</dt><dd>Repérage du besoin, conception, réalisation et mise en service de l'application, support de présentation pour l'équipe</dd></div>
+            <div><dt>Outils</dt><dd><ul><li>AppSheet (sans code)</li><li>Module OCR d'AppSheet</li><li>Google Sheets, Google Drive</li><li>Lecture de codes-barres</li></ul></dd></div>
+            <div><dt>État à mon départ</dt><dd><span class="status status--prod">En production</span></dd></div>
+          </dl>
+        </aside>
+
+        <div class="case-content">
+          <section>
+            <h2>Contexte et objectif</h2>
+            <p>Avant déploiement, chaque appareil reçu doit être inventorié. On relevait le modèle et le numéro de série sur l'étiquette du carton, puis on les recopiait dans un tableur : trois à cinq minutes par appareil, avec un risque d'erreur élevé, car ces numéros sont longs, alphanumériques et sans redondance.</p>
+            <p>Le vrai coût n'est pas la frappe. Une erreur de transcription ne se voit pas quand on la commet ; elle apparaît des semaines plus tard, quand on cherche un équipement introuvable sous cette référence. L'objectif : supprimer la saisie manuelle du modèle et du numéro de série.</p>
+          </section>
+
+          <section>
+            <h2>Mon rôle</h2>
+            <p>J'ai repéré cet irritant en rencontrant un à un les membres de l'entreprise au début de mon stage, en écoutant décrire la réception du matériel. La demande a ensuite été portée par les responsables commercial et technique. J'ai conçu, construit et mis en service l'application, et rédigé un support pas à pas pour la présenter à l'équipe.</p>
+          </section>
+
+          <section>
+            <h2>Ce que j'ai fait</h2>
+
+            <figure class="figure">
+              <div class="figure-frame">
+                <svg class="diagram" viewBox="0 0 760 220" role="img" aria-labelledby="o1-title o1-desc">
+                  <title id="o1-title">Chaîne de l'inventaire par OCR</title>
+                  <desc id="o1-desc">Le carton reçu est photographié depuis l'application avec un seul bouton. Le module OCR lit le modèle et le numéro de série dans des zones calibrées par gabarit, ou lit le code-barres. Une ligne est créée dans Google Sheets. Les photos sont stockées dans le Google Drive de l'organisation. Une seconde liste recense les postes en panne.</desc>
+                  <defs>
+                    <marker id="o1-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="head" d="M0,0 L10,5 L0,10 z"/></marker>
+                  </defs>
+                  <rect class="box" x="10" y="30" width="150" height="72" rx="8"/>
+                  <text class="t t--b" x="85" y="60" text-anchor="middle">Carton reçu</text>
+                  <text class="t--s" x="85" y="80" text-anchor="middle">étiquette constructeur</text>
+
+                  <rect class="box" x="195" y="30" width="170" height="72" rx="8"/>
+                  <text class="t t--b" x="280" y="56" text-anchor="middle">Photo de l'étiquette</text>
+                  <text class="t--s" x="280" y="76" text-anchor="middle">un seul bouton,</text>
+                  <text class="t--s" x="280" y="92" text-anchor="middle">la caméra s'ouvre</text>
+
+                  <rect class="box--key" x="400" y="30" width="170" height="72" rx="8"/>
+                  <text class="t--inv" x="485" y="56" text-anchor="middle">OCR AppSheet</text>
+                  <text class="t--s" x="485" y="76" text-anchor="middle" style="fill: var(--paper); opacity: .8">zones calibrées par gabarit,</text>
+                  <text class="t--s" x="485" y="92" text-anchor="middle" style="fill: var(--paper); opacity: .8">ou code-barres</text>
+
+                  <rect class="box--ok" x="605" y="30" width="145" height="72" rx="8"/>
+                  <text class="t t--b" x="677" y="56" text-anchor="middle">Google Sheets</text>
+                  <text class="t--s" x="677" y="76" text-anchor="middle">ID, photo, modèle,</text>
+                  <text class="t--s" x="677" y="92" text-anchor="middle">numéro de série</text>
+
+                  <path class="line" d="M160,66 H191" marker-end="url(#o1-arrow)"/>
+                  <path class="line" d="M365,66 H396" marker-end="url(#o1-arrow)"/>
+                  <path class="line" d="M570,66 H601" marker-end="url(#o1-arrow)"/>
+
+                  <path class="line line--dash" d="M280,102 V146" marker-end="url(#o1-arrow)"/>
+                  <rect class="box--soft" x="195" y="150" width="170" height="56" rx="8"/>
+                  <text class="t t--b" x="280" y="174" text-anchor="middle">Drive de l'organisation</text>
+                  <text class="t--s" x="280" y="192" text-anchor="middle">photos, droits d'accès existants</text>
+
+                  <path class="line line--dash" d="M677,102 V146" marker-end="url(#o1-arrow)"/>
+                  <rect class="box--soft" x="605" y="150" width="145" height="56" rx="8"/>
+                  <text class="t t--b" x="677" y="174" text-anchor="middle">Liste « panne »</text>
+                  <text class="t--s" x="677" y="192" text-anchor="middle">postes défectueux</text>
+                </svg>
+              </div>
+              <figcaption>La chaîne de l'application, du carton au tableur. Schéma redessiné à partir de ma conception.</figcaption>
+            </figure>
+
+            <h3>Un gabarit plutôt qu'une lecture libre</h3>
+            <p>La fiabilité repose sur une particularité du contexte : les étiquettes d'un même constructeur ont toutes la même disposition. J'ai vérifié cette régularité sur les cartons en stock avant de construire quoi que ce soit, puis calibré les zones de capture sur ces étiquettes. C'est nettement plus fiable qu'une extraction de texte libre, justement parce que l'approche exploite une régularité connue à l'avance.</p>
+            <p>La difficulté venait de la densité des étiquettes : sur un carton de Chromebook, le numéro de série côtoie une référence produit, un code-barres, un numéro de lot et des mentions réglementaires, dans la même police, à quelques millimètres. Une zone mal délimitée capture le mauvais champ, et l'erreur ne se voit pas puisque le format reste plausible.</p>
+
+            <section class="sim" data-sim="ocr" aria-labelledby="sim-o-title">
+              <span class="sim-tag">Maquette interactive, étiquettes fictives</span>
+              <div class="sim-head">
+                <h2 id="sim-o-title">Essayez : le gabarit de lecture</h2>
+                <p>La zone verte lit le numéro de série. Faites-la glisser sur l'étiquette (souris, doigt ou flèches du clavier), puis changez de carton : même constructeur, puis un autre.</p>
+              </div>
+              <div class="ocr">
+                <div class="ocr-stage" data-stage>
+                  <div class="ocr-label" data-label></div>
+                  <div class="ocr-zone" data-zone tabindex="0" role="slider" aria-label="Zone de lecture du numéro de série" aria-valuemin="1" aria-valuemax="7" aria-valuenow="4"></div>
+                </div>
+                <div class="ocr-readout">
+                  <h3>Lu par l'OCR</h3>
+                  <output class="ocr-value" data-value aria-live="polite"></output>
+                  <p class="ocr-verdict" data-verdict-el data-verdict="ok"></p>
+                  <p class="ocr-which" data-which></p>
+                  <div class="sim-controls">
+                    <button class="sim-btn" type="button" data-act="next">Carton suivant, même constructeur</button>
+                    <button class="sim-btn sim-btn--quiet" type="button" data-act="other">Carton d'un autre constructeur</button>
+                    <button class="sim-btn sim-btn--quiet" type="button" data-act="recal">Recaler le gabarit</button>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <h3>Pensée pour l'entrepôt, pas pour le bureau</h3>
+            <p>L'application s'utilise debout, souvent avec une seule main libre. J'ai donc réduit le formulaire à une action : un bouton ouvre la caméra, on valide après extraction. Le champ du numéro de série lit aussi directement un code-barres quand l'étiquette en porte un. Une seconde vue recense les postes en panne, pour que le même outil serve au suivi du matériel défectueux.</p>
+
+            <h3>Pas de nouveau périmètre de sécurité</h3>
+            <p>Les photos d'étiquettes sont stockées dans l'espace Drive de l'organisation, soumis aux règles d'accès déjà en place. Le choix était délibéré : ne pas créer un nouvel espace à administrer et à sécuriser. La photo est conservée telle quelle, ce qui permet de vérifier après coup ce que la reconnaissance a lu.</p>
+
+            <figure class="figure">
+              <div class="figure-frame figure-frame--flush">
+                <img src="../assets/img/inventaire-appsheet.webp" width="1600" height="704" loading="lazy" alt="Reconstitution de l'application dans un éditeur sans code : la table « Matériel reçu » avec les colonnes ID, Photo Etiquette, Modèle et Numéro de série remplies par OCR, et à droite l'aperçu mobile listant des appareils fictifs, avec la vue des postes en panne.">
+              </div>
+              <figcaption>Reconstitution fidèle à la structure de l'application, avec des données fictives : la table et ses champs remplis par OCR, l'aperçu mobile et la vue des postes en panne. La vraie capture n'est pas publiée, par confidentialité envers Good iD.</figcaption>
+            </figure>
+          </section>
+
+          <section>
+            <h2>Résultats vérifiables</h2>
+            <ul class="results">
+              <li><span class="proof proof--fact">Constaté</span><span>Application déployée le 12 juin 2026, en production chez Good iD à mon départ.</span></li>
+              <li><span class="proof proof--count">Compté</span><span>81 équipements enregistrés, d'après la base elle-même.</span></li>
+              <li><span class="proof proof--estimate">Estimé</span><span>Environ 70 % de temps de saisie en moins par appareil. Estimation faite après coup, sur quelques cartons, sans état de référence : ce n'est pas une mesure.</span></li>
+              <li><span class="proof proof--fact">Constaté</span><span>La transcription manuelle disparaît comme source d'erreur. Je n'ai pas comparé les valeurs extraites aux étiquettes une par une, donc je ne revendique pas un taux d'erreur nul.</span></li>
+            </ul>
+            <div class="legend" aria-label="Légende des marqueurs">
+              <span><span class="proof proof--count">Compté</span> relevé dans l'outil</span>
+              <span><span class="proof proof--estimate">Estimé</span> sans protocole de mesure</span>
+              <span><span class="proof proof--fact">Constaté</span> fait daté et documenté</span>
+            </div>
+          </section>
+
+          <section>
+            <h2>Limites et ce que j'en retiens</h2>
+            <ul>
+              <li><strong>Mesurer avant, pas après.</strong> J'ai chronométré la saisie après avoir livré, alors que le gain principal se trouve dans les erreurs évitées, que je n'ai ni mesurées ni estimées. Une demi-journée de mesure de l'existant (durées, erreurs relevées dans l'historique de l'inventaire) aurait transformé une affirmation en résultat. Depuis, je fixe les critères de réussite avant de développer.</li>
+              <li><strong>Une contrainte découverte à l'usage.</strong> La reconnaissance se fait dans le cloud : sans réseau, l'application ne fonctionne pas, et c'est justement dans les locaux de stockage que la couverture est la plus faible. Une analyse des conditions réelles d'emploi l'aurait révélé avant le développement.</li>
+              <li><strong>Un modèle de données à revoir.</strong> Deux listes séparées (en service, en panne) plutôt qu'un champ d'état sur un enregistrement unique : c'était rapide à mettre en place, mais cela coupe l'historique d'un appareil. Je choisirais aujourd'hui le champ d'état.</li>
+              <li><strong>Transmission.</strong> Aucun repreneur désigné ni note de maintenance à mon départ ; j'ai seulement ouvert des accès en modification à l'équipe.</li>
+            </ul>
+          </section>
+
+          <nav class="case-next" aria-label="Autres projets">
+            <a href="support-client.html"><span>Projet précédent</span><strong>Système de support client</strong></a>
+            <a href="licences-flex.html"><span>Projet suivant</span><strong>Licences de test attribuées et reprises</strong></a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Paul Morel, ingénieur cloud et cybersécurité (ISEP 2026)</p>
+      <p>Clients et collègues ne sont pas nommés, par confidentialité.</p>
+    </div>
+  </footer>
+</body>
+</html>

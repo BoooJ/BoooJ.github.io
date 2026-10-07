@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Licences de test attribuées et reprises · Paul Morel</title>
+  <meta name="description" content="Application Apps Script qui attribue une licence Google Workspace à la connexion dans un environnement de test et la retire automatiquement chaque nuit.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=JetBrains+Mono:wght@400;500&family=Public+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+  <link rel="alternate" hreflang="en" href="../en/projets/licences-flex.html">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/sim-licences.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="wordmark" href="../index.html">Paul Morel</a>
+      <nav class="site-nav" aria-label="Navigation principale">
+        <ul>
+          <li><a href="../index.html#projets" aria-current="page">Projets</a></li>
+          <li><a href="../index.html#competences">Compétences</a></li>
+          <li><a href="../index.html#a-propos">À propos</a></li>
+          <li><a href="../passions.html">Passions</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a class="lang-switch" href="../en/projets/licences-flex.html" hreflang="en" lang="en" title="English version">EN</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Changer de thème">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>
+        </button>
+        <a class="btn" href="../cv/Paul_Morel_CV.pdf" download>CV (PDF)</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <div class="wrap">
+      <header class="case-head">
+        <p class="breadcrumb"><a href="../index.html#projets">Tous les projets</a></p>
+        <p class="case-kind"><strong>Stage de fin d'études</strong>, outil interne, prototype validé en environnement de test</p>
+        <h1>Des licences attribuées à la connexion, reprises chaque nuit</h1>
+        <p class="case-lede">Dans l'environnement de test de Good iD, des licences attribuées une fois et jamais retirées continuaient d'être facturées chaque mois. J'ai développé une application qui accorde la licence quand un ingénieur se connecte et la reprend automatiquement pendant la nuit.</p>
+      </header>
+
+      <div class="case-body">
+        <aside class="case-meta" aria-label="Fiche du projet">
+          <dl>
+            <div><dt>Cadre</dt><dd>Good iD, environnement de démonstration et de test, distinct des environnements clients</dd></div>
+            <div><dt>Période</dt><dd>Août 2026, fin de stage</dd></div>
+            <div><dt>Mon rôle</dt><dd>Développement de l'application ; principe de conception arrêté avec le responsable technique</dd></div>
+            <div><dt>Outils</dt><dd><ul><li>Google Apps Script (application web)</li><li>API d'administration Google Workspace : annuaire et licences</li><li>Exécution planifiée</li></ul></dd></div>
+            <div><dt>Droits utilisés</dt><dd>Super administrateur de l'environnement de test uniquement ; aucun droit sur les environnements clients</dd></div>
+            <div><dt>État à mon départ</dt><dd><span class="status status--test">Fonctionnel en test</span></dd></div>
+          </dl>
+        </aside>
+
+        <div class="case-content">
+          <section>
+            <h2>Contexte et objectif</h2>
+            <p>Les ingénieurs utilisent un environnement de test pour préparer une configuration, reproduire un cas ou montrer une fonctionnalité. L'accès aux fonctionnalités suppose une licence, et les licences en formule Flex sont facturées mensuellement, par utilisateur affecté. Une licence attribuée à quelqu'un qui s'est connecté une fois en avril est encore facturée en juillet.</p>
+            <p>Personne ne les retire : rien ne le rappelle, et le coût individuel est faible. C'est l'accumulation qui coûte. L'objectif était de rendre cette accumulation impossible, sans alourdir l'accès des ingénieurs.</p>
+          </section>
+
+          <section>
+            <h2>Ce que j'ai fait</h2>
+            <p>L'application automatise le cycle complet. À la connexion, elle identifie l'utilisateur à partir de sa session, récupère l'identifiant de l'organisation via l'annuaire, vérifie qu'il ne détient pas déjà une licence du type visé, puis la lui attribue. Une exécution planifiée, indépendante de toute connexion, retire les licences pendant la nuit.</p>
+
+            <figure class="figure">
+              <div class="figure-frame">
+                <svg class="diagram" viewBox="0 0 760 270" role="img" aria-labelledby="l1-title l1-desc">
+                  <title id="l1-title">Attribution le jour, reprise la nuit</title>
+                  <desc id="l1-desc">Pendant la journée, l'ingénieur ouvre l'application ; elle l'identifie par sa session, récupère l'identifiant de l'organisation dans l'annuaire, vérifie qu'il n'a pas déjà la licence et l'attribue. Chaque nuit, une exécution planifiée retire les licences attribuées.</desc>
+                  <defs>
+                    <marker id="l1-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="head" d="M0,0 L10,5 L0,10 z"/></marker>
+                  </defs>
+                  <text class="t t--b" x="10" y="22">Pendant la journée</text>
+
+                  <rect class="box" x="10" y="36" width="130" height="66" rx="8"/>
+                  <text class="t t--b" x="75" y="64" text-anchor="middle">Connexion</text>
+                  <text class="t--s" x="75" y="83" text-anchor="middle">à l'application web</text>
+
+                  <rect class="box" x="162" y="36" width="130" height="66" rx="8"/>
+                  <text class="t t--b" x="227" y="64" text-anchor="middle">Session</text>
+                  <text class="t--s" x="227" y="83" text-anchor="middle">identifie l'utilisateur</text>
+
+                  <rect class="box" x="314" y="36" width="130" height="66" rx="8"/>
+                  <text class="t t--b" x="379" y="64" text-anchor="middle">Annuaire</text>
+                  <text class="t--s" x="379" y="83" text-anchor="middle">ID de l'organisation</text>
+
+                  <rect class="box" x="466" y="36" width="130" height="66" rx="8" style="stroke-dasharray: 5 4"/>
+                  <text class="t t--b" x="531" y="62" text-anchor="middle">Licence déjà</text>
+                  <text class="t t--b" x="531" y="80" text-anchor="middle">détenue ?</text>
+
+                  <rect class="box--ok" x="620" y="36" width="130" height="66" rx="8"/>
+                  <text class="t t--b" x="685" y="64" text-anchor="middle">Licence</text>
+                  <text class="t--s" x="685" y="83" text-anchor="middle">attribuée</text>
+
+                  <path class="line" d="M140,69 H158" marker-end="url(#l1-arrow)"/>
+                  <path class="line" d="M292,69 H310" marker-end="url(#l1-arrow)"/>
+                  <path class="line" d="M444,69 H462" marker-end="url(#l1-arrow)"/>
+                  <path class="line" d="M596,69 H616" marker-end="url(#l1-arrow)"/>
+                  <text class="t--s" x="606" y="60" text-anchor="middle">non</text>
+                  <text class="t--s" x="531" y="122" text-anchor="middle">oui : aucune action</text>
+
+                  <line class="zone" x1="10" y1="150" x2="750" y2="150"/>
+
+                  <text class="t t--b" x="10" y="182">Chaque nuit</text>
+                  <rect class="box--key" x="162" y="196" width="190" height="60" rx="8"/>
+                  <text class="t--inv" x="257" y="222" text-anchor="middle">Exécution planifiée</text>
+                  <text class="t--s" x="257" y="241" text-anchor="middle" style="fill: var(--paper); opacity: .8">indépendante des connexions</text>
+
+                  <rect class="box--warn" x="400" y="196" width="190" height="60" rx="8"/>
+                  <text class="t t--b" x="495" y="222" text-anchor="middle">Licences retirées</text>
+                  <text class="t--s" x="495" y="241" text-anchor="middle">plus d'accumulation</text>
+                  <path class="line" d="M352,226 H396" marker-end="url(#l1-arrow)"/>
+                </svg>
+              </div>
+              <figcaption>Le cycle de l'application. Schéma redessiné ; je ne publie pas le code, qui appartient à l'entreprise.</figcaption>
+            </figure>
+
+            <h3>Contrôler, ou pouvoir annuler</h3>
+            <p>J'ai d'abord raisonné en termes d'autorisation : qui a le droit d'obtenir une licence, faut-il une validation, comment éviter les abus. Pendant deux jours, je cherchais de ce côté. C'est le responsable technique qui a retourné la question : plutôt que de valider chaque demande, rendre l'attribution facile à annuler.</p>
+            <p>« Sans contrôle » serait pourtant inexact. Deux contrôles automatiques restent au cœur du dispositif : l'utilisateur doit s'être authentifié sur l'environnement de test, et l'application vérifie qu'il ne détient pas déjà une licence du type visé. L'outil est limité à un seul type de licence. Ce qui disparaît, c'est la validation manuelle au cas par cas, remplacée par une réversibilité automatique.</p>
+          </section>
+
+          <section class="sim" data-sim="licences" aria-labelledby="sim-l-title">
+            <span class="sim-tag">Simulation, données fictives</span>
+            <div class="sim-head">
+              <h2 id="sim-l-title">Essayez : un mois d'environnement de test</h2>
+              <p>Douze ingénieurs fictifs se connectent certains jours seulement, rarement le week-end. Faites avancer le mois et comparez ce qui reste attribué chaque soir. Aucun chiffre réel de facturation n'est utilisé.</p>
+            </div>
+            <div class="lic-controls">
+              <label for="lic-day">Jour <output data-day>1</output> sur 30</label>
+              <div class="lic-range">
+                <input id="lic-day" type="range" min="1" max="30" value="1" data-range>
+                <button class="sim-btn sim-btn--quiet" type="button" data-play>Lancer le mois</button>
+              </div>
+            </div>
+            <div class="lic-compare">
+              <div class="lic-col lic-col--off">
+                <h3>Sans reprise</h3>
+                <p class="lic-big" data-off>0</p>
+                <p class="lic-cap">licences attribuées et toujours facturées ce soir</p>
+                <div class="lic-grid" data-grid-off aria-hidden="true"></div>
+                <div class="lic-axis" aria-hidden="true"><span>jour 1</span><span>jour 30</span></div>
+              </div>
+              <div class="lic-col lic-col--on">
+                <h3>Avec reprise chaque nuit</h3>
+                <p class="lic-big" data-on>0</p>
+                <p class="lic-cap">licences utilisées aujourd'hui, toutes reprises cette nuit</p>
+                <div class="lic-grid" data-grid-on aria-hidden="true"></div>
+                <div class="lic-axis" aria-hidden="true"><span>jour 1</span><span>jour 30</span></div>
+              </div>
+            </div>
+            <div class="lic-legend" aria-hidden="true">
+              <span><i style="background: var(--signal)"></i>connexion ce jour-là</span>
+              <span><i style="background: var(--amber)"></i>licence restée attribuée</span>
+              <span>Une ligne par ingénieur, une colonne par jour.</span>
+            </div>
+            <p class="sim-log" data-summary aria-live="polite"></p>
+          </section>
+
+          <section>
+            <h2>Résultats vérifiables</h2>
+            <ul class="results">
+              <li><span class="proof proof--fact">Constaté</span><span>Application fonctionnelle et validée dans l'environnement de test de l'entreprise.</span></li>
+              <li><span class="proof proof--fact">Constaté</span><span>Le retrait nocturne rend l'accumulation de licences impossible, ce qui était le problème posé. Je n'ai pas chiffré l'économie réalisée.</span></li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Risques que je n'ai pas supprimés</h2>
+            <ul>
+              <li><strong>La fenêtre du jour.</strong> Une licence attribuée reste utilisable jusqu'au retrait de la nuit. Le dispositif ne protège pas d'un usage inapproprié dans cet intervalle.</li>
+              <li><strong>Pas de journal.</strong> L'outil ne conserve aucune trace horodatée de ses propres attributions. L'enjeu est faible sur un environnement interne ; ce serait bloquant ailleurs.</li>
+              <li><strong>Hors de l'environnement de test.</strong> Un usage équivalent chez un client supposerait une revue de sécurité et la définition explicite des populations éligibles, ce qui dépassait mon périmètre.</li>
+            </ul>
+          </section>
+
+          <nav class="case-next" aria-label="Autres projets">
+            <a href="inventaire-ocr.html"><span>Projet précédent</span><strong>Inventaire du matériel par OCR</strong></a>
+            <a href="bordereaux-la-poste.html"><span>Projet suivant</span><strong>Bordereaux La Poste automatisés</strong></a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Paul Morel, ingénieur cloud et cybersécurité (ISEP 2026)</p>
+      <p>Clients et collègues ne sont pas nommés, par confidentialité.</p>
+    </div>
+  </footer>
+</body>
+</html>

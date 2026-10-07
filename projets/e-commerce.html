@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Boutiques e-commerce avec des agents IA · Paul Morel</title>
+  <meta name="description" content="Projet personnel : boutiques Shopify en dropshipping construites avec des agents IA, avec une discipline de mise en ligne (sauvegardes, journal, recette) et une campagne publicitaire en danois.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=JetBrains+Mono:wght@400;500&family=Public+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+  <link rel="alternate" hreflang="en" href="../en/projets/e-commerce.html">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/sim-ads.js" defer></script>
+  <script src="../assets/js/sim-immersion.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="wordmark" href="../index.html">Paul Morel</a>
+      <nav class="site-nav" aria-label="Navigation principale">
+        <ul>
+          <li><a href="../index.html#projets" aria-current="page">Projets</a></li>
+          <li><a href="../index.html#competences">Compétences</a></li>
+          <li><a href="../index.html#a-propos">À propos</a></li>
+          <li><a href="../passions.html">Passions</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a class="lang-switch" href="../en/projets/e-commerce.html" hreflang="en" lang="en" title="English version">EN</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Changer de thème">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>
+        </button>
+        <a class="btn" href="../cv/Paul_Morel_CV.pdf" download>CV (PDF)</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <div class="wrap">
+      <header class="case-head">
+        <p class="breadcrumb"><a href="../index.html#projets">Tous les projets</a></p>
+        <p class="case-kind"><strong>Projet personnel</strong>, e-commerce en dropshipping</p>
+        <h1>Faire coder une boutique par des agents IA, sans perdre la main</h1>
+        <p class="case-lede">Depuis août 2026, je lance des boutiques Shopify en dropshipping. Le code des thèmes est écrit par des agents IA et les visuels par des modèles d'image. Mon travail : fixer ce qui doit être fait, vérifier ce qui part en ligne, et exploiter les boutiques.</p>
+      </header>
+
+      <div class="case-body">
+        <aside class="case-meta" aria-label="Fiche du projet">
+          <dl>
+            <div><dt>Cadre</dt><dd>Projet personnel ; boutiques Shopify, fournisseurs AliExpress ; marchés Irlande, Pays-Bas et Danemark</dd></div>
+            <div><dt>Période</dt><dd>Août à septembre 2026</dd></div>
+            <div><dt>Mon rôle</dt><dd>Produits, marchés et prix ; cahier des charges et arbitrages ; domaine, paiements et réglages ; recette de chaque mise en ligne ; direction artistique des publicités</dd></div>
+            <div><dt>Écrit par l'IA</dt><dd>Le code des thèmes (Liquid, CSS, JavaScript) et les visuels publicitaires</dd></div>
+            <div><dt>Outils</dt><dd><ul><li>Shopify, thème Horizon, Shopify CLI</li><li>Claude Code, Codex</li><li>GPT Image et vidéo via Higgsfield</li><li>Lighthouse</li></ul></dd></div>
+            <div><dt>État</dt><dd><span class="status status--doc">Projet personnel</span></dd></div>
+          </dl>
+        </aside>
+
+        <div class="case-content">
+          <section>
+            <h2>Contexte et objectif</h2>
+            <p>Je voulais tester des produits sur de petits marchés européens, vite, et dans une langue que je ne parle pas toujours. Les agents IA écrivent un thème complet en quelques heures ; le risque est de ne plus savoir ce qui est en ligne, ni comment revenir en arrière. L'objectif était donc double : aller vite, et garder le contrôle de chaque modification publiée.</p>
+          </section>
+
+          <section>
+            <h2>Déléguer l'écriture, pas la mise en ligne</h2>
+            <p>J'ai fixé des règles de travail aux agents, écrites dans les notes du projet :</p>
+            <ul>
+              <li><strong>Aucune mise en ligne sans mon accord</strong>, et un fichier à la fois, pour ne jamais écraser les réglages de la boutique.</li>
+              <li><strong>Un point de restauration avant de toucher au thème en ligne</strong> : copie complète du thème (627 fichiers sur la boutique du bracelet), puis un journal avant/après par fichier, avec la commande de retour arrière.</li>
+              <li><strong>Rien de non public dans les fichiers servis</strong> : sauvegardes et notes sont rangées hors du thème.</li>
+              <li><strong>Identifiants, coordonnées bancaires et identité : moi seul.</strong> L'agent n'en saisit jamais.</li>
+            </ul>
+
+            <figure class="figure">
+              <div class="figure-frame">
+                <svg class="diagram" viewBox="0 0 760 270" role="img" aria-labelledby="e1-title e1-desc">
+                  <title id="e1-title">La boucle de mise en ligne</title>
+                  <desc id="e1-desc">Je décris le changement, l'agent écrit le code, un point de restauration est pris, je relis et donne mon accord, la mise en ligne se fait fichier par fichier, puis la recette en ligne. Un écart relance la boucle. Les étapes que je garde sont en vert.</desc>
+                  <defs>
+                    <marker id="e1-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="head" d="M0,0 L10,5 L0,10 z"/></marker>
+                  </defs>
+                  <rect class="box--ok" x="10" y="24" width="200" height="64" rx="8"/>
+                  <text class="t t--b" x="110" y="51" text-anchor="middle">Je décris le changement</text>
+                  <text class="t--s" x="110" y="70" text-anchor="middle">attendu, contraintes, langue</text>
+
+                  <rect class="box" x="280" y="24" width="200" height="64" rx="8"/>
+                  <text class="t t--b" x="380" y="51" text-anchor="middle">L'agent écrit le code</text>
+                  <text class="t--s" x="380" y="70" text-anchor="middle">Claude Code ou Codex</text>
+
+                  <rect class="box--soft" x="550" y="24" width="200" height="64" rx="8"/>
+                  <text class="t t--b" x="650" y="51" text-anchor="middle">Point de restauration</text>
+                  <text class="t--s" x="650" y="70" text-anchor="middle">copie du thème en ligne</text>
+
+                  <rect class="box--ok" x="550" y="150" width="200" height="64" rx="8"/>
+                  <text class="t t--b" x="650" y="177" text-anchor="middle">Je relis et j'accepte</text>
+                  <text class="t--s" x="650" y="196" text-anchor="middle">ou je renvoie</text>
+
+                  <rect class="box--key" x="280" y="150" width="200" height="64" rx="8"/>
+                  <text class="t--inv" x="380" y="177" text-anchor="middle">Mise en ligne</text>
+                  <text class="t--inv-s" x="380" y="196" text-anchor="middle">un fichier à la fois</text>
+
+                  <rect class="box--ok" x="10" y="150" width="200" height="64" rx="8"/>
+                  <text class="t t--b" x="110" y="177" text-anchor="middle">Recette en ligne</text>
+                  <text class="t--s" x="110" y="196" text-anchor="middle">pages, panier, Lighthouse</text>
+
+                  <path class="line" d="M210,56 H276" marker-end="url(#e1-arrow)"/>
+                  <path class="line" d="M480,56 H546" marker-end="url(#e1-arrow)"/>
+                  <path class="line" d="M650,88 V146" marker-end="url(#e1-arrow)"/>
+                  <path class="line" d="M550,182 H484" marker-end="url(#e1-arrow)"/>
+                  <path class="line" d="M280,182 H214" marker-end="url(#e1-arrow)"/>
+                  <path class="line line--dash" d="M110,150 V92" marker-end="url(#e1-arrow)"/>
+                  <text class="t--s" x="122" y="125">un écart : on reprend</text>
+                  <text class="t--s" x="10" y="250">Chaque lot est consigné : état avant, état après, et la commande pour revenir en arrière.</text>
+                </svg>
+              </div>
+              <figcaption>Ma boucle de mise en ligne. En vert, les étapes que je ne délègue pas.</figcaption>
+            </figure>
+
+            <p>Concrètement, côté terminal :</p>
+            <figure class="figure">
+              <div class="figure-frame">
+<pre class="code-block"><code><span class="c"># avant chaque lot : copie du thème en ligne</span>
+shopify theme pull --theme &lt;id-du-thème&gt;
+
+<span class="c"># après mon accord : un seul fichier, jamais les réglages</span>
+shopify theme push --theme &lt;id-du-thème&gt; --only sections/faq.liquid</code></pre>
+              </div>
+              <figcaption>Les deux commandes de la boucle (identifiants de boutique retirés).</figcaption>
+            </figure>
+          </section>
+
+          <section>
+            <h2>Ce que la recette a attrapé</h2>
+            <p>Les corrections ont été codées par l'agent et validées par moi sur le site en ligne. Certains défauts viennent de mes propres tests, d'autres des audits menés avant l'ouverture.</p>
+            <ul>
+              <li><strong>Des images cassées sur la version néerlandaise.</strong> L'outil de traduction traduisait aussi les noms de fichiers rangés dans des réglages de texte : une image appelée « step » devenait « stap », et n'existait plus. Ces réglages sont devenus des listes non traduisibles, et la règle est écrite : un réglage qui contient un nom de fichier n'est jamais un champ libre.</li>
+              <li><strong>Un retour forcé vers l'anglais.</strong> En testant, j'ai constaté que choisir le néerlandais ne changeait rien : la détection automatique de langue renvoyait vers l'anglais juste après le choix. Correction : une langue explicitement présente dans l'adresse n'est jamais remplacée.</li>
+              <li><strong>Un panier qui rechargeait la page.</strong> Changer la couleur d'un article déclenchait une erreur serveur (400), puis un rechargement complet. L'appel visait la variante au lieu de la ligne du panier ; il est corrigé, et le panier se met à jour sans recharger.</li>
+              <li><strong>Des données personnelles dans une page légale.</strong> La politique de confidentialité automatique réinjectait une adresse e-mail et une adresse postale personnelles à chaque enregistrement. Elle est passée en version rédigée, sans données personnelles.</li>
+            </ul>
+          </section>
+
+          <section class="sim" id="immersion" data-sim="immersion" aria-labelledby="sim-i-title">
+            <span class="sim-tag">Capture réelle, 7 octobre 2026</span>
+            <div class="sim-head">
+              <h2 id="sim-i-title">La boutique du bracelet, en immersion</h2>
+              <p>Faites défiler la page d'accueil comme un visiteur, sur ordinateur et sur téléphone. Version néerlandaise en ligne, thème publié le 20 septembre 2026 ; la section des avis a été retirée de la capture.</p>
+            </div>
+            <div class="immersion-controls">
+              <button class="seg" type="button" data-autoscroll aria-pressed="false">Défilement automatique</button>
+              <span>ou faites défiler vous-même dans les écrans</span>
+            </div>
+            <div class="immersion">
+              <div class="browser">
+                <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>polswek.com</span></div>
+                <div class="screen" tabindex="0" role="region" aria-label="Page d'accueil sur ordinateur, à faire défiler"><img src="../assets/img/sites/bracelet-bureau.webp" width="960" height="3674" loading="lazy" alt="Page d'accueil de la boutique sur ordinateur : accroche « De wekker die je voelt, niet hoort », choix des couleurs, présentation du produit, routine du soir au matin, comparaison avec un réveil classique, offres, questions fréquentes et pied de page."></div>
+              </div>
+              <div class="phone">
+                <div class="screen" tabindex="0" role="region" aria-label="Page d'accueil sur téléphone, à faire défiler"><img src="../assets/img/sites/bracelet-mobile.webp" width="430" height="6020" loading="lazy" alt="La même page d'accueil dans sa version téléphone."></div>
+              </div>
+            </div>
+          </section>
+
+          <section class="sim" id="videos" aria-labelledby="sim-v-title">
+            <span class="sim-tag">Vidéos publicitaires</span>
+            <div class="sim-head">
+              <h2 id="sim-v-title">Les vidéos</h2>
+              <p>Générées par IA (Higgsfield) sous ma direction, puis montées, au format story. Elles se lancent sans le son quand elles apparaissent ; le bouton les met en pause. Je ne montre que des plans produit et des mises en scène : aucune vidéo ne prétend être un avis de client.</p>
+            </div>
+            <ul class="reel">
+              <li>
+                <figure class="clip-fig">
+                  <div class="clip"><video data-clip muted loop playsinline preload="none" poster="../assets/video/bracelet-reveil.jpg" src="../assets/video/bracelet-reveil.mp4" aria-label="Le réveil silencieux"></video><button class="clip-play" type="button" aria-label="Lire la vidéo"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></button></div>
+                  <figcaption class="clip-caption"><strong>Le réveil silencieux</strong>Bracelet-réveil</figcaption>
+                </figure>
+              </li>
+              <li>
+                <figure class="clip-fig">
+                  <div class="clip"><video data-clip muted loop playsinline preload="none" poster="../assets/video/bracelet-couple.jpg" src="../assets/video/bracelet-couple.mp4" aria-label="Sans réveiller l'autre"></video><button class="clip-play" type="button" aria-label="Lire la vidéo"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></button></div>
+                  <figcaption class="clip-caption"><strong>Sans réveiller l'autre</strong>Bracelet-réveil</figcaption>
+                </figure>
+              </li>
+              <li>
+                <figure class="clip-fig">
+                  <div class="clip"><video data-clip muted loop playsinline preload="none" poster="../assets/video/bracelet-matin.jpg" src="../assets/video/bracelet-matin.mp4" aria-label="Chacun son rythme"></video><button class="clip-play" type="button" aria-label="Lire la vidéo"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></button></div>
+                  <figcaption class="clip-caption"><strong>Chacun son rythme</strong>Bracelet-réveil</figcaption>
+                </figure>
+              </li>
+              <li>
+                <figure class="clip-fig">
+                  <div class="clip"><video data-clip muted loop playsinline preload="none" poster="../assets/video/bracelet-couleurs.jpg" src="../assets/video/bracelet-couleurs.mp4" aria-label="La gamme"></video><button class="clip-play" type="button" aria-label="Lire la vidéo"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></button></div>
+                  <figcaption class="clip-caption"><strong>La gamme</strong>Bracelet-réveil</figcaption>
+                </figure>
+              </li>
+              <li>
+                <figure class="clip-fig">
+                  <div class="clip"><video data-clip muted loop playsinline preload="none" poster="../assets/video/bracelet-tech.jpg" src="../assets/video/bracelet-tech.mp4" aria-label="Le produit en studio"></video><button class="clip-play" type="button" aria-label="Lire la vidéo"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></button></div>
+                  <figcaption class="clip-caption"><strong>Le produit en studio</strong>Bracelet-réveil</figcaption>
+                </figure>
+              </li>
+              <li>
+                <figure class="clip-fig">
+                  <div class="clip"><video data-clip muted loop playsinline preload="none" poster="../assets/video/bracelet-studio.jpg" src="../assets/video/bracelet-studio.mp4" aria-label="Coloris sur fond noir"></video><button class="clip-play" type="button" aria-label="Lire la vidéo"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></button></div>
+                  <figcaption class="clip-caption"><strong>Coloris sur fond noir</strong>Bracelet-réveil</figcaption>
+                </figure>
+              </li>
+              <li>
+                <figure class="clip-fig">
+                  <div class="clip"><video data-clip muted loop playsinline preload="none" poster="../assets/video/bracelet-holo.jpg" src="../assets/video/bracelet-holo.mp4" aria-label="L'heure en hologramme"></video><button class="clip-play" type="button" aria-label="Lire la vidéo"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></button></div>
+                  <figcaption class="clip-caption"><strong>L'heure en hologramme</strong>Bracelet-réveil</figcaption>
+                </figure>
+              </li>
+              <li>
+                <figure class="clip-fig">
+                  <div class="clip"><video data-clip muted loop playsinline preload="none" poster="../assets/video/collier-lettres.jpg" src="../assets/video/collier-lettres.mp4" aria-label="Une lettre, un prénom"></video><button class="clip-play" type="button" aria-label="Lire la vidéo"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></button></div>
+                  <figcaption class="clip-caption"><strong>Une lettre, un prénom</strong>Collier à initiale</figcaption>
+                </figure>
+              </li>
+              <li>
+                <figure class="clip-fig">
+                  <div class="clip"><video data-clip muted loop playsinline preload="none" poster="../assets/video/collier-portrait.jpg" src="../assets/video/collier-portrait.mp4" aria-label="Le collier porté"></video><button class="clip-play" type="button" aria-label="Lire la vidéo"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></button></div>
+                  <figcaption class="clip-caption"><strong>Le collier porté</strong>Collier à initiale</figcaption>
+                </figure>
+              </li>
+              <li>
+                <figure class="clip-fig">
+                  <div class="clip"><video data-clip muted loop playsinline preload="none" poster="../assets/video/ceinture-tech.jpg" src="../assets/video/ceinture-tech.mp4" aria-label="La ceinture en studio"></video><button class="clip-play" type="button" aria-label="Lire la vidéo"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></button></div>
+                  <figcaption class="clip-caption"><strong>La ceinture en studio</strong>Ceinture d'électrostimulation (boutique non lancée)</figcaption>
+                </figure>
+              </li>
+            </ul>
+          </section>
+
+          <section class="sim" id="visuels" aria-labelledby="sim-b-title">
+            <span class="sim-tag">Visuels publicitaires</span>
+            <div class="sim-head">
+              <h2 id="sim-b-title">Les visuels du bracelet</h2>
+              <p>Pour la première marque du bracelet, Aubéa : une série d'images générées avec ChatGPT sous ma direction, dans une palette chaude et calme, accordée au produit. En français, puis en anglais pour les marchés irlandais et néerlandais.</p>
+            </div>
+            <ul class="ads">
+              <li class="ad">
+                <figure class="clip-fig"><img class="ad-still" src="../assets/img/pubs-bracelet/reveil-silencieux.webp" width="640" height="800" loading="lazy" alt="« Réveil silencieux », le bracelet sur un lit au lever du soleil">
+                <figcaption class="ad-caption">Réveil silencieux</figcaption></figure>
+              </li>
+              <li class="ad">
+                <figure class="clip-fig"><img class="ad-still" src="../assets/img/pubs-bracelet/rien-qu-a-vous.webp" width="640" height="800" loading="lazy" alt="« Votre réveil, rien qu'à vous », une femme regarde le bracelet au réveil">
+                <figcaption class="ad-caption">Rien qu'à vous</figcaption></figure>
+              </li>
+              <li class="ad">
+                <figure class="clip-fig"><img class="ad-still" src="../assets/img/pubs-bracelet/sans-le-reveiller.webp" width="640" height="800" loading="lazy" alt="« Réveillez-vous sans le réveiller », une femme réveillée près de son compagnon endormi">
+                <figcaption class="ad-caption">Sans réveiller l'autre</figcaption></figure>
+              </li>
+              <li class="ad">
+                <figure class="clip-fig"><img class="ad-still" src="../assets/img/pubs-bracelet/recharge-usb.webp" width="640" height="800" loading="lazy" alt="« Recharge USB intégrée », le bracelet branché sur un ordinateur portable">
+                <figcaption class="ad-caption">Recharge USB</figcaption></figure>
+              </li>
+              <li class="ad">
+                <figure class="clip-fig"><img class="ad-still" src="../assets/img/pubs-bracelet/matin-plus-doux.webp" width="640" height="800" loading="lazy" alt="« Un matin plus doux », une femme ouvre les rideaux, le bracelet au poignet">
+                <figcaption class="ad-caption">Un matin plus doux</figcaption></figure>
+              </li>
+              <li class="ad">
+                <figure class="clip-fig"><img class="ad-still" src="../assets/img/pubs-bracelet/alarm-you-feel.webp" width="640" height="800" loading="lazy" alt="« The alarm you feel, not hear », déclinaison en anglais">
+                <figcaption class="ad-caption">Version anglaise</figcaption></figure>
+              </li>
+            </ul>
+          </section>
+
+          <section class="sim" data-sim="ads" aria-labelledby="ads-title">
+            <span class="sim-tag">Galerie interactive</span>
+            <div class="sim-head">
+              <h2 id="ads-title">La campagne danoise</h2>
+              <p>Pour la boutique de sacs de lavage, j'ai dirigé une série de visuels générés avec GPT Image (via Higgsfield) : un même système, décliné en fil d'actualité et en story. Prix réels, livraison offerte réelle, aucun avis ni témoignage ; les scènes avant/après sont signalées comme illustratives. Touchez une publicité pour lire sa traduction.</p>
+            </div>
+            <div class="sim-controls" role="group" aria-label="Format des publicités">
+              <button class="seg" type="button" data-format="feed" aria-pressed="true">Fil d'actualité, 4:5</button>
+              <button class="seg" type="button" data-format="story" aria-pressed="false">Story, 9:16</button>
+            </div>
+            <ul class="ads" data-ads data-format="feed">
+              <li class="ad">
+                <button class="ad-flip" type="button" aria-pressed="false">
+                  <span class="ad-face ad-face--front"><img src="../assets/img/pubs/04-trois-etapes-feed.webp" data-feed="../assets/img/pubs/04-trois-etapes-feed.webp" data-story="../assets/img/pubs/04-trois-etapes-story.webp" width="640" height="800" loading="lazy" alt="Publicité en danois : « Klar til vask i 3 trin », le sac jaune et turquoise en trois photos numérotées."></span>
+                  <span class="ad-face ad-face--back" aria-hidden="true">
+                    <span class="ad-back-title">Prêt pour le lavage en 3 étapes</span>
+                    <span>1. Insérez la chaussure</span>
+                    <span>2. Fermez la fermeture éclair</span>
+                    <span>3. Suivez les consignes de lavage des chaussures</span>
+                    <span class="ad-back-cta">Découvrir le sac</span>
+                  </span>
+                </button>
+                <p class="ad-caption">Mode d'emploi en trois gestes</p>
+              </li>
+              <li class="ad">
+                <button class="ad-flip" type="button" aria-pressed="false">
+                  <span class="ad-face ad-face--front"><img src="../assets/img/pubs/06-detail-feed.webp" data-feed="../assets/img/pubs/06-detail-feed.webp" data-story="../assets/img/pubs/06-detail-story.webp" width="640" height="800" loading="lazy" alt="Publicité en danois : « Bløde fibre. Nem skovask. », gros plan sur le sac jaune et sa matière."></span>
+                  <span class="ad-face ad-face--back" aria-hidden="true">
+                    <span class="ad-back-title">Des fibres douces. Un lavage facile.</span>
+                    <span>Avec fermeture éclair, réutilisable</span>
+                    <span>Livraison gratuite</span>
+                    <span class="ad-back-cta">Voir les détails</span>
+                  </span>
+                </button>
+                <p class="ad-caption">Le produit en gros plan</p>
+              </li>
+              <li class="ad">
+                <button class="ad-flip" type="button" aria-pressed="false">
+                  <span class="ad-face ad-face--front"><img src="../assets/img/pubs/07-solo-179kr-feed.webp" data-feed="../assets/img/pubs/07-solo-179kr-feed.webp" data-story="../assets/img/pubs/07-solo-179kr-story.webp" width="640" height="800" loading="lazy" alt="Publicité en danois : « Gør skovasken nemmere », une basket dans le sac, prix 179 couronnes."></span>
+                  <span class="ad-face ad-face--back" aria-hidden="true">
+                    <span class="ad-back-title">Simplifiez le lavage des chaussures.</span>
+                    <span>1 sac de lavage, 179 couronnes</span>
+                    <span>Livraison gratuite</span>
+                    <span class="ad-back-cta">Découvrir le sac</span>
+                  </span>
+                </button>
+                <p class="ad-caption">L'offre à l'unité</p>
+              </li>
+              <li class="ad">
+                <button class="ad-flip" type="button" aria-pressed="false">
+                  <span class="ad-face ad-face--front"><img src="../assets/img/pubs/08-duo-couleurs-259kr-feed.webp" data-feed="../assets/img/pubs/08-duo-couleurs-259kr-feed.webp" data-story="../assets/img/pubs/08-duo-couleurs-259kr-story.webp" width="640" height="800" loading="lazy" alt="Publicité en danois : « Gul eller hvid? », un sac blanc et un sac jaune, deux sacs pour 259 couronnes."></span>
+                  <span class="ad-face ad-face--back" aria-hidden="true">
+                    <span class="ad-back-title">Jaune ou blanc ? Un sac pour chaque chaussure.</span>
+                    <span>2 sacs de lavage, 259 couronnes</span>
+                    <span>Livraison gratuite</span>
+                    <span class="ad-back-cta">Trouver votre préféré</span>
+                  </span>
+                </button>
+                <p class="ad-caption">Le choix des couleurs</p>
+              </li>
+              <li class="ad">
+                <button class="ad-flip" type="button" aria-pressed="false">
+                  <span class="ad-face ad-face--front"><img src="../assets/img/pubs/09-avant-apres-machine-feed.webp" data-feed="../assets/img/pubs/09-avant-apres-machine-feed.webp" data-story="../assets/img/pubs/09-avant-apres-machine-story.webp" width="640" height="800" loading="lazy" alt="Publicité en danois : « Fra beskidte sko til en nem vaskerutine », une basket sale puis propre devant un lave-linge."></span>
+                  <span class="ad-face ad-face--back" aria-hidden="true">
+                    <span class="ad-back-title">Des chaussures sales à une routine de lavage simple</span>
+                    <span>Avant lavage, après lavage</span>
+                    <span>Sac de lavage pour chaussures</span>
+                    <span>Mention : illustration de l'utilisation</span>
+                    <span class="ad-back-cta">Découvrez comment</span>
+                  </span>
+                </button>
+                <p class="ad-caption">Avant, après (scène illustrative)</p>
+              </li>
+              <li class="ad">
+                <button class="ad-flip" type="button" aria-pressed="false">
+                  <span class="ad-face ad-face--front"><img src="../assets/img/pubs/10-trois-etapes-machine-feed.webp" data-feed="../assets/img/pubs/10-trois-etapes-machine-feed.webp" data-story="../assets/img/pubs/10-trois-etapes-machine-story.webp" width="640" height="800" loading="lazy" alt="Publicité en danois : « Sådan bruger du vaskeposen », trois photos d'utilisation avec le lave-linge."></span>
+                  <span class="ad-face ad-face--back" aria-hidden="true">
+                    <span class="ad-back-title">Comment utiliser le sac de lavage</span>
+                    <span>1. Insérez la chaussure</span>
+                    <span>2. Fermez le sac et lavez</span>
+                    <span>3. Sortez la chaussure</span>
+                    <span class="ad-back-cta">Découvrir le sac</span>
+                  </span>
+                </button>
+                <p class="ad-caption">L'usage, en machine</p>
+              </li>
+            </ul>
+            <p class="sim-foot">Je ne montre ici que des concepts originaux. Aucun chiffre de performance publicitaire n'a été relevé ; je n'en avance donc aucun.</p>
+          </section>
+
+          <section>
+            <h2>Résultats vérifiables</h2>
+            <ul class="results">
+              <li><span class="proof proof--count">Compté</span><span>Lighthouse mobile, 3 septembre 2026, boutique du bracelet : accessibilité 100, SEO 100, performance entre 52 et 76 en laboratoire.</span></li>
+              <li><span class="proof proof--count">Compté</span><span>Audit avant ouverture : 29 adresses contrôlées (réponses 200, 301 et 404 attendues), 293 ressources chargées sur trois pages sans une seule erreur 404, aucun script tiers.</span></li>
+              <li><span class="proof proof--fact">Constaté</span><span>Domaine, paiements et version anglaise et néerlandaise en ligne début septembre 2026.</span></li>
+              <li><span class="proof proof--fact">Constaté</span><span>Première commande réelle et payée le 22 septembre 2026 pour la boutique de sacs de lavage ; une première commande aussi pour celle du bracelet.</span></li>
+            </ul>
+            <div class="legend" aria-label="Légende des marqueurs">
+              <span><span class="proof proof--count">Compté</span> relevé dans l'outil</span>
+              <span><span class="proof proof--estimate">Estimé</span> sans protocole de mesure</span>
+              <span><span class="proof proof--fact">Constaté</span> fait daté et documenté</span>
+            </div>
+          </section>
+
+          <section>
+            <h2>Ce que j'en retiens</h2>
+            <p>Faire écrire le code par un agent ne supprime pas le travail, il le déplace : moins de frappe, davantage de spécification, de vérification et de traçabilité. C'est la leçon de mon stage, appliquée à un autre terrain : le temps gagné à l'écriture se réinvestit dans la recette.</p>
+            <p>J'en garde aussi une règle très concrète : un outil automatique traite tout ce qu'on lui confie, y compris ce qui n'aurait jamais dû passer par lui. Les noms de fichiers traduits l'ont montré.</p>
+          </section>
+
+          <nav class="case-next" aria-label="Autres projets">
+            <a href="bordereaux-la-poste.html"><span>Projet précédent</span><strong>Bordereaux La Poste automatisés</strong></a>
+            <a href="../index.html#projets"><span>Retour</span><strong>Tous les projets</strong></a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Paul Morel, ingénieur cloud et cybersécurité (ISEP 2026)</p>
+      <p>Clients et collègues ne sont pas nommés, par confidentialité.</p>
+    </div>
+  </footer>
+</body>
+</html>

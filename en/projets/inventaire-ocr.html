@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Equipment inventory with OCR · Paul Morel</title>
+  <meta name="description" content="AppSheet app that reads box labels using optical character recognition to inventory incoming IT equipment, in production since June 2026.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=JetBrains+Mono:wght@400;500&family=Public+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+  <link rel="alternate" hreflang="fr" href="../../projets/inventaire-ocr.html">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script src="../../assets/js/main.js"></script>
+  <script src="../../assets/js/sim-ocr.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="wordmark" href="../index.html">Paul Morel</a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="../index.html#projets" aria-current="page">Projects</a></li>
+          <li><a href="../index.html#competences">Skills</a></li>
+          <li><a href="../index.html#a-propos">About</a></li>
+          <li><a href="../passions.html">Passions</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a class="lang-switch" href="../../projets/inventaire-ocr.html" hreflang="fr" lang="fr" title="Version française">FR</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Change theme">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>
+        </button>
+        <a class="btn" href="../../cv/Paul_Morel_CV.pdf" download>CV (PDF)</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <div class="wrap">
+      <header class="case-head">
+        <p class="breadcrumb"><a href="../index.html#projets">All projects</a></p>
+        <p class="case-kind"><strong>Final-year internship</strong>, internal assignment, in production</p>
+        <h1>Photograph the label instead of copying out the number</h1>
+        <p class="case-lede">Equipment arriving at the office was inventoried by hand: the model and serial number were copied from the box into a spreadsheet. I built an AppSheet app that reads the label using optical character recognition. It has been in production since 12 June 2026.</p>
+      </header>
+
+      <div class="case-body">
+        <aside class="case-meta" aria-label="Project summary">
+          <dl>
+            <div><dt>Setting</dt><dd>Good iD, technical team: ChromeOS and video-conferencing equipment received before deployment at clients' sites</dd></div>
+            <div><dt>Period</dt><dd>May to 12 June 2026</dd></div>
+            <div><dt>My role</dt><dd>Identifying the need, designing, building and launching the app, and a presentation deck for the team</dd></div>
+            <div><dt>Tools</dt><dd><ul><li>AppSheet (no-code)</li><li>AppSheet OCR module</li><li>Google Sheets, Google Drive</li><li>Barcode scanning</li></ul></dd></div>
+            <div><dt>Status when I left</dt><dd><span class="status status--prod">In production</span></dd></div>
+          </dl>
+        </aside>
+
+        <div class="case-content">
+          <section>
+            <h2>Context and goal</h2>
+            <p>Before deployment, every device received has to be inventoried. The model and serial number were read off the label on the box, then copied into a spreadsheet: three to five minutes per device, with a high risk of error, because these numbers are long, alphanumeric and have no redundancy.</p>
+            <p>The real cost is not the typing. A transcription error goes unnoticed when it is made; it shows up weeks later, when someone looks for a piece of equipment that cannot be found under that reference. The goal: remove manual entry of the model and serial number.</p>
+          </section>
+
+          <section>
+            <h2>My role</h2>
+            <p>I spotted this pain point by meeting the company's staff one by one at the start of my internship and listening to them describe how equipment was received. The request was then taken up by the sales and technical leads. I designed, built and launched the app, and wrote a step-by-step guide to present it to the team.</p>
+          </section>
+
+          <section>
+            <h2>What I did</h2>
+
+            <figure class="figure">
+              <div class="figure-frame">
+                <svg class="diagram" viewBox="0 0 760 220" role="img" aria-labelledby="o1-title o1-desc">
+                  <title id="o1-title">The OCR inventory chain</title>
+                  <desc id="o1-desc">The incoming box is photographed from the app with a single button. The OCR module reads the model and serial number in template-calibrated zones, or reads the barcode. A row is created in Google Sheets. The photos are stored in the organisation's Google Drive. A second list records faulty devices.</desc>
+                  <defs>
+                    <marker id="o1-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="head" d="M0,0 L10,5 L0,10 z"/></marker>
+                  </defs>
+                  <rect class="box" x="10" y="30" width="150" height="72" rx="8"/>
+                  <text class="t t--b" x="85" y="60" text-anchor="middle">Incoming box</text>
+                  <text class="t--s" x="85" y="80" text-anchor="middle">manufacturer label</text>
+
+                  <rect class="box" x="195" y="30" width="170" height="72" rx="8"/>
+                  <text class="t t--b" x="280" y="56" text-anchor="middle">Photo of the label</text>
+                  <text class="t--s" x="280" y="76" text-anchor="middle">a single button,</text>
+                  <text class="t--s" x="280" y="92" text-anchor="middle">the camera opens</text>
+
+                  <rect class="box--key" x="400" y="30" width="170" height="72" rx="8"/>
+                  <text class="t--inv" x="485" y="56" text-anchor="middle">AppSheet OCR</text>
+                  <text class="t--s" x="485" y="76" text-anchor="middle" style="fill: var(--paper); opacity: .8">template-calibrated zones,</text>
+                  <text class="t--s" x="485" y="92" text-anchor="middle" style="fill: var(--paper); opacity: .8">or barcode</text>
+
+                  <rect class="box--ok" x="605" y="30" width="145" height="72" rx="8"/>
+                  <text class="t t--b" x="677" y="56" text-anchor="middle">Google Sheets</text>
+                  <text class="t--s" x="677" y="76" text-anchor="middle">ID, photo, model,</text>
+                  <text class="t--s" x="677" y="92" text-anchor="middle">serial number</text>
+
+                  <path class="line" d="M160,66 H191" marker-end="url(#o1-arrow)"/>
+                  <path class="line" d="M365,66 H396" marker-end="url(#o1-arrow)"/>
+                  <path class="line" d="M570,66 H601" marker-end="url(#o1-arrow)"/>
+
+                  <path class="line line--dash" d="M280,102 V146" marker-end="url(#o1-arrow)"/>
+                  <rect class="box--soft" x="195" y="150" width="170" height="56" rx="8"/>
+                  <text class="t t--b" x="280" y="174" text-anchor="middle">Organisation's Drive</text>
+                  <text class="t--s" x="280" y="192" text-anchor="middle">photos, existing access rights</text>
+
+                  <path class="line line--dash" d="M677,102 V146" marker-end="url(#o1-arrow)"/>
+                  <rect class="box--soft" x="605" y="150" width="145" height="56" rx="8"/>
+                  <text class="t t--b" x="677" y="174" text-anchor="middle">“Faulty” list</text>
+                  <text class="t--s" x="677" y="192" text-anchor="middle">defective devices</text>
+                </svg>
+              </div>
+              <figcaption>The app's chain, from box to spreadsheet. Diagram redrawn from my design.</figcaption>
+            </figure>
+
+            <h3>A template rather than free reading</h3>
+            <p>Reliability rests on a feature of the context: labels from the same manufacturer all have the same layout. I checked this consistency on the boxes in stock before building anything, then calibrated the capture zones on those labels. This is far more reliable than free-text extraction, precisely because the approach exploits a regularity known in advance.</p>
+            <p>The difficulty came from how dense the labels are: on a Chromebook box, the serial number sits next to a product reference, a barcode, a batch number and regulatory notices, in the same font, a few millimetres apart. A badly defined zone captures the wrong field, and the error goes unnoticed because the format still looks plausible.</p>
+
+            <section class="sim" data-sim="ocr" aria-labelledby="sim-o-title">
+              <span class="sim-tag">Interactive mock-up, fictitious labels</span>
+              <div class="sim-head">
+                <h2 id="sim-o-title">Try it: the reading template</h2>
+                <p>The green zone reads the serial number. Drag it over the label (mouse, finger or arrow keys), then change box: same manufacturer first, then a different one.</p>
+              </div>
+              <div class="ocr">
+                <div class="ocr-stage" data-stage>
+                  <div class="ocr-label" data-label></div>
+                  <div class="ocr-zone" data-zone tabindex="0" role="slider" aria-label="Serial number reading zone" aria-valuemin="1" aria-valuemax="7" aria-valuenow="4"></div>
+                </div>
+                <div class="ocr-readout">
+                  <h3>Read by the OCR</h3>
+                  <output class="ocr-value" data-value aria-live="polite"></output>
+                  <p class="ocr-verdict" data-verdict-el data-verdict="ok"></p>
+                  <p class="ocr-which" data-which></p>
+                  <div class="sim-controls">
+                    <button class="sim-btn" type="button" data-act="next">Next box, same manufacturer</button>
+                    <button class="sim-btn sim-btn--quiet" type="button" data-act="other">Box from another manufacturer</button>
+                    <button class="sim-btn sim-btn--quiet" type="button" data-act="recal">Recalibrate the template</button>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <h3>Designed for the warehouse, not the office</h3>
+            <p>The app is used standing up, often with only one hand free. So I reduced the form to a single action: one button opens the camera, and you confirm after extraction. The serial number field can also read a barcode directly when the label has one. A second view lists faulty devices, so that the same tool can be used to track defective equipment.</p>
+
+            <h3>No new security perimeter</h3>
+            <p>The label photos are stored in the organisation's Drive space, subject to the access rules already in place. The choice was deliberate: not to create a new space to administer and secure. The photo is kept as is, which makes it possible to check afterwards what the recognition read.</p>
+
+            <figure class="figure">
+              <div class="figure-frame figure-frame--flush">
+                <img src="../../assets/img/inventaire-appsheet.webp" width="1600" height="704" loading="lazy" alt="Recreation of the app in a no-code editor: the “Matériel reçu” (equipment received) table with the columns ID, Photo Etiquette (label photo), Modèle (model) and Numéro de série (serial number) filled by OCR, and on the right the mobile preview listing fictional devices, with the faulty devices view.">
+              </div>
+              <figcaption>A recreation that follows the app's real structure, with fictional data: the table and its OCR-filled fields, the mobile preview and the faulty devices view. The real screenshot is not published, out of confidentiality towards Good iD.</figcaption>
+            </figure>
+          </section>
+
+          <section>
+            <h2>Verifiable results</h2>
+            <ul class="results">
+              <li><span class="proof proof--fact">Recorded</span><span>App deployed on 12 June 2026, in production at Good iD when I left.</span></li>
+              <li><span class="proof proof--count">Counted</span><span>81 items of equipment recorded, according to the database itself.</span></li>
+              <li><span class="proof proof--estimate">Estimated</span><span>About 70% less data-entry time per device. Estimated after the fact, on a few boxes, with no baseline: this is not a measurement.</span></li>
+              <li><span class="proof proof--fact">Recorded</span><span>Manual transcription is gone as a source of error. I did not compare the extracted values with the labels one by one, so I do not claim a zero error rate.</span></li>
+            </ul>
+            <div class="legend" aria-label="Key to the markers">
+              <span><span class="proof proof--count">Counted</span> taken from the tool</span>
+              <span><span class="proof proof--estimate">Estimated</span> no measurement protocol</span>
+              <span><span class="proof proof--fact">Recorded</span> dated, documented fact</span>
+            </div>
+          </section>
+
+          <section>
+            <h2>Limitations and lessons learnt</h2>
+            <ul>
+              <li><strong>Measure before, not after.</strong> I timed data entry after delivery, whereas the main gain lies in the errors avoided, which I neither measured nor estimated. Half a day measuring the existing process (times, errors found in the inventory history) would have turned a claim into a result. Since then, I set the success criteria before developing.</li>
+              <li><strong>A constraint discovered in use.</strong> Recognition happens in the cloud: without a network connection the app does not work, and coverage is weakest precisely in the storage rooms. An analysis of the real conditions of use would have revealed this before development.</li>
+              <li><strong>A data model to rethink.</strong> Two separate lists (in service, faulty) rather than a status field on a single record: it was quick to set up, but it breaks a device's history. Today I would choose the status field.</li>
+              <li><strong>Handover.</strong> No designated successor and no maintenance note when I left; I only gave the team edit access.</li>
+            </ul>
+          </section>
+
+          <nav class="case-next" aria-label="Other projects">
+            <a href="support-client.html"><span>Previous project</span><strong>Customer support system</strong></a>
+            <a href="licences-flex.html"><span>Next project</span><strong>Test licences assigned and reclaimed</strong></a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Paul Morel, cloud and cybersecurity engineer (ISEP 2026)</p>
+      <p>Clients and colleagues are not named, for confidentiality.</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Test licences assigned and reclaimed · Paul Morel</title>
+  <meta name="description" content="Apps Script app that assigns a Google Workspace licence at sign-in in a test environment and removes it automatically every night.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=JetBrains+Mono:wght@400;500&family=Public+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+  <link rel="alternate" hreflang="fr" href="../../projets/licences-flex.html">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script src="../../assets/js/main.js"></script>
+  <script src="../../assets/js/sim-licences.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="wordmark" href="../index.html">Paul Morel</a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="../index.html#projets" aria-current="page">Projects</a></li>
+          <li><a href="../index.html#competences">Skills</a></li>
+          <li><a href="../index.html#a-propos">About</a></li>
+          <li><a href="../passions.html">Passions</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a class="lang-switch" href="../../projets/licences-flex.html" hreflang="fr" lang="fr" title="Version française">FR</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Change theme">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>
+        </button>
+        <a class="btn" href="../../cv/Paul_Morel_CV.pdf" download>CV (PDF)</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <div class="wrap">
+      <header class="case-head">
+        <p class="breadcrumb"><a href="../index.html#projets">All projects</a></p>
+        <p class="case-kind"><strong>Final-year internship</strong>, internal tool, prototype validated in a test environment</p>
+        <h1>Licences assigned at sign-in, reclaimed every night</h1>
+        <p class="case-lede">In Good iD's test environment, licences that were assigned once and never removed went on being billed every month. I developed an app that grants the licence when an engineer signs in and automatically reclaims it overnight.</p>
+      </header>
+
+      <div class="case-body">
+        <aside class="case-meta" aria-label="Project summary">
+          <dl>
+            <div><dt>Setting</dt><dd>Good iD, demo and test environment, separate from client environments</dd></div>
+            <div><dt>Period</dt><dd>August 2026, end of internship</dd></div>
+            <div><dt>My role</dt><dd>Developing the app; design principle agreed with the technical lead</dd></div>
+            <div><dt>Tools</dt><dd><ul><li>Google Apps Script (web app)</li><li>Google Workspace Admin API: directory and licences</li><li>Scheduled execution</li></ul></dd></div>
+            <div><dt>Permissions used</dt><dd>Super administrator of the test environment only; no rights on client environments</dd></div>
+            <div><dt>Status when I left</dt><dd><span class="status status--test">Working in test</span></dd></div>
+          </dl>
+        </aside>
+
+        <div class="case-content">
+          <section>
+            <h2>Context and goal</h2>
+            <p>Engineers use a test environment to prepare a configuration, reproduce a case or demonstrate a feature. Access to the features requires a licence, and Flex licences are billed monthly, per assigned user. A licence assigned to someone who signed in once in April is still being billed in July.</p>
+            <p>Nobody removes them: nothing prompts anyone to, and the individual cost is low. It is the build-up that costs money. The goal was to make that build-up impossible, without making access any harder for engineers.</p>
+          </section>
+
+          <section>
+            <h2>What I did</h2>
+            <p>The app automates the full cycle. At sign-in, it identifies the user from their session, retrieves the organisation ID from the directory, checks that they do not already hold a licence of the target type, then assigns it to them. A scheduled run, independent of any sign-in, removes the licences overnight.</p>
+
+            <figure class="figure">
+              <div class="figure-frame">
+                <svg class="diagram" viewBox="0 0 760 270" role="img" aria-labelledby="l1-title l1-desc">
+                  <title id="l1-title">Assigned by day, reclaimed by night</title>
+                  <desc id="l1-desc">During the day, the engineer opens the app; it identifies them by their session, retrieves the organisation ID from the directory, checks that they do not already have the licence and assigns it. Every night, a scheduled run removes the assigned licences.</desc>
+                  <defs>
+                    <marker id="l1-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="head" d="M0,0 L10,5 L0,10 z"/></marker>
+                  </defs>
+                  <text class="t t--b" x="10" y="22">During the day</text>
+
+                  <rect class="box" x="10" y="36" width="130" height="66" rx="8"/>
+                  <text class="t t--b" x="75" y="64" text-anchor="middle">Sign-in</text>
+                  <text class="t--s" x="75" y="83" text-anchor="middle">to the web app</text>
+
+                  <rect class="box" x="162" y="36" width="130" height="66" rx="8"/>
+                  <text class="t t--b" x="227" y="64" text-anchor="middle">Session</text>
+                  <text class="t--s" x="227" y="83" text-anchor="middle">identifies the user</text>
+
+                  <rect class="box" x="314" y="36" width="130" height="66" rx="8"/>
+                  <text class="t t--b" x="379" y="64" text-anchor="middle">Directory</text>
+                  <text class="t--s" x="379" y="83" text-anchor="middle">organisation ID</text>
+
+                  <rect class="box" x="466" y="36" width="130" height="66" rx="8" style="stroke-dasharray: 5 4"/>
+                  <text class="t t--b" x="531" y="62" text-anchor="middle">Licence already</text>
+                  <text class="t t--b" x="531" y="80" text-anchor="middle">held?</text>
+
+                  <rect class="box--ok" x="620" y="36" width="130" height="66" rx="8"/>
+                  <text class="t t--b" x="685" y="64" text-anchor="middle">Licence</text>
+                  <text class="t--s" x="685" y="83" text-anchor="middle">assigned</text>
+
+                  <path class="line" d="M140,69 H158" marker-end="url(#l1-arrow)"/>
+                  <path class="line" d="M292,69 H310" marker-end="url(#l1-arrow)"/>
+                  <path class="line" d="M444,69 H462" marker-end="url(#l1-arrow)"/>
+                  <path class="line" d="M596,69 H616" marker-end="url(#l1-arrow)"/>
+                  <text class="t--s" x="606" y="60" text-anchor="middle">no</text>
+                  <text class="t--s" x="531" y="122" text-anchor="middle">yes: no action</text>
+
+                  <line class="zone" x1="10" y1="150" x2="750" y2="150"/>
+
+                  <text class="t t--b" x="10" y="182">Every night</text>
+                  <rect class="box--key" x="162" y="196" width="190" height="60" rx="8"/>
+                  <text class="t--inv" x="257" y="222" text-anchor="middle">Scheduled run</text>
+                  <text class="t--s" x="257" y="241" text-anchor="middle" style="fill: var(--paper); opacity: .8">independent of sign-ins</text>
+
+                  <rect class="box--warn" x="400" y="196" width="190" height="60" rx="8"/>
+                  <text class="t t--b" x="495" y="222" text-anchor="middle">Licences removed</text>
+                  <text class="t--s" x="495" y="241" text-anchor="middle">no more build-up</text>
+                  <path class="line" d="M352,226 H396" marker-end="url(#l1-arrow)"/>
+                </svg>
+              </div>
+              <figcaption>The app's cycle. Diagram redrawn; I do not publish the code, which belongs to the company.</figcaption>
+            </figure>
+
+            <h3>Control, or be able to undo</h3>
+            <p>At first I thought in terms of authorisation: who is allowed to get a licence, whether approval is needed, how to prevent abuse. For two days, that is where I was looking. It was the technical lead who turned the question around: rather than approving each request, make the assignment easy to undo.</p>
+            <p>“No control” would be inaccurate, though. Two automatic checks remain at the heart of the set-up: the user must have authenticated on the test environment, and the app checks that they do not already hold a licence of the target type. The tool is limited to a single licence type. What disappears is manual, case-by-case approval, replaced by automatic reversibility.</p>
+          </section>
+
+          <section class="sim" data-sim="licences" aria-labelledby="sim-l-title">
+            <span class="sim-tag">Simulation, fictitious data</span>
+            <div class="sim-head">
+              <h2 id="sim-l-title">Try it: one month of a test environment</h2>
+              <p>Twelve fictitious engineers sign in on some days only, rarely at weekends. Move the month forward and compare what remains assigned each evening. No real billing figures are used.</p>
+            </div>
+            <div class="lic-controls">
+              <label for="lic-day">Day <output data-day>1</output> of 30</label>
+              <div class="lic-range">
+                <input id="lic-day" type="range" min="1" max="30" value="1" data-range>
+                <button class="sim-btn sim-btn--quiet" type="button" data-play>Play the month</button>
+              </div>
+            </div>
+            <div class="lic-compare">
+              <div class="lic-col lic-col--off">
+                <h3>Without reclaiming</h3>
+                <p class="lic-big" data-off>0</p>
+                <p class="lic-cap">licences assigned and still billed tonight</p>
+                <div class="lic-grid" data-grid-off aria-hidden="true"></div>
+                <div class="lic-axis" aria-hidden="true"><span>day 1</span><span>day 30</span></div>
+              </div>
+              <div class="lic-col lic-col--on">
+                <h3>Reclaimed every night</h3>
+                <p class="lic-big" data-on>0</p>
+                <p class="lic-cap">licences used today, all reclaimed tonight</p>
+                <div class="lic-grid" data-grid-on aria-hidden="true"></div>
+                <div class="lic-axis" aria-hidden="true"><span>day 1</span><span>day 30</span></div>
+              </div>
+            </div>
+            <div class="lic-legend" aria-hidden="true">
+              <span><i style="background: var(--signal)"></i>signed in that day</span>
+              <span><i style="background: var(--amber)"></i>licence still assigned</span>
+              <span>One row per engineer, one column per day.</span>
+            </div>
+            <p class="sim-log" data-summary aria-live="polite"></p>
+          </section>
+
+          <section>
+            <h2>Verifiable results</h2>
+            <ul class="results">
+              <li><span class="proof proof--fact">Recorded</span><span>App working and validated in the company's test environment.</span></li>
+              <li><span class="proof proof--fact">Recorded</span><span>Nightly removal makes licence build-up impossible, which was the problem to solve. I did not put a figure on the savings.</span></li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Risks I did not remove</h2>
+            <ul>
+              <li><strong>The daytime window.</strong> An assigned licence remains usable until it is removed at night. The set-up does not protect against inappropriate use in that interval.</li>
+              <li><strong>No log.</strong> The tool keeps no timestamped record of its own assignments. The stakes are low in an internal environment; elsewhere it would be a blocker.</li>
+              <li><strong>Outside the test environment.</strong> Equivalent use at a client would require a security review and an explicit definition of eligible user groups, which was beyond my scope.</li>
+            </ul>
+          </section>
+
+          <nav class="case-next" aria-label="Other projects">
+            <a href="inventaire-ocr.html"><span>Previous project</span><strong>Equipment inventory with OCR</strong></a>
+            <a href="bordereaux-la-poste.html"><span>Next project</span><strong>Automated La Poste shipping slips</strong></a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Paul Morel, cloud and cybersecurity engineer (ISEP 2026)</p>
+      <p>Clients and colleagues are not named, for confidentiality.</p>
+    </div>
+  </footer>
+</body>
+</html>

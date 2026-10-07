@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>E-commerce shops built with AI agents · Paul Morel</title>
+  <meta name="description" content="Personal project: Shopify dropshipping shops built with AI agents, with a disciplined publishing process (backups, log, testing) and an ad campaign in Danish.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=JetBrains+Mono:wght@400;500&family=Public+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+  <link rel="alternate" hreflang="fr" href="../../projets/e-commerce.html">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script src="../../assets/js/main.js"></script>
+  <script src="../../assets/js/sim-ads.js" defer></script>
+  <script src="../../assets/js/sim-immersion.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="wordmark" href="../index.html">Paul Morel</a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="../index.html#projets" aria-current="page">Projects</a></li>
+          <li><a href="../index.html#competences">Skills</a></li>
+          <li><a href="../index.html#a-propos">About</a></li>
+          <li><a href="../passions.html">Passions</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a class="lang-switch" href="../../projets/e-commerce.html" hreflang="fr" lang="fr" title="Version française">FR</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Change theme">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>
+        </button>
+        <a class="btn" href="../../cv/Paul_Morel_CV.pdf" download>CV (PDF)</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <div class="wrap">
+      <header class="case-head">
+        <p class="breadcrumb"><a href="../index.html#projets">All projects</a></p>
+        <p class="case-kind"><strong>Personal project</strong>, dropshipping e-commerce</p>
+        <h1>Having AI agents code a shop, without losing control</h1>
+        <p class="case-lede">Since August 2026, I have been launching Shopify dropshipping shops. The theme code is written by AI agents and the visuals by image models. My job: decide what needs doing, check what goes live, and run the shops.</p>
+      </header>
+
+      <div class="case-body">
+        <aside class="case-meta" aria-label="Project summary">
+          <dl>
+            <div><dt>Setting</dt><dd>Personal project; Shopify shops, AliExpress suppliers; markets: Ireland, the Netherlands and Denmark</dd></div>
+            <div><dt>Period</dt><dd>August to September 2026</dd></div>
+            <div><dt>My role</dt><dd>Products, markets and pricing; specifications and trade-offs; domain, payments and settings; testing every release; art direction of the ads</dd></div>
+            <div><dt>Written by AI</dt><dd>The theme code (Liquid, CSS, JavaScript) and the ad visuals</dd></div>
+            <div><dt>Tools</dt><dd><ul><li>Shopify, Horizon theme, Shopify CLI</li><li>Claude Code, Codex</li><li>GPT Image and video via Higgsfield</li><li>Lighthouse</li></ul></dd></div>
+            <div><dt>Status</dt><dd><span class="status status--doc">Personal project</span></dd></div>
+          </dl>
+        </aside>
+
+        <div class="case-content">
+          <section>
+            <h2>Context and goal</h2>
+            <p>I wanted to test products on small European markets, quickly, and in a language I do not always speak. AI agents can write a complete theme in a few hours; the risk is no longer knowing what is live, or how to roll back. So the goal was twofold: move fast, and stay in control of every change published.</p>
+          </section>
+
+          <section>
+            <h2>Delegate the writing, not the publishing</h2>
+            <p>I set working rules for the agents, written down in the project notes:</p>
+            <ul>
+              <li><strong>Nothing goes live without my approval</strong>, and only one file at a time, so the shop's settings are never overwritten.</li>
+              <li><strong>A restore point before touching the live theme</strong>: a full copy of the theme (627 files for the bracelet shop), then a before/after log per file, with the rollback command.</li>
+              <li><strong>Nothing non-public in the files served</strong>: backups and notes are kept outside the theme.</li>
+              <li><strong>Credentials, bank details and identity: me alone.</strong> The agent never enters them.</li>
+            </ul>
+
+            <figure class="figure">
+              <div class="figure-frame">
+                <svg class="diagram" viewBox="0 0 760 270" role="img" aria-labelledby="e1-title e1-desc">
+                  <title id="e1-title">The publishing loop</title>
+                  <desc id="e1-desc">I describe the change, the agent writes the code, a restore point is taken, I review and approve, publishing happens file by file, then live testing. Any discrepancy restarts the loop. The steps I keep for myself are in green.</desc>
+                  <defs>
+                    <marker id="e1-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="head" d="M0,0 L10,5 L0,10 z"/></marker>
+                  </defs>
+                  <rect class="box--ok" x="10" y="24" width="200" height="64" rx="8"/>
+                  <text class="t t--b" x="110" y="51" text-anchor="middle">I describe the change</text>
+                  <text class="t--s" x="110" y="70" text-anchor="middle">goal, constraints, language</text>
+
+                  <rect class="box" x="280" y="24" width="200" height="64" rx="8"/>
+                  <text class="t t--b" x="380" y="51" text-anchor="middle">Agent writes the code</text>
+                  <text class="t--s" x="380" y="70" text-anchor="middle">Claude Code or Codex</text>
+
+                  <rect class="box--soft" x="550" y="24" width="200" height="64" rx="8"/>
+                  <text class="t t--b" x="650" y="51" text-anchor="middle">Restore point</text>
+                  <text class="t--s" x="650" y="70" text-anchor="middle">copy of the live theme</text>
+
+                  <rect class="box--ok" x="550" y="150" width="200" height="64" rx="8"/>
+                  <text class="t t--b" x="650" y="177" text-anchor="middle">I review and accept</text>
+                  <text class="t--s" x="650" y="196" text-anchor="middle">or send it back</text>
+
+                  <rect class="box--key" x="280" y="150" width="200" height="64" rx="8"/>
+                  <text class="t--inv" x="380" y="177" text-anchor="middle">Publishing</text>
+                  <text class="t--inv-s" x="380" y="196" text-anchor="middle">one file at a time</text>
+
+                  <rect class="box--ok" x="10" y="150" width="200" height="64" rx="8"/>
+                  <text class="t t--b" x="110" y="177" text-anchor="middle">Live testing</text>
+                  <text class="t--s" x="110" y="196" text-anchor="middle">pages, cart, Lighthouse</text>
+
+                  <path class="line" d="M210,56 H276" marker-end="url(#e1-arrow)"/>
+                  <path class="line" d="M480,56 H546" marker-end="url(#e1-arrow)"/>
+                  <path class="line" d="M650,88 V146" marker-end="url(#e1-arrow)"/>
+                  <path class="line" d="M550,182 H484" marker-end="url(#e1-arrow)"/>
+                  <path class="line" d="M280,182 H214" marker-end="url(#e1-arrow)"/>
+                  <path class="line line--dash" d="M110,150 V92" marker-end="url(#e1-arrow)"/>
+                  <text class="t--s" x="122" y="125">something is off: start again</text>
+                  <text class="t--s" x="10" y="250">Each batch is logged: state before, state after, and the command to roll back.</text>
+                </svg>
+              </div>
+              <figcaption>My publishing loop. In green, the steps I do not delegate.</figcaption>
+            </figure>
+
+            <p>In practice, in the terminal:</p>
+            <figure class="figure">
+              <div class="figure-frame">
+<pre class="code-block"><code><span class="c"># before each batch: copy of the live theme</span>
+shopify theme pull --theme &lt;theme-id&gt;
+
+<span class="c"># after my approval: a single file, never the settings</span>
+shopify theme push --theme &lt;theme-id&gt; --only sections/faq.liquid</code></pre>
+              </div>
+              <figcaption>The two commands in the loop (shop identifiers removed).</figcaption>
+            </figure>
+          </section>
+
+          <section>
+            <h2>What testing caught</h2>
+            <p>The fixes were coded by the agent and validated by me on the live site. Some defects came from my own tests, others from the audits carried out before launch.</p>
+            <ul>
+              <li><strong>Broken images on the Dutch version.</strong> The translation tool was also translating file names stored in text settings: an image called “step” became “stap”, and no longer existed. Those settings became non-translatable lists, and the rule is now written down: a setting that contains a file name is never a free-text field.</li>
+              <li><strong>A forced switch back to English.</strong> While testing, I found that choosing Dutch changed nothing: automatic language detection sent visitors back to English right after they chose. The fix: a language explicitly present in the URL is never overridden.</li>
+              <li><strong>A cart that reloaded the page.</strong> Changing the colour of an item triggered a server error (400), then a full reload. The call targeted the variant instead of the cart line; it is fixed, and the cart now updates without reloading.</li>
+              <li><strong>Personal data on a legal page.</strong> The auto-generated privacy policy reinserted a personal email address and postal address every time it was saved. It was switched to a written version, with no personal data.</li>
+            </ul>
+          </section>
+
+          <section class="sim" id="immersion" data-sim="immersion" aria-labelledby="sim-i-title">
+            <span class="sim-tag">Real capture, 7 October 2026</span>
+            <div class="sim-head">
+              <h2 id="sim-i-title">The bracelet shop, up close</h2>
+              <p>Scroll through the home page as a visitor would, on desktop and on mobile. Live Dutch version, theme published on 20 September 2026; the reviews section has been removed from the capture.</p>
+            </div>
+            <div class="immersion-controls">
+              <button class="seg" type="button" data-autoscroll aria-pressed="false">Auto-scroll</button>
+              <span>or scroll the screens yourself</span>
+            </div>
+            <div class="immersion">
+              <div class="browser">
+                <div class="browser-bar" aria-hidden="true"><i></i><i></i><i></i><span>polswek.com</span></div>
+                <div class="screen" tabindex="0" role="region" aria-label="Home page on desktop, scrollable"><img src="../../assets/img/sites/bracelet-bureau.webp" width="960" height="3674" loading="lazy" alt="The shop's home page on desktop: tagline “De wekker die je voelt, niet hoort”, colour choice, product presentation, evening-to-morning routine, comparison with a conventional alarm clock, offers, frequently asked questions and footer."></div>
+              </div>
+              <div class="phone">
+                <div class="screen" tabindex="0" role="region" aria-label="Home page on mobile, scrollable"><img src="../../assets/img/sites/bracelet-mobile.webp" width="430" height="6020" loading="lazy" alt="The same home page in its mobile version."></div>
+              </div>
+            </div>
+          </section>
+
+          <section class="sim" id="videos" aria-labelledby="sim-v-title">
+            <span class="sim-tag">Video ads</span>
+            <div class="sim-head">
+              <h2 id="sim-v-title">The videos</h2>
+              <p>AI-generated (Higgsfield) under my direction, then edited, in story format. They start playing, muted, when they appear; the button pauses them. I only show product shots and staged scenes: no video claims to be a customer review.</p>
+            </div>
+            <ul class="reel">
+              <li>
+                <figure class="clip-fig">
+                  <div class="clip"><video data-clip muted loop playsinline preload="none" poster="../../assets/video/bracelet-reveil.jpg" src="../../assets/video/bracelet-reveil.mp4" aria-label="The silent alarm"></video><button class="clip-play" type="button" aria-label="Play the video"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></button></div>
+                  <figcaption class="clip-caption"><strong>The silent alarm</strong>Alarm bracelet</figcaption>
+                </figure>
+              </li>
+              <li>
+                <figure class="clip-fig">
+                  <div class="clip"><video data-clip muted loop playsinline preload="none" poster="../../assets/video/bracelet-couple.jpg" src="../../assets/video/bracelet-couple.mp4" aria-label="Without waking the other"></video><button class="clip-play" type="button" aria-label="Play the video"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></button></div>
+                  <figcaption class="clip-caption"><strong>Without waking the other</strong>Alarm bracelet</figcaption>
+                </figure>
+              </li>
+              <li>
+                <figure class="clip-fig">
+                  <div class="clip"><video data-clip muted loop playsinline preload="none" poster="../../assets/video/bracelet-matin.jpg" src="../../assets/video/bracelet-matin.mp4" aria-label="Each to their own rhythm"></video><button class="clip-play" type="button" aria-label="Play the video"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></button></div>
+                  <figcaption class="clip-caption"><strong>Each to their own rhythm</strong>Alarm bracelet</figcaption>
+                </figure>
+              </li>
+              <li>
+                <figure class="clip-fig">
+                  <div class="clip"><video data-clip muted loop playsinline preload="none" poster="../../assets/video/bracelet-couleurs.jpg" src="../../assets/video/bracelet-couleurs.mp4" aria-label="The range"></video><button class="clip-play" type="button" aria-label="Play the video"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></button></div>
+                  <figcaption class="clip-caption"><strong>The range</strong>Alarm bracelet</figcaption>
+                </figure>
+              </li>
+              <li>
+                <figure class="clip-fig">
+                  <div class="clip"><video data-clip muted loop playsinline preload="none" poster="../../assets/video/bracelet-tech.jpg" src="../../assets/video/bracelet-tech.mp4" aria-label="The product in the studio"></video><button class="clip-play" type="button" aria-label="Play the video"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></button></div>
+                  <figcaption class="clip-caption"><strong>The product in the studio</strong>Alarm bracelet</figcaption>
+                </figure>
+              </li>
+              <li>
+                <figure class="clip-fig">
+                  <div class="clip"><video data-clip muted loop playsinline preload="none" poster="../../assets/video/bracelet-studio.jpg" src="../../assets/video/bracelet-studio.mp4" aria-label="Colours on a black background"></video><button class="clip-play" type="button" aria-label="Play the video"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></button></div>
+                  <figcaption class="clip-caption"><strong>Colours on a black background</strong>Alarm bracelet</figcaption>
+                </figure>
+              </li>
+              <li>
+                <figure class="clip-fig">
+                  <div class="clip"><video data-clip muted loop playsinline preload="none" poster="../../assets/video/bracelet-holo.jpg" src="../../assets/video/bracelet-holo.mp4" aria-label="The time as a hologram"></video><button class="clip-play" type="button" aria-label="Play the video"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></button></div>
+                  <figcaption class="clip-caption"><strong>The time as a hologram</strong>Alarm bracelet</figcaption>
+                </figure>
+              </li>
+              <li>
+                <figure class="clip-fig">
+                  <div class="clip"><video data-clip muted loop playsinline preload="none" poster="../../assets/video/collier-lettres.jpg" src="../../assets/video/collier-lettres.mp4" aria-label="One letter, one name"></video><button class="clip-play" type="button" aria-label="Play the video"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></button></div>
+                  <figcaption class="clip-caption"><strong>One letter, one name</strong>Initial necklace</figcaption>
+                </figure>
+              </li>
+              <li>
+                <figure class="clip-fig">
+                  <div class="clip"><video data-clip muted loop playsinline preload="none" poster="../../assets/video/collier-portrait.jpg" src="../../assets/video/collier-portrait.mp4" aria-label="The necklace, worn"></video><button class="clip-play" type="button" aria-label="Play the video"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></button></div>
+                  <figcaption class="clip-caption"><strong>The necklace, worn</strong>Initial necklace</figcaption>
+                </figure>
+              </li>
+              <li>
+                <figure class="clip-fig">
+                  <div class="clip"><video data-clip muted loop playsinline preload="none" poster="../../assets/video/ceinture-tech.jpg" src="../../assets/video/ceinture-tech.mp4" aria-label="The belt in the studio"></video><button class="clip-play" type="button" aria-label="Play the video"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></button></div>
+                  <figcaption class="clip-caption"><strong>The belt in the studio</strong>EMS belt (store never launched)</figcaption>
+                </figure>
+              </li>
+            </ul>
+          </section>
+
+          <section class="sim" id="visuels" aria-labelledby="sim-b-title">
+            <span class="sim-tag">Ad visuals</span>
+            <div class="sim-head">
+              <h2 id="sim-b-title">The bracelet's visuals</h2>
+              <p>For the bracelet's first brand, Aubéa: a series of images generated with ChatGPT under my direction, in a warm, quiet palette that matches the product. French, then English for the Irish and Dutch markets.</p>
+            </div>
+            <ul class="ads">
+              <li class="ad">
+                <figure class="clip-fig"><img class="ad-still" src="../../assets/img/pubs-bracelet/reveil-silencieux.webp" width="640" height="800" loading="lazy" alt="“Réveil silencieux” (silent alarm), the bracelet on a bed at sunrise">
+                <figcaption class="ad-caption">Silent alarm</figcaption></figure>
+              </li>
+              <li class="ad">
+                <figure class="clip-fig"><img class="ad-still" src="../../assets/img/pubs-bracelet/rien-qu-a-vous.webp" width="640" height="800" loading="lazy" alt="“Votre réveil, rien qu'à vous” (your alarm, just for you), a woman checks the bracelet as she wakes">
+                <figcaption class="ad-caption">Just for you</figcaption></figure>
+              </li>
+              <li class="ad">
+                <figure class="clip-fig"><img class="ad-still" src="../../assets/img/pubs-bracelet/sans-le-reveiller.webp" width="640" height="800" loading="lazy" alt="“Réveillez-vous sans le réveiller” (wake up without waking him), a woman awake beside her sleeping partner">
+                <figcaption class="ad-caption">Without waking the other</figcaption></figure>
+              </li>
+              <li class="ad">
+                <figure class="clip-fig"><img class="ad-still" src="../../assets/img/pubs-bracelet/recharge-usb.webp" width="640" height="800" loading="lazy" alt="“Recharge USB intégrée” (built-in USB charging), the bracelet plugged into a laptop">
+                <figcaption class="ad-caption">USB charging</figcaption></figure>
+              </li>
+              <li class="ad">
+                <figure class="clip-fig"><img class="ad-still" src="../../assets/img/pubs-bracelet/matin-plus-doux.webp" width="640" height="800" loading="lazy" alt="“Un matin plus doux” (a gentler morning), a woman opens the curtains, bracelet on her wrist">
+                <figcaption class="ad-caption">A gentler morning</figcaption></figure>
+              </li>
+              <li class="ad">
+                <figure class="clip-fig"><img class="ad-still" src="../../assets/img/pubs-bracelet/alarm-you-feel.webp" width="640" height="800" loading="lazy" alt="“The alarm you feel, not hear”, the English version">
+                <figcaption class="ad-caption">English version</figcaption></figure>
+              </li>
+            </ul>
+          </section>
+
+          <section class="sim" data-sim="ads" aria-labelledby="ads-title">
+            <span class="sim-tag">Interactive gallery</span>
+            <div class="sim-head">
+              <h2 id="ads-title">The Danish campaign</h2>
+              <p>For the shoe laundry bag shop, I directed a series of visuals generated with GPT Image (via Higgsfield): a single system, adapted for the news feed and for stories. Real prices, real free delivery, no reviews or testimonials; the before/after scenes are labelled as illustrative. Tap an ad to read its translation.</p>
+            </div>
+            <div class="sim-controls" role="group" aria-label="Ad format">
+              <button class="seg" type="button" data-format="feed" aria-pressed="true">News feed, 4:5</button>
+              <button class="seg" type="button" data-format="story" aria-pressed="false">Story, 9:16</button>
+            </div>
+            <ul class="ads" data-ads data-format="feed">
+              <li class="ad">
+                <button class="ad-flip" type="button" aria-pressed="false">
+                  <span class="ad-face ad-face--front"><img src="../../assets/img/pubs/04-trois-etapes-feed.webp" data-feed="../../assets/img/pubs/04-trois-etapes-feed.webp" data-story="../../assets/img/pubs/04-trois-etapes-story.webp" width="640" height="800" loading="lazy" alt="Ad in Danish: “Klar til vask i 3 trin”, the yellow and turquoise bag in three numbered photos."></span>
+                  <span class="ad-face ad-face--back" aria-hidden="true">
+                    <span class="ad-back-title">Ready to wash in 3 steps</span>
+                    <span>1. Put the shoe in</span>
+                    <span>2. Close the zip</span>
+                    <span>3. Follow the shoe's washing instructions</span>
+                    <span class="ad-back-cta">Discover the bag</span>
+                  </span>
+                </button>
+                <p class="ad-caption">How to use it, in three steps</p>
+              </li>
+              <li class="ad">
+                <button class="ad-flip" type="button" aria-pressed="false">
+                  <span class="ad-face ad-face--front"><img src="../../assets/img/pubs/06-detail-feed.webp" data-feed="../../assets/img/pubs/06-detail-feed.webp" data-story="../../assets/img/pubs/06-detail-story.webp" width="640" height="800" loading="lazy" alt="Ad in Danish: “Bløde fibre. Nem skovask.”, close-up of the yellow bag and its material."></span>
+                  <span class="ad-face ad-face--back" aria-hidden="true">
+                    <span class="ad-back-title">Soft fibres. Easy shoe washing.</span>
+                    <span>With a zip, reusable</span>
+                    <span>Free delivery</span>
+                    <span class="ad-back-cta">See the details</span>
+                  </span>
+                </button>
+                <p class="ad-caption">The product in close-up</p>
+              </li>
+              <li class="ad">
+                <button class="ad-flip" type="button" aria-pressed="false">
+                  <span class="ad-face ad-face--front"><img src="../../assets/img/pubs/07-solo-179kr-feed.webp" data-feed="../../assets/img/pubs/07-solo-179kr-feed.webp" data-story="../../assets/img/pubs/07-solo-179kr-story.webp" width="640" height="800" loading="lazy" alt="Ad in Danish: “Gør skovasken nemmere”, a trainer in the bag, priced at 179 kroner."></span>
+                  <span class="ad-face ad-face--back" aria-hidden="true">
+                    <span class="ad-back-title">Make shoe washing easier.</span>
+                    <span>1 laundry bag, 179 kroner</span>
+                    <span>Free delivery</span>
+                    <span class="ad-back-cta">Discover the bag</span>
+                  </span>
+                </button>
+                <p class="ad-caption">The single-bag offer</p>
+              </li>
+              <li class="ad">
+                <button class="ad-flip" type="button" aria-pressed="false">
+                  <span class="ad-face ad-face--front"><img src="../../assets/img/pubs/08-duo-couleurs-259kr-feed.webp" data-feed="../../assets/img/pubs/08-duo-couleurs-259kr-feed.webp" data-story="../../assets/img/pubs/08-duo-couleurs-259kr-story.webp" width="640" height="800" loading="lazy" alt="Ad in Danish: “Gul eller hvid?”, a white bag and a yellow bag, two bags for 259 kroner."></span>
+                  <span class="ad-face ad-face--back" aria-hidden="true">
+                    <span class="ad-back-title">Yellow or white? A bag for every shoe.</span>
+                    <span>2 laundry bags, 259 kroner</span>
+                    <span>Free delivery</span>
+                    <span class="ad-back-cta">Find your favourite</span>
+                  </span>
+                </button>
+                <p class="ad-caption">Choosing the colours</p>
+              </li>
+              <li class="ad">
+                <button class="ad-flip" type="button" aria-pressed="false">
+                  <span class="ad-face ad-face--front"><img src="../../assets/img/pubs/09-avant-apres-machine-feed.webp" data-feed="../../assets/img/pubs/09-avant-apres-machine-feed.webp" data-story="../../assets/img/pubs/09-avant-apres-machine-story.webp" width="640" height="800" loading="lazy" alt="Ad in Danish: “Fra beskidte sko til en nem vaskerutine”, a trainer shown dirty then clean in front of a washing machine."></span>
+                  <span class="ad-face ad-face--back" aria-hidden="true">
+                    <span class="ad-back-title">From dirty shoes to an easy washing routine</span>
+                    <span>Before washing, after washing</span>
+                    <span>Shoe laundry bag</span>
+                    <span>Note: illustration of use</span>
+                    <span class="ad-back-cta">See how</span>
+                  </span>
+                </button>
+                <p class="ad-caption">Before and after (illustrative scene)</p>
+              </li>
+              <li class="ad">
+                <button class="ad-flip" type="button" aria-pressed="false">
+                  <span class="ad-face ad-face--front"><img src="../../assets/img/pubs/10-trois-etapes-machine-feed.webp" data-feed="../../assets/img/pubs/10-trois-etapes-machine-feed.webp" data-story="../../assets/img/pubs/10-trois-etapes-machine-story.webp" width="640" height="800" loading="lazy" alt="Ad in Danish: “Sådan bruger du vaskeposen”, three photos showing use with the washing machine."></span>
+                  <span class="ad-face ad-face--back" aria-hidden="true">
+                    <span class="ad-back-title">How to use the laundry bag</span>
+                    <span>1. Put the shoe in</span>
+                    <span>2. Close the bag and wash</span>
+                    <span>3. Take the shoe out</span>
+                    <span class="ad-back-cta">Discover the bag</span>
+                  </span>
+                </button>
+                <p class="ad-caption">In use, in the machine</p>
+              </li>
+            </ul>
+            <p class="sim-foot">I only show original concepts here. No ad performance figures were recorded, so I do not put any forward.</p>
+          </section>
+
+          <section>
+            <h2>Verifiable results</h2>
+            <ul class="results">
+              <li><span class="proof proof--count">Counted</span><span>Lighthouse mobile, 3 September 2026, bracelet shop: accessibility 100, SEO 100, performance between 52 and 76 in lab conditions.</span></li>
+              <li><span class="proof proof--count">Counted</span><span>Pre-launch audit: 29 URLs checked (200, 301 and 404 responses as expected), 293 resources loaded across three pages without a single 404 error, no third-party scripts.</span></li>
+              <li><span class="proof proof--fact">Recorded</span><span>Domain, payments and the English and Dutch versions live in early September 2026.</span></li>
+              <li><span class="proof proof--fact">Recorded</span><span>First real, paid order on 22 September 2026 for the shoe laundry bag shop; a first order for the bracelet shop too.</span></li>
+            </ul>
+            <div class="legend" aria-label="Key to the markers">
+              <span><span class="proof proof--count">Counted</span> taken from the tool</span>
+              <span><span class="proof proof--estimate">Estimated</span> no measurement protocol</span>
+              <span><span class="proof proof--fact">Recorded</span> dated, documented fact</span>
+            </div>
+          </section>
+
+          <section>
+            <h2>What I take away from it</h2>
+            <p>Having an agent write the code does not remove the work, it moves it: less typing, more specification, verification and traceability. It is the lesson from my internship, applied to a different field: the time saved on writing is reinvested in testing.</p>
+            <p>I also keep a very concrete rule from it: an automated tool processes everything you hand it, including things that should never have gone through it. The translated file names proved it.</p>
+          </section>
+
+          <nav class="case-next" aria-label="Other projects">
+            <a href="bordereaux-la-poste.html"><span>Previous project</span><strong>Automated La Poste shipping slips</strong></a>
+            <a href="../index.html#projets"><span>Back</span><strong>All projects</strong></a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Paul Morel, cloud and cybersecurity engineer (ISEP 2026)</p>
+      <p>Clients and colleagues are not named, for confidentiality.</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Automated La Poste shipping slips · Paul Morel</title>
+  <meta name="description" content="Node.js service that creates La Poste drop-off shipping slips through the API and links them to shipments in Airtable, hosted on Heroku with Google Cloud storage.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=JetBrains+Mono:wght@400;500&family=Public+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+  <link rel="alternate" hreflang="fr" href="../../projets/bordereaux-la-poste.html">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script src="../../assets/js/main.js"></script>
+  <script src="../../assets/js/sim-replay.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="wordmark" href="../index.html">Paul Morel</a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="../index.html#projets" aria-current="page">Projects</a></li>
+          <li><a href="../index.html#competences">Skills</a></li>
+          <li><a href="../index.html#a-propos">About</a></li>
+          <li><a href="../passions.html">Passions</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a class="lang-switch" href="../../projets/bordereaux-la-poste.html" hreflang="fr" lang="fr" title="Version française">FR</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Change theme">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>
+        </button>
+        <a class="btn" href="../../cv/Paul_Morel_CV.pdf" download>CV (PDF)</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <div class="wrap">
+      <header class="case-head">
+        <p class="breadcrumb"><a href="../index.html#projets">All projects</a></p>
+        <p class="case-kind"><strong>Second-year internship</strong>, assignment for the company, delivered</p>
+        <h1>Shipping slips created through an API, with no re-keying</h1>
+        <p class="case-lede">The Lost Recordings restores rare recordings and sells them on vinyl and CD worldwide. For its warehouse, I developed a Node.js service that creates La Poste drop-off shipping slips through the API and automatically links them to the shipments tracked in Airtable.</p>
+      </header>
+
+      <div class="case-body">
+        <aside class="case-meta" aria-label="Project summary">
+          <dl>
+            <div><dt>Setting</dt><dd>The Lost Recordings, a very small company with no premises: a fully remote internship, with logistics run from a regional warehouse</dd></div>
+            <div><dt>Period</dt><dd>2 September 2024 to 10 January 2025</dd></div>
+            <div><dt>My role</dt><dd>Sole developer on the project; architecture defined with the logistics manager and approved by the company's head</dd></div>
+            <div><dt>Tools</dt><dd><ul><li>Node.js, Express</li><li>Delivengo REST API (La Poste), then Colissimo</li><li>Airtable and its API</li><li>Google Cloud Storage</li><li>Heroku, Git</li></ul></dd></div>
+            <div><dt>Status when I left</dt><dd><span class="status status--done">Delivered and hosted</span></dd></div>
+          </dl>
+        </aside>
+
+        <div class="case-content">
+          <section>
+            <h2>Context and goal</h2>
+            <p>The company was growing fast, with sales on every continent, and was preparing for Black Friday and the release of new records. Shipments were tracked in Airtable, and producing La Poste drop-off shipping slips took time, effort and money.</p>
+            <p>My assignment: code a stand-alone application that generates the shipping slip when an order is ready to go, and that fits in with the tools already in place. I was the company's first intern, and Node.js, which was required for the project, was new to me.</p>
+          </section>
+
+          <section>
+            <h2>What I did</h2>
+            <h3>Understanding the API before writing code</h3>
+            <p>I started by studying the Delivengo API: request types, error codes, response format. In parallel, I learnt Node.js and compared hosting and storage options. With the logistics manager, we then mapped out the exchanges between the application, Airtable, the host and the storage, and broke down the work: local code first, then retrieving the documents, sending them to Airtable, and finally hosting.</p>
+
+            <section class="sim" data-sim="replay" aria-labelledby="sim-r-title">
+              <span class="sim-tag">Animated replay, fictitious data</span>
+              <div class="sim-head">
+                <h2 id="sim-r-title">The journey of a request</h2>
+                <p>Send one request, or three at once: the queue processes them one after another, and the diagram lights up at each step. Fictitious numbers; the code and credentials are not published.</p>
+              </div>
+              <div class="figure-frame">
+                <svg class="diagram" viewBox="0 0 760 270" role="img" aria-labelledby="b1-title b1-desc">
+                  <title id="b1-title">Architecture of the shipping-slip service</title>
+                  <desc id="b1-desc">Airtable sends the list of parcels ready to go to the Node.js service hosted on Heroku. The service queries the Delivengo API to look up each parcel, creates the drop-off and receives the shipping slip PDF. It stores the PDF in Google Cloud Storage, then updates the shipment in Airtable with the shipping slip attached and the drop-off number.</desc>
+                  <defs>
+                    <marker id="b1-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="head" d="M0,0 L10,5 L0,10 z"/></marker>
+                  </defs>
+                  <rect class="box" data-step="1" x="10" y="30" width="180" height="72" rx="8"/>
+                  <text class="t t--b" x="100" y="58" text-anchor="middle">Airtable</text>
+                  <text class="t--s" x="100" y="78" text-anchor="middle">shipments ready</text>
+
+                  <rect class="box--key" data-step="0" x="270" y="30" width="220" height="72" rx="8"/>
+                  <text class="t--inv" x="380" y="58" text-anchor="middle">Node.js service (Express)</text>
+                  <text class="t--s" x="380" y="78" text-anchor="middle" style="fill: var(--paper); opacity: .8">Heroku, queue</text>
+
+                  <rect class="box" data-step="2" x="570" y="30" width="180" height="72" rx="8"/>
+                  <text class="t t--b" x="660" y="58" text-anchor="middle">Delivengo API</text>
+                  <text class="t--s" x="660" y="78" text-anchor="middle">La Poste</text>
+
+                  <path class="line" data-step="1" d="M190,66 H266" marker-end="url(#b1-arrow)"/>
+                  <text class="t--code" x="228" y="58" text-anchor="middle">POST /depot</text>
+
+                  <path class="line" data-step="2" d="M490,52 H566" marker-end="url(#b1-arrow)"/>
+                  <text class="t--s" x="528" y="44" text-anchor="middle">drop-off</text>
+                  <path class="line" data-step="3" d="M566,82 H494" marker-end="url(#b1-arrow)"/>
+                  <text class="t--s" x="530" y="98" text-anchor="middle">PDF (base64)</text>
+
+                  <path class="line" data-step="4" d="M460,102 V140 H660 V176" marker-end="url(#b1-arrow)"/>
+                  <text class="t--s" x="560" y="133" text-anchor="middle">PDF upload</text>
+                  <rect class="box--soft" data-step="4" x="570" y="180" width="180" height="72" rx="8"/>
+                  <text class="t t--b" x="660" y="208" text-anchor="middle">Google Cloud Storage</text>
+                  <text class="t--s" x="660" y="228" text-anchor="middle">shipping slip PDF</text>
+
+                  <path class="line" data-step="5" d="M300,102 V140 H120 V176" marker-end="url(#b1-arrow)"/>
+                  <text class="t--s" x="210" y="133" text-anchor="middle">update</text>
+                  <rect class="box--ok" data-step="5" x="10" y="180" width="260" height="72" rx="8"/>
+                  <text class="t t--b" x="140" y="208" text-anchor="middle">Shipment updated</text>
+                  <text class="t--s" x="140" y="228" text-anchor="middle">shipping slip attached, drop-off no.</text>
+                </svg>
+              </div>
+              <div class="sim-controls">
+                <button class="sim-btn" type="button" data-act="one">Send one request</button>
+                <button class="sim-btn sim-btn--quiet" type="button" data-act="three">Send three requests at once</button>
+              </div>
+              <div class="rp-queue" data-queue></div>
+              <ol class="rp-console" data-console aria-live="polite">
+                <li class="muted">$ npm start</li>
+                <li class="muted">Server listening on port 3000</li>
+              </ol>
+            </section>
+
+            <h3>The service</h3>
+            <ul>
+              <li>A route receives from Airtable the list of parcels to drop off and rejects malformed requests.</li>
+              <li>A queue processes the requests one at a time, and each one gets its own response once its drop-off is complete.</li>
+              <li>For each parcel, the service looks up its identifier through the API, then creates the drop-off and retrieves the shipping slip as a PDF.</li>
+              <li>The PDF is stored in Google Cloud Storage, and the matching shipment is updated in Airtable: shipping slip attached and drop-off number.</li>
+              <li>Each step writes an explicit error message to the logs, so you know straight away where a request failed.</li>
+            </ul>
+            <p>I then adapted the same design for the Colissimo API, on the second assignment of the same kind.</p>
+
+            <h3>The difficulties</h3>
+            <ul>
+              <li><strong>Imprecise API documentation</strong>, particularly for retrieving the PDFs and building the requests: I made progress using the error codes returned, the documentation and developer forums.</li>
+              <li><strong>An incompatible format.</strong> The API returns the shipping slip in a form that Airtable cannot attach directly. Hence the intermediate storage step in Google Cloud Storage.</li>
+              <li><strong>A scope to clarify.</strong> At first I thought I had to build a graphical interface; that was not expected. Regular discussions helped refocus the goal.</li>
+              <li><strong>Testing</strong> covered the reliability of the API calls, the interaction with Airtable and the generation of the shipping slips, checking that no sensitive information ended up in the Airtable data.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Verifiable results</h2>
+            <ul class="results">
+              <li><span class="proof proof--fact">Recorded</span><span>Service delivered and hosted on Heroku, with documentation and a Git repository handed over to the company for maintenance.</span></li>
+              <li><span class="proof proof--estimate">Estimated</span><span>Hosting and storage cost of about two euro cents a month, according to my internship report.</span></li>
+              <li><span class="proof proof--fact">Recorded</span><span>The time saved on preparing shipments was not measured, so I do not put forward a figure.</span></li>
+            </ul>
+            <div class="legend" aria-label="Key to the markers">
+              <span><span class="proof proof--count">Counted</span> taken from the tool</span>
+              <span><span class="proof proof--estimate">Estimated</span> no measurement protocol</span>
+              <span><span class="proof proof--fact">Recorded</span> dated, documented fact</span>
+            </div>
+          </section>
+
+          <section>
+            <h2>What this internship taught me</h2>
+            <p>Reading API documentation and working out the right requests from it, learning a language on the job in a month, and designing a service meant to be maintained by others: it was the first time I had written professional documentation. Working fully remotely, with a single, often busy, point of contact, also made me look for answers on my own before asking.</p>
+          </section>
+
+          <nav class="case-next" aria-label="Other projects">
+            <a href="licences-flex.html"><span>Previous project</span><strong>Test licences assigned and reclaimed</strong></a>
+            <a href="e-commerce.html"><span>Next project</span><strong>E-commerce shops</strong></a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Paul Morel, cloud and cybersecurity engineer (ISEP 2026)</p>
+      <p>Clients and colleagues are not named, for confidentiality.</p>
+    </div>
+  </footer>
+</body>
+</html>
