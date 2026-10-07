@@ -1503,3 +1503,65 @@ a.pill:hover { background: color-mix(in srgb, var(--pc) 22%, transparent); }
 }
 .ad-still { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 8px; border: 1px solid var(--rule); display: block; }
 @media (min-width: 64rem) { .skill-group-head { min-height: 4.6rem; } }
+
+/* ---------- Passions : carte joueur FACEIT ---------- */
+.player {
+  margin-top: 0.5rem;
+  border-radius: 20px;
+  padding: clamp(1.25rem, 0.8rem + 2vw, 2.25rem);
+  color: var(--map-text);
+  background:
+    radial-gradient(120% 140% at 100% 0%, rgba(255, 85, 0, 0.28), transparent 55%),
+    radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1.3px) 0 0 / 20px 20px,
+    var(--map-bg);
+  border: 1px solid var(--map-line);
+}
+.player-id { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem; margin-bottom: 1.75rem; }
+.player-id > div:nth-child(2) { flex: 1; min-width: 12rem; }
+.player-kicker { margin: 0; font-size: var(--step--1); color: var(--map-dim); }
+.player-name { font-size: clamp(2.6rem, 1.6rem + 4vw, 4.6rem); font-weight: 780; letter-spacing: -0.03em; line-height: 1; font-variation-settings: "wdth" 80; color: #fff; }
+.player-sub { margin: 0.4rem 0 0; color: var(--map-dim); font-size: var(--step--1); }
+.player .cs-level { width: 5.5rem; height: 5.5rem; font-size: 2.3rem; box-shadow: 0 0 0 6px rgba(255, 85, 0, 0.25), inset 0 0 0 5px rgba(0,0,0,0.25); }
+.player-link {
+  font-weight: 650; text-decoration: none; color: #fff;
+  background: #ff5500; padding: 0.75rem 1.1rem; border-radius: 999px; white-space: nowrap;
+}
+.player-link:hover { background: #ff6d1f; }
+.player-ranks { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr)); }
+.rank { background: rgba(255, 255, 255, 0.04); border: 1px solid var(--map-line); border-radius: 14px; padding: 1rem 1.1rem; }
+.rank strong { display: block; font: 780 clamp(1.9rem, 1.4rem + 1.6vw, 2.6rem)/1 var(--font-display); letter-spacing: -0.02em; margin: 0.6rem 0 0.35rem; color: #fff; font-variation-settings: "wdth" 85; }
+.rank > span:last-child { font-size: var(--step--1); color: var(--map-dim); }
+.rank-flag { display: inline-grid; place-items: center; min-width: 2.2rem; height: 1.45rem; padding: 0 0.4rem; border-radius: 4px; font: 700 0.7rem/1 var(--font-body); color: var(--map-text); background: rgba(255,255,255,0.08); }
+.rank--fr .rank-flag { color: #10202a; background: linear-gradient(90deg, #2b4fa8 0 33.3%, #f4f4f4 33.3% 66.6%, #d8343d 66.6%); }
+.rank--eu .rank-flag { color: #ffd23f; background: #2b4fa8; }
+.rank--fr strong, .rank--eu strong { color: #ff8a4c; }
+.player-note { margin: 1rem 0 0; font-size: 0.75rem; color: var(--map-dim); max-width: none; }
+
+/* ---------- Passions : musique ---------- */
+.music { border-top: 1px solid var(--rule); padding-block: clamp(2.5rem, 1.5rem + 3vw, 4rem); }
+.music-head { max-width: 46rem; margin-bottom: 1.5rem; }
+.music-head h2 { font-size: var(--step-3); margin-bottom: 0.75rem; }
+.music-sub { font-size: var(--step-1); margin: 1.75rem 0 0.9rem; }
+.artists { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; }
+@media (min-width: 48rem) { .artists { grid-template-columns: repeat(3, minmax(0, 1fr)); } .artists--two { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.artist {
+  --ac: var(--ink);
+  position: relative; overflow: hidden;
+  background: var(--surface); border: 1px solid var(--rule); border-radius: 16px;
+  padding: 1.25rem 1.25rem 1.1rem;
+  border-top: 1px solid var(--rule);
+}
+.artist::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 5rem; background: linear-gradient(180deg, color-mix(in srgb, var(--ac) 22%, transparent), transparent); pointer-events: none; }
+.artist-mono { position: absolute; right: 0.6rem; top: -1.1rem; font: 800 6.5rem/1 var(--font-display); color: color-mix(in srgb, var(--ac) 28%, transparent); font-variation-settings: "wdth" 75; pointer-events: none; }
+.artist h4 { position: relative; font: 700 var(--step-1)/1.2 var(--font-display); margin: 1.5rem 0 0.35rem; }
+.artist p { position: relative; font-size: var(--step--1); color: var(--ink-2); margin: 0 0 0.75rem; }
+.artist-work { color: var(--ink) !important; font-weight: 600; }
+.artist-work span { display: block; font-weight: 400; color: var(--ink-2); font-size: 0.75rem; }
+.artist a { position: relative; font-size: var(--step--1); font-weight: 600; color: var(--ac); }
+.artist--nirvana { --ac: #c9a400; }
+.artist--depeche { --ac: #c0392b; }
+.artist--u2 { --ac: #2f7fc1; }
+.artist--chopin { --ac: #7a62b8; }
+.artist--rach { --ac: #a8783a; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .artist--nirvana { --ac: #f2c94c; } :root:not([data-theme="light"]) .artist--u2 { --ac: #6fb3ea; } :root:not([data-theme="light"]) .artist--chopin { --ac: #b3a1ea; } :root:not([data-theme="light"]) .artist--depeche { --ac: #ef6b5f; } :root:not([data-theme="light"]) .artist--rach { --ac: #d8a866; } }
+:root[data-theme="dark"] .artist--nirvana { --ac: #f2c94c; } :root[data-theme="dark"] .artist--u2 { --ac: #6fb3ea; } :root[data-theme="dark"] .artist--chopin { --ac: #b3a1ea; } :root[data-theme="dark"] .artist--depeche { --ac: #ef6b5f; } :root[data-theme="dark"] .artist--rach { --ac: #d8a866; }

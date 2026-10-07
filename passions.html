@@ -45,6 +45,25 @@
         <p>Counter-Strike en compétition depuis 2017, et la musique, du rock au piano romantique.</p>
       </header>
 
+      <section class="player" aria-labelledby="player-titre">
+        <div class="player-id">
+          <div class="cs-level" aria-label="Niveau FACEIT 10">10</div>
+          <div>
+            <p class="player-kicker">Mon profil FACEIT</p>
+            <h2 id="player-titre" class="player-name">BooJ_</h2>
+            <p class="player-sub">Counter-Strike 2, France, membre depuis décembre 2017</p>
+          </div>
+          <a class="player-link" href="https://www.faceit.com/en/players/BooJ_" target="_blank" rel="noopener">Voir le profil</a>
+        </div>
+        <ul class="player-ranks">
+          <li class="rank rank--fr"><span class="rank-flag" aria-hidden="true">FR</span><strong>232ᵉ</strong><span>en France</span></li>
+          <li class="rank rank--eu"><span class="rank-flag" aria-hidden="true">EU</span><strong>11 345ᵉ</strong><span>en Europe</span></li>
+          <li class="rank"><span class="rank-flag" aria-hidden="true">ELO</span><strong>2 881</strong><span>points, niveau 10 sur 10</span></li>
+          <li class="rank"><span class="rank-flag" aria-hidden="true">#</span><strong>3 600</strong><span>matchs joués (CS2 et CS:GO)</span></li>
+        </ul>
+        <p class="player-note">Classement FACEIT de la saison 9, relevé le 7 octobre 2026 ; il évolue à chaque match.</p>
+      </section>
+
       <!-- Counter-Strike -->
       <section class="passion" aria-labelledby="cs-titre">
         <div>
@@ -54,17 +73,6 @@
           <p>FACEIT génère automatiquement mes temps forts de match : wallbangs, 4K sur Nuke, clutchs en 1 contre 1. <a href="https://www.faceit.com/en/players/BooJ_/videos" target="_blank" rel="noopener">Voir mes clips sur FACEIT</a> (connexion FACEIT requise pour les lire).</p>
         </div>
         <div class="instrument" data-reflex>
-          <div class="cs-card">
-            <div class="cs-level" aria-label="Niveau FACEIT 10">10</div>
-            <div>
-              <dl class="cs-stats">
-                <div><dt>ELO en CS2</dt><dd>2 881</dd></div>
-                <div><dt>Matchs CS2</dt><dd>1 660</dd></div>
-                <div><dt>Matchs CS:GO</dt><dd>1 940</dd></div>
-              </dl>
-              <p style="margin: 0.4rem 0 0; font-size: 0.75rem">Profil public <a class="cs-link" href="https://www.faceit.com/en/players/BooJ_" target="_blank" rel="noopener">BooJ_</a>, relevé le 7 octobre 2026.</p>
-            </div>
-          </div>
           <h3>Test de réflexes</h3>
           <p>Une cible apparaît après un délai aléatoire : cliquez-la (ou appuyez sur Espace) le plus vite possible. Cinq manches.</p>
           <div class="arena" data-arena tabindex="0" role="application" aria-label="Zone du test de réflexes">
@@ -113,22 +121,53 @@
       </section>
 
       <!-- Musique -->
-      <section class="passion" aria-labelledby="musique-titre">
-        <div>
+      <section class="music" aria-labelledby="musique-titre">
+        <div class="music-head">
           <p class="passion-kicker">Musique</p>
           <h2 id="musique-titre">Guitare et piano</h2>
           <p>Je joue de la guitare et du piano. Deux instruments, deux univers : le rock d'un côté, les romantiques de l'autre.</p>
         </div>
-        <div class="music-cards">
-          <article class="music-card">
-            <h3>Guitare, côté rock</h3>
-            <ul class="tags" aria-label="Groupes préférés"><li>Nirvana</li><li>Depeche Mode</li><li>U2</li></ul>
-          </article>
-          <article class="music-card">
-            <h3>Piano, côté romantique</h3>
-            <ul class="tags" aria-label="Compositeurs préférés"><li>Frédéric Chopin</li><li>Sergueï Rachmaninoff</li></ul>
-          </article>
-        </div>
+        <h3 class="music-sub">À la guitare, côté rock</h3>
+        <ul class="artists">
+          <li class="artist artist--nirvana">
+            <span class="artist-mono" aria-hidden="true">N</span>
+            <h4>Nirvana</h4>
+            <p>Grunge, Aberdeen (Washington), 1987–1994</p>
+            <p class="artist-work"><span>Œuvre emblématique</span>Nevermind (1991)</p>
+            <a href="https://music.youtube.com/search?q=Nirvana+Nevermind" target="_blank" rel="noopener">Écouter sur YouTube Music</a>
+          </li>
+          <li class="artist artist--depeche">
+            <span class="artist-mono" aria-hidden="true">D</span>
+            <h4>Depeche Mode</h4>
+            <p>Synth-pop, Basildon, depuis 1980</p>
+            <p class="artist-work"><span>Œuvre emblématique</span>Violator (1990)</p>
+            <a href="https://music.youtube.com/search?q=Depeche+Mode+Violator" target="_blank" rel="noopener">Écouter sur YouTube Music</a>
+          </li>
+          <li class="artist artist--u2">
+            <span class="artist-mono" aria-hidden="true">U</span>
+            <h4>U2</h4>
+            <p>Rock, Dublin, depuis 1976</p>
+            <p class="artist-work"><span>Œuvre emblématique</span>The Joshua Tree (1987)</p>
+            <a href="https://music.youtube.com/search?q=U2+The+Joshua+Tree" target="_blank" rel="noopener">Écouter sur YouTube Music</a>
+          </li>
+        </ul>
+        <h3 class="music-sub">Au piano, côté romantique</h3>
+        <ul class="artists artists--two">
+          <li class="artist artist--chopin">
+            <span class="artist-mono" aria-hidden="true">F</span>
+            <h4>Frédéric Chopin</h4>
+            <p>Compositeur et pianiste romantique, 1810–1849</p>
+            <p class="artist-work"><span>Œuvre emblématique</span>Nocturnes, op. 9</p>
+            <a href="https://music.youtube.com/search?q=Chopin+Nocturnes+op+9" target="_blank" rel="noopener">Écouter sur YouTube Music</a>
+          </li>
+          <li class="artist artist--rach">
+            <span class="artist-mono" aria-hidden="true">S</span>
+            <h4>Sergueï Rachmaninoff</h4>
+            <p>Compositeur et pianiste, 1873–1943</p>
+            <p class="artist-work"><span>Œuvre emblématique</span>Concerto pour piano n° 2 (1901)</p>
+            <a href="https://music.youtube.com/search?q=Rachmaninoff+Piano+Concerto+2" target="_blank" rel="noopener">Écouter sur YouTube Music</a>
+          </li>
+        </ul>
       </section>
     </div>
   </main>

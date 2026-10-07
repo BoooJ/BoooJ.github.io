@@ -45,6 +45,25 @@
         <p>Competitive Counter-Strike since 2017, and music, from rock to romantic piano.</p>
       </header>
 
+      <section class="player" aria-labelledby="player-titre">
+        <div class="player-id">
+          <div class="cs-level" aria-label="FACEIT level 10">10</div>
+          <div>
+            <p class="player-kicker">My FACEIT profile</p>
+            <h2 id="player-titre" class="player-name">BooJ_</h2>
+            <p class="player-sub">Counter-Strike 2, France, member since December 2017</p>
+          </div>
+          <a class="player-link" href="https://www.faceit.com/en/players/BooJ_" target="_blank" rel="noopener">View the profile</a>
+        </div>
+        <ul class="player-ranks">
+          <li class="rank rank--fr"><span class="rank-flag" aria-hidden="true">FR</span><strong>#232</strong><span>in France</span></li>
+          <li class="rank rank--eu"><span class="rank-flag" aria-hidden="true">EU</span><strong>#11,345</strong><span>in Europe</span></li>
+          <li class="rank"><span class="rank-flag" aria-hidden="true">ELO</span><strong>2,881</strong><span>points, level 10 of 10</span></li>
+          <li class="rank"><span class="rank-flag" aria-hidden="true">#</span><strong>3,600</strong><span>matches played (CS2 and CS:GO)</span></li>
+        </ul>
+        <p class="player-note">FACEIT season 9 ranking, checked on 7 October 2026; it changes with every match.</p>
+      </section>
+
       <!-- Counter-Strike -->
       <section class="passion" aria-labelledby="cs-titre">
         <div>
@@ -54,17 +73,6 @@
           <p>FACEIT automatically generates highlights from my matches: wallbangs, a 4K on Nuke, 1v1 clutches. <a href="https://www.faceit.com/en/players/BooJ_/videos" target="_blank" rel="noopener">See my clips on FACEIT</a> (a FACEIT login is needed to play them).</p>
         </div>
         <div class="instrument" data-reflex>
-          <div class="cs-card">
-            <div class="cs-level" aria-label="FACEIT level 10">10</div>
-            <div>
-              <dl class="cs-stats">
-                <div><dt>CS2 Elo</dt><dd>2,881</dd></div>
-                <div><dt>CS2 matches</dt><dd>1,660</dd></div>
-                <div><dt>CS:GO matches</dt><dd>1,940</dd></div>
-              </dl>
-              <p style="margin: 0.4rem 0 0; font-size: 0.75rem">Public profile <a class="cs-link" href="https://www.faceit.com/en/players/BooJ_" target="_blank" rel="noopener">BooJ_</a>, checked on 7 October 2026.</p>
-            </div>
-          </div>
           <h3>Reflex test</h3>
           <p>A target appears after a random delay: click it (or press Space) as fast as you can. Five rounds.</p>
           <div class="arena" data-arena tabindex="0" role="application" aria-label="Reflex test area">
@@ -113,22 +121,53 @@
       </section>
 
       <!-- Music -->
-      <section class="passion" aria-labelledby="musique-titre">
-        <div>
+      <section class="music" aria-labelledby="musique-titre">
+        <div class="music-head">
           <p class="passion-kicker">Music</p>
           <h2 id="musique-titre">Guitar and piano</h2>
           <p>I play the guitar and the piano. Two instruments, two worlds: rock on one side, the Romantics on the other.</p>
         </div>
-        <div class="music-cards">
-          <article class="music-card">
-            <h3>Guitar, the rock side</h3>
-            <ul class="tags" aria-label="Favourite bands"><li>Nirvana</li><li>Depeche Mode</li><li>U2</li></ul>
-          </article>
-          <article class="music-card">
-            <h3>Piano, the Romantic side</h3>
-            <ul class="tags" aria-label="Favourite composers"><li>Frédéric Chopin</li><li>Sergei Rachmaninoff</li></ul>
-          </article>
-        </div>
+        <h3 class="music-sub">On the guitar, the rock side</h3>
+        <ul class="artists">
+          <li class="artist artist--nirvana">
+            <span class="artist-mono" aria-hidden="true">N</span>
+            <h4>Nirvana</h4>
+            <p>Grunge, Aberdeen (Washington), 1987–1994</p>
+            <p class="artist-work"><span>Landmark work</span>Nevermind (1991)</p>
+            <a href="https://music.youtube.com/search?q=Nirvana+Nevermind" target="_blank" rel="noopener">Listen on YouTube Music</a>
+          </li>
+          <li class="artist artist--depeche">
+            <span class="artist-mono" aria-hidden="true">D</span>
+            <h4>Depeche Mode</h4>
+            <p>Synth-pop, Basildon, since 1980</p>
+            <p class="artist-work"><span>Landmark work</span>Violator (1990)</p>
+            <a href="https://music.youtube.com/search?q=Depeche+Mode+Violator" target="_blank" rel="noopener">Listen on YouTube Music</a>
+          </li>
+          <li class="artist artist--u2">
+            <span class="artist-mono" aria-hidden="true">U</span>
+            <h4>U2</h4>
+            <p>Rock, Dublin, since 1976</p>
+            <p class="artist-work"><span>Landmark work</span>The Joshua Tree (1987)</p>
+            <a href="https://music.youtube.com/search?q=U2+The+Joshua+Tree" target="_blank" rel="noopener">Listen on YouTube Music</a>
+          </li>
+        </ul>
+        <h3 class="music-sub">On the piano, the Romantic side</h3>
+        <ul class="artists artists--two">
+          <li class="artist artist--chopin">
+            <span class="artist-mono" aria-hidden="true">F</span>
+            <h4>Frédéric Chopin</h4>
+            <p>Romantic composer and pianist, 1810–1849</p>
+            <p class="artist-work"><span>Landmark work</span>Nocturnes, op. 9</p>
+            <a href="https://music.youtube.com/search?q=Chopin+Nocturnes+op+9" target="_blank" rel="noopener">Listen on YouTube Music</a>
+          </li>
+          <li class="artist artist--rach">
+            <span class="artist-mono" aria-hidden="true">S</span>
+            <h4>Sergei Rachmaninoff</h4>
+            <p>Composer and pianist, 1873–1943</p>
+            <p class="artist-work"><span>Landmark work</span>Piano Concerto No. 2 (1901)</p>
+            <a href="https://music.youtube.com/search?q=Rachmaninoff+Piano+Concerto+2" target="_blank" rel="noopener">Listen on YouTube Music</a>
+          </li>
+        </ul>
       </section>
     </div>
   </main>
