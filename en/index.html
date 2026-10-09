@@ -51,6 +51,7 @@
           <div class="hero-actions">
             <a class="btn" href="#projets">See the projects</a>
             <a class="btn btn--quiet" href="../cv/Paul_Morel_CV.pdf" download>Download my CV (English)</a>
+            <a class="btn btn--quiet" href="#en-une-minute">The video (1 min)</a>
           </div>
           <ul class="hero-facts">
             <li><span><strong>2 tools in production</strong> at Good iD, a Google partner integrator: customer support and inventory.</span></li>
@@ -82,6 +83,32 @@
           <div class="flowmap-result" data-fm-result></div>
           <noscript><p class="fm-empty">The animated map needs JavaScript. The projects are described just below.</p></noscript>
         </div>
+      </div>
+    </section>
+
+    <!-- ============ Intro video ============ -->
+    <section class="section" id="en-une-minute" aria-labelledby="video-titre">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="video-titre">My work in one minute</h2>
+          <p>Four projects explained simply: the problem, what I built, the result. Silent animation.</p>
+        </div>
+        <figure class="pitch">
+          <video controls playsinline preload="none" width="1280" height="720" poster="../assets/video/presentation-en.jpg" aria-describedby="video-texte">
+            <source src="../assets/video/presentation-en.mp4" type="video/mp4">
+          </video>
+          <figcaption>An animation I designed in HTML and rendered frame by frame (1 min 08). The diagrams use fictional data; the figures come from the case studies.</figcaption>
+        </figure>
+        <details class="pitch-text" id="video-texte">
+          <summary>Read the video script</summary>
+          <ol>
+            <li><strong>Client support, Good iD (2026).</strong> Requests landed in each person's inbox, with no number and no tracking. I set up one shared address: every request gets a number, an automatic reply and a row in a tracking sheet. 21 real requests tracked from day one; the support team uses it today.</li>
+            <li><strong>Inventory by photo, Good iD (2026).</strong> Incoming equipment was copied by hand into a spreadsheet. My phone app reads the label on the box and fills in the record. 81 devices logged, in use since 12 June 2026.</li>
+            <li><strong>Test licences, Good iD (2026).</strong> Licences never taken back kept being paid for. My app grants the licence at sign-in and takes it back every night. Working in test.</li>
+            <li><strong>La Poste shipping slips, The Lost Recordings (2024).</strong> As soon as an order is ready, my program requests the slip from La Poste and attaches it to the shipment. Delivered and live when I left; I learned Node.js in a month to build it.</li>
+            <li><strong>Online stores, personal project (2026).</strong> AI agents write the code and the visuals; I set the rules and check everything. 100/100 for accessibility and SEO, first order in September 2026.</li>
+          </ol>
+        </details>
       </div>
     </section>
 

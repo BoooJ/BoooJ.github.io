@@ -1565,3 +1565,13 @@ a.pill:hover { background: color-mix(in srgb, var(--pc) 22%, transparent); }
 .artist--rach { --ac: #a8783a; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .artist--nirvana { --ac: #f2c94c; } :root:not([data-theme="light"]) .artist--u2 { --ac: #6fb3ea; } :root:not([data-theme="light"]) .artist--chopin { --ac: #b3a1ea; } :root:not([data-theme="light"]) .artist--depeche { --ac: #ef6b5f; } :root:not([data-theme="light"]) .artist--rach { --ac: #d8a866; } }
 :root[data-theme="dark"] .artist--nirvana { --ac: #f2c94c; } :root[data-theme="dark"] .artist--u2 { --ac: #6fb3ea; } :root[data-theme="dark"] .artist--chopin { --ac: #b3a1ea; } :root[data-theme="dark"] .artist--depeche { --ac: #ef6b5f; } :root[data-theme="dark"] .artist--rach { --ac: #d8a866; }
+
+/* ---------- Vidéo de présentation ---------- */
+.pitch { margin: 0; }
+.pitch video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; border-radius: var(--radius-m); border: 1px solid var(--rule); background: #10202a; }
+.pitch figcaption { font-size: var(--step--1); color: var(--ink-2); margin-top: 0.6rem; max-width: 46rem; }
+.pitch-text { margin-top: 1rem; max-width: 46rem; }
+.pitch-text summary { cursor: pointer; font-weight: 600; font-size: var(--step--1); }
+.pitch-text summary:hover { text-decoration: underline; }
+.pitch-text ol { margin: 0.75rem 0 0; padding-left: 1.25rem; display: grid; gap: 0.6rem; color: var(--ink-2); }
+.pitch-text strong { color: var(--ink); }

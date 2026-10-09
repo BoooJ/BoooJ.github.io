@@ -51,6 +51,7 @@
           <div class="hero-actions">
             <a class="btn" href="#projets">Voir les projets</a>
             <a class="btn btn--quiet" href="cv/Paul_Morel_CV.pdf" download>Télécharger le CV</a>
+            <a class="btn btn--quiet" href="#en-une-minute">La vidéo (1 min)</a>
           </div>
           <ul class="hero-facts">
             <li><span><strong>2 outils en production</strong> chez Good iD, intégrateur partenaire de Google : support client et inventaire.</span></li>
@@ -82,6 +83,32 @@
           <div class="flowmap-result" data-fm-result></div>
           <noscript><p class="fm-empty">La carte animée a besoin de JavaScript. Les projets sont décrits juste en dessous.</p></noscript>
         </div>
+      </div>
+    </section>
+
+    <!-- ============ Vidéo de présentation ============ -->
+    <section class="section" id="en-une-minute" aria-labelledby="video-titre">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="video-titre">Mon parcours en une minute</h2>
+          <p>Quatre projets racontés simplement : le problème, ce que j'ai construit, le résultat. Animation sans son.</p>
+        </div>
+        <figure class="pitch">
+          <video controls playsinline preload="none" width="1280" height="720" poster="assets/video/presentation-fr.jpg" aria-describedby="video-texte">
+            <source src="assets/video/presentation-fr.mp4" type="video/mp4">
+          </video>
+          <figcaption>Animation que j'ai conçue en HTML et rendue image par image (1 min 08). Les schémas utilisent des données fictives ; les chiffres viennent des études de cas.</figcaption>
+        </figure>
+        <details class="pitch-text" id="video-texte">
+          <summary>Lire le texte de la vidéo</summary>
+          <ol>
+            <li><strong>Support client, Good iD (2026).</strong> Les demandes arrivaient dans la boîte mail de chacun, sans numéro ni suivi. J'ai mis en place une adresse unique : chaque demande reçoit un numéro, une réponse automatique et une ligne dans un tableau de suivi. 21 demandes réelles suivies dès la mise en service ; l'équipe support s'en sert aujourd'hui.</li>
+            <li><strong>Inventaire par photo, Good iD (2026).</strong> Le matériel reçu était recopié à la main dans un tableur. Mon application sur téléphone lit l'étiquette du carton et remplit la fiche. 81 appareils enregistrés, en service depuis le 12 juin 2026.</li>
+            <li><strong>Licences de test, Good iD (2026).</strong> Des licences jamais reprises continuaient d'être payées. Mon application donne la licence à la connexion et la reprend chaque nuit. Fonctionnelle en test.</li>
+            <li><strong>Bordereaux La Poste, The Lost Recordings (2024).</strong> Dès qu'une commande est prête, mon programme demande le bordereau à La Poste et le joint à l'expédition. Livré et en ligne à mon départ ; Node.js appris en un mois pour le construire.</li>
+            <li><strong>Boutiques en ligne, projet personnel (2026).</strong> Des agents IA écrivent le code et les visuels ; je fixe les règles et je vérifie tout. 100/100 en accessibilité et en référencement, première commande en septembre 2026.</li>
+          </ol>
+        </details>
       </div>
     </section>
 
