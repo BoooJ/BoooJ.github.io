@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Caderno, carnet de portugais brésilien · Paul Morel</title>
+  <meta name="description" content="Application installable sur iPhone pour traduire, garder ses mots avec un exemple et réviser les conjugaisons du portugais brésilien, même hors connexion. Construite en une journée en pilotant un agent IA.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=JetBrains+Mono:wght@400;500&family=Public+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+  <link rel="alternate" hreflang="en" href="../en/projets/caderno.html">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script src="../assets/js/main.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="wordmark" href="../index.html">Paul Morel</a>
+      <nav class="site-nav" aria-label="Navigation principale">
+        <ul>
+          <li><a href="../index.html#projets" aria-current="page">Projets</a></li>
+          <li><a href="../index.html#competences">Compétences</a></li>
+          <li><a href="../index.html#a-propos">À propos</a></li>
+          <li><a href="../passions.html">Passions</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a class="lang-switch" href="../en/projets/caderno.html" hreflang="en" lang="en" title="English version">EN</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Changer de thème">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>
+        </button>
+        <a class="btn" href="../cv/Paul_Morel_CV.pdf" download>CV (PDF)</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <div class="wrap">
+      <header class="case-head">
+        <p class="breadcrumb"><a href="../index.html#nouveaux">Nouveaux projets</a></p>
+        <p class="case-kind"><strong>Projet personnel</strong>, application installable sur téléphone, construite en pilotant un agent IA</p>
+        <h1>Caderno : un carnet de portugais brésilien qui tient dans la poche</h1>
+        <p class="case-lede">J'apprends le portugais brésilien. Je voulais un seul endroit pour traduire un mot, le garder avec un vrai exemple et réviser mes conjugaisons, sur téléphone comme sur ordinateur, même sans réseau. J'ai conçu Caderno et je l'ai fait construire par un agent de code IA en une journée, jusqu'à sa mise en ligne sur mon serveur.</p>
+      </header>
+
+      <div class="case-body">
+        <aside class="case-meta" aria-label="Fiche du projet">
+          <dl>
+            <div><dt>Cadre</dt><dd>Projet personnel, pour mon usage quotidien</dd></div>
+            <div><dt>Période</dt><dd>10 octobre 2026 : versions 0.1 à 0.2 et mise en ligne le même jour</dd></div>
+            <div><dt>Mon rôle</dt><dd>Besoin, cahier des charges et contraintes (gratuité, données privées, hors connexion), vérification de chaque version, mise en ligne. Le code est écrit par un agent IA (Codex).</dd></div>
+            <div><dt>Outils</dt><dd><ul><li>React, TypeScript, Vite</li><li>Express 5, SQLite (Node.js 24)</li><li>Application web installable (PWA)</li><li>Playwright, Docker, Caddy, serveur VPS Linux</li></ul></dd></div>
+            <div><dt>État</dt><dd><span class="status status--prod">En ligne</span> accès protégé par mot de passe</dd></div>
+          </dl>
+        </aside>
+
+        <div class="case-content">
+          <section>
+            <h2>Le besoin et les contraintes</h2>
+            <p>Un traducteur donne un mot, mais pas l'envie de le retenir. Il me fallait un carnet personnel qui garde chaque mot avec son sens, un exemple et mes notes, et des tableaux de conjugaison fiables. Trois contraintes ont guidé le cahier des charges :</p>
+            <ul>
+              <li><strong>Gratuit.</strong> Pas d'abonnement : la traduction passe par le service gratuit MyMemory, limité à 5 000 caractères par jour. Caderno s'impose une limite plus prudente de 4 500 caractères et garde en mémoire les traductions déjà faites, qui ne consomment rien.</li>
+              <li><strong>Des données qui restent à moi.</strong> Seul le texte à traduire part vers le service ; les notes, exemples et fiches restent sur mon serveur.</li>
+              <li><strong>Utilisable partout.</strong> L'application s'installe sur iPhone et se consulte hors connexion : le carnet et les conjugaisons restent lisibles sans réseau.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Ce que fait l'application</h2>
+            <figure class="figure figure--wide">
+              <div class="figure-frame figure-frame--flush">
+                <img src="../assets/img/apps/caderno-traduire.webp" width="1556" height="698" loading="lazy" alt="Écran Traduire de Caderno : titre « Les mots pour ta vie ici », zone de saisie du français vers le portugais brésilien, compteur du quota gratuit et suggestions de phrases du quotidien.">
+              </div>
+              <figcaption>L'écran de traduction, avec le compteur du quota gratuit du jour.</figcaption>
+            </figure>
+            <ul class="feature-list">
+              <li><strong>Traduire</strong> du français vers le portugais brésilien et inversement.</li>
+              <li><strong>Comprendre</strong> le mot : synonymes regroupés par sens et exemples bilingues, avec leur source et leurs auteurs.</li>
+              <li><strong>Garder</strong> le mot dans son carnet avec l'exemple choisi, le retrouver par une recherche sans accents et le réviser en cartes.</li>
+              <li><strong>Conjuguer</strong> 60 verbes du quotidien à quatre temps, et ajouter ses propres verbes, dont les formes sont récupérées sur une conjugaison de référence.</li>
+              <li><strong>Sauvegarder</strong> son carnet dans un fichier et le réimporter sans écraser les fiches existantes.</li>
+            </ul>
+            <div class="figure-pair">
+              <figure class="figure">
+                <div class="figure-frame figure-frame--flush">
+                  <img src="../assets/img/apps/caderno-synonymes.webp" width="1556" height="698" loading="lazy" alt="Après la traduction de « heureux » par « feliz » : synonymes portugais regroupés par sens (alegre, contente, sortudo…) et exemples bilingues comme « Nós éramos felizes. Nous étions heureux. »">
+                </div>
+                <figcaption>« Heureux » devient « feliz » : synonymes par sens et exemples avec leur source.</figcaption>
+              </figure>
+              <figure class="figure">
+                <div class="figure-frame figure-frame--flush">
+                  <img src="../assets/img/apps/caderno-verbes.webp" width="1556" height="698" loading="lazy" alt="Fiche du verbe « ser » au présent : sou, és, é, é, somos, são, avec une note d'usage et un exemple.">
+                </div>
+                <figcaption>Le verbe « ser » au présent, avec une note d'usage et un exemple.</figcaption>
+              </figure>
+            </div>
+          </section>
+
+          <section>
+            <h2>Comment je l'ai fait construire</h2>
+            <p>Le vibe coding ne remplace pas la rigueur, il la déplace. Je n'ai pas écrit le code, mais j'ai fixé ce qu'il devait faire, ce qu'il ne devait pas faire, et comment prouver que c'était fait.</p>
+            <ol class="method">
+              <li><strong>Un cahier des charges précis</strong> : fonctions, limites du service gratuit, données envoyées à l'extérieur, comportement hors connexion.</li>
+              <li><strong>Une vérification à chaque version</strong>, consignée dans un journal : compilation, tests, captures sur ordinateur et sur téléphone.</li>
+              <li><strong>Un audit</strong> du parcours et du code, dont sept constats ont été corrigés : contraste des textes, taille des boutons sur téléphone, données hors connexion mal formées, résultats périmés.</li>
+              <li><strong>Une mise en ligne prudente</strong> sur un serveur qui héberge déjà d'autres applications : dossier, conteneur et port séparés, et vérification que les autres répondent toujours.</li>
+            </ol>
+          </section>
+
+          <section>
+            <h2>Résultats vérifiables</h2>
+            <ul class="results">
+              <li><span class="proof proof--count">Compté</span><span>765 formes verbales vérifiées une à une sur la conjugaison de référence.</span></li>
+              <li><span class="proof proof--count">Compté</span><span>26 tests automatiques réussis : 11 sur les données et l'API, 14 parcours dans un navigateur (Chromium, et WebKit au format iPhone), 1 test de lecture hors connexion.</span></li>
+              <li><span class="proof proof--fact">Constaté</span><span>En ligne en HTTPS depuis le 10 octobre 2026 ; les deux autres applications du serveur répondent toujours.</span></li>
+              <li><span class="proof proof--fact">Constaté</span><span>Accès par mot de passe, cookie de session protégé, contrôle de l'origine des requêtes et limite de tentatives de connexion. Audit des dépendances : aucune vulnérabilité signalée.</span></li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Limites connues</h2>
+            <ul>
+              <li><strong>Des services gratuits.</strong> Ils peuvent être indisponibles, et un mot rare peut n'avoir ni synonyme ni exemple.</li>
+              <li><strong>Des exemples à vérifier.</strong> Toutes les phrases d'exemple ne sont pas en portugais du Brésil ; chaque exemple garde un lien vers sa source.</li>
+              <li><strong>L'iPhone réel.</strong> Les tests simulent un iPhone ; l'installation sur un vrai appareil n'est pas couverte par les tests automatiques.</li>
+            </ul>
+          </section>
+
+          <nav class="case-next" aria-label="Autres projets">
+            <a href="sightline.html"><span>Projet précédent</span><strong>Sightline, analyse de matchs CS2</strong></a>
+            <a href="../index.html#projets"><span>Projets de stage</span><strong>Tous les projets</strong></a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Paul Morel, ingénieur cloud et cybersécurité (ISEP 2026)</p>
+      <p>L'adresse de l'application n'est pas publiée : elle est protégée par mot de passe.</p>
+    </div>
+  </footer>
+</body>
+</html>

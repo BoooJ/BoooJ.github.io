@@ -21,7 +21,7 @@
       <a class="wordmark" href="#contenu">Paul Morel</a>
       <nav class="site-nav" aria-label="Navigation principale">
         <ul>
-          <li><a href="#projets">Projets</a></li>
+          <li><a href="#nouveaux">Nouveaux projets</a><a href="#projets">Projets</a></li>
           <li><a href="#competences">Compétences</a></li>
           <li><a href="#a-propos">À propos</a></li>
           <li><a href="passions.html">Passions</a></li>
@@ -57,6 +57,7 @@
             <li><span><strong>2 outils en production</strong> chez Good iD, intégrateur partenaire de Google : support client et inventaire.</span></li>
             <li><span><strong>Node.js et API REST</strong> : un service de bordereaux La Poste livré pour The Lost Recordings.</span></li>
             <li><span><strong>Anglais C1</strong>, ouvert à un poste en France comme à l'étranger.</span></li>
+            <li><span><strong>2 applications en ligne</strong> construites en pilotant des agents IA, hébergées sur mon propre serveur.</span></li>
           </ul>
           <nav class="jump" aria-label="Accès rapide">
             <a href="#projets">Projets</a><a href="#vitrine">Vidéos et pubs</a><a href="#competences">Compétences</a><a href="passions.html">Passions</a><a href="#contact">Contact</a>
@@ -109,6 +110,55 @@
             <li><strong>Boutiques en ligne, projet personnel (2026).</strong> Des agents IA écrivent le code et les visuels ; je fixe les règles et je vérifie tout. 100/100 en accessibilité et en référencement, première commande en septembre 2026.</li>
           </ol>
         </details>
+      </div>
+    </section>
+
+    <!-- ============ Nouveaux projets : applications construites avec des agents IA ============ -->
+    <section class="section" id="nouveaux" aria-labelledby="nouveaux-titre">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Octobre 2026</p>
+          <h2 id="nouveaux-titre">Nouveaux projets : des applications complètes, construites en pilotant des agents IA</h2>
+          <p>On appelle cela le vibe coding : décrire en langage naturel ce que l'on veut et laisser une IA écrire le code. Seul, c'est rapide mais fragile. Ma part, c'est ce qui rend le résultat fiable : décider quoi construire, découper le travail, tout faire vérifier, puis faire tourner l'application en ligne sur mon propre serveur.</p>
+        </div>
+
+        <ol class="agent-steps">
+          <li><b>1</b><strong>Cadrer</strong><span>Le besoin, puis une spécification écrite et des critères de réussite avant la moindre ligne de code.</span></li>
+          <li><b>2</b><strong>Répartir</strong><span>Un plan découpé en petites tâches, confiées une à une à des agents IA (Claude Code, Codex).</span></li>
+          <li><b>3</b><strong>Vérifier</strong><span>Tests automatiques, relectures entre les tâches, audits comparés aux outils du marché.</span></li>
+          <li><b>4</b><strong>Exploiter</strong><span>Mise en ligne sur mon serveur Linux : Docker, HTTPS, accès protégé, sauvegardes.</span></li>
+        </ol>
+
+        <div class="apps-grid">
+          <a class="app-card" href="projets/sightline.html">
+            <div class="app-shot"><img src="assets/img/apps/sightline-card.webp" width="1050" height="525" loading="lazy" alt="Replay 2D d'un round de Counter-Strike 2 dans Sightline : les joueurs sur le radar, leur vie, leur argent et leurs armes."></div>
+            <div class="app-body">
+              <p class="project-kind"><strong>Projet personnel</strong>En ligne, accès par compte</p>
+              <h3>Sightline, l'analyse de matchs Counter-Strike 2</h3>
+              <p>Une application web qui transforme l'enregistrement d'un match en replay 2D, statistiques, heatmaps et outils de préparation d'équipe. Construite en trois jours.</p>
+              <ul class="app-facts">
+                <li><b>93</b> commits en 3 jours</li>
+                <li><b>13</b> documents de conception</li>
+                <li><b>32</b> fichiers de tests</li>
+              </ul>
+              <p class="project-tools">Python, FastAPI, React, TypeScript, Docker</p>
+            </div>
+          </a>
+          <a class="app-card" href="projets/caderno.html">
+            <div class="app-shot"><img src="assets/img/apps/caderno-card.webp" width="880" height="440" loading="lazy" alt="Caderno après la traduction de « heureux » : synonymes portugais regroupés par sens et exemples bilingues."></div>
+            <div class="app-body">
+              <p class="project-kind"><strong>Projet personnel</strong>En ligne, accès par mot de passe</p>
+              <h3>Caderno, mon carnet de portugais brésilien</h3>
+              <p>Une application installable sur iPhone pour traduire, garder ses mots avec un exemple et réviser les conjugaisons, même hors connexion. Construite et mise en ligne en une journée.</p>
+              <ul class="app-facts">
+                <li><b>765</b> formes verbales vérifiées</li>
+                <li><b>26</b> tests automatiques</li>
+                <li><b>0</b> abonnement payant</li>
+              </ul>
+              <p class="project-tools">React, TypeScript, Express, SQLite, PWA</p>
+            </div>
+          </a>
+        </div>
       </div>
     </section>
 
@@ -322,11 +372,12 @@
             <button class="seg pf p4" type="button" data-skill-filter="4" aria-pressed="false"><i aria-hidden="true"></i>Bordereaux</button>
             <button class="seg pf p5" type="button" data-skill-filter="5" aria-pressed="false"><i aria-hidden="true"></i>E-commerce</button>
             <button class="seg pf p6" type="button" data-skill-filter="6" aria-pressed="false"><i aria-hidden="true"></i>Formation ISEP</button>
+            <button class="seg pf p7" type="button" data-skill-filter="7" aria-pressed="false"><i aria-hidden="true"></i>Apps IA</button>
           </div>
           <p class="skills-summary" data-skills-summary aria-live="polite"></p>
           <div class="skill-groups">
             <section class="skill-group" aria-label="Automatisation et cloud">
-              <header class="skill-group-head"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18h10a4 4 0 0 0 .6-7.96A6 6 0 0 0 6.2 9.1 4.5 4.5 0 0 0 7 18z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><h3>Automatisation et cloud</h3><span>8 compétences</span></header>
+              <header class="skill-group-head"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18h10a4 4 0 0 0 .6-7.96A6 6 0 0 0 6.2 9.1 4.5 4.5 0 0 0 7 18z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><h3>Automatisation et cloud</h3><span>9 compétences</span></header>
               <ul class="skill-list">
                 <li class="skill" data-p="1 3"><span class="skill-name">Google Apps Script</span><span class="skill-note">JavaScript côté Google</span><span class="skill-pills"><a class="pill p1" href="projets/support-client.html">Support client</a><a class="pill p3" href="projets/licences-flex.html">Licences</a></span></li>
                 <li class="skill" data-p="2"><span class="skill-name">AppSheet et OCR</span><span class="skill-note">application sans code</span><span class="skill-pills"><a class="pill p2" href="projets/inventaire-ocr.html">Inventaire OCR</a></span></li>
@@ -334,15 +385,16 @@
                 <li class="skill" data-p="4"><span class="skill-name">Node.js et Express</span><span class="skill-note">service web</span><span class="skill-pills"><a class="pill p4" href="projets/bordereaux-la-poste.html">Bordereaux</a></span></li>
                 <li class="skill" data-p="3 4"><span class="skill-name">API REST</span><span class="skill-note">La Poste, Airtable, Google</span><span class="skill-pills"><a class="pill p3" href="projets/licences-flex.html">Licences</a><a class="pill p4" href="projets/bordereaux-la-poste.html">Bordereaux</a></span></li>
                 <li class="skill" data-p="4"><span class="skill-name">Stockage et hébergement cloud</span><span class="skill-note">Google Cloud Storage, Heroku</span><span class="skill-pills"><a class="pill p4" href="projets/bordereaux-la-poste.html">Bordereaux</a></span></li>
+                <li class="skill" data-p="7"><span class="skill-name">Mise en ligne sur serveur Linux</span><span class="skill-note">Docker, Caddy, HTTPS, sauvegardes</span><span class="skill-pills"><a class="pill p7" href="#nouveaux">Apps IA</a></span></li>
                 <li class="skill" data-p="5"><span class="skill-name">Shopify et Shopify CLI</span><span class="skill-note">thèmes, mises en ligne</span><span class="skill-pills"><a class="pill p5" href="projets/e-commerce.html">E-commerce</a></span></li>
-                <li class="skill" data-p="1 5"><span class="skill-name">IA générative pour coder</span><span class="skill-note">Gemini, Claude Code, Codex</span><span class="skill-pills"><a class="pill p1" href="projets/support-client.html">Support client</a><a class="pill p5" href="projets/e-commerce.html">E-commerce</a></span></li>
+                <li class="skill" data-p="1 5 7"><span class="skill-name">Pilotage d'agents IA de code</span><span class="skill-note">Claude Code, Codex, Gemini : spécifier, répartir, vérifier</span><span class="skill-pills"><a class="pill p1" href="projets/support-client.html">Support client</a><a class="pill p5" href="projets/e-commerce.html">E-commerce</a><a class="pill p7" href="#nouveaux">Apps IA</a></span></li>
               </ul>
             </section>
             <section class="skill-group" aria-label="Sécurité et réseaux">
               <header class="skill-group-head"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v6c0 4.2-3 7.7-7 9-4-1.3-7-4.8-7-9V6z M9 12l2 2 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/></svg><h3>Sécurité et réseaux</h3><span>5 compétences</span></header>
               <ul class="skill-list">
-                <li class="skill" data-p="2 3"><span class="skill-name">Conception sûre</span><span class="skill-note">droits limités, réversibilité</span><span class="skill-pills"><a class="pill p2" href="projets/inventaire-ocr.html">Inventaire OCR</a><a class="pill p3" href="projets/licences-flex.html">Licences</a></span></li>
-                <li class="skill" data-p="1 4 5"><span class="skill-name">Protection des données</span><span class="skill-note">données client et personnelles</span><span class="skill-pills"><a class="pill p1" href="projets/support-client.html">Support client</a><a class="pill p4" href="projets/bordereaux-la-poste.html">Bordereaux</a><a class="pill p5" href="projets/e-commerce.html">E-commerce</a></span></li>
+                <li class="skill" data-p="2 3 7"><span class="skill-name">Conception sûre</span><span class="skill-note">droits limités, réversibilité</span><span class="skill-pills"><a class="pill p2" href="projets/inventaire-ocr.html">Inventaire OCR</a><a class="pill p3" href="projets/licences-flex.html">Licences</a><a class="pill p7" href="#nouveaux">Apps IA</a></span></li>
+                <li class="skill" data-p="1 4 5 7"><span class="skill-name">Protection des données</span><span class="skill-note">données client et personnelles</span><span class="skill-pills"><a class="pill p1" href="projets/support-client.html">Support client</a><a class="pill p4" href="projets/bordereaux-la-poste.html">Bordereaux</a><a class="pill p5" href="projets/e-commerce.html">E-commerce</a><a class="pill p7" href="#nouveaux">Apps IA</a></span></li>
                 <li class="skill" data-p="6"><span class="skill-name">Reconnaissance et vulnérabilités</span><span class="skill-note">Kali Linux, nmap</span><span class="skill-pills"><span class="pill p6">Formation ISEP</span></span></li>
                 <li class="skill" data-p="6"><span class="skill-name">Réseaux</span><span class="skill-note">commutation Cisco, VLAN</span><span class="skill-pills"><span class="pill p6">Formation ISEP</span></span></li>
                 <li class="skill" data-p="6"><span class="skill-name">Communications numériques</span><span class="skill-note">MATLAB, traitement du signal</span><span class="skill-pills"><span class="pill p6">Formation ISEP</span></span></li>
@@ -351,7 +403,7 @@
             <section class="skill-group" aria-label="Conduite de projet">
               <header class="skill-group-head"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 21V4m0 0h11l-2 4 2 4H5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/></svg><h3>Conduite de projet</h3><span>5 compétences</span></header>
               <ul class="skill-list">
-                <li class="skill" data-p="1 4"><span class="skill-name">Cadrage et recette</span><span class="skill-note">avec un commanditaire</span><span class="skill-pills"><a class="pill p1" href="projets/support-client.html">Support client</a><a class="pill p4" href="projets/bordereaux-la-poste.html">Bordereaux</a></span></li>
+                <li class="skill" data-p="1 4 7"><span class="skill-name">Cadrage et recette</span><span class="skill-note">avec un commanditaire</span><span class="skill-pills"><a class="pill p1" href="projets/support-client.html">Support client</a><a class="pill p4" href="projets/bordereaux-la-poste.html">Bordereaux</a><a class="pill p7" href="#nouveaux">Apps IA</a></span></li>
                 <li class="skill" data-p="1 2 4"><span class="skill-name">Documentation pour d'autres</span><span class="skill-note">guides, supports, notes</span><span class="skill-pills"><a class="pill p1" href="projets/support-client.html">Support client</a><a class="pill p2" href="projets/inventaire-ocr.html">Inventaire OCR</a><a class="pill p4" href="projets/bordereaux-la-poste.html">Bordereaux</a></span></li>
                 <li class="skill" data-p="5"><span class="skill-name">Mise en ligne maîtrisée</span><span class="skill-note">sauvegarde, journal, retour arrière</span><span class="skill-pills"><a class="pill p5" href="projets/e-commerce.html">E-commerce</a></span></li>
                 <li class="skill" data-p="2"><span class="skill-name">Conception pour le terrain</span><span class="skill-note">usage debout, à une main</span><span class="skill-pills"><a class="pill p2" href="projets/inventaire-ocr.html">Inventaire OCR</a></span></li>

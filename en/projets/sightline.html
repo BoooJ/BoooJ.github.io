@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sightline, Counter-Strike 2 match analysis · Paul Morel</title>
+  <meta name="description" content="Web app that analyses Counter-Strike 2 demos (2D replay, statistics, heatmaps, team tools), built in three days by directing AI coding agents and hosted on my own server.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=JetBrains+Mono:wght@400;500&family=Public+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+  <link rel="alternate" hreflang="fr" href="../../projets/sightline.html">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script src="../../assets/js/main.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="wordmark" href="../index.html">Paul Morel</a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="../index.html#projets" aria-current="page">Projects</a></li>
+          <li><a href="../index.html#competences">Skills</a></li>
+          <li><a href="../index.html#a-propos">About</a></li>
+          <li><a href="../passions.html">Passions</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a class="lang-switch" href="../../projets/sightline.html" hreflang="fr" lang="fr" title="Version française">FR</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Change theme">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>
+        </button>
+        <a class="btn" href="../../cv/Paul_Morel_CV.pdf" download>CV (PDF)</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <div class="wrap">
+      <header class="case-head">
+        <p class="breadcrumb"><a href="../index.html#nouveaux">New projects</a></p>
+        <p class="case-kind"><strong>Personal project</strong>, live web app, built by directing AI agents</p>
+        <h1>Sightline: analysing a Counter-Strike 2 match like a professional staff</h1>
+        <p class="case-lede">In Counter-Strike 2, every match can be recorded in a demo file that holds everything: positions, shots, grenades, money. Sightline turns these files into a 2D replay, statistics and preparation tools for a team. I built it in three days by directing AI agents: I decided what to build and how to check it, the agents wrote the code.</p>
+      </header>
+
+      <div class="case-body">
+        <aside class="case-meta" aria-label="Project sheet">
+          <dl>
+            <div><dt>Setting</dt><dd>Personal project, tied to my own Counter-Strike play (<a href="../passions.html">level 10 on FACEIT</a>)</dd></div>
+            <div><dt>Period</dt><dd>10 to 12 October 2026</dd></div>
+            <div><dt>My role</dt><dd>Project lead and architect: needs, specifications, technical choices, splitting the work, verification, release and operations. The code is written by AI agents (Claude Code).</dd></div>
+            <div><dt>Tools</dt><dd><ul><li>Python, FastAPI, demoparser2, SQLite</li><li>React, TypeScript, Vite</li><li>Docker, Caddy, Linux VPS</li><li>Claude and Gemini APIs for the assistant</li></ul></dd></div>
+            <div><dt>Status</dt><dd><span class="status status--prod">Live</span> access limited to app accounts</dd></div>
+          </dl>
+        </aside>
+
+        <div class="case-content">
+          <section>
+            <h2>The need</h2>
+            <p>To improve at Counter-Strike you have to review your matches: where the players were, why a round was lost, what the opponent usually does. The tools teams use for this are online services, most of them paid. I wanted my own tool, hosted on my server, covering the whole need: import a demo, replay it, analyse it and prepare the next match.</p>
+          </section>
+
+          <section>
+            <h2>Vibe coding, with a method</h2>
+            <p>Vibe coding means describing what you want in plain language and letting an AI write the code. It is fast, but the risk is well known: you end up with an app nobody understands, full of invisible mistakes. My job was to manage these agents the way you would manage a team of developers.</p>
+            <ol class="method">
+              <li><strong>Specify before coding.</strong> Each major part (import and replay, statistics, grenades, heatmaps, annotations, team space, scouting) first gets a design document that sets the expected result. There are 13 of them.</li>
+              <li><strong>Split and assign.</strong> Two implementation plans break the work into small tasks, handed one at a time to agents, with a review between tasks.</li>
+              <li><strong>Verify.</strong> 32 automated test files, tests on real match demos and full user journeys played in a browser.</li>
+              <li><strong>Compare and fix.</strong> Audits measure the tool against products on the market and against a player's journey; their proposals are then applied.</li>
+              <li><strong>Operate.</strong> The app runs in a Docker container on my server, over HTTPS, with mandatory sign-in and a nightly database backup kept for 14 days.</li>
+            </ol>
+          </section>
+
+          <section>
+            <h2>What the app does</h2>
+            <figure class="figure figure--wide">
+              <div class="figure-frame figure-frame--flush">
+                <img src="../../assets/img/apps/sightline-replay.webp" width="1568" height="698" loading="lazy" alt="2D replay of a round on Cache: the ten players on the radar, with each player's health, money and weapons on both sides; at the bottom, the playback bar and display options (names, traces, shots, flashes, trajectories).">
+              </div>
+              <figcaption>The 2D replay of a round: each player's position, health, money and weapons, shots, flashes and grenade trajectories. The screenshots show public professional matches, here MOUZ against Team Vitality.</figcaption>
+            </figure>
+            <ul class="feature-list">
+              <li><strong>Import</strong> a folder of demos, a file dropped into the window or a FACEIT link.</li>
+              <li><strong>Replay</strong> every round in 2D, with smokes pierced by grenades and bullets, synchronised voice comms and a group review where a leader drives the replay for everyone.</li>
+              <li><strong>Analyse</strong> the round-by-round win probability, the economy, heatmaps, highlights (clutches, multi-kills) and player leaderboards.</li>
+              <li><strong>Prepare</strong> for an opponent: a scouting report across several demos, a veto simulator, a team stratbook and a calendar.</li>
+              <li><strong>Learn</strong> a role by following a professional player step by step, and ask questions to an AI assistant that reads the match data without being able to change it.</li>
+            </ul>
+            <figure class="figure figure--wide">
+              <div class="figure-frame figure-frame--flush">
+                <img src="../../assets/img/apps/sightline-role.webp" width="1568" height="698" loading="lazy" alt="“Learn a role” screen: player ZywOo followed during round 7, his B Main position on the map with teammates and opponents, and on the right the current step, the situation (5 against 5, nearest teammate, enemy smoke) and the Previous and Next buttons.">
+              </div>
+              <figcaption>“Learn a role”: pick a player, then follow their rounds step by step, with the situation explained at every moment. The interface is in French.</figcaption>
+            </figure>
+            <div class="figure-pair">
+              <figure class="figure">
+                <div class="figure-frame figure-frame--flush">
+                  <img src="../../assets/img/apps/sightline-heatmap.webp" width="1568" height="698" loading="lazy" alt="Player presence heatmap on Mirage, with filters by side, team, player, moment of the round and buy type.">
+                </div>
+                <figcaption>Presence heatmap on Mirage, filterable by side, moment of the round and buy type.</figcaption>
+              </figure>
+              <figure class="figure">
+                <div class="figure-frame figure-frame--flush">
+                  <img src="../../assets/img/apps/sightline-match.webp" width="1568" height="698" loading="lazy" alt="Match page: score 8 to 13, automatic summary (most decisive player, pistol rounds) and a timeline of the 21 rounds with survivors and bomb.">
+                </div>
+                <figcaption>Match page: automatic summary and round timeline.</figcaption>
+              </figure>
+            </div>
+          </section>
+
+          <section>
+            <h2>Verifiable results</h2>
+            <ul class="results">
+              <li><span class="proof proof--count">Counted</span><span>93 commits from 10 to 12 October 2026, in the project's Git history.</span></li>
+              <li><span class="proof proof--count">Counted</span><span>13 design documents and 2 implementation plans written before the code.</span></li>
+              <li><span class="proof proof--count">Counted</span><span>32 automated test files: 21 for the server, 11 for the interface.</span></li>
+              <li><span class="proof proof--fact">Recorded</span><span>App live on my server over HTTPS; without an open session, the API refuses every request.</span></li>
+              <li><span class="proof proof--fact">Recorded</span><span>From the history: demo import made 2.5 times faster, then a further 25% faster with identical data; code loaded at start-up cut from 105 to 85 KB.</span></li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>What I take from it, and the limits</h2>
+            <ul>
+              <li><strong>My contribution is not typing the code.</strong> It lies in the specification, the splitting, the verification and the operations. I can explain the architecture and every choice, not recite every line.</li>
+              <li><strong>A dependency to watch.</strong> Reading demos relies on the demoparser2 library, which has to follow every game update. The code is organised so that a single file depends on it.</li>
+              <li><strong>No usage figures published here.</strong> The screenshots show public professional matches, not a team's data.</li>
+            </ul>
+          </section>
+
+          <nav class="case-next" aria-label="Other projects">
+            <a href="../index.html#nouveaux"><span>Back</span><strong>New projects</strong></a>
+            <a href="caderno.html"><span>Next project</span><strong>Caderno, Portuguese notebook</strong></a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Paul Morel, cloud and cybersecurity engineer (ISEP 2026)</p>
+      <p>The app's address is not published: it is limited to accounts.</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1575,3 +1575,40 @@ a.pill:hover { background: color-mix(in srgb, var(--pc) 22%, transparent); }
 .pitch-text summary:hover { text-decoration: underline; }
 .pitch-text ol { margin: 0.75rem 0 0; padding-left: 1.25rem; display: grid; gap: 0.6rem; color: var(--ink-2); }
 .pitch-text strong { color: var(--ink); }
+
+/* ---------- Nouveaux projets : applications construites avec des agents IA ---------- */
+:root { --p7: #b0461f; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --p7: #f09a72; } }
+:root[data-theme="dark"] { --p7: #f09a72; }
+.p7 { --pc: var(--p7); }
+.eyebrow { font-family: var(--font-code); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--signal); margin-bottom: 0.5rem; }
+.agent-steps { list-style: none; margin: 0 0 2rem; padding: 0; display: grid; gap: 0.75rem; }
+@media (min-width: 48rem) { .agent-steps { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.agent-steps li { display: grid; grid-template-columns: auto 1fr; grid-template-rows: auto 1fr; gap: 0.2rem 0.65rem; align-items: start; padding: 1rem; border: 1px solid var(--rule); border-radius: var(--radius-m); background: var(--surface); }
+.agent-steps b { grid-row: span 2; align-self: start; display: grid; place-items: center; width: 1.75rem; height: 1.75rem; border-radius: 50%; background: var(--signal-wash); color: var(--signal); font-family: var(--font-code); font-size: 0.875rem; }
+.agent-steps strong { font-family: var(--font-display); font-size: var(--step-1); }
+.agent-steps span { font-size: var(--step--1); color: var(--ink-2); }
+.apps-grid { display: grid; gap: 1.5rem; }
+@media (min-width: 60rem) { .apps-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.app-card { display: flex; flex-direction: column; text-decoration: none; color: inherit; border: 1px solid var(--rule); border-radius: 16px; overflow: hidden; background: var(--surface); transition: border-color 0.2s, transform 0.2s; }
+.app-card:hover { border-color: var(--ink-2); transform: translateY(-2px); }
+.app-card:focus-visible { outline: 2px solid var(--signal); outline-offset: 3px; }
+.app-shot { aspect-ratio: 16 / 8; overflow: hidden; background: var(--map-bg); border-bottom: 1px solid var(--rule); }
+.app-shot img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+.app-body { padding: 1.25rem 1.25rem 1.4rem; display: grid; gap: 0.65rem; align-content: start; }
+.app-body h3 { font-size: var(--step-2); }
+.app-card:hover h3 { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 0.18em; }
+.app-body > p { margin: 0; }
+.app-body > p:not(.project-kind):not(.project-tools) { color: var(--ink-2); }
+.app-facts { list-style: none; margin: 0.25rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.app-facts li { font-size: var(--step--1); padding: 0.35rem 0.7rem; border-radius: 999px; border: 1px solid var(--rule); }
+.app-facts b { font-family: var(--font-code); color: var(--signal); margin-right: 0.2rem; }
+@media (prefers-reduced-motion: reduce) { .app-card, .app-card:hover { transition: none; transform: none; } }
+
+/* Études de cas : méthode, fonctions, figures larges */
+.case-content .method { padding-left: 1.25rem; display: grid; gap: 0.6rem; max-width: 46rem; }
+.case-content .feature-list { max-width: 46rem; display: grid; gap: 0.45rem; }
+.figure--wide { max-width: none; }
+.figure-pair { display: grid; gap: 1.25rem; margin: 2rem 0; }
+@media (min-width: 56rem) { .figure-pair { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.figure-pair .figure { margin: 0; }
