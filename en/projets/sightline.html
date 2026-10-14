@@ -9,8 +9,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=JetBrains+Mono:wght@400;500&family=Public+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
   <link rel="alternate" hreflang="fr" href="../../projets/sightline.html">
-  <link rel="stylesheet" href="../../assets/css/style.css?v=20261012b">
-  <script src="../../assets/js/main.js?v=20261012b"></script>
+  <link rel="stylesheet" href="../../assets/css/style.css?v=20261014b">
+  <script src="../../assets/js/main.js?v=20261014b"></script>
 </head>
 <body>
   <a class="skip-link" href="#contenu">Skip to content</a>
@@ -43,16 +43,16 @@
         <p class="breadcrumb"><a href="../index.html#nouveaux">New projects</a></p>
         <p class="case-kind"><strong>Personal project</strong>, live web app, built by directing AI agents</p>
         <h1>Sightline: analysing a Counter-Strike 2 match like a professional staff</h1>
-        <p class="case-lede">In Counter-Strike 2, every match can be recorded in a demo file that holds everything: positions, shots, grenades, money. Sightline turns these files into a 2D replay, statistics and preparation tools for a team. I built it in three days by directing AI agents: I decided what to build and how to check it, the agents wrote the code.</p>
+        <p class="case-lede">In Counter-Strike 2, every match can be recorded in a demo file that holds everything: positions, shots, grenades, money. Sightline turns these files into a 2D replay, statistics and preparation tools for a team. I built the first version in three days by directing AI agents, then grew it until it covers most of a professional tool: I decide what to build and how to check it, the agents write the code.</p>
       </header>
 
       <div class="case-body">
         <aside class="case-meta" aria-label="Project sheet">
           <dl>
             <div><dt>Setting</dt><dd>Personal project, tied to my own Counter-Strike play (<a href="../passions.html">level 10 on FACEIT</a>)</dd></div>
-            <div><dt>Period</dt><dd>10 to 12 October 2026</dd></div>
+            <div><dt>Period</dt><dd>Since 10 October 2026; first version in three days</dd></div>
             <div><dt>My role</dt><dd>Project lead and architect: needs, specifications, technical choices, splitting the work, verification, release and operations. The code is written by AI agents (Claude Code).</dd></div>
-            <div><dt>Tools</dt><dd><ul><li>Python, FastAPI, demoparser2, SQLite</li><li>React, TypeScript, Vite</li><li>Docker, Caddy, Linux VPS</li><li>Claude and Gemini APIs for the assistant</li></ul></dd></div>
+            <div><dt>Tools</dt><dd><ul><li>Python, FastAPI, demoparser2, SQLite</li><li>React, TypeScript, Vite</li><li>Docker, Caddy, Linux VPS</li><li>Claude API (Haiku, Sonnet, Opus) and Gemini</li></ul></dd></div>
             <div><dt>Status</dt><dd><span class="status status--prod">Live</span> access limited to app accounts</dd></div>
           </dl>
         </aside>
@@ -67,10 +67,10 @@
             <h2>Vibe coding, with a method</h2>
             <p>Vibe coding means describing what you want in plain language and letting an AI write the code. It is fast, but the risk is well known: you end up with an app nobody understands, full of invisible mistakes. My job was to manage these agents the way you would manage a team of developers.</p>
             <ol class="method">
-              <li><strong>Specify before coding.</strong> Each major part (import and replay, statistics, grenades, heatmaps, annotations, team space, scouting) first gets a design document that sets the expected result. There are 13 of them.</li>
-              <li><strong>Split and assign.</strong> Two implementation plans break the work into small tasks, handed one at a time to agents, with a review between tasks.</li>
-              <li><strong>Verify.</strong> 32 automated test files, tests on real match demos and full user journeys played in a browser.</li>
-              <li><strong>Compare and fix.</strong> Audits measure the tool against products on the market and against a player's journey; their proposals are then applied.</li>
+              <li><strong>Specify before coding.</strong> Each major part (import and replay, statistics, grenades, heatmaps, annotations, team space, scouting) first gets a design document that sets the expected result. There are 16 of them.</li>
+              <li><strong>Split and assign.</strong> Fifteen implementation plans break the work into small tasks, handed one at a time to agents, with a review between tasks.</li>
+              <li><strong>Verify.</strong> 56 automated test files, tests on real match demos, full user journeys played in a browser and scripted “beta tester” journeys.</li>
+              <li><strong>Compare and fix.</strong> I had the 57 features of a professional product on the market, Skybox EDGE, inventoried, then the gap split into thirteen sub-projects. Result: 42 features covered, 11 partial, 2 missing, 2 out of reach (they need game servers). Ergonomics and speed audits follow every major step.</li>
               <li><strong>Operate.</strong> The app runs in a Docker container on my server, over HTTPS, with mandatory sign-in and a nightly database backup kept for 14 days.</li>
             </ol>
           </section>
@@ -87,8 +87,10 @@
               <li><strong>Import</strong> a folder of demos, a file dropped into the window or a FACEIT link.</li>
               <li><strong>Replay</strong> every round in 2D, with smokes pierced by grenades and bullets, synchronised voice comms and a group review where a leader drives the replay for everyone.</li>
               <li><strong>Analyse</strong> the round-by-round win probability, the economy, heatmaps, highlights (clutches, multi-kills) and player leaderboards.</li>
-              <li><strong>Prepare</strong> for an opponent: a scouting report across several demos, a veto simulator, a team stratbook and a calendar.</li>
-              <li><strong>Learn</strong> a role by following a professional player step by step, and ask questions to an AI assistant that reads the match data without being able to change it.</li>
+              <li><strong>Prepare</strong> for an opponent: a scouting sheet across several demos, rounds to review, a veto simulator with predictions, a match prep file, a team playbook and a calendar.</li>
+              <li><strong>Debrief</strong> like a staff: where the match was decided compared with usual form, three points to work on, five rounds to review and goals tracked from one match to the next.</li>
+              <li><strong>Learn</strong> a role by following a professional player step by step, with an AI coach that explains a round, and ask questions to an assistant that reads the match data without being able to change it.</li>
+              <li><strong>Get notified</strong>: live team notifications, also on Discord, when a match is ready or commented on.</li>
             </ul>
             <figure class="figure figure--wide">
               <div class="figure-frame figure-frame--flush">
@@ -105,6 +107,18 @@
               </figure>
               <figure class="figure">
                 <div class="figure-frame figure-frame--flush">
+                  <img src="../../assets/img/apps/sightline-scouting.webp" width="1556" height="744" loading="lazy" alt="MOUZ scouting sheet: rounds won per side, pistols, targeted site, first contact, then “Key points” and “How to play them”, each line with its reliability and a button to review the rounds.">
+                </div>
+                <figcaption>Scouting sheet: every figure shows its reliability and links to the rounds concerned.</figcaption>
+              </figure>
+              <figure class="figure">
+                <div class="figure-frame figure-frame--flush">
+                  <img src="../../assets/img/apps/sightline-debrief.webp" width="1556" height="744" loading="lazy" alt="Debrief tab of a match: table comparing each phase of play with the team's usual form, with the rounds concerned.">
+                </div>
+                <figcaption>Debrief: each phase of the match compared with the team's usual form.</figcaption>
+              </figure>
+              <figure class="figure">
+                <div class="figure-frame figure-frame--flush">
                   <img src="../../assets/img/apps/sightline-match.webp" width="1568" height="698" loading="lazy" alt="Match page: score 8 to 13, automatic summary (most decisive player, pistol rounds) and a timeline of the 21 rounds with survivors and bomb.">
                 </div>
                 <figcaption>Match page: automatic summary and round timeline.</figcaption>
@@ -113,13 +127,80 @@
           </section>
 
           <section>
+            <h2>Making AI reliable: a checked scouting report</h2>
+            <p>Sightline can write a scouting report on an opponent, as an analyst would. The risk of AI-written text is well known: it can invent a figure or swap two bomb sites with great confidence. So I had the report built so that the software computes the facts, the AI only writes, and everything is checked before display.</p>
+            <figure class="figure figure--wide">
+              <div class="figure-frame">
+                <svg class="diagram" viewBox="0 0 760 224" role="img" aria-labelledby="sv-title sv-desc">
+                  <title id="sv-title">A report written by AI, checked before anyone reads it</title>
+                  <desc id="sv-desc">The software computes a fact sheet from the demos. The AI writes the report from those facts only. An automatic check verifies every number and removes false sentences, then a second AI, the judge, rereads the meaning and adds to-check remarks under the paragraphs concerned.</desc>
+                  <defs>
+                    <marker id="sv-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="head" d="M0,0 L10,5 L0,10 z"/></marker>
+                  </defs>
+                  <text class="t t--b" x="8" y="22">The software computes, the AI writes, the software checks</text>
+                  <rect class="box" x="8" y="40" width="108" height="64" rx="8"/>
+                  <text class="t t--b" x="62" y="67" text-anchor="middle">Demos</text>
+                  <text class="t--s" x="62" y="85" text-anchor="middle">of the match</text>
+                  <path class="line" d="M116,72 H130" marker-end="url(#sv-arrow)"/>
+                  <rect class="box" x="134" y="40" width="108" height="64" rx="8"/>
+                  <text class="t t--b" x="188" y="67" text-anchor="middle">Fact sheet</text>
+                  <text class="t--s" x="188" y="85" text-anchor="middle">computed, no AI</text>
+                  <path class="line" d="M242,72 H256" marker-end="url(#sv-arrow)"/>
+                  <rect class="box--key" x="260" y="40" width="108" height="64" rx="8"/>
+                  <text class="t--inv" x="314" y="67" text-anchor="middle">Writing</text>
+                  <text class="t--inv-s" x="314" y="85" text-anchor="middle">a Claude model</text>
+                  <path class="line" d="M368,72 H382" marker-end="url(#sv-arrow)"/>
+                  <rect class="box" x="386" y="40" width="108" height="64" rx="8"/>
+                  <text class="t t--b" x="440" y="67" text-anchor="middle">Check</text>
+                  <text class="t--s" x="440" y="85" text-anchor="middle">every number</text>
+                  <path class="line" d="M494,72 H508" marker-end="url(#sv-arrow)"/>
+                  <rect class="box" x="512" y="40" width="108" height="64" rx="8"/>
+                  <text class="t t--b" x="566" y="67" text-anchor="middle">AI judge</text>
+                  <text class="t--s" x="566" y="85" text-anchor="middle">rereads meaning</text>
+                  <path class="line" d="M620,72 H634" marker-end="url(#sv-arrow)"/>
+                  <rect class="box--ok" x="638" y="40" width="108" height="64" rx="8"/>
+                  <text class="t t--b" x="692" y="67" text-anchor="middle">Report</text>
+                  <text class="t--s" x="692" y="85" text-anchor="middle">displayed</text>
+                  <path class="line line--dash" d="M440,104 V150" marker-end="url(#sv-arrow)"/>
+                  <rect class="box--warn" x="300" y="154" width="200" height="58" rx="8"/>
+                  <text class="t t--b" x="400" y="178" text-anchor="middle">Wrong or invented number</text>
+                  <text class="t--s" x="400" y="197" text-anchor="middle">sentence fixed or removed</text>
+                  <path class="line line--dash" d="M566,104 V150" marker-end="url(#sv-arrow)"/>
+                  <rect class="box--warn" x="520" y="154" width="220" height="58" rx="8"/>
+                  <text class="t t--b" x="630" y="178" text-anchor="middle">Doubtful meaning</text>
+                  <text class="t--s" x="630" y="197" text-anchor="middle">“to check” remark</text>
+                </svg>
+              </div>
+              <figcaption>The judge never removes text: it can be wrong, so its remarks are shown “to check” under the paragraph.</figcaption>
+            </figure>
+            <p>To know whether this check holds, I had it measured on a test bench: known errors are injected into real reports (shifted figure, wrong percentage, non-existent fact, swapped sites), and we count what gets caught.</p>
+            <ul class="results">
+              <li><span class="proof proof--count">Counted</span><span>Number errors caught by the automatic check: from 81% to 89-92% after tightening the rules, with no false alarm on an intact report.</span></li>
+              <li><span class="proof proof--count">Counted</span><span>Meaning errors (swapped sites or players): the number check sees none, the judge catches 10 out of 12, with 2 alerts on the intact report.</span></li>
+            </ul>
+            <div class="table-scroll">
+              <table class="data-table">
+                <caption>Campaign of 13 October 2026: 3 teams × 3 models, 9 reports</caption>
+                <thead><tr><th scope="col">Model</th><th scope="col">Cost per report</th><th scope="col">Duration</th><th scope="col">Unjustified figures</th><th scope="col">Judge remarks</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">Claude Haiku 5.5</th><td>$0.014 to $0.024</td><td>35 to 68 s</td><td>0</td><td>15</td></tr>
+                  <tr><th scope="row">Claude Sonnet 5.5</th><td>$0.15 to $0.36</td><td>19 to 46 s</td><td>0</td><td>15</td></tr>
+                  <tr><th scope="row">Claude Opus 5.5</th><td>$0.63 to $0.89</td><td>63 to 80 s</td><td>0</td><td>4</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p><strong>Decision drawn from the measurement:</strong> the user picks the model when writing. Haiku for a routine report, Opus before an important match, as it makes the fewest meaning errors. The judge rereads every report for about one cent. The full evaluation cost about $3.20.</p>
+          </section>
+
+          <section>
             <h2>Verifiable results</h2>
             <ul class="results">
-              <li><span class="proof proof--count">Counted</span><span>93 commits from 10 to 12 October 2026, in the project's Git history.</span></li>
-              <li><span class="proof proof--count">Counted</span><span>13 design documents and 2 implementation plans written before the code.</span></li>
-              <li><span class="proof proof--count">Counted</span><span>32 automated test files: 21 for the server, 11 for the interface.</span></li>
+              <li><span class="proof proof--count">Counted</span><span>162 commits from 10 to 14 October 2026, in the project's Git history, including 93 for the first version in three days.</span></li>
+              <li><span class="proof proof--count">Counted</span><span>16 design documents and 15 implementation plans written before the code.</span></li>
+              <li><span class="proof proof--count">Counted</span><span>56 automated test files: 42 for the server, 14 for the interface.</span></li>
               <li><span class="proof proof--fact">Recorded</span><span>App live on my server over HTTPS; without an open session, the API refuses every request.</span></li>
               <li><span class="proof proof--fact">Recorded</span><span>From the history: demo import made 2.5 times faster, then a further 25% faster with identical data; code loaded at start-up cut from 105 to 85 KB.</span></li>
+              <li><span class="proof proof--fact">Recorded</span><span>Measured live after a speed audit: scouting sheet from 950 to 250 ms, player page from 1,900 to 250 ms; 250 ms is the network round trip itself.</span></li>
             </ul>
           </section>
 
@@ -128,6 +209,7 @@
             <ul>
               <li><strong>My contribution is not typing the code.</strong> It lies in the specification, the splitting, the verification and the operations. I can explain the architecture and every choice, not recite every line.</li>
               <li><strong>A dependency to watch.</strong> Reading demos relies on the demoparser2 library, which has to follow every game update. The code is organised so that a single file depends on it.</li>
+              <li><strong>AI keeps its limits.</strong> The check cannot see an invented number that happens to match a real value, and the judge is sometimes wrong. That is why the text stays tied to its facts and the remarks stay visible.</li>
               <li><strong>No usage figures published here.</strong> The screenshots show public professional matches, not a team's data.</li>
             </ul>
           </section>
