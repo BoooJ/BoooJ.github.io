@@ -9,9 +9,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=JetBrains+Mono:wght@400;500&family=Public+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
   <link rel="alternate" hreflang="en" href="en/passions.html">
-  <link rel="stylesheet" href="assets/css/style.css?v=20261021c">
-  <script src="assets/js/main.js?v=20261021c"></script>
-  <script src="assets/js/passions.js?v=20261021c" defer></script>
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/style.css?v=20261022">
+  <script src="assets/js/main.js?v=20261022"></script>
+  <script src="assets/js/passions.js?v=20261022" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#contenu">Aller au contenu</a>
@@ -21,8 +22,9 @@
       <a class="wordmark" href="index.html">Paul Morel</a>
       <nav class="site-nav" aria-label="Navigation principale">
         <ul>
-          <li><a href="index.html#projets">Projets</a></li>
+          <li><a href="index.html#nouveaux">Projets</a></li>
           <li><a href="index.html#competences">Compétences</a></li>
+          <li><a href="index.html#vitrine">Vidéos</a></li>
           <li><a href="index.html#a-propos">À propos</a></li>
           <li><a href="passions.html" aria-current="page">Passions</a></li>
           <li><a href="index.html#contact">Contact</a></li>
@@ -47,7 +49,7 @@
 
       <section class="player" aria-labelledby="player-titre">
         <div class="player-id">
-          <div class="cs-level" aria-label="Niveau FACEIT 10">10</div>
+          <div class="cs-level" role="img" aria-label="Niveau FACEIT 10">10</div>
           <div>
             <p class="player-kicker">Mon profil FACEIT</p>
             <h2 id="player-titre" class="player-name">BooJ_</h2>
@@ -68,15 +70,15 @@
       <section class="passion" aria-labelledby="cs-titre">
         <div>
           <p class="passion-kicker">Jeu vidéo, en compétition</p>
-          <h2 id="cs-titre">Counter-Strike</h2>
+          <h2 id="cs-titre">Counter‑Strike</h2>
           <p>Je joue à Counter-Strike en compétition sur FACEIT depuis 2017, au niveau 10, le plus haut palier de la plateforme. Ce que le jeu m'apprend vaut aussi au travail : communiquer vite et clairement, tenir un rôle dans une équipe, garder son sang-froid quand la manche se joue à une seconde.</p>
           <p>FACEIT génère automatiquement mes temps forts de match : wallbangs, 4K sur Nuke, clutchs en 1 contre 1. <a href="https://www.faceit.com/en/players/BooJ_/videos" target="_blank" rel="noopener">Voir mes clips sur FACEIT</a> (connexion FACEIT requise pour les lire).</p>
         </div>
         <div class="instrument" data-reflex>
           <h3>Test de réflexes</h3>
           <p>Une cible apparaît après un délai aléatoire : cliquez-la (ou appuyez sur Espace) le plus vite possible. Cinq manches.</p>
-          <div class="arena" data-arena tabindex="0" role="application" aria-label="Zone du test de réflexes">
-            <div class="arena-msg" data-arena-msg><span><strong>Prêt ?</strong>Cliquez ici pour lancer la première manche.</span></div>
+          <div class="arena" data-arena tabindex="0" role="button" aria-label="Zone du test de réflexes">
+            <div class="arena-msg" data-arena-msg aria-live="polite"><span><strong>Prêt ?</strong>Cliquez ici pour lancer la première manche.</span></div>
           </div>
           <ol class="scores" data-scores aria-label="Temps de réaction"></ol>
           <p class="now" data-reflex-now aria-live="polite"></p>
@@ -101,20 +103,20 @@
           <figure class="yt-fig">
             <div class="yt" data-yt="BtRI3RHFB1g">
               <button class="yt-play" type="button" aria-label="Lire la vidéo : Falcons contre FURIA, finale de l'IEM Cologne Major 2026, en 3 minutes (YouTube)">
-                <img src="https://i.ytimg.com/vi/BtRI3RHFB1g/hqdefault.jpg" alt="" loading="lazy">
+                <img src="https://i.ytimg.com/vi/BtRI3RHFB1g/hqdefault.jpg" width="480" height="360" alt="" loading="lazy">
                 <span class="yt-badge"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></span>
               </button>
             </div>
-            <figcaption><strong>Finale de l'IEM Cologne Major 2026, en 3 minutes</strong>Falcons contre FURIA, le match record. Vidéo officielle ESL Counter-Strike.</figcaption>
+            <figcaption><strong>Finale de l'IEM Cologne Major 2026, en 3 minutes</strong> Falcons contre FURIA, le match record. Vidéo officielle ESL Counter-Strike.</figcaption>
           </figure>
           <figure class="yt-fig">
             <div class="yt" data-yt="2GeYxpuibiE">
               <button class="yt-play" type="button" aria-label="Lire la vidéo : temps forts officiels de la finale du BLAST Austin Major 2025, Vitality contre The MongolZ (YouTube)">
-                <img src="https://i.ytimg.com/vi/2GeYxpuibiE/hqdefault.jpg" alt="" loading="lazy">
+                <img src="https://i.ytimg.com/vi/2GeYxpuibiE/hqdefault.jpg" width="480" height="360" alt="" loading="lazy">
                 <span class="yt-badge"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></span>
               </button>
             </div>
-            <figcaption><strong>Austin Major 2025 : Vitality championne</strong>L'équipe française de ZywOo et apEX remporte la finale contre The MongolZ. Temps forts officiels BLAST.</figcaption>
+            <figcaption><strong>Austin Major 2025 : Vitality championne</strong> L'équipe française de ZywOo et apEX remporte la finale contre The MongolZ. Temps forts officiels BLAST.</figcaption>
           </figure>
         </div>
         <p class="esport-sources">Le lecteur YouTube ne se charge que lorsque vous lancez une vidéo. Sources des chiffres : <a href="https://www.esports.net/news/iem-cologne-major-2026-viewership-record/" target="_blank" rel="noopener">Esports.net, d'après Esports Charts</a> ; <a href="https://www.esportsearnings.com/history/2025/games/839-counter-strike-2" target="_blank" rel="noopener">Esports Earnings</a>.</p>
@@ -175,6 +177,7 @@
   <footer class="site-footer">
     <div class="wrap">
       <p>Paul Morel, 2026</p>
+      <p class="footer-contact"><a href="mailto:pauleao02@gmail.com" data-mailto>E-mail</a><span aria-hidden="true"> · </span><a href="https://www.linkedin.com/in/morel-paul" target="_blank" rel="me noopener">LinkedIn</a><span aria-hidden="true"> · </span><a href="cv/Paul_Morel_CV.pdf" download>CV</a></p>
       <p><a href="index.html">Retour au portfolio</a></p>
     </div>
   </footer>

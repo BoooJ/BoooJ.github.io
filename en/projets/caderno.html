@@ -9,8 +9,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=JetBrains+Mono:wght@400;500&family=Public+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
   <link rel="alternate" hreflang="fr" href="../../projets/caderno.html">
-  <link rel="stylesheet" href="../../assets/css/style.css?v=20261021c">
-  <script src="../../assets/js/main.js?v=20261021c"></script>
+  <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../assets/css/style.css?v=20261022">
+  <script src="../../assets/js/main.js?v=20261022"></script>
 </head>
 <body>
   <a class="skip-link" href="#contenu">Skip to content</a>
@@ -20,8 +21,9 @@
       <a class="wordmark" href="../index.html">Paul Morel</a>
       <nav class="site-nav" aria-label="Main navigation">
         <ul>
-          <li><a href="../index.html#projets" aria-current="page">Projects</a></li>
+          <li><a href="../index.html#nouveaux" aria-current="true">Projects</a></li>
           <li><a href="../index.html#competences">Skills</a></li>
+          <li><a href="../index.html#vitrine">Videos</a></li>
           <li><a href="../index.html#a-propos">About</a></li>
           <li><a href="../passions.html">Passions</a></li>
           <li><a href="../index.html#contact">Contact</a></li>
@@ -40,13 +42,14 @@
   <main id="contenu">
     <div class="wrap">
       <header class="case-head">
-        <p class="breadcrumb"><a href="../index.html#nouveaux">New projects</a></p>
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a> <span aria-hidden="true">›</span> <a href="../index.html#nouveaux">AI apps</a></nav>
         <p class="case-kind"><strong>Personal project</strong>, app installable on a phone, built by directing an AI agent</p>
         <h1>Caderno: a Brazilian Portuguese notebook that fits in your pocket</h1>
         <p class="case-lede">I am learning Brazilian Portuguese. I wanted one place to translate a word, keep it with a real example and practise my conjugations, on phone and computer alike, even without a connection. I designed Caderno and had it built by an AI coding agent in one day, all the way to its release on my server.</p>
+        <p class="case-jump"><a class="btn btn--quiet" href="#film">Watch the video <span aria-hidden="true">↓</span></a></p>
       </header>
 
-      <figure class="pitch pitch--solo">
+      <figure class="pitch pitch--solo" id="film">
         <video controls playsinline preload="none" width="1280" height="720" poster="../../assets/video/caderno-film-en.jpg" aria-label="Caderno presentation film, 32 seconds, with sound">
           <source src="../../assets/video/caderno-film-en.mp4" type="video/mp4">
         </video>
@@ -65,7 +68,7 @@
         </aside>
 
         <div class="case-content">
-          <section>
+          <section id="le-besoin-et-les-contraintes">
             <h2>The need and the constraints</h2>
             <p>A translator gives you a word, not the will to remember it. I needed a personal notebook that keeps every word with its meaning, an example and my notes, plus reliable conjugation tables. Three constraints shaped the requirements:</p>
             <ul>
@@ -75,7 +78,7 @@
             </ul>
           </section>
 
-          <section>
+          <section id="ce-que-fait-l-application">
             <h2>What the app does</h2>
             <figure class="figure figure--wide">
               <div class="figure-frame figure-frame--flush">
@@ -106,7 +109,7 @@
             </div>
           </section>
 
-          <section>
+          <section id="comment-je-l-ai-fait-construire">
             <h2>How I had it built</h2>
             <p>Vibe coding does not replace rigour, it moves it. I did not write the code, but I set what it had to do, what it must not do, and how to prove it was done.</p>
             <ol class="method">
@@ -117,7 +120,7 @@
             </ol>
           </section>
 
-          <section>
+          <section id="resultats-verifiables">
             <h2>Verifiable results</h2>
             <ul class="results">
               <li><span class="proof proof--count">Counted</span><span>765 verb forms checked one by one against the reference conjugation.</span></li>
@@ -127,7 +130,7 @@
             </ul>
           </section>
 
-          <section>
+          <section id="limites-connues">
             <h2>Known limits</h2>
             <ul>
               <li><strong>Free services.</strong> They can be unavailable, and a rare word may have neither synonym nor example.</li>
@@ -137,8 +140,8 @@
           </section>
 
           <nav class="case-next" aria-label="Other projects">
-            <a href="sightline-mobile.html"><span>Previous project</span><strong>Sightline mobile, the player's app</strong></a>
-            <a href="../index.html#projets"><span>Internship projects</span><strong>All projects</strong></a>
+            <a href="sightline-mobile.html" rel="prev"><span><span aria-hidden="true">← </span>Previous project</span><strong>Sightline mobile, the player's app</strong></a>
+            <a href="support-client.html" rel="next"><span>Next project<span aria-hidden="true"> →</span></span><strong>Customer support system</strong></a>
           </nav>
         </div>
       </div>
@@ -148,6 +151,7 @@
   <footer class="site-footer">
     <div class="wrap">
       <p>Paul Morel, AI engineer with a cybersecurity background (ISEP 2026)</p>
+      <p class="footer-contact"><a href="mailto:pauleao02@gmail.com" data-mailto>Email</a><span aria-hidden="true"> · </span><a href="https://www.linkedin.com/in/morel-paul" target="_blank" rel="me noopener">LinkedIn</a><span aria-hidden="true"> · </span><a href="../../cv/Paul_Morel_CV.pdf" download>CV</a></p>
       <p>The app's address is not published: it is password-protected.</p>
     </div>
   </footer>

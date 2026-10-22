@@ -9,8 +9,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=JetBrains+Mono:wght@400;500&family=Public+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
   <link rel="alternate" hreflang="en" href="../en/projets/caderno.html">
-  <link rel="stylesheet" href="../assets/css/style.css?v=20261021c">
-  <script src="../assets/js/main.js?v=20261021c"></script>
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/css/style.css?v=20261022">
+  <script src="../assets/js/main.js?v=20261022"></script>
 </head>
 <body>
   <a class="skip-link" href="#contenu">Aller au contenu</a>
@@ -20,8 +21,9 @@
       <a class="wordmark" href="../index.html">Paul Morel</a>
       <nav class="site-nav" aria-label="Navigation principale">
         <ul>
-          <li><a href="../index.html#projets" aria-current="page">Projets</a></li>
+          <li><a href="../index.html#nouveaux" aria-current="true">Projets</a></li>
           <li><a href="../index.html#competences">Compétences</a></li>
+          <li><a href="../index.html#vitrine">Vidéos</a></li>
           <li><a href="../index.html#a-propos">À propos</a></li>
           <li><a href="../passions.html">Passions</a></li>
           <li><a href="../index.html#contact">Contact</a></li>
@@ -40,13 +42,14 @@
   <main id="contenu">
     <div class="wrap">
       <header class="case-head">
-        <p class="breadcrumb"><a href="../index.html#nouveaux">Nouveaux projets</a></p>
+        <nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="../index.html">Accueil</a> <span aria-hidden="true">›</span> <a href="../index.html#nouveaux">Applications IA</a></nav>
         <p class="case-kind"><strong>Projet personnel</strong>, application installable sur téléphone, construite en pilotant un agent IA</p>
         <h1>Caderno : un carnet de portugais brésilien qui tient dans la poche</h1>
         <p class="case-lede">J'apprends le portugais brésilien. Je voulais un seul endroit pour traduire un mot, le garder avec un vrai exemple et réviser mes conjugaisons, sur téléphone comme sur ordinateur, même sans réseau. J'ai conçu Caderno et je l'ai fait construire par un agent de code IA en une journée, jusqu'à sa mise en ligne sur mon serveur.</p>
+        <p class="case-jump"><a class="btn btn--quiet" href="#film">Voir la vidéo <span aria-hidden="true">↓</span></a></p>
       </header>
 
-      <figure class="pitch pitch--solo">
+      <figure class="pitch pitch--solo" id="film">
         <video controls playsinline preload="none" width="1280" height="720" poster="../assets/video/caderno-film.jpg" aria-label="Film de présentation de Caderno, 32 secondes, avec son">
           <source src="../assets/video/caderno-film.mp4" type="video/mp4">
         </video>
@@ -65,7 +68,7 @@
         </aside>
 
         <div class="case-content">
-          <section>
+          <section id="le-besoin-et-les-contraintes">
             <h2>Le besoin et les contraintes</h2>
             <p>Un traducteur donne un mot, mais pas l'envie de le retenir. Il me fallait un carnet personnel qui garde chaque mot avec son sens, un exemple et mes notes, et des tableaux de conjugaison fiables. Trois contraintes ont guidé le cahier des charges :</p>
             <ul>
@@ -75,7 +78,7 @@
             </ul>
           </section>
 
-          <section>
+          <section id="ce-que-fait-l-application">
             <h2>Ce que fait l'application</h2>
             <figure class="figure figure--wide">
               <div class="figure-frame figure-frame--flush">
@@ -106,7 +109,7 @@
             </div>
           </section>
 
-          <section>
+          <section id="comment-je-l-ai-fait-construire">
             <h2>Comment je l'ai fait construire</h2>
             <p>Le vibe coding ne remplace pas la rigueur, il la déplace. Je n'ai pas écrit le code, mais j'ai fixé ce qu'il devait faire, ce qu'il ne devait pas faire, et comment prouver que c'était fait.</p>
             <ol class="method">
@@ -117,7 +120,7 @@
             </ol>
           </section>
 
-          <section>
+          <section id="resultats-verifiables">
             <h2>Résultats vérifiables</h2>
             <ul class="results">
               <li><span class="proof proof--count">Compté</span><span>765 formes verbales vérifiées une à une sur la conjugaison de référence.</span></li>
@@ -127,7 +130,7 @@
             </ul>
           </section>
 
-          <section>
+          <section id="limites-connues">
             <h2>Limites connues</h2>
             <ul>
               <li><strong>Des services gratuits.</strong> Ils peuvent être indisponibles, et un mot rare peut n'avoir ni synonyme ni exemple.</li>
@@ -137,8 +140,8 @@
           </section>
 
           <nav class="case-next" aria-label="Autres projets">
-            <a href="sightline-mobile.html"><span>Projet précédent</span><strong>Sightline mobile, l'app du joueur</strong></a>
-            <a href="../index.html#projets"><span>Projets de stage</span><strong>Tous les projets</strong></a>
+            <a href="sightline-mobile.html" rel="prev"><span><span aria-hidden="true">← </span>Projet précédent</span><strong>Sightline mobile, l'app du joueur</strong></a>
+            <a href="support-client.html" rel="next"><span>Projet suivant<span aria-hidden="true"> →</span></span><strong>Système de support client</strong></a>
           </nav>
         </div>
       </div>
@@ -148,6 +151,7 @@
   <footer class="site-footer">
     <div class="wrap">
       <p>Paul Morel, ingénieur IA, formation en cybersécurité (ISEP 2026)</p>
+      <p class="footer-contact"><a href="mailto:pauleao02@gmail.com" data-mailto>E-mail</a><span aria-hidden="true"> · </span><a href="https://www.linkedin.com/in/morel-paul" target="_blank" rel="me noopener">LinkedIn</a><span aria-hidden="true"> · </span><a href="../cv/Paul_Morel_CV.pdf" download>CV</a></p>
       <p>L'adresse de l'application n'est pas publiée : elle est protégée par mot de passe.</p>
     </div>
   </footer>

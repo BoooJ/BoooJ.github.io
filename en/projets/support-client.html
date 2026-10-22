@@ -9,9 +9,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=JetBrains+Mono:wght@400;500&family=Public+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
   <link rel="alternate" hreflang="fr" href="../../projets/support-client.html">
-  <link rel="stylesheet" href="../../assets/css/style.css?v=20261021c">
-  <script src="../../assets/js/main.js?v=20261021c"></script>
-  <script src="../../assets/js/sim-tickets.js?v=20261021c" defer></script>
+  <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../assets/css/style.css?v=20261022">
+  <script src="../../assets/js/main.js?v=20261022"></script>
+  <script src="../../assets/js/sim-tickets.js?v=20261022" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#contenu">Skip to content</a>
@@ -21,8 +22,9 @@
       <a class="wordmark" href="../index.html">Paul Morel</a>
       <nav class="site-nav" aria-label="Main navigation">
         <ul>
-          <li><a href="../index.html#projets" aria-current="page">Projects</a></li>
+          <li><a href="../index.html#nouveaux" aria-current="true">Projects</a></li>
           <li><a href="../index.html#competences">Skills</a></li>
+          <li><a href="../index.html#vitrine">Videos</a></li>
           <li><a href="../index.html#a-propos">About</a></li>
           <li><a href="../passions.html">Passions</a></li>
           <li><a href="../index.html#contact">Contact</a></li>
@@ -41,10 +43,11 @@
   <main id="contenu">
     <div class="wrap">
       <header class="case-head">
-        <p class="breadcrumb"><a href="../index.html#projets">All projects</a></p>
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a> <span aria-hidden="true">›</span> <a href="../index.html#projets">Automation</a></nav>
         <p class="case-kind"><strong>Final-year internship</strong>, internal assignment, in production</p>
         <h1>A ticketing system where there was none</h1>
         <p class="case-lede">At Good iD, client requests arrived in individual inboxes, with no number and no tracking. I designed and put into production the set-up the support team uses today: a single address, a tracking spreadsheet and a script that numbers requests, acknowledges receipt and groups follow-ups.</p>
+        <p class="case-jump"><a class="btn btn--quiet" href="#essayez-le-tableau-de-suivi">Try the mock-up <span aria-hidden="true">↓</span></a></p>
       </header>
 
       <div class="case-body">
@@ -59,19 +62,19 @@
         </aside>
 
         <div class="case-content">
-          <section>
+          <section id="contexte-et-objectif">
             <h2>Context and goal</h2>
             <p>Good iD sells Google Workspace and Google Cloud licences, then supports its clients: migration, training, support. Before July 2026, the company had no centralised system for handling requests. A request could be handled twice, or not at all, without anyone noticing.</p>
             <p>The technical lead asked me to design a set-up for the support team and for clients under an operational maintenance contract. The foundations were already there: a Google spreadsheet and a script connected to it were enough, with no external tool and no budget. That is one of the reasons this solution was chosen.</p>
           </section>
 
-          <section>
+          <section id="mon-role">
             <h2>My role</h2>
             <p>I ran the project from start to finish: defining the conventions (statuses, columns, who updates what), developing the script, writing the onboarding guide, acceptance testing and go-live. Scoping and review were done with the technical lead in two dedicated meetings, on 17 and 20 July.</p>
             <p>I did not handle the requests myself: they are dealt with by the support team. My role ended at go-live, about ten days before the end of my internship.</p>
           </section>
 
-          <section>
+          <section id="ce-que-j-ai-fait">
             <h2>What I did</h2>
 
             <h3>One address, one spreadsheet, one script</h3>
@@ -183,7 +186,7 @@
             <p>The system also gained a link in the emails: it carries the ticket number into a Gmail search and leads straight to the relevant thread.</p>
           </section>
 
-          <section class="sim" data-sim="tickets" aria-labelledby="sim-t-title">
+          <section id="essayez-le-tableau-de-suivi" class="sim" data-sim="tickets" aria-labelledby="sim-t-title">
             <span class="sim-tag">Interactive mock-up, fictitious data</span>
             <div class="sim-head">
               <h2 id="sim-t-title">Try the tracking spreadsheet</h2>
@@ -209,7 +212,7 @@
             </dl>
           </section>
 
-          <section>
+          <section id="resultats-verifiables">
             <h2>Verifiable results</h2>
             <ul class="results">
               <li><span class="proof proof--fact">Recorded</span><span>System in production since early August 2026, where the company previously had no tool for tracking requests.</span></li>
@@ -224,7 +227,7 @@
             </div>
           </section>
 
-          <section>
+          <section id="limites-et-ce-que-je-ferais-ensuite">
             <h2>Limitations and what I would do next</h2>
             <ul>
               <li><strong>A bug that shipped.</strong> On the first run in the real environment, the notification was not sent: one line of code was still tied to the test environment. Fixed with the technical lead. My takeaway: a script validated in test is not truly validated until it has run once on the account and resources it will actually use.</li>
@@ -238,8 +241,8 @@
           </section>
 
           <nav class="case-next" aria-label="Other projects">
-            <a href="../index.html#projets"><span>Back</span><strong>All projects</strong></a>
-            <a href="inventaire-ocr.html"><span>Next project</span><strong>Equipment inventory with OCR</strong></a>
+            <a href="caderno.html" rel="prev"><span><span aria-hidden="true">← </span>Previous project</span><strong>Caderno, Portuguese notebook</strong></a>
+            <a href="inventaire-ocr.html" rel="next"><span>Next project<span aria-hidden="true"> →</span></span><strong>Equipment inventory with OCR</strong></a>
           </nav>
         </div>
       </div>
@@ -249,6 +252,7 @@
   <footer class="site-footer">
     <div class="wrap">
       <p>Paul Morel, AI engineer with a cybersecurity background (ISEP 2026)</p>
+      <p class="footer-contact"><a href="mailto:pauleao02@gmail.com" data-mailto>Email</a><span aria-hidden="true"> · </span><a href="https://www.linkedin.com/in/morel-paul" target="_blank" rel="me noopener">LinkedIn</a><span aria-hidden="true"> · </span><a href="../../cv/Paul_Morel_CV.pdf" download>CV</a></p>
       <p>Clients and colleagues are not named, for confidentiality.</p>
     </div>
   </footer>

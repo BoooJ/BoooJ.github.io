@@ -9,9 +9,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=JetBrains+Mono:wght@400;500&family=Public+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
   <link rel="alternate" hreflang="en" href="../en/projets/support-client.html">
-  <link rel="stylesheet" href="../assets/css/style.css?v=20261021c">
-  <script src="../assets/js/main.js?v=20261021c"></script>
-  <script src="../assets/js/sim-tickets.js?v=20261021c" defer></script>
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/css/style.css?v=20261022">
+  <script src="../assets/js/main.js?v=20261022"></script>
+  <script src="../assets/js/sim-tickets.js?v=20261022" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#contenu">Aller au contenu</a>
@@ -21,8 +22,9 @@
       <a class="wordmark" href="../index.html">Paul Morel</a>
       <nav class="site-nav" aria-label="Navigation principale">
         <ul>
-          <li><a href="../index.html#projets" aria-current="page">Projets</a></li>
+          <li><a href="../index.html#nouveaux" aria-current="true">Projets</a></li>
           <li><a href="../index.html#competences">Compétences</a></li>
+          <li><a href="../index.html#vitrine">Vidéos</a></li>
           <li><a href="../index.html#a-propos">À propos</a></li>
           <li><a href="../passions.html">Passions</a></li>
           <li><a href="../index.html#contact">Contact</a></li>
@@ -41,10 +43,11 @@
   <main id="contenu">
     <div class="wrap">
       <header class="case-head">
-        <p class="breadcrumb"><a href="../index.html#projets">Tous les projets</a></p>
+        <nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="../index.html">Accueil</a> <span aria-hidden="true">›</span> <a href="../index.html#projets">Automatisation</a></nav>
         <p class="case-kind"><strong>Stage de fin d'études</strong>, mission interne, en production</p>
         <h1>Un système de tickets là où il n'y en avait aucun</h1>
         <p class="case-lede">Chez Good iD, les demandes des clients arrivaient dans des boîtes individuelles, sans numéro ni suivi. J'ai conçu et mis en production le dispositif dont l'équipe support se sert aujourd'hui : une adresse unique, un tableau de suivi et un script qui numérote, accuse réception et regroupe les relances.</p>
+        <p class="case-jump"><a class="btn btn--quiet" href="#essayez-le-tableau-de-suivi">Essayer la maquette <span aria-hidden="true">↓</span></a></p>
       </header>
 
       <div class="case-body">
@@ -59,19 +62,19 @@
         </aside>
 
         <div class="case-content">
-          <section>
+          <section id="contexte-et-objectif">
             <h2>Contexte et objectif</h2>
             <p>Good iD vend des licences Google Workspace et Google Cloud, puis accompagne ses clients : migration, formation, support. Avant juillet 2026, l'entreprise n'avait aucun système centralisé pour traiter les demandes. Une demande pouvait être traitée deux fois, ou pas du tout, sans que personne ne s'en aperçoive.</p>
             <p>Le responsable technique m'a demandé de concevoir un dispositif pour l'équipe support et pour les clients sous contrat de maintien en condition opérationnelle. Le socle existait déjà : un tableur Google et un script connecté dessus suffisaient, sans outil externe ni budget. C'est l'une des raisons pour lesquelles cette solution a été retenue.</p>
           </section>
 
-          <section>
+          <section id="mon-role">
             <h2>Mon rôle</h2>
             <p>J'ai porté le projet de bout en bout : définition des conventions (statuts, colonnes, qui met à jour quoi), développement du script, rédaction du guide d'accueil, recette et mise en service. Le cadrage et la revue se sont faits avec le responsable technique lors de deux réunions dédiées, les 17 et 20 juillet.</p>
             <p>Je n'ai pas traité les demandes moi-même : elles sont prises en charge par l'équipe support. Mon rôle s'est arrêté à la mise en service, une dizaine de jours avant la fin de mon stage.</p>
           </section>
 
-          <section>
+          <section id="ce-que-j-ai-fait">
             <h2>Ce que j'ai fait</h2>
 
             <h3>Une adresse, un tableau, un script</h3>
@@ -183,7 +186,7 @@
             <p>Le système a aussi reçu un lien de renvoi dans les e-mails : il reporte le numéro du ticket dans la recherche Gmail et mène directement au fil concerné.</p>
           </section>
 
-          <section class="sim" data-sim="tickets" aria-labelledby="sim-t-title">
+          <section id="essayez-le-tableau-de-suivi" class="sim" data-sim="tickets" aria-labelledby="sim-t-title">
             <span class="sim-tag">Maquette interactive, données fictives</span>
             <div class="sim-head">
               <h2 id="sim-t-title">Essayez le tableau de suivi</h2>
@@ -209,7 +212,7 @@
             </dl>
           </section>
 
-          <section>
+          <section id="resultats-verifiables">
             <h2>Résultats vérifiables</h2>
             <ul class="results">
               <li><span class="proof proof--fact">Constaté</span><span>Système en production depuis début août 2026, là où l'entreprise n'avait aucun outil de suivi des demandes.</span></li>
@@ -224,7 +227,7 @@
             </div>
           </section>
 
-          <section>
+          <section id="limites-et-ce-que-je-ferais-ensuite">
             <h2>Limites et ce que je ferais ensuite</h2>
             <ul>
               <li><strong>Une erreur livrée.</strong> À la première exécution sur l'environnement réel, la notification ne partait pas : une ligne de code restait liée à l'environnement de test. Corrigée avec le responsable technique. J'en retiens qu'un script validé en test ne l'est pas tant qu'il n'a pas tourné une fois sur le compte et les ressources qui seront les siens.</li>
@@ -238,8 +241,8 @@
           </section>
 
           <nav class="case-next" aria-label="Autres projets">
-            <a href="../index.html#projets"><span>Retour</span><strong>Tous les projets</strong></a>
-            <a href="inventaire-ocr.html"><span>Projet suivant</span><strong>Inventaire du matériel par OCR</strong></a>
+            <a href="caderno.html" rel="prev"><span><span aria-hidden="true">← </span>Projet précédent</span><strong>Caderno, carnet de portugais</strong></a>
+            <a href="inventaire-ocr.html" rel="next"><span>Projet suivant<span aria-hidden="true"> →</span></span><strong>Inventaire du matériel par OCR</strong></a>
           </nav>
         </div>
       </div>
@@ -249,6 +252,7 @@
   <footer class="site-footer">
     <div class="wrap">
       <p>Paul Morel, ingénieur IA, formation en cybersécurité (ISEP 2026)</p>
+      <p class="footer-contact"><a href="mailto:pauleao02@gmail.com" data-mailto>E-mail</a><span aria-hidden="true"> · </span><a href="https://www.linkedin.com/in/morel-paul" target="_blank" rel="me noopener">LinkedIn</a><span aria-hidden="true"> · </span><a href="../cv/Paul_Morel_CV.pdf" download>CV</a></p>
       <p>Clients et collègues ne sont pas nommés, par confidentialité.</p>
     </div>
   </footer>

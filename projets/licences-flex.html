@@ -9,9 +9,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=JetBrains+Mono:wght@400;500&family=Public+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
   <link rel="alternate" hreflang="en" href="../en/projets/licences-flex.html">
-  <link rel="stylesheet" href="../assets/css/style.css?v=20261021c">
-  <script src="../assets/js/main.js?v=20261021c"></script>
-  <script src="../assets/js/sim-licences.js?v=20261021c" defer></script>
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/css/style.css?v=20261022">
+  <script src="../assets/js/main.js?v=20261022"></script>
+  <script src="../assets/js/sim-licences.js?v=20261022" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#contenu">Aller au contenu</a>
@@ -21,8 +22,9 @@
       <a class="wordmark" href="../index.html">Paul Morel</a>
       <nav class="site-nav" aria-label="Navigation principale">
         <ul>
-          <li><a href="../index.html#projets" aria-current="page">Projets</a></li>
+          <li><a href="../index.html#nouveaux" aria-current="true">Projets</a></li>
           <li><a href="../index.html#competences">Compétences</a></li>
+          <li><a href="../index.html#vitrine">Vidéos</a></li>
           <li><a href="../index.html#a-propos">À propos</a></li>
           <li><a href="../passions.html">Passions</a></li>
           <li><a href="../index.html#contact">Contact</a></li>
@@ -41,10 +43,11 @@
   <main id="contenu">
     <div class="wrap">
       <header class="case-head">
-        <p class="breadcrumb"><a href="../index.html#projets">Tous les projets</a></p>
+        <nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="../index.html">Accueil</a> <span aria-hidden="true">›</span> <a href="../index.html#projets">Automatisation</a></nav>
         <p class="case-kind"><strong>Stage de fin d'études</strong>, outil interne, prototype validé en environnement de test</p>
         <h1>Des licences attribuées à la connexion, reprises chaque nuit</h1>
         <p class="case-lede">Dans l'environnement de test de Good iD, des licences attribuées une fois et jamais retirées continuaient d'être facturées chaque mois. J'ai développé une application qui accorde la licence quand un ingénieur se connecte et la reprend automatiquement pendant la nuit.</p>
+        <p class="case-jump"><a class="btn btn--quiet" href="#essayez-un-mois-d-environnement-de-test">Essayer la maquette <span aria-hidden="true">↓</span></a></p>
       </header>
 
       <div class="case-body">
@@ -60,13 +63,13 @@
         </aside>
 
         <div class="case-content">
-          <section>
+          <section id="contexte-et-objectif">
             <h2>Contexte et objectif</h2>
             <p>Les ingénieurs utilisent un environnement de test pour préparer une configuration, reproduire un cas ou montrer une fonctionnalité. L'accès aux fonctionnalités suppose une licence, et les licences en formule Flex sont facturées mensuellement, par utilisateur affecté. Une licence attribuée à quelqu'un qui s'est connecté une fois en avril est encore facturée en juillet.</p>
             <p>Personne ne les retire : rien ne le rappelle, et le coût individuel est faible. C'est l'accumulation qui coûte. L'objectif était de rendre cette accumulation impossible, sans alourdir l'accès des ingénieurs.</p>
           </section>
 
-          <section>
+          <section id="ce-que-j-ai-fait">
             <h2>Ce que j'ai fait</h2>
             <p>L'application automatise le cycle complet. À la connexion, elle identifie l'utilisateur à partir de sa session, récupère l'identifiant de l'organisation via l'annuaire, vérifie qu'il ne détient pas déjà une licence du type visé, puis la lui attribue. Une exécution planifiée, indépendante de toute connexion, retire les licences pendant la nuit.</p>
 
@@ -128,7 +131,7 @@
             <p>« Sans contrôle » serait pourtant inexact. Deux contrôles automatiques restent au cœur du dispositif : l'utilisateur doit s'être authentifié sur l'environnement de test, et l'application vérifie qu'il ne détient pas déjà une licence du type visé. L'outil est limité à un seul type de licence. Ce qui disparaît, c'est la validation manuelle au cas par cas, remplacée par une réversibilité automatique.</p>
           </section>
 
-          <section class="sim" data-sim="licences" aria-labelledby="sim-l-title">
+          <section id="essayez-un-mois-d-environnement-de-test" class="sim" data-sim="licences" aria-labelledby="sim-l-title">
             <span class="sim-tag">Simulation, données fictives</span>
             <div class="sim-head">
               <h2 id="sim-l-title">Essayez : un mois d'environnement de test</h2>
@@ -165,7 +168,7 @@
             <p class="sim-log" data-summary aria-live="polite"></p>
           </section>
 
-          <section>
+          <section id="resultats-verifiables">
             <h2>Résultats vérifiables</h2>
             <ul class="results">
               <li><span class="proof proof--fact">Constaté</span><span>Application fonctionnelle et validée dans l'environnement de test de l'entreprise.</span></li>
@@ -173,7 +176,7 @@
             </ul>
           </section>
 
-          <section>
+          <section id="risques-que-je-n-ai-pas-supprimes">
             <h2>Risques que je n'ai pas supprimés</h2>
             <ul>
               <li><strong>La fenêtre du jour.</strong> Une licence attribuée reste utilisable jusqu'au retrait de la nuit. Le dispositif ne protège pas d'un usage inapproprié dans cet intervalle.</li>
@@ -183,8 +186,8 @@
           </section>
 
           <nav class="case-next" aria-label="Autres projets">
-            <a href="inventaire-ocr.html"><span>Projet précédent</span><strong>Inventaire du matériel par OCR</strong></a>
-            <a href="bordereaux-la-poste.html"><span>Projet suivant</span><strong>Bordereaux La Poste automatisés</strong></a>
+            <a href="inventaire-ocr.html" rel="prev"><span><span aria-hidden="true">← </span>Projet précédent</span><strong>Inventaire du matériel par OCR</strong></a>
+            <a href="bordereaux-la-poste.html" rel="next"><span>Projet suivant<span aria-hidden="true"> →</span></span><strong>Bordereaux La Poste automatisés</strong></a>
           </nav>
         </div>
       </div>
@@ -194,6 +197,7 @@
   <footer class="site-footer">
     <div class="wrap">
       <p>Paul Morel, ingénieur IA, formation en cybersécurité (ISEP 2026)</p>
+      <p class="footer-contact"><a href="mailto:pauleao02@gmail.com" data-mailto>E-mail</a><span aria-hidden="true"> · </span><a href="https://www.linkedin.com/in/morel-paul" target="_blank" rel="me noopener">LinkedIn</a><span aria-hidden="true"> · </span><a href="../cv/Paul_Morel_CV.pdf" download>CV</a></p>
       <p>Clients et collègues ne sont pas nommés, par confidentialité.</p>
     </div>
   </footer>

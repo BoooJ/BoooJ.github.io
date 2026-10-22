@@ -9,9 +9,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=JetBrains+Mono:wght@400;500&family=Public+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
   <link rel="alternate" hreflang="fr" href="../../projets/licences-flex.html">
-  <link rel="stylesheet" href="../../assets/css/style.css?v=20261021c">
-  <script src="../../assets/js/main.js?v=20261021c"></script>
-  <script src="../../assets/js/sim-licences.js?v=20261021c" defer></script>
+  <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../assets/css/style.css?v=20261022">
+  <script src="../../assets/js/main.js?v=20261022"></script>
+  <script src="../../assets/js/sim-licences.js?v=20261022" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#contenu">Skip to content</a>
@@ -21,8 +22,9 @@
       <a class="wordmark" href="../index.html">Paul Morel</a>
       <nav class="site-nav" aria-label="Main navigation">
         <ul>
-          <li><a href="../index.html#projets" aria-current="page">Projects</a></li>
+          <li><a href="../index.html#nouveaux" aria-current="true">Projects</a></li>
           <li><a href="../index.html#competences">Skills</a></li>
+          <li><a href="../index.html#vitrine">Videos</a></li>
           <li><a href="../index.html#a-propos">About</a></li>
           <li><a href="../passions.html">Passions</a></li>
           <li><a href="../index.html#contact">Contact</a></li>
@@ -41,10 +43,11 @@
   <main id="contenu">
     <div class="wrap">
       <header class="case-head">
-        <p class="breadcrumb"><a href="../index.html#projets">All projects</a></p>
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a> <span aria-hidden="true">›</span> <a href="../index.html#projets">Automation</a></nav>
         <p class="case-kind"><strong>Final-year internship</strong>, internal tool, prototype validated in a test environment</p>
         <h1>Licences assigned at sign-in, reclaimed every night</h1>
         <p class="case-lede">In Good iD's test environment, licences that were assigned once and never removed went on being billed every month. I developed an app that grants the licence when an engineer signs in and automatically reclaims it overnight.</p>
+        <p class="case-jump"><a class="btn btn--quiet" href="#essayez-un-mois-d-environnement-de-test">Try the mock-up <span aria-hidden="true">↓</span></a></p>
       </header>
 
       <div class="case-body">
@@ -60,13 +63,13 @@
         </aside>
 
         <div class="case-content">
-          <section>
+          <section id="contexte-et-objectif">
             <h2>Context and goal</h2>
             <p>Engineers use a test environment to prepare a configuration, reproduce a case or demonstrate a feature. Access to the features requires a licence, and Flex licences are billed monthly, per assigned user. A licence assigned to someone who signed in once in April is still being billed in July.</p>
             <p>Nobody removes them: nothing prompts anyone to, and the individual cost is low. It is the build-up that costs money. The goal was to make that build-up impossible, without making access any harder for engineers.</p>
           </section>
 
-          <section>
+          <section id="ce-que-j-ai-fait">
             <h2>What I did</h2>
             <p>The app automates the full cycle. At sign-in, it identifies the user from their session, retrieves the organisation ID from the directory, checks that they do not already hold a licence of the target type, then assigns it to them. A scheduled run, independent of any sign-in, removes the licences overnight.</p>
 
@@ -128,7 +131,7 @@
             <p>“No control” would be inaccurate, though. Two automatic checks remain at the heart of the set-up: the user must have authenticated on the test environment, and the app checks that they do not already hold a licence of the target type. The tool is limited to a single licence type. What disappears is manual, case-by-case approval, replaced by automatic reversibility.</p>
           </section>
 
-          <section class="sim" data-sim="licences" aria-labelledby="sim-l-title">
+          <section id="essayez-un-mois-d-environnement-de-test" class="sim" data-sim="licences" aria-labelledby="sim-l-title">
             <span class="sim-tag">Simulation, fictitious data</span>
             <div class="sim-head">
               <h2 id="sim-l-title">Try it: one month of a test environment</h2>
@@ -165,7 +168,7 @@
             <p class="sim-log" data-summary aria-live="polite"></p>
           </section>
 
-          <section>
+          <section id="resultats-verifiables">
             <h2>Verifiable results</h2>
             <ul class="results">
               <li><span class="proof proof--fact">Recorded</span><span>App working and validated in the company's test environment.</span></li>
@@ -173,7 +176,7 @@
             </ul>
           </section>
 
-          <section>
+          <section id="risques-que-je-n-ai-pas-supprimes">
             <h2>Risks I did not remove</h2>
             <ul>
               <li><strong>The daytime window.</strong> An assigned licence remains usable until it is removed at night. The set-up does not protect against inappropriate use in that interval.</li>
@@ -183,8 +186,8 @@
           </section>
 
           <nav class="case-next" aria-label="Other projects">
-            <a href="inventaire-ocr.html"><span>Previous project</span><strong>Equipment inventory with OCR</strong></a>
-            <a href="bordereaux-la-poste.html"><span>Next project</span><strong>Automated La Poste shipping slips</strong></a>
+            <a href="inventaire-ocr.html" rel="prev"><span><span aria-hidden="true">← </span>Previous project</span><strong>Equipment inventory with OCR</strong></a>
+            <a href="bordereaux-la-poste.html" rel="next"><span>Next project<span aria-hidden="true"> →</span></span><strong>Automated La Poste shipping slips</strong></a>
           </nav>
         </div>
       </div>
@@ -194,6 +197,7 @@
   <footer class="site-footer">
     <div class="wrap">
       <p>Paul Morel, AI engineer with a cybersecurity background (ISEP 2026)</p>
+      <p class="footer-contact"><a href="mailto:pauleao02@gmail.com" data-mailto>Email</a><span aria-hidden="true"> · </span><a href="https://www.linkedin.com/in/morel-paul" target="_blank" rel="me noopener">LinkedIn</a><span aria-hidden="true"> · </span><a href="../../cv/Paul_Morel_CV.pdf" download>CV</a></p>
       <p>Clients and colleagues are not named, for confidentiality.</p>
     </div>
   </footer>

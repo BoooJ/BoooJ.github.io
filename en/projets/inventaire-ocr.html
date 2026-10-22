@@ -9,9 +9,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=JetBrains+Mono:wght@400;500&family=Public+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
   <link rel="alternate" hreflang="fr" href="../../projets/inventaire-ocr.html">
-  <link rel="stylesheet" href="../../assets/css/style.css?v=20261021c">
-  <script src="../../assets/js/main.js?v=20261021c"></script>
-  <script src="../../assets/js/sim-ocr.js?v=20261021c" defer></script>
+  <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../assets/css/style.css?v=20261022">
+  <script src="../../assets/js/main.js?v=20261022"></script>
+  <script src="../../assets/js/sim-ocr.js?v=20261022" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#contenu">Skip to content</a>
@@ -21,8 +22,9 @@
       <a class="wordmark" href="../index.html">Paul Morel</a>
       <nav class="site-nav" aria-label="Main navigation">
         <ul>
-          <li><a href="../index.html#projets" aria-current="page">Projects</a></li>
+          <li><a href="../index.html#nouveaux" aria-current="true">Projects</a></li>
           <li><a href="../index.html#competences">Skills</a></li>
+          <li><a href="../index.html#vitrine">Videos</a></li>
           <li><a href="../index.html#a-propos">About</a></li>
           <li><a href="../passions.html">Passions</a></li>
           <li><a href="../index.html#contact">Contact</a></li>
@@ -41,10 +43,11 @@
   <main id="contenu">
     <div class="wrap">
       <header class="case-head">
-        <p class="breadcrumb"><a href="../index.html#projets">All projects</a></p>
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a> <span aria-hidden="true">›</span> <a href="../index.html#projets">Automation</a></nav>
         <p class="case-kind"><strong>Final-year internship</strong>, internal assignment, in production</p>
         <h1>Photograph the label instead of copying out the number</h1>
         <p class="case-lede">Equipment arriving at the office was inventoried by hand: the model and serial number were copied from the box into a spreadsheet. I built an AppSheet app that reads the label using optical character recognition. It has been in production since 12 June 2026.</p>
+        <p class="case-jump"><a class="btn btn--quiet" href="#essayez-le-gabarit-de-lecture">Try the mock-up <span aria-hidden="true">↓</span></a></p>
       </header>
 
       <div class="case-body">
@@ -59,18 +62,18 @@
         </aside>
 
         <div class="case-content">
-          <section>
+          <section id="contexte-et-objectif">
             <h2>Context and goal</h2>
             <p>Before deployment, every device received has to be inventoried. The model and serial number were read off the label on the box, then copied into a spreadsheet: three to five minutes per device, with a high risk of error, because these numbers are long, alphanumeric and have no redundancy.</p>
             <p>The real cost is not the typing. A transcription error goes unnoticed when it is made; it shows up weeks later, when someone looks for a piece of equipment that cannot be found under that reference. The goal: remove manual entry of the model and serial number.</p>
           </section>
 
-          <section>
+          <section id="mon-role">
             <h2>My role</h2>
             <p>I spotted this pain point by meeting the company's staff one by one at the start of my internship and listening to them describe how equipment was received. The request was then taken up by the sales and technical leads. I designed, built and launched the app, and wrote a step-by-step guide to present it to the team.</p>
           </section>
 
-          <section>
+          <section id="ce-que-j-ai-fait">
             <h2>What I did</h2>
 
             <figure class="figure">
@@ -122,7 +125,7 @@
             <p>Reliability rests on a feature of the context: labels from the same manufacturer all have the same layout. I checked this consistency on the boxes in stock before building anything, then calibrated the capture zones on those labels. This is far more reliable than free-text extraction, precisely because the approach exploits a regularity known in advance.</p>
             <p>The difficulty came from how dense the labels are: on a Chromebook box, the serial number sits next to a product reference, a barcode, a batch number and regulatory notices, in the same font, a few millimetres apart. A badly defined zone captures the wrong field, and the error goes unnoticed because the format still looks plausible.</p>
 
-            <section class="sim" data-sim="ocr" aria-labelledby="sim-o-title">
+            <section id="essayez-le-gabarit-de-lecture" class="sim" data-sim="ocr" aria-labelledby="sim-o-title">
               <span class="sim-tag">Interactive mock-up, fictitious labels</span>
               <div class="sim-head">
                 <h2 id="sim-o-title">Try it: the reading template</h2>
@@ -161,7 +164,7 @@
             </figure>
           </section>
 
-          <section>
+          <section id="resultats-verifiables">
             <h2>Verifiable results</h2>
             <ul class="results">
               <li><span class="proof proof--fact">Recorded</span><span>App deployed on 12 June 2026, in production at Good iD when I left.</span></li>
@@ -176,7 +179,7 @@
             </div>
           </section>
 
-          <section>
+          <section id="limites-et-ce-que-j-en-retiens">
             <h2>Limitations and lessons learnt</h2>
             <ul>
               <li><strong>Measure before, not after.</strong> I timed data entry after delivery, whereas the main gain lies in the errors avoided, which I neither measured nor estimated. Half a day measuring the existing process (times, errors found in the inventory history) would have turned a claim into a result. Since then, I set the success criteria before developing.</li>
@@ -187,8 +190,8 @@
           </section>
 
           <nav class="case-next" aria-label="Other projects">
-            <a href="support-client.html"><span>Previous project</span><strong>Customer support system</strong></a>
-            <a href="licences-flex.html"><span>Next project</span><strong>Test licences assigned and reclaimed</strong></a>
+            <a href="support-client.html" rel="prev"><span><span aria-hidden="true">← </span>Previous project</span><strong>Customer support system</strong></a>
+            <a href="licences-flex.html" rel="next"><span>Next project<span aria-hidden="true"> →</span></span><strong>Test licences assigned and reclaimed</strong></a>
           </nav>
         </div>
       </div>
@@ -198,6 +201,7 @@
   <footer class="site-footer">
     <div class="wrap">
       <p>Paul Morel, AI engineer with a cybersecurity background (ISEP 2026)</p>
+      <p class="footer-contact"><a href="mailto:pauleao02@gmail.com" data-mailto>Email</a><span aria-hidden="true"> · </span><a href="https://www.linkedin.com/in/morel-paul" target="_blank" rel="me noopener">LinkedIn</a><span aria-hidden="true"> · </span><a href="../../cv/Paul_Morel_CV.pdf" download>CV</a></p>
       <p>Clients and colleagues are not named, for confidentiality.</p>
     </div>
   </footer>

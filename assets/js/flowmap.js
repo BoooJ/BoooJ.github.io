@@ -18,9 +18,9 @@
 
   // Géométrie, en unités du viewBox (700 × 570)
   var GEO = {
-    trigger: { x: 10, w: 150, h: 46 },
-    build: { x: 245, w: 190, h: 54 },
-    system: { x: 540, w: 150, h: 36 }
+    trigger: { x: 4, w: 160, h: 46 },
+    build: { x: 236, w: 208, h: 54 },
+    system: { x: 516, w: 180, h: 36 }
   };
   var ROW = [70, 170, 270, 370, 470];
 

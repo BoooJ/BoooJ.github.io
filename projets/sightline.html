@@ -9,8 +9,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=JetBrains+Mono:wght@400;500&family=Public+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
   <link rel="alternate" hreflang="en" href="../en/projets/sightline.html">
-  <link rel="stylesheet" href="../assets/css/style.css?v=20261021c">
-  <script src="../assets/js/main.js?v=20261021c"></script>
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/css/style.css?v=20261022">
+  <script src="../assets/js/main.js?v=20261022"></script>
 </head>
 <body>
   <a class="skip-link" href="#contenu">Aller au contenu</a>
@@ -20,8 +21,9 @@
       <a class="wordmark" href="../index.html">Paul Morel</a>
       <nav class="site-nav" aria-label="Navigation principale">
         <ul>
-          <li><a href="../index.html#projets" aria-current="page">Projets</a></li>
+          <li><a href="../index.html#nouveaux" aria-current="true">Projets</a></li>
           <li><a href="../index.html#competences">Compétences</a></li>
+          <li><a href="../index.html#vitrine">Vidéos</a></li>
           <li><a href="../index.html#a-propos">À propos</a></li>
           <li><a href="../passions.html">Passions</a></li>
           <li><a href="../index.html#contact">Contact</a></li>
@@ -40,13 +42,14 @@
   <main id="contenu">
     <div class="wrap">
       <header class="case-head">
-        <p class="breadcrumb"><a href="../index.html#nouveaux">Nouveaux projets</a></p>
+        <nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="../index.html">Accueil</a> <span aria-hidden="true">›</span> <a href="../index.html#nouveaux">Applications IA</a></nav>
         <p class="case-kind"><strong>Projet personnel</strong>, application web en ligne, construite en pilotant des agents IA</p>
-        <h1>Sightline : analyser un match de Counter-Strike 2 comme un staff professionnel</h1>
+        <h1>Sightline : analyser un match de Counter‑Strike 2 comme un staff professionnel</h1>
         <p class="case-lede">Dans Counter-Strike 2, chaque match peut être enregistré dans un fichier de démo qui contient tout : positions, tirs, grenades, argent. Sightline transforme ces fichiers en replay 2D, en statistiques et en outils de préparation pour une équipe. J'en ai construit la première version en trois jours en pilotant des agents IA, puis je l'ai enrichie jusqu'à couvrir l'essentiel d'un outil professionnel : je décide quoi construire et comment le vérifier, les agents écrivent le code.</p>
+        <p class="case-jump"><a class="btn btn--quiet" href="#film">Voir la vidéo <span aria-hidden="true">↓</span></a></p>
       </header>
 
-      <div class="media-pair" role="group" aria-label="Vidéos de présentation de Sightline">
+      <div class="media-pair" id="film" role="group" aria-label="Vidéos de présentation de Sightline">
         <figure class="pitch">
           <video controls playsinline preload="none" width="1920" height="1080" poster="../assets/video/sightline-film.jpg" aria-label="Film de présentation de Sightline, 32 secondes, avec musique">
             <source src="../assets/video/sightline-film.mp4" type="video/mp4">
@@ -73,12 +76,12 @@
         </aside>
 
         <div class="case-content">
-          <section>
+          <section id="le-besoin">
             <h2>Le besoin</h2>
             <p>Pour progresser à Counter-Strike, il faut revoir ses matchs : où étaient les joueurs, pourquoi un round a été perdu, ce que fait l'adversaire d'habitude. Les outils que les équipes utilisent pour cela sont des services en ligne, pour la plupart payants. Je voulais mon propre outil, hébergé sur mon serveur, qui couvre ce besoin de bout en bout : importer une démo, la revoir, l'analyser et préparer le match suivant.</p>
           </section>
 
-          <section>
+          <section id="le-vibe-coding-avec-une-methode">
             <h2>Le vibe coding, avec une méthode</h2>
             <p>Le vibe coding consiste à décrire en langage naturel ce que l'on veut et à laisser une IA écrire le code. C'est rapide, mais le risque est connu : on finit avec une application que personne ne comprend, pleine d'erreurs invisibles. Mon travail a été d'encadrer ces agents comme on encadre une équipe de développeurs.</p>
             <ol class="method">
@@ -90,7 +93,7 @@
             </ol>
           </section>
 
-          <section>
+          <section id="ce-que-fait-l-application">
             <h2>Ce que fait l'application</h2>
             <figure class="figure figure--wide">
               <div class="figure-frame figure-frame--flush">
@@ -143,7 +146,7 @@
             </div>
           </section>
 
-          <section>
+          <section id="rendre-l-ia-fiable-un-rapport-de-scouting-verifie">
             <h2>Rendre l'IA fiable : un rapport de scouting vérifié</h2>
             <p>Sightline peut rédiger un rapport de scouting sur un adversaire, comme le ferait un analyste. Le risque d'un texte écrit par une IA est connu : elle peut inventer un chiffre ou inverser deux sites avec beaucoup d'aplomb. J'ai donc fait construire le rapport pour que le logiciel calcule les faits, que l'IA ne fasse que rédiger, et que tout soit vérifié avant affichage.</p>
             <figure class="figure figure--wide">
@@ -209,7 +212,7 @@
             <p><strong>Décision tirée de la mesure :</strong> l'utilisateur choisit le modèle au moment de rédiger. Haiku pour un rapport courant, Opus avant un match important, car c'est celui qui écrit le moins d'erreurs de sens. Le juge relit chaque rapport pour environ un centime. L'évaluation complète a coûté environ 3,20 $.</p>
           </section>
 
-          <section>
+          <section id="resultats-verifiables">
             <h2>Résultats vérifiables</h2>
             <ul class="results">
               <li><span class="proof proof--count">Compté</span><span>Plus de 200 commits du 10 au 21 octobre 2026, dans l'historique Git du projet, dont 93 pour la première version en trois jours.</span></li>
@@ -223,7 +226,7 @@
             </ul>
           </section>
 
-          <section>
+          <section id="ce-que-je-retiens-et-les-limites">
             <h2>Ce que je retiens, et les limites</h2>
             <ul>
               <li><strong>Mon apport n'est pas la frappe du code.</strong> Il est dans la spécification, le découpage, la vérification et l'exploitation. Je sais expliquer l'architecture et chaque choix, pas réciter chaque ligne.</li>
@@ -234,8 +237,8 @@
           </section>
 
           <nav class="case-next" aria-label="Autres projets">
-            <a href="../index.html#nouveaux"><span>Retour</span><strong>Nouveaux projets</strong></a>
-            <a href="sightline-mobile.html"><span>Projet suivant</span><strong>Sightline mobile, l'app du joueur</strong></a>
+            <a href="e-commerce.html" rel="prev"><span><span aria-hidden="true">← </span>Projet précédent</span><strong>Boutiques e-commerce</strong></a>
+            <a href="sightline-mobile.html" rel="next"><span>Projet suivant<span aria-hidden="true"> →</span></span><strong>Sightline mobile, l'app du joueur</strong></a>
           </nav>
         </div>
       </div>
@@ -245,6 +248,7 @@
   <footer class="site-footer">
     <div class="wrap">
       <p>Paul Morel, ingénieur IA, formation en cybersécurité (ISEP 2026)</p>
+      <p class="footer-contact"><a href="mailto:pauleao02@gmail.com" data-mailto>E-mail</a><span aria-hidden="true"> · </span><a href="https://www.linkedin.com/in/morel-paul" target="_blank" rel="me noopener">LinkedIn</a><span aria-hidden="true"> · </span><a href="../cv/Paul_Morel_CV.pdf" download>CV</a></p>
       <p>L'adresse de l'application n'est pas publiée : elle est réservée aux comptes.</p>
     </div>
   </footer>

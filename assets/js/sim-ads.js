@@ -2,8 +2,6 @@
 (function () {
   var sim = document.querySelector('[data-sim="ads"]');
   if (!sim) return;
-  var EN = (document.documentElement.getAttribute("lang") || "fr").indexOf("en") === 0;
-  function L(fr, en) { return EN ? en : fr; }
   var list = sim.querySelector("[data-ads]");
   var formatButtons = sim.querySelectorAll("button[data-format]");
 
@@ -20,16 +18,14 @@
     });
   });
 
+  // Le nom de chaque carte vient de son contenu visible : l'image (texte alternatif) ou la traduction.
   list.querySelectorAll(".ad-flip").forEach(function (card) {
-    var title = card.querySelector(".ad-back-title");
+    var front = card.querySelector(".ad-face--front");
     var back = card.querySelector(".ad-face--back");
-    var label = title ? title.textContent : "";
     function sync() {
       var flipped = card.classList.contains("is-flipped");
       card.setAttribute("aria-pressed", String(flipped));
-      card.setAttribute("aria-label", flipped
-        ? L("Traduction affichée : ", "Translation shown: ") + label + L(". Revenir à la publicité", ". Back to the ad")
-        : L("Afficher la traduction de la publicité : ", "Show the ad translation: ") + label);
+      if (front) front.setAttribute("aria-hidden", String(flipped));
       if (back) back.setAttribute("aria-hidden", String(!flipped));
     }
     sync();

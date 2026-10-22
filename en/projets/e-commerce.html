@@ -9,10 +9,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=JetBrains+Mono:wght@400;500&family=Public+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
   <link rel="alternate" hreflang="fr" href="../../projets/e-commerce.html">
-  <link rel="stylesheet" href="../../assets/css/style.css?v=20261021c">
-  <script src="../../assets/js/main.js?v=20261021c"></script>
-  <script src="../../assets/js/sim-ads.js?v=20261021c" defer></script>
-  <script src="../../assets/js/sim-immersion.js?v=20261021c" defer></script>
+  <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../assets/css/style.css?v=20261022">
+  <script src="../../assets/js/main.js?v=20261022"></script>
+  <script src="../../assets/js/sim-ads.js?v=20261022" defer></script>
+  <script src="../../assets/js/sim-immersion.js?v=20261022" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#contenu">Skip to content</a>
@@ -22,8 +23,9 @@
       <a class="wordmark" href="../index.html">Paul Morel</a>
       <nav class="site-nav" aria-label="Main navigation">
         <ul>
-          <li><a href="../index.html#projets" aria-current="page">Projects</a></li>
+          <li><a href="../index.html#nouveaux" aria-current="true">Projects</a></li>
           <li><a href="../index.html#competences">Skills</a></li>
+          <li><a href="../index.html#vitrine">Videos</a></li>
           <li><a href="../index.html#a-propos">About</a></li>
           <li><a href="../passions.html">Passions</a></li>
           <li><a href="../index.html#contact">Contact</a></li>
@@ -42,10 +44,11 @@
   <main id="contenu">
     <div class="wrap">
       <header class="case-head">
-        <p class="breadcrumb"><a href="../index.html#projets">All projects</a></p>
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a> <span aria-hidden="true">›</span> <a href="../index.html#projets">Automation</a></nav>
         <p class="case-kind"><strong>Personal project</strong>, dropshipping e-commerce</p>
         <h1>Having AI agents code a shop, without losing control</h1>
         <p class="case-lede">Since August 2026, I have been launching Shopify dropshipping shops. The theme code is written by AI agents and the visuals by image models. My job: decide what needs doing, check what goes live, and run the shops.</p>
+        <p class="case-jump"><a class="btn btn--quiet" href="#immersion">The immersive shop tour <span aria-hidden="true">↓</span></a> <a class="btn btn--quiet" href="#videos">Watch the videos <span aria-hidden="true">↓</span></a></p>
       </header>
 
       <div class="case-body">
@@ -61,12 +64,12 @@
         </aside>
 
         <div class="case-content">
-          <section>
+          <section id="contexte-et-objectif">
             <h2>Context and goal</h2>
             <p>I wanted to test products on small European markets, quickly, and in a language I do not always speak. AI agents can write a complete theme in a few hours; the risk is no longer knowing what is live, or how to roll back. So the goal was twofold: move fast, and stay in control of every change published.</p>
           </section>
 
-          <section>
+          <section id="deleguer-l-ecriture-pas-la-mise-en-ligne">
             <h2>Delegate the writing, not the publishing</h2>
             <p>I set working rules for the agents, written down in the project notes:</p>
             <ul>
@@ -134,7 +137,7 @@ shopify theme push --theme &lt;theme-id&gt; --only sections/faq.liquid</code></p
             </figure>
           </section>
 
-          <section>
+          <section id="ce-que-la-recette-a-attrape">
             <h2>What testing caught</h2>
             <p>The fixes were coded by the agent and validated by me on the live site. Some defects came from my own tests, others from the audits carried out before launch.</p>
             <ul>
@@ -175,50 +178,50 @@ shopify theme push --theme &lt;theme-id&gt; --only sections/faq.liquid</code></p
             <ul class="reel">
               <li>
                 <figure class="clip-fig">
-                  <div class="clip"><video data-clip muted loop playsinline preload="none" poster="../../assets/video/aubea-fin.jpg" src="../../assets/video/aubea-fin.mp4" aria-label="From sleep to wake-up"></video><button class="clip-play" type="button" aria-label="Play the video"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></button></div>
-                  <figcaption class="clip-caption"><strong>From sleep to wake-up</strong>Aubéa alarm bracelet, final edit</figcaption>
+                  <div class="clip"><video data-clip muted loop playsinline preload="none" poster="../../assets/video/aubea-fin.jpg" src="../../assets/video/aubea-fin.mp4" aria-label="From sleep to wake-up"></video><button class="clip-play" type="button" aria-label="Play video: From sleep to wake-up"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></button></div>
+                  <figcaption class="clip-caption"><strong>From sleep to wake-up</strong> Aubéa alarm bracelet, final edit</figcaption>
                 </figure>
               </li>
               <li>
                 <figure class="clip-fig">
-                  <div class="clip"><video data-clip muted loop playsinline preload="none" poster="../../assets/video/aubea-usb.jpg" src="../../assets/video/aubea-usb.mp4" aria-label="USB charging"></video><button class="clip-play" type="button" aria-label="Play the video"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></button></div>
-                  <figcaption class="clip-caption"><strong>USB charging</strong>Aubéa alarm bracelet, with call to action</figcaption>
+                  <div class="clip"><video data-clip muted loop playsinline preload="none" poster="../../assets/video/aubea-usb.jpg" src="../../assets/video/aubea-usb.mp4" aria-label="USB charging"></video><button class="clip-play" type="button" aria-label="Play video: USB charging"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></button></div>
+                  <figcaption class="clip-caption"><strong>USB charging</strong> Aubéa alarm bracelet, with call to action</figcaption>
                 </figure>
               </li>
               <li>
                 <figure class="clip-fig">
-                  <div class="clip"><video data-clip muted loop playsinline preload="none" poster="../../assets/video/bracelet-tech.jpg" src="../../assets/video/bracelet-tech.mp4" aria-label="The product in the studio"></video><button class="clip-play" type="button" aria-label="Play the video"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></button></div>
-                  <figcaption class="clip-caption"><strong>The product in the studio</strong>Alarm bracelet, product shot</figcaption>
+                  <div class="clip"><video data-clip muted loop playsinline preload="none" poster="../../assets/video/bracelet-tech.jpg" src="../../assets/video/bracelet-tech.mp4" aria-label="The product in the studio"></video><button class="clip-play" type="button" aria-label="Play video: The product in the studio"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></button></div>
+                  <figcaption class="clip-caption"><strong>The product in the studio</strong> Alarm bracelet, product shot</figcaption>
                 </figure>
               </li>
               <li>
                 <figure class="clip-fig">
-                  <div class="clip"><video data-clip muted loop playsinline preload="none" poster="../../assets/video/bracelet-holo.jpg" src="../../assets/video/bracelet-holo.mp4" aria-label="Time as a hologram"></video><button class="clip-play" type="button" aria-label="Play the video"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></button></div>
-                  <figcaption class="clip-caption"><strong>Time as a hologram</strong>Alarm bracelet, visual effect</figcaption>
+                  <div class="clip"><video data-clip muted loop playsinline preload="none" poster="../../assets/video/bracelet-holo.jpg" src="../../assets/video/bracelet-holo.mp4" aria-label="Time as a hologram"></video><button class="clip-play" type="button" aria-label="Play video: Time as a hologram"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></button></div>
+                  <figcaption class="clip-caption"><strong>Time as a hologram</strong> Alarm bracelet, visual effect</figcaption>
                 </figure>
               </li>
               <li>
                 <figure class="clip-fig">
-                  <div class="clip"><video data-clip muted loop playsinline preload="none" poster="../../assets/video/collier-lettres.jpg" src="../../assets/video/collier-lettres.mp4" aria-label="One letter, one name"></video><button class="clip-play" type="button" aria-label="Play the video"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></button></div>
-                  <figcaption class="clip-caption"><strong>One letter, one name</strong>Initial necklace</figcaption>
+                  <div class="clip"><video data-clip muted loop playsinline preload="none" poster="../../assets/video/collier-lettres.jpg" src="../../assets/video/collier-lettres.mp4" aria-label="One letter, one name"></video><button class="clip-play" type="button" aria-label="Play video: One letter, one name"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></button></div>
+                  <figcaption class="clip-caption"><strong>One letter, one name</strong> Initial necklace</figcaption>
                 </figure>
               </li>
               <li>
                 <figure class="clip-fig">
-                  <div class="clip"><video data-clip muted loop playsinline preload="none" poster="../../assets/video/collier-portrait.jpg" src="../../assets/video/collier-portrait.mp4" aria-label="The necklace, worn"></video><button class="clip-play" type="button" aria-label="Play the video"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></button></div>
-                  <figcaption class="clip-caption"><strong>The necklace, worn</strong>Initial necklace</figcaption>
+                  <div class="clip"><video data-clip muted loop playsinline preload="none" poster="../../assets/video/collier-portrait.jpg" src="../../assets/video/collier-portrait.mp4" aria-label="The necklace, worn"></video><button class="clip-play" type="button" aria-label="Play video: The necklace, worn"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></button></div>
+                  <figcaption class="clip-caption"><strong>The necklace, worn</strong> Initial necklace</figcaption>
                 </figure>
               </li>
               <li>
                 <figure class="clip-fig">
-                  <div class="clip"><video data-clip muted loop playsinline preload="none" poster="../../assets/video/ceinture-tech.jpg" src="../../assets/video/ceinture-tech.mp4" aria-label="The belt in the studio"></video><button class="clip-play" type="button" aria-label="Play the video"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></button></div>
-                  <figcaption class="clip-caption"><strong>The belt in the studio</strong>EMS belt (store never launched)</figcaption>
+                  <div class="clip"><video data-clip muted loop playsinline preload="none" poster="../../assets/video/ceinture-tech.jpg" src="../../assets/video/ceinture-tech.mp4" aria-label="The belt in the studio"></video><button class="clip-play" type="button" aria-label="Play video: The belt in the studio"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></button></div>
+                  <figcaption class="clip-caption"><strong>The belt in the studio</strong> EMS belt (store never launched)</figcaption>
                 </figure>
               </li>
               <li>
                 <figure class="clip-fig">
-                  <div class="clip"><video data-clip muted loop playsinline preload="none" poster="../../assets/video/stick-demo.jpg" src="../../assets/video/stick-demo.mp4" aria-label="The demo"></video><button class="clip-play" type="button" aria-label="Play the video"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></button></div>
-                  <figcaption class="clip-caption"><strong>The demo</strong>Moisturising stick (store never launched)</figcaption>
+                  <div class="clip"><video data-clip muted loop playsinline preload="none" poster="../../assets/video/stick-demo.jpg" src="../../assets/video/stick-demo.mp4" aria-label="The demo"></video><button class="clip-play" type="button" aria-label="Play video: The demo"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></button></div>
+                  <figcaption class="clip-caption"><strong>The demo</strong> Moisturising stick (store never launched)</figcaption>
                 </figure>
               </li>
             </ul>
@@ -304,7 +307,7 @@ shopify theme push --theme &lt;theme-id&gt; --only sections/faq.liquid</code></p
             </ul>
           </section>
 
-          <section class="sim" data-sim="ads" aria-labelledby="ads-title">
+          <section id="la-campagne-danoise" class="sim" data-sim="ads" aria-labelledby="ads-title">
             <span class="sim-tag">Interactive gallery</span>
             <div class="sim-head">
               <h2 id="ads-title">The Danish campaign</h2>
@@ -394,7 +397,7 @@ shopify theme push --theme &lt;theme-id&gt; --only sections/faq.liquid</code></p
             <p class="sim-foot">I only show original concepts here. No ad performance figures were recorded, so I do not put any forward.</p>
           </section>
 
-          <section>
+          <section id="resultats-verifiables">
             <h2>Verifiable results</h2>
             <ul class="results">
               <li><span class="proof proof--count">Counted</span><span>Lighthouse mobile, 3 September 2026, bracelet shop: accessibility 100, SEO 100, performance between 52 and 76 in lab conditions.</span></li>
@@ -409,15 +412,15 @@ shopify theme push --theme &lt;theme-id&gt; --only sections/faq.liquid</code></p
             </div>
           </section>
 
-          <section>
+          <section id="ce-que-j-en-retiens">
             <h2>What I take away from it</h2>
             <p>Having an agent write the code does not remove the work, it moves it: less typing, more specification, verification and traceability. It is the lesson from my internship, applied to a different field: the time saved on writing is reinvested in testing.</p>
             <p>I also keep a very concrete rule from it: an automated tool processes everything you hand it, including things that should never have gone through it. The translated file names proved it.</p>
           </section>
 
           <nav class="case-next" aria-label="Other projects">
-            <a href="bordereaux-la-poste.html"><span>Previous project</span><strong>Automated La Poste shipping slips</strong></a>
-            <a href="../index.html#projets"><span>Back</span><strong>All projects</strong></a>
+            <a href="bordereaux-la-poste.html" rel="prev"><span><span aria-hidden="true">← </span>Previous project</span><strong>Automated La Poste shipping slips</strong></a>
+            <a href="sightline.html" rel="next"><span>Next project<span aria-hidden="true"> →</span></span><strong>Sightline, CS2 match analysis</strong></a>
           </nav>
         </div>
       </div>
@@ -427,6 +430,7 @@ shopify theme push --theme &lt;theme-id&gt; --only sections/faq.liquid</code></p
   <footer class="site-footer">
     <div class="wrap">
       <p>Paul Morel, AI engineer with a cybersecurity background (ISEP 2026)</p>
+      <p class="footer-contact"><a href="mailto:pauleao02@gmail.com" data-mailto>Email</a><span aria-hidden="true"> · </span><a href="https://www.linkedin.com/in/morel-paul" target="_blank" rel="me noopener">LinkedIn</a><span aria-hidden="true"> · </span><a href="../../cv/Paul_Morel_CV.pdf" download>CV</a></p>
       <p>Clients and colleagues are not named, for confidentiality.</p>
     </div>
   </footer>

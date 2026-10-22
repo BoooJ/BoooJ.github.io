@@ -9,8 +9,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=JetBrains+Mono:wght@400;500&family=Public+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
   <link rel="alternate" hreflang="fr" href="../../projets/sightline.html">
-  <link rel="stylesheet" href="../../assets/css/style.css?v=20261021c">
-  <script src="../../assets/js/main.js?v=20261021c"></script>
+  <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../assets/css/style.css?v=20261022">
+  <script src="../../assets/js/main.js?v=20261022"></script>
 </head>
 <body>
   <a class="skip-link" href="#contenu">Skip to content</a>
@@ -20,8 +21,9 @@
       <a class="wordmark" href="../index.html">Paul Morel</a>
       <nav class="site-nav" aria-label="Main navigation">
         <ul>
-          <li><a href="../index.html#projets" aria-current="page">Projects</a></li>
+          <li><a href="../index.html#nouveaux" aria-current="true">Projects</a></li>
           <li><a href="../index.html#competences">Skills</a></li>
+          <li><a href="../index.html#vitrine">Videos</a></li>
           <li><a href="../index.html#a-propos">About</a></li>
           <li><a href="../passions.html">Passions</a></li>
           <li><a href="../index.html#contact">Contact</a></li>
@@ -40,13 +42,14 @@
   <main id="contenu">
     <div class="wrap">
       <header class="case-head">
-        <p class="breadcrumb"><a href="../index.html#nouveaux">New projects</a></p>
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a> <span aria-hidden="true">›</span> <a href="../index.html#nouveaux">AI apps</a></nav>
         <p class="case-kind"><strong>Personal project</strong>, live web app, built by directing AI agents</p>
-        <h1>Sightline: analysing a Counter-Strike 2 match like a professional staff</h1>
+        <h1>Sightline: analysing a Counter‑Strike 2 match like a professional staff</h1>
         <p class="case-lede">In Counter-Strike 2, every match can be recorded in a demo file that holds everything: positions, shots, grenades, money. Sightline turns these files into a 2D replay, statistics and preparation tools for a team. I built the first version in three days by directing AI agents, then grew it until it covers most of a professional tool: I decide what to build and how to check it, the agents write the code.</p>
+        <p class="case-jump"><a class="btn btn--quiet" href="#film">Watch the video <span aria-hidden="true">↓</span></a></p>
       </header>
 
-      <div class="media-pair" role="group" aria-label="Sightline presentation videos">
+      <div class="media-pair" id="film" role="group" aria-label="Sightline presentation videos">
         <figure class="pitch">
           <video controls playsinline preload="none" width="1920" height="1080" poster="../../assets/video/sightline-film-en.jpg" aria-label="Sightline presentation film, 32 seconds, with music">
             <source src="../../assets/video/sightline-film-en.mp4" type="video/mp4">
@@ -73,12 +76,12 @@
         </aside>
 
         <div class="case-content">
-          <section>
+          <section id="le-besoin">
             <h2>The need</h2>
             <p>To improve at Counter-Strike you have to review your matches: where the players were, why a round was lost, what the opponent usually does. The tools teams use for this are online services, most of them paid. I wanted my own tool, hosted on my server, covering the whole need: import a demo, replay it, analyse it and prepare the next match.</p>
           </section>
 
-          <section>
+          <section id="le-vibe-coding-avec-une-methode">
             <h2>Vibe coding, with a method</h2>
             <p>Vibe coding means describing what you want in plain language and letting an AI write the code. It is fast, but the risk is well known: you end up with an app nobody understands, full of invisible mistakes. My job was to manage these agents the way you would manage a team of developers.</p>
             <ol class="method">
@@ -90,7 +93,7 @@
             </ol>
           </section>
 
-          <section>
+          <section id="ce-que-fait-l-application">
             <h2>What the app does</h2>
             <figure class="figure figure--wide">
               <div class="figure-frame figure-frame--flush">
@@ -143,7 +146,7 @@
             </div>
           </section>
 
-          <section>
+          <section id="rendre-l-ia-fiable-un-rapport-de-scouting-verifie">
             <h2>Making AI reliable: a checked scouting report</h2>
             <p>Sightline can write a scouting report on an opponent, as an analyst would. The risk of AI-written text is well known: it can invent a figure or swap two bomb sites with great confidence. So I had the report built so that the software computes the facts, the AI only writes, and everything is checked before display.</p>
             <figure class="figure figure--wide">
@@ -209,7 +212,7 @@
             <p><strong>Decision drawn from the measurement:</strong> the user picks the model when writing. Haiku for a routine report, Opus before an important match, as it makes the fewest meaning errors. The judge rereads every report for about one cent. The full evaluation cost about $3.20.</p>
           </section>
 
-          <section>
+          <section id="resultats-verifiables">
             <h2>Verifiable results</h2>
             <ul class="results">
               <li><span class="proof proof--count">Counted</span><span>More than 200 commits from 10 to 21 October 2026, in the project's Git history, including 93 for the first version in three days.</span></li>
@@ -223,7 +226,7 @@
             </ul>
           </section>
 
-          <section>
+          <section id="ce-que-je-retiens-et-les-limites">
             <h2>What I take from it, and the limits</h2>
             <ul>
               <li><strong>My contribution is not typing the code.</strong> It lies in the specification, the splitting, the verification and the operations. I can explain the architecture and every choice, not recite every line.</li>
@@ -234,8 +237,8 @@
           </section>
 
           <nav class="case-next" aria-label="Other projects">
-            <a href="../index.html#nouveaux"><span>Back</span><strong>New projects</strong></a>
-            <a href="sightline-mobile.html"><span>Next project</span><strong>Sightline mobile, the player's app</strong></a>
+            <a href="e-commerce.html" rel="prev"><span><span aria-hidden="true">← </span>Previous project</span><strong>E-commerce shops</strong></a>
+            <a href="sightline-mobile.html" rel="next"><span>Next project<span aria-hidden="true"> →</span></span><strong>Sightline mobile, the player's app</strong></a>
           </nav>
         </div>
       </div>
@@ -245,6 +248,7 @@
   <footer class="site-footer">
     <div class="wrap">
       <p>Paul Morel, AI engineer with a cybersecurity background (ISEP 2026)</p>
+      <p class="footer-contact"><a href="mailto:pauleao02@gmail.com" data-mailto>Email</a><span aria-hidden="true"> · </span><a href="https://www.linkedin.com/in/morel-paul" target="_blank" rel="me noopener">LinkedIn</a><span aria-hidden="true"> · </span><a href="../../cv/Paul_Morel_CV.pdf" download>CV</a></p>
       <p>The app's address is not published: it is limited to accounts.</p>
     </div>
   </footer>

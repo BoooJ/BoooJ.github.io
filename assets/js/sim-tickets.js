@@ -86,6 +86,7 @@
       var tdStatus = document.createElement("td");
       var select = document.createElement("select");
       select.setAttribute("aria-label", L("Statut du ticket ", "Status of ticket ") + r.ticket);
+      select.setAttribute("data-ticket", r.ticket);
       STATUSES.forEach(function (s) {
         var o = document.createElement("option");
         o.value = s.id;
@@ -98,6 +99,9 @@
         var label = STATUSES.filter(function (s) { return s.id === r.status; })[0].label;
         say(L("Statut de " + r.ticket + " changé à la main : « " + label + " ». Ce passage-là, le script ne le fait jamais seul.", "Status of " + r.ticket + " changed by hand: “" + label + "”. The script never makes this move on its own."));
         render();
+        // Le tableau vient d'être reconstruit : le focus revient sur la liste de ce ticket.
+        var again = tbody.querySelector('select[data-ticket="' + r.ticket + '"]');
+        if (again) again.focus();
       });
       tdStatus.appendChild(select);
 

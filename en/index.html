@@ -9,9 +9,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=JetBrains+Mono:wght@400;500&family=Public+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
   <link rel="alternate" hreflang="fr" href="../index.html">
-  <link rel="stylesheet" href="../assets/css/style.css?v=20261021c">
-  <script src="../assets/js/main.js?v=20261021c"></script>
-  <script src="../assets/js/flowmap.js?v=20261021c" defer></script>
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/css/style.css?v=20261022">
+  <script src="../assets/js/main.js?v=20261022"></script>
+  <script src="../assets/js/flowmap.js?v=20261022" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#contenu">Skip to content</a>
@@ -21,8 +22,9 @@
       <a class="wordmark" href="#contenu">Paul Morel</a>
       <nav class="site-nav" aria-label="Main navigation">
         <ul>
-          <li><a href="#projets">Projects</a></li>
+          <li><a href="#nouveaux">Projects</a></li>
           <li><a href="#competences">Skills</a></li>
+          <li><a href="#vitrine">Videos</a></li>
           <li><a href="#a-propos">About</a></li>
           <li><a href="passions.html">Passions</a></li>
           <li><a href="#contact">Contact</a></li>
@@ -45,23 +47,20 @@
       <div class="wrap hero-grid">
         <div>
           <p class="hero-role">AI engineer — cybersecurity background</p>
-          <h1 class="hero-name" id="nom"><span>Paul</span><span>Morel</span></h1>
+          <h1 class="hero-name" id="nom"><span>Paul</span> <span>Morel</span></h1>
           <p class="hero-lede">I connect tools so that repetitive work gets done on its own, and I leave people the decisions that are theirs to make.</p>
-          <p class="hero-sub">Two automation internships: Google Workspace at a Google partner integrator, and Node.js with the La Poste API for a music label. I am looking for a software, cloud or cybersecurity engineering role, in France or abroad.</p>
+          <p class="hero-sub">Two automation internships: Google Workspace at a Google partner integrator, and Node.js with the La Poste API for a music label. I am looking for an AI, software, cloud or cybersecurity engineering role, in France or abroad.</p>
           <div class="hero-actions">
-            <a class="btn" href="#projets">See the projects</a>
+            <a class="btn" href="#nouveaux">See the projects</a>
             <a class="btn btn--quiet" href="../cv/Paul_Morel_CV.pdf" download>Download my CV (English)</a>
-            <a class="btn btn--quiet" href="#en-une-minute">The video (1 min 25)</a>
           </div>
+          <p class="hero-video"><a href="#en-une-minute"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg>The video (1 min 25)</a></p>
           <ul class="hero-facts">
+            <li><span><strong>3 live apps</strong>, including a mobile app, built by directing AI agents and hosted on my own server.</span></li>
             <li><span><strong>2 tools in production</strong> at Good iD, a Google partner integrator: customer support and inventory.</span></li>
             <li><span><strong>Node.js and REST APIs</strong>: a La Poste shipping-slip service delivered for The Lost Recordings.</span></li>
             <li><span><strong>English C1</strong>, open to a role in France or abroad.</span></li>
-            <li><span><strong>3 live apps</strong>, including a mobile app, built by directing AI agents and hosted on my own server.</span></li>
           </ul>
-          <nav class="jump" aria-label="Quick links">
-            <a href="#nouveaux">New projects</a><a href="#projets">Projects</a><a href="#vitrine">Videos and ads</a><a href="#competences">Skills</a><a href="passions.html">Passions</a><a href="#contact">Contact</a>
-          </nav>
         </div>
 
         <div class="flowmap" data-flowmap>
@@ -69,11 +68,7 @@
             <h2>Flow map</h2>
             <p>My projects, seen as circuits.</p>
           </div>
-          <ol class="fm-howto">
-            <li><b>1</b><span>Each line is a project: an event on the left, the tool I built in the centre, the services it connects on the right.</span></li>
-            <li><b>2</b><span>Pick a scenario below: a light signal travels through the circuit.</span></li>
-            <li><b>3</b><span>The log explains each step, then leads to the case study.</span></li>
-          </ol>
+          <p class="fm-howto">Each line is a project: pick a scenario, a light signal travels through the circuit and the log explains each step.</p>
           <div class="flowmap-scenarios" data-fm-scenarios role="group" aria-label="Scenarios"></div>
           <div class="flowmap-canvas">
             <svg viewBox="0 0 700 570" aria-hidden="true" focusable="false" data-fm-svg></svg>
@@ -87,42 +82,58 @@
       </div>
     </section>
 
-    <!-- ============ Intro video ============ -->
-    <section class="section" id="en-une-minute" aria-labelledby="video-titre">
-      <div class="wrap">
-        <div class="section-head">
-          <h2 id="video-titre">My work on video</h2>
-          <p>Eight projects explained simply: the problem, what I built, the result. With music and sound effects.</p>
-        </div>
-        <figure class="pitch">
-          <video controls playsinline preload="none" width="1280" height="720" poster="../assets/video/presentation-en.jpg" aria-describedby="video-texte">
-            <source src="../assets/video/presentation-en.mp4" type="video/mp4">
-          </video>
-          <figcaption>Made with HyperFrames, in HTML rendered frame by frame, with music and sound effects (1 min 25). The figures are real and detailed in the case studies; only the examples shown in the diagrams (ticket numbers, box label) are made up, so that no client data appears.</figcaption>
-        </figure>
-        <details class="pitch-text" id="video-texte">
-          <summary>Read the video script</summary>
-          <ol>
-            <li><strong>Sightline, personal project (2026).</strong> To improve, you have to review your matches; the tools teams use are mostly paid. A web app built by directing AI agents: 2D replay, statistics, scouting and debriefs, plus an AI-written report where every figure is checked. Over 200 commits in 12 days, 81 test files, live on my own server.</li>
-            <li><strong>Sightline mobile, personal project (2026).</strong> A player needs their information away from the PC. The app lets them prepare for the opponent, review the match, keep grenades in view and follow progress. 66 tests passing, live in two days, at zero cost.</li>
-            <li><strong>Caderno, personal project (2026).</strong> A Brazilian Portuguese notebook installable on iPhone: free translation, synonyms, examples and 60 conjugated verbs, even offline. 765 verb forms checked one by one, 26 automated tests.</li>
-            <li><strong>Client support, Good iD (2026).</strong> Requests landed in each person's inbox, with no number and no tracking. I set up one shared address: every request gets a number, an automatic reply and a row in a tracking sheet. 21 real requests tracked from day one; the support team uses it today.</li>
-            <li><strong>Inventory by photo, Good iD (2026).</strong> Incoming equipment was copied by hand into a spreadsheet. My phone app reads the label on the box and fills in the record. 81 devices logged, in use since 12 June 2026.</li>
-            <li><strong>Test licences, Good iD (2026).</strong> Licences never taken back kept being paid for. My app grants the licence at sign-in and takes it back every night. Working in test.</li>
-            <li><strong>La Poste shipping slips, The Lost Recordings (2024).</strong> As soon as an order is ready, my program requests the slip from La Poste and attaches it to the shipment. Delivered and live when I left; I learned Node.js in a month to build it.</li>
-            <li><strong>Online stores, personal project (2026).</strong> AI agents write the code and the visuals; I set the rules and check everything. 100/100 for accessibility and SEO, first order in September 2026.</li>
-          </ol>
-        </details>
-      </div>
-    </section>
-
     <!-- ============ New projects: apps built by directing AI agents ============ -->
     <section class="section" id="nouveaux" aria-labelledby="nouveaux-titre">
       <div class="wrap">
         <div class="section-head">
           <p class="eyebrow">October 2026</p>
-          <h2 id="nouveaux-titre">New projects: complete apps, built by directing AI agents</h2>
+          <h2 id="nouveaux-titre">Apps built by directing AI agents</h2>
           <p>This is called vibe coding: describing what you want in plain language and letting an AI write the code. On its own it is fast but fragile. My part is what makes the result reliable: deciding what to build, splitting the work, having everything checked, then running the app live on my own server.</p>
+        </div>
+
+        <div class="apps-grid">
+          <a class="app-card" href="projets/sightline.html" aria-labelledby="app-sightline">
+            <div class="app-shot"><img src="../assets/img/apps/sightline-card.webp" width="1050" height="525" loading="lazy" alt="2D replay of a Counter-Strike 2 round in Sightline: players on the radar with their health, money and weapons."></div>
+            <div class="app-body">
+              <p class="project-kind"><strong>Personal project</strong> Live, account access</p>
+              <h3 id="app-sightline">Sightline, Counter‑Strike 2 match analysis</h3>
+              <p>A web app that turns the recording of a match into a 2D replay, statistics, scouting and team debriefs, with an AI-written report checked figure by figure. First version in three days.</p>
+              <ul class="app-facts">
+                <li><b>200+</b> commits in 12 days</li>
+                <li><b>19</b> design and audit documents</li>
+                <li><b>81</b> test files</li>
+              </ul>
+              <p class="project-tools">Python, FastAPI, React, TypeScript, Docker</p>
+            </div>
+          </a>
+          <a class="app-card" href="projets/sightline-mobile.html" aria-labelledby="app-sightline-mobile">
+            <div class="app-shot"><img src="../assets/img/apps/sightline-mobile-card.webp" width="1050" height="525" loading="lazy" alt="Three screens of the Sightline mobile app: Today, a smoke lineup sheet and progress."></div>
+            <div class="app-body">
+              <p class="project-kind"><strong>Personal project</strong> Live, installable web app and APK</p>
+              <h3 id="app-sightline-mobile">Sightline mobile, the player's app</h3>
+              <p>Sightline's companion in the pocket: prepare for the opponent, review the match, keep grenades in view. Designed as a UI/UX piece and released in two days.</p>
+              <ul class="app-facts">
+                <li><b>2</b> days from specification to release</li>
+                <li><b>€0</b> (no app store)</li>
+                <li><b>66</b> app tests</li>
+              </ul>
+              <p class="project-tools">Expo, React Native, TypeScript</p>
+            </div>
+          </a>
+          <a class="app-card" href="projets/caderno.html" aria-labelledby="app-caderno">
+            <div class="app-shot app-shot--light"><img src="../assets/img/apps/caderno-card.webp" width="880" height="440" loading="lazy" alt="Caderno after translating “heureux”: Portuguese synonyms grouped by meaning and bilingual examples."></div>
+            <div class="app-body">
+              <p class="project-kind"><strong>Personal project</strong> Live, password access</p>
+              <h3 id="app-caderno">Caderno, my Brazilian Portuguese notebook</h3>
+              <p>An app installable on iPhone to translate, keep words with an example and practise conjugations, even offline. Built and released in one day.</p>
+              <ul class="app-facts">
+                <li><b>765</b> verb forms checked</li>
+                <li><b>26</b> automated tests</li>
+                <li><b>0</b> paid subscriptions</li>
+              </ul>
+              <p class="project-tools">React, TypeScript, Express, SQLite, PWA</p>
+            </div>
+          </a>
         </div>
 
         <ol class="agent-steps">
@@ -146,113 +157,68 @@
             <figcaption>Vertical version, for social media (22 s, in French).</figcaption>
           </figure>
         </div>
-
-        <div class="apps-grid">
-          <a class="app-card" href="projets/sightline.html">
-            <div class="app-shot"><img src="../assets/img/apps/sightline-card.webp" width="1050" height="525" loading="lazy" alt="2D replay of a Counter-Strike 2 round in Sightline: players on the radar with their health, money and weapons."></div>
-            <div class="app-body">
-              <p class="project-kind"><strong>Personal project</strong>Live, account access</p>
-              <h3>Sightline, Counter-Strike 2 match analysis</h3>
-              <p>A web app that turns the recording of a match into a 2D replay, statistics, scouting and team debriefs, with an AI-written report checked figure by figure. First version in three days.</p>
-              <ul class="app-facts">
-                <li><b>200+</b> commits in 12 days</li>
-                <li><b>19</b> design and audit documents</li>
-                <li><b>81</b> test files</li>
-              </ul>
-              <p class="project-tools">Python, FastAPI, React, TypeScript, Docker</p>
-            </div>
-          </a>
-          <a class="app-card" href="projets/sightline-mobile.html">
-            <div class="app-shot"><img src="../assets/img/apps/sightline-mobile-card.webp" width="1050" height="525" loading="lazy" alt="Three screens of the Sightline mobile app: Today, a smoke lineup sheet and progress."></div>
-            <div class="app-body">
-              <p class="project-kind"><strong>Personal project</strong>Live, installable web app and APK</p>
-              <h3>Sightline mobile, the player's app</h3>
-              <p>Sightline's companion in the pocket: prepare for the opponent, review the match, keep grenades in view. Designed as a UI/UX piece and released in two days.</p>
-              <ul class="app-facts">
-                <li><b>2</b> days from specification to release</li>
-                <li><b>€0</b> (no app store)</li>
-                <li><b>66</b> app tests</li>
-              </ul>
-              <p class="project-tools">Expo, React Native, TypeScript</p>
-            </div>
-          </a>
-          <a class="app-card" href="projets/caderno.html">
-            <div class="app-shot"><img src="../assets/img/apps/caderno-card.webp" width="880" height="440" loading="lazy" alt="Caderno after translating “heureux”: Portuguese synonyms grouped by meaning and bilingual examples."></div>
-            <div class="app-body">
-              <p class="project-kind"><strong>Personal project</strong>Live, password access</p>
-              <h3>Caderno, my Brazilian Portuguese notebook</h3>
-              <p>An app installable on iPhone to translate, keep words with an example and practise conjugations, even offline. Built and released in one day.</p>
-              <ul class="app-facts">
-                <li><b>765</b> verb forms checked</li>
-                <li><b>26</b> automated tests</li>
-                <li><b>0</b> paid subscriptions</li>
-              </ul>
-              <p class="project-tools">React, TypeScript, Express, SQLite, PWA</p>
-            </div>
-          </a>
-        </div>
       </div>
     </section>
 
     <!-- ============ Projects ============ -->
-    <section class="section" id="projets" aria-labelledby="projets-titre">
+    <section class="section" id="projets" data-spy="nouveaux" aria-labelledby="projets-titre">
       <div class="wrap">
         <div class="section-head">
-          <h2 id="projets-titre">Projects</h2>
+          <h2 id="projets-titre">Automation at work</h2>
           <p>Five pieces of work, chosen for what they prove. Each page sets out the context, my exact role, what is measured and what is not, with a mock-up you can try.</p>
         </div>
 
         <ol class="projects">
           <li class="project">
-            <a href="projets/support-client.html">
+            <a href="projets/support-client.html" aria-labelledby="projet-support-client">
               <div class="project-thumb"><svg class="thumb" viewBox="0 0 160 120" aria-hidden="true"><rect class="bg" width="160" height="120"/><rect class="dim" x="16" y="20" width="128" height="17" rx="3"/><rect class="tx" x="23" y="26" width="34" height="4" rx="2" opacity=".55"/><rect class="tx" x="64" y="26" width="30" height="4" rx="2" opacity=".3"/><rect class="ok" x="110" y="24" width="28" height="9" rx="4.5"/><rect class="dim" x="16" y="43" width="128" height="17" rx="3"/><rect class="tx" x="23" y="49" width="34" height="4" rx="2" opacity=".55"/><rect class="tx" x="64" y="49" width="30" height="4" rx="2" opacity=".3"/><rect class="am" x="110" y="47" width="28" height="9" rx="4.5"/><rect class="dim" x="16" y="66" width="128" height="17" rx="3"/><rect class="tx" x="23" y="72" width="34" height="4" rx="2" opacity=".55"/><rect class="tx" x="64" y="72" width="30" height="4" rx="2" opacity=".3"/><rect class="ok" x="110" y="70" width="28" height="9" rx="4.5"/><rect class="dim" x="16" y="89" width="128" height="17" rx="3"/><rect class="tx" x="23" y="95" width="34" height="4" rx="2" opacity=".55"/><rect class="tx" x="64" y="95" width="30" height="4" rx="2" opacity=".3"/><rect class="dim" x="110" y="93" width="28" height="9" rx="4.5"/></svg></div>
-              <p class="project-kind"><strong>Final-year internship</strong>Good iD, internal assignment</p>
+              <p class="project-kind"><strong>Final-year internship</strong> Good iD, internal assignment</p>
               <div>
-                <h3>Customer support system</h3>
+                <h3 id="projet-support-client">Customer support system</h3>
                 <p class="project-summary">One address, one spreadsheet and an Apps Script script that numbers requests, acknowledges receipt and groups follow-ups from the same thread. 21 real tickets triaged in the first few days.</p>
               </div>
               <p class="project-tools"><span class="status status--prod">In production</span><br>Apps Script, Gmail, Google Sheets</p>
             </a>
           </li>
           <li class="project">
-            <a href="projets/inventaire-ocr.html">
+            <a href="projets/inventaire-ocr.html" aria-labelledby="projet-inventaire-ocr">
               <div class="project-thumb"><svg class="thumb" viewBox="0 0 160 120" aria-hidden="true"><rect class="bg" width="160" height="120"/><rect x="34" y="12" width="92" height="96" rx="4" fill="#fbfaf6"/><rect x="42" y="22" width="40" height="4" rx="1" fill="#b9b5ab"/><rect x="42" y="34" width="62" height="4" rx="1" fill="#b9b5ab"/><rect x="42" y="46" width="56" height="4" rx="1" fill="#b9b5ab"/><rect x="42" y="58" width="70" height="4" rx="1" fill="#b9b5ab"/><rect x="42" y="70" width="0" height="4" rx="1" fill="#b9b5ab"/><rect x="42" y="82" width="48" height="4" rx="1" fill="#b9b5ab"/><rect x="42" y="94" width="60" height="4" rx="1" fill="#b9b5ab"/><rect x="42" y="70" width="76" height="8" fill="#2b2b2b" opacity=".75"/><rect x="38" y="54" width="84" height="12" rx="2" fill="rgba(103,209,177,.18)"/><rect class="okl" x="38" y="54" width="84" height="12" rx="2"/></svg></div>
-              <p class="project-kind"><strong>Final-year internship</strong>Good iD, internal assignment</p>
+              <p class="project-kind"><strong>Final-year internship</strong> Good iD, internal assignment</p>
               <div>
-                <h3>Equipment inventory with OCR</h3>
+                <h3 id="projet-inventaire-ocr">Equipment inventory with OCR</h3>
                 <p class="project-summary">An AppSheet app reads the label on the box instead of having it copied out by hand. 81 items of equipment recorded since it went live on 12 June 2026.</p>
               </div>
               <p class="project-tools"><span class="status status--prod">In production</span><br>AppSheet, OCR, Google Sheets</p>
             </a>
           </li>
           <li class="project">
-            <a href="projets/licences-flex.html">
+            <a href="projets/licences-flex.html" aria-labelledby="projet-licences-flex">
               <div class="project-thumb"><svg class="thumb" viewBox="0 0 160 120" aria-hidden="true"><rect class="bg" width="160" height="120"/><rect class="ok" x="14" y="20" width="9" height="9" rx="1.5"/><rect class="ok" x="26" y="20" width="9" height="9" rx="1.5"/><rect class="ok" x="38" y="20" width="9" height="9" rx="1.5"/><rect class="ok" x="50" y="20" width="9" height="9" rx="1.5"/><rect class="ok" x="62" y="20" width="9" height="9" rx="1.5"/><rect class="ok" x="74" y="20" width="9" height="9" rx="1.5"/><rect class="ok" x="86" y="20" width="9" height="9" rx="1.5"/><rect class="am" x="98" y="20" width="9" height="9" rx="1.5"/><rect class="ok" x="110" y="20" width="9" height="9" rx="1.5"/><rect class="ok" x="122" y="20" width="9" height="9" rx="1.5"/><rect class="ok" x="134" y="20" width="9" height="9" rx="1.5"/><rect class="ok" x="14" y="34" width="9" height="9" rx="1.5"/><rect class="ok" x="26" y="34" width="9" height="9" rx="1.5"/><rect class="dim" x="38" y="34" width="9" height="9" rx="1.5"/><rect class="ok" x="50" y="34" width="9" height="9" rx="1.5"/><rect class="ok" x="62" y="34" width="9" height="9" rx="1.5"/><rect class="dim" x="74" y="34" width="9" height="9" rx="1.5"/><rect class="dim" x="86" y="34" width="9" height="9" rx="1.5"/><rect class="am" x="98" y="34" width="9" height="9" rx="1.5"/><rect class="ok" x="110" y="34" width="9" height="9" rx="1.5"/><rect class="dim" x="122" y="34" width="9" height="9" rx="1.5"/><rect class="ok" x="134" y="34" width="9" height="9" rx="1.5"/><rect class="dim" x="14" y="48" width="9" height="9" rx="1.5"/><rect class="ok" x="26" y="48" width="9" height="9" rx="1.5"/><rect class="ok" x="38" y="48" width="9" height="9" rx="1.5"/><rect class="ok" x="50" y="48" width="9" height="9" rx="1.5"/><rect class="ok" x="62" y="48" width="9" height="9" rx="1.5"/><rect class="dim" x="74" y="48" width="9" height="9" rx="1.5"/><rect class="ok" x="86" y="48" width="9" height="9" rx="1.5"/><rect class="am" x="98" y="48" width="9" height="9" rx="1.5"/><rect class="dim" x="110" y="48" width="9" height="9" rx="1.5"/><rect class="dim" x="122" y="48" width="9" height="9" rx="1.5"/><rect class="dim" x="134" y="48" width="9" height="9" rx="1.5"/><rect class="ok" x="14" y="62" width="9" height="9" rx="1.5"/><rect class="ok" x="26" y="62" width="9" height="9" rx="1.5"/><rect class="ok" x="38" y="62" width="9" height="9" rx="1.5"/><rect class="dim" x="50" y="62" width="9" height="9" rx="1.5"/><rect class="dim" x="62" y="62" width="9" height="9" rx="1.5"/><rect class="dim" x="74" y="62" width="9" height="9" rx="1.5"/><rect class="dim" x="86" y="62" width="9" height="9" rx="1.5"/><rect class="am" x="98" y="62" width="9" height="9" rx="1.5"/><rect class="dim" x="110" y="62" width="9" height="9" rx="1.5"/><rect class="dim" x="122" y="62" width="9" height="9" rx="1.5"/><rect class="dim" x="134" y="62" width="9" height="9" rx="1.5"/><rect class="dim" x="14" y="76" width="9" height="9" rx="1.5"/><rect class="dim" x="26" y="76" width="9" height="9" rx="1.5"/><rect class="dim" x="38" y="76" width="9" height="9" rx="1.5"/><rect class="dim" x="50" y="76" width="9" height="9" rx="1.5"/><rect class="dim" x="62" y="76" width="9" height="9" rx="1.5"/><rect class="dim" x="74" y="76" width="9" height="9" rx="1.5"/><rect class="dim" x="86" y="76" width="9" height="9" rx="1.5"/><rect class="ok" x="98" y="76" width="9" height="9" rx="1.5"/><rect class="dim" x="110" y="76" width="9" height="9" rx="1.5"/><rect class="dim" x="122" y="76" width="9" height="9" rx="1.5"/><rect class="dim" x="134" y="76" width="9" height="9" rx="1.5"/><rect class="dim" x="14" y="90" width="9" height="9" rx="1.5"/><rect class="ok" x="26" y="90" width="9" height="9" rx="1.5"/><rect class="dim" x="38" y="90" width="9" height="9" rx="1.5"/><rect class="dim" x="50" y="90" width="9" height="9" rx="1.5"/><rect class="dim" x="62" y="90" width="9" height="9" rx="1.5"/><rect class="dim" x="74" y="90" width="9" height="9" rx="1.5"/><rect class="dim" x="86" y="90" width="9" height="9" rx="1.5"/><rect class="dim" x="98" y="90" width="9" height="9" rx="1.5"/><rect class="dim" x="110" y="90" width="9" height="9" rx="1.5"/><rect class="dim" x="122" y="90" width="9" height="9" rx="1.5"/><rect class="dim" x="134" y="90" width="9" height="9" rx="1.5"/></svg></div>
-              <p class="project-kind"><strong>Final-year internship</strong>Good iD, internal tool</p>
+              <p class="project-kind"><strong>Final-year internship</strong> Good iD, internal tool</p>
               <div>
-                <h3>Test licences assigned and reclaimed</h3>
+                <h3 id="projet-licences-flex">Test licences assigned and reclaimed</h3>
                 <p class="project-summary">The licence is granted at sign-in and reclaimed every night: forgotten licences, billed every month, can no longer pile up.</p>
               </div>
               <p class="project-tools"><span class="status status--test">Working in test</span><br>Apps Script, Workspace Admin API</p>
             </a>
           </li>
           <li class="project">
-            <a href="projets/bordereaux-la-poste.html">
+            <a href="projets/bordereaux-la-poste.html" aria-labelledby="projet-bordereaux-la-poste">
               <div class="project-thumb"><svg class="thumb" viewBox="0 0 160 120" aria-hidden="true"><rect class="bg" width="160" height="120"/><path class="ln" d="M46 50 H62 M104 50 H120 M83 66 V82"/><rect class="dim" x="10" y="36" width="36" height="28" rx="5"/><rect x="62" y="34" width="42" height="32" rx="5" fill="#153634" stroke="#67d1b1" stroke-width="2"/><rect class="dim" x="120" y="36" width="30" height="28" rx="5"/><rect x="71" y="82" width="24" height="28" rx="3" fill="#e6eeec"/><text x="83" y="100" font-size="8" font-weight="700" text-anchor="middle" fill="#10202a" font-family="sans-serif">PDF</text><circle class="ok" cx="55" cy="50" r="3.5"/></svg></div>
-              <p class="project-kind"><strong>Second-year internship</strong>The Lost Recordings</p>
+              <p class="project-kind"><strong>Second-year internship</strong> The Lost Recordings</p>
               <div>
-                <h3>Automated La Poste shipping slips</h3>
+                <h3 id="projet-bordereaux-la-poste">Automated La Poste shipping slips</h3>
                 <p class="project-summary">A Node.js service creates drop-off shipping slips through the La Poste API and links them to the shipments tracked in Airtable.</p>
               </div>
               <p class="project-tools"><span class="status status--done">Delivered</span><br>Node.js, REST API, Cloud Storage, Heroku</p>
             </a>
           </li>
           <li class="project">
-            <a href="projets/e-commerce.html">
-              <div class="project-thumb"><img src="../assets/video/bracelet-tech.jpg" alt="" loading="lazy"></div>
-              <p class="project-kind"><strong>Personal project</strong>Dropshipping e-commerce</p>
+            <a href="projets/e-commerce.html" aria-labelledby="projet-e-commerce">
+              <div class="project-thumb"><img src="../assets/video/bracelet-tech.jpg" width="540" height="960" alt="" loading="lazy"></div>
+              <p class="project-kind"><strong>Personal project</strong> Dropshipping e-commerce</p>
               <div>
-                <h3>E-commerce shops built with AI agents</h3>
+                <h3 id="projet-e-commerce">E-commerce shops built with AI agents</h3>
                 <p class="project-summary">Shopify themes written by AI agents, published with a backup, a log and testing, plus an ad campaign in Danish.</p>
               </div>
               <p class="project-tools"><span class="status status--doc">Personal project</span><br>Shopify, Claude Code, Codex, GPT Image</p>
@@ -262,42 +228,134 @@
       </div>
     </section>
 
+    <!-- ============ Intro video ============ -->
+    <section class="section" id="en-une-minute" aria-labelledby="video-titre">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="video-titre">My work on video</h2>
+          <p>Eight projects explained simply: the problem, what I built, the result. With music and sound effects.</p>
+        </div>
+        <figure class="pitch">
+          <video controls playsinline preload="none" width="1280" height="720" poster="../assets/video/presentation-en.jpg" aria-labelledby="video-titre">
+            <source src="../assets/video/presentation-en.mp4" type="video/mp4">
+          </video>
+          <figcaption>Made with HyperFrames, in HTML rendered frame by frame, with music and sound effects (1 min 25). The figures are real and detailed in the case studies; only the examples shown in the diagrams (ticket numbers, box label) are made up, so that no client data appears.</figcaption>
+        </figure>
+        <details class="pitch-text" id="video-texte">
+          <summary>Read the video script</summary>
+          <ol>
+            <li><strong>Sightline, personal project (2026).</strong> To improve, you have to review your matches; the tools teams use are mostly paid. A web app built by directing AI agents: 2D replay, statistics, scouting and debriefs, plus an AI-written report where every figure is checked. Over 200 commits in 12 days, 81 test files, live on my own server.</li>
+            <li><strong>Sightline mobile, personal project (2026).</strong> A player needs their information away from the PC. The app lets them prepare for the opponent, review the match, keep grenades in view and follow progress. 66 tests passing, live in two days, at zero cost.</li>
+            <li><strong>Caderno, personal project (2026).</strong> A Brazilian Portuguese notebook installable on iPhone: free translation, synonyms, examples and 60 conjugated verbs, even offline. 765 verb forms checked one by one, 26 automated tests.</li>
+            <li><strong>Client support, Good iD (2026).</strong> Requests landed in each person's inbox, with no number and no tracking. I set up one shared address: every request gets a number, an automatic reply and a row in a tracking sheet. 21 real requests tracked from day one; the support team uses it today.</li>
+            <li><strong>Inventory by photo, Good iD (2026).</strong> Incoming equipment was copied by hand into a spreadsheet. My phone app reads the label on the box and fills in the record. 81 devices logged, in use since 12 June 2026.</li>
+            <li><strong>Test licences, Good iD (2026).</strong> Licences never taken back kept being paid for. My app grants the licence at sign-in and takes it back every night. Working in test.</li>
+            <li><strong>La Poste shipping slips, The Lost Recordings (2024).</strong> As soon as an order is ready, my program requests the slip from La Poste and attaches it to the shipment. Delivered and live when I left; I learned Node.js in a month to build it.</li>
+            <li><strong>Online stores, personal project (2026).</strong> AI agents write the code and the visuals; I set the rules and check everything. 100/100 for accessibility and SEO, first order in September 2026.</li>
+          </ol>
+        </details>
+      </div>
+    </section>
+
+    <!-- ============ Skills ============ -->
+    <section class="section" id="competences" aria-labelledby="competences-titre">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="competences-titre">Skills</h2>
+          <p>No gauges, no percentages: each skill links to the projects that prove it. Pick a project to see what it called on.</p>
+        </div>
+
+        <div class="skills" data-skills>
+          <div class="skills-filter" role="group" aria-label="Filter by project">
+            <button class="seg" type="button" data-skill-filter="all" aria-pressed="true">All</button>
+            <button class="seg pf p7" type="button" data-skill-filter="7" aria-pressed="false"><i aria-hidden="true"></i>AI apps</button>
+            <button class="seg pf p1" type="button" data-skill-filter="1" aria-pressed="false"><i aria-hidden="true"></i>Client support</button>
+            <button class="seg pf p2" type="button" data-skill-filter="2" aria-pressed="false"><i aria-hidden="true"></i>OCR inventory</button>
+            <button class="seg pf p3" type="button" data-skill-filter="3" aria-pressed="false"><i aria-hidden="true"></i>Licences</button>
+            <button class="seg pf p4" type="button" data-skill-filter="4" aria-pressed="false"><i aria-hidden="true"></i>Shipping slips</button>
+            <button class="seg pf p5" type="button" data-skill-filter="5" aria-pressed="false"><i aria-hidden="true"></i>E-commerce</button>
+            <button class="seg pf p6" type="button" data-skill-filter="6" aria-pressed="false"><i aria-hidden="true"></i>ISEP coursework</button>
+          </div>
+          <p class="skills-summary" data-skills-summary aria-live="polite"></p>
+          <div class="skill-groups">
+            <section class="skill-group" aria-label="Automation and cloud">
+              <header class="skill-group-head"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18h10a4 4 0 0 0 .6-7.96A6 6 0 0 0 6.2 9.1 4.5 4.5 0 0 0 7 18z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><h3>Automation and cloud</h3><span>10 skills</span></header>
+              <ul class="skill-list">
+                <li class="skill" data-p="1 3"><span class="skill-name">Google Apps Script</span><span class="skill-note">JavaScript on Google</span><span class="skill-pills"><a class="pill p1" href="projets/support-client.html">Client support</a><a class="pill p3" href="projets/licences-flex.html">Licences</a></span></li>
+                <li class="skill" data-p="2"><span class="skill-name">AppSheet and OCR</span><span class="skill-note">no-code app</span><span class="skill-pills"><a class="pill p2" href="projets/inventaire-ocr.html">OCR inventory</a></span></li>
+                <li class="skill" data-p="1 3"><span class="skill-name">Google Workspace administration</span><span class="skill-note">Gmail, directory, licences</span><span class="skill-pills"><a class="pill p1" href="projets/support-client.html">Client support</a><a class="pill p3" href="projets/licences-flex.html">Licences</a></span></li>
+                <li class="skill" data-p="4"><span class="skill-name">Node.js and Express</span><span class="skill-note">web service</span><span class="skill-pills"><a class="pill p4" href="projets/bordereaux-la-poste.html">Shipping slips</a></span></li>
+                <li class="skill" data-p="3 4"><span class="skill-name">REST APIs</span><span class="skill-note">La Poste, Airtable, Google</span><span class="skill-pills"><a class="pill p3" href="projets/licences-flex.html">Licences</a><a class="pill p4" href="projets/bordereaux-la-poste.html">Shipping slips</a></span></li>
+                <li class="skill" data-p="4"><span class="skill-name">Cloud storage and hosting</span><span class="skill-note">Google Cloud Storage, Heroku</span><span class="skill-pills"><a class="pill p4" href="projets/bordereaux-la-poste.html">Shipping slips</a></span></li>
+                <li class="skill" data-p="7"><span class="skill-name">Release on a Linux server</span><span class="skill-note">Docker, Caddy, HTTPS, backups</span><span class="skill-pills"><a class="pill p7" href="#nouveaux">AI apps</a></span></li>
+                <li class="skill" data-p="7"><span class="skill-name">AI evaluation and guardrails</span><span class="skill-note">number checks, judge model, cost per model</span><span class="skill-pills"><a class="pill p7" href="projets/sightline.html">AI apps</a></span></li>
+                <li class="skill" data-p="5"><span class="skill-name">Shopify and Shopify CLI</span><span class="skill-note">themes, releases</span><span class="skill-pills"><a class="pill p5" href="projets/e-commerce.html">E-commerce</a></span></li>
+                <li class="skill" data-p="1 5 7"><span class="skill-name">Directing AI coding agents</span><span class="skill-note">Claude Code, Codex, Gemini: specify, assign, verify</span><span class="skill-pills"><a class="pill p1" href="projets/support-client.html">Client support</a><a class="pill p5" href="projets/e-commerce.html">E-commerce</a><a class="pill p7" href="#nouveaux">AI apps</a></span></li>
+              </ul>
+            </section>
+            <section class="skill-group" aria-label="Security and networks">
+              <header class="skill-group-head"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v6c0 4.2-3 7.7-7 9-4-1.3-7-4.8-7-9V6z M9 12l2 2 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/></svg><h3>Security and networks</h3><span>5 skills</span></header>
+              <ul class="skill-list">
+                <li class="skill" data-p="2 3 7"><span class="skill-name">Secure design</span><span class="skill-note">limited rights, reversibility</span><span class="skill-pills"><a class="pill p2" href="projets/inventaire-ocr.html">OCR inventory</a><a class="pill p3" href="projets/licences-flex.html">Licences</a><a class="pill p7" href="#nouveaux">AI apps</a></span></li>
+                <li class="skill" data-p="1 4 5 7"><span class="skill-name">Data protection</span><span class="skill-note">client and personal data</span><span class="skill-pills"><a class="pill p1" href="projets/support-client.html">Client support</a><a class="pill p4" href="projets/bordereaux-la-poste.html">Shipping slips</a><a class="pill p5" href="projets/e-commerce.html">E-commerce</a><a class="pill p7" href="#nouveaux">AI apps</a></span></li>
+                <li class="skill" data-p="6"><span class="skill-name">Reconnaissance and vulnerabilities</span><span class="skill-note">Kali Linux, nmap</span><span class="skill-pills"><span class="pill p6">ISEP coursework</span></span></li>
+                <li class="skill" data-p="6"><span class="skill-name">Networking</span><span class="skill-note">Cisco switching, VLAN</span><span class="skill-pills"><span class="pill p6">ISEP coursework</span></span></li>
+                <li class="skill" data-p="6"><span class="skill-name">Digital communications</span><span class="skill-note">MATLAB, signal processing</span><span class="skill-pills"><span class="pill p6">ISEP coursework</span></span></li>
+              </ul>
+            </section>
+            <section class="skill-group" aria-label="Project delivery">
+              <header class="skill-group-head"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 21V4m0 0h11l-2 4 2 4H5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/></svg><h3>Project delivery</h3><span>6 skills</span></header>
+              <ul class="skill-list">
+                <li class="skill" data-p="1 4 7"><span class="skill-name">Scoping and acceptance testing</span><span class="skill-note">with a sponsor</span><span class="skill-pills"><a class="pill p1" href="projets/support-client.html">Client support</a><a class="pill p4" href="projets/bordereaux-la-poste.html">Shipping slips</a><a class="pill p7" href="#nouveaux">AI apps</a></span></li>
+                <li class="skill" data-p="1 2 4"><span class="skill-name">Documentation for others</span><span class="skill-note">guides, decks, notes</span><span class="skill-pills"><a class="pill p1" href="projets/support-client.html">Client support</a><a class="pill p2" href="projets/inventaire-ocr.html">OCR inventory</a><a class="pill p4" href="projets/bordereaux-la-poste.html">Shipping slips</a></span></li>
+                <li class="skill" data-p="7"><span class="skill-name">Mobile UI/UX design</span><span class="skill-note">moments of use, visual system, accessibility</span><span class="skill-pills"><a class="pill p7" href="projets/sightline-mobile.html">AI apps</a></span></li>
+                <li class="skill" data-p="5"><span class="skill-name">Controlled releases</span><span class="skill-note">backup, log, rollback</span><span class="skill-pills"><a class="pill p5" href="projets/e-commerce.html">E-commerce</a></span></li>
+                <li class="skill" data-p="2"><span class="skill-name">Designing for the field</span><span class="skill-note">standing, one-handed use</span><span class="skill-pills"><a class="pill p2" href="projets/inventaire-ocr.html">OCR inventory</a></span></li>
+                <li class="skill" data-p="5"><span class="skill-name">AI-assisted visual creation</span><span class="skill-note">generated and edited videos and ads</span><span class="skill-pills"><a class="pill p5" href="projets/e-commerce.html">E-commerce</a></span></li>
+              </ul>
+            </section>
+          </div>
+          <p class="matrix-note">Each skill links to the projects where it was used. ISEP coursework covers lab work and school projects. Languages also practised in class: Python, Java, HTML and CSS.</p>
+        </div>
+      </div>
+    </section>
+
     <!-- ============ Videos and ads ============ -->
     <section class="section" id="vitrine" aria-labelledby="vitrine-titre">
       <div class="wrap">
         <div class="section-head">
           <h2 id="vitrine-titre">Videos and ads</h2>
-          <p>My work for my online shops: AI-generated videos made under my direction, then edited. They start playing, muted, when they appear on screen.</p>
+          <p>My work for my online shops: AI-generated videos made under my direction, then edited. They start playing, muted, when they appear on screen or on hover.</p>
         </div>
         <ul class="reel" data-reel>
             <li>
               <figure class="clip-fig">
-                <div class="clip"><video data-clip muted loop playsinline preload="none" poster="../assets/video/aubea-fin.jpg" src="../assets/video/aubea-fin.mp4" aria-label="From sleep to wake-up"></video><button class="clip-play" type="button" aria-label="Play the video"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></button></div>
-                <figcaption class="clip-caption"><strong>From sleep to wake-up</strong>Aubéa alarm bracelet, final edit</figcaption>
+                <div class="clip"><video data-clip muted loop playsinline preload="none" poster="../assets/video/aubea-fin.jpg" src="../assets/video/aubea-fin.mp4" aria-label="From sleep to wake-up"></video><button class="clip-play" type="button" aria-label="Play video: From sleep to wake-up"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></button></div>
+                <figcaption class="clip-caption"><strong>From sleep to wake-up</strong> Aubéa alarm bracelet, final edit</figcaption>
               </figure>
             </li>
             <li>
               <figure class="clip-fig">
-                <div class="clip"><video data-clip muted loop playsinline preload="none" poster="../assets/video/bracelet-tech.jpg" src="../assets/video/bracelet-tech.mp4" aria-label="The product in the studio"></video><button class="clip-play" type="button" aria-label="Play the video"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></button></div>
-                <figcaption class="clip-caption"><strong>The product in the studio</strong>Alarm bracelet, product shot</figcaption>
+                <div class="clip"><video data-clip muted loop playsinline preload="none" poster="../assets/video/bracelet-tech.jpg" src="../assets/video/bracelet-tech.mp4" aria-label="The product in the studio"></video><button class="clip-play" type="button" aria-label="Play video: The product in the studio"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></button></div>
+                <figcaption class="clip-caption"><strong>The product in the studio</strong> Alarm bracelet, product shot</figcaption>
               </figure>
             </li>
             <li>
               <figure class="clip-fig">
-                <div class="clip"><video data-clip muted loop playsinline preload="none" poster="../assets/video/collier-lettres.jpg" src="../assets/video/collier-lettres.mp4" aria-label="One letter, one name"></video><button class="clip-play" type="button" aria-label="Play the video"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></button></div>
-                <figcaption class="clip-caption"><strong>One letter, one name</strong>Initial necklace</figcaption>
+                <div class="clip"><video data-clip muted loop playsinline preload="none" poster="../assets/video/collier-lettres.jpg" src="../assets/video/collier-lettres.mp4" aria-label="One letter, one name"></video><button class="clip-play" type="button" aria-label="Play video: One letter, one name"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></button></div>
+                <figcaption class="clip-caption"><strong>One letter, one name</strong> Initial necklace</figcaption>
               </figure>
             </li>
             <li>
               <figure class="clip-fig">
-                <div class="clip"><video data-clip muted loop playsinline preload="none" poster="../assets/video/ceinture-tech.jpg" src="../assets/video/ceinture-tech.mp4" aria-label="The belt in the studio"></video><button class="clip-play" type="button" aria-label="Play the video"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></button></div>
-                <figcaption class="clip-caption"><strong>The belt in the studio</strong>EMS belt (store never launched)</figcaption>
+                <div class="clip"><video data-clip muted loop playsinline preload="none" poster="../assets/video/ceinture-tech.jpg" src="../assets/video/ceinture-tech.mp4" aria-label="The belt in the studio"></video><button class="clip-play" type="button" aria-label="Play video: The belt in the studio"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></button></div>
+                <figcaption class="clip-caption"><strong>The belt in the studio</strong> EMS belt (store never launched)</figcaption>
               </figure>
             </li>
             <li>
               <figure class="clip-fig">
-                <div class="clip"><video data-clip muted loop playsinline preload="none" poster="../assets/video/stick-demo.jpg" src="../assets/video/stick-demo.mp4" aria-label="The demo"></video><button class="clip-play" type="button" aria-label="Play the video"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></button></div>
-                <figcaption class="clip-caption"><strong>The demo</strong>Moisturising stick (store never launched)</figcaption>
+                <div class="clip"><video data-clip muted loop playsinline preload="none" poster="../assets/video/stick-demo.jpg" src="../assets/video/stick-demo.mp4" aria-label="The demo"></video><button class="clip-play" type="button" aria-label="Play video: The demo"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5v11l9-5.5z" fill="currentColor"/></svg></button></div>
+                <figcaption class="clip-caption"><strong>The demo</strong> Moisturising stick (store never launched)</figcaption>
               </figure>
             </li>
         </ul>
@@ -387,69 +445,6 @@
       </div>
     </section>
 
-    <!-- ============ Skills ============ -->
-    <section class="section" id="competences" aria-labelledby="competences-titre">
-      <div class="wrap">
-        <div class="section-head">
-          <h2 id="competences-titre">Skills</h2>
-          <p>No gauges, no percentages: each skill links to the projects that prove it. Pick a project to see what it called on.</p>
-        </div>
-
-        <div class="skills" data-skills>
-          <div class="skills-filter" role="group" aria-label="Filter by project">
-            <button class="seg" type="button" data-skill-filter="all" aria-pressed="true">All</button>
-            <button class="seg pf p1" type="button" data-skill-filter="1" aria-pressed="false"><i aria-hidden="true"></i>Client support</button>
-            <button class="seg pf p2" type="button" data-skill-filter="2" aria-pressed="false"><i aria-hidden="true"></i>OCR inventory</button>
-            <button class="seg pf p3" type="button" data-skill-filter="3" aria-pressed="false"><i aria-hidden="true"></i>Licences</button>
-            <button class="seg pf p4" type="button" data-skill-filter="4" aria-pressed="false"><i aria-hidden="true"></i>Shipping slips</button>
-            <button class="seg pf p5" type="button" data-skill-filter="5" aria-pressed="false"><i aria-hidden="true"></i>E-commerce</button>
-            <button class="seg pf p6" type="button" data-skill-filter="6" aria-pressed="false"><i aria-hidden="true"></i>ISEP coursework</button>
-            <button class="seg pf p7" type="button" data-skill-filter="7" aria-pressed="false"><i aria-hidden="true"></i>AI apps</button>
-          </div>
-          <p class="skills-summary" data-skills-summary aria-live="polite"></p>
-          <div class="skill-groups">
-            <section class="skill-group" aria-label="Automation and cloud">
-              <header class="skill-group-head"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18h10a4 4 0 0 0 .6-7.96A6 6 0 0 0 6.2 9.1 4.5 4.5 0 0 0 7 18z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><h3>Automation and cloud</h3><span>10 skills</span></header>
-              <ul class="skill-list">
-                <li class="skill" data-p="1 3"><span class="skill-name">Google Apps Script</span><span class="skill-note">JavaScript on Google</span><span class="skill-pills"><a class="pill p1" href="projets/support-client.html">Client support</a><a class="pill p3" href="projets/licences-flex.html">Licences</a></span></li>
-                <li class="skill" data-p="2"><span class="skill-name">AppSheet and OCR</span><span class="skill-note">no-code app</span><span class="skill-pills"><a class="pill p2" href="projets/inventaire-ocr.html">OCR inventory</a></span></li>
-                <li class="skill" data-p="1 3"><span class="skill-name">Google Workspace administration</span><span class="skill-note">Gmail, directory, licences</span><span class="skill-pills"><a class="pill p1" href="projets/support-client.html">Client support</a><a class="pill p3" href="projets/licences-flex.html">Licences</a></span></li>
-                <li class="skill" data-p="4"><span class="skill-name">Node.js and Express</span><span class="skill-note">web service</span><span class="skill-pills"><a class="pill p4" href="projets/bordereaux-la-poste.html">Shipping slips</a></span></li>
-                <li class="skill" data-p="3 4"><span class="skill-name">REST APIs</span><span class="skill-note">La Poste, Airtable, Google</span><span class="skill-pills"><a class="pill p3" href="projets/licences-flex.html">Licences</a><a class="pill p4" href="projets/bordereaux-la-poste.html">Shipping slips</a></span></li>
-                <li class="skill" data-p="4"><span class="skill-name">Cloud storage and hosting</span><span class="skill-note">Google Cloud Storage, Heroku</span><span class="skill-pills"><a class="pill p4" href="projets/bordereaux-la-poste.html">Shipping slips</a></span></li>
-                <li class="skill" data-p="7"><span class="skill-name">Release on a Linux server</span><span class="skill-note">Docker, Caddy, HTTPS, backups</span><span class="skill-pills"><a class="pill p7" href="#nouveaux">AI apps</a></span></li>
-                <li class="skill" data-p="7"><span class="skill-name">AI evaluation and guardrails</span><span class="skill-note">number checks, judge model, cost per model</span><span class="skill-pills"><a class="pill p7" href="projets/sightline.html">AI apps</a></span></li>
-                <li class="skill" data-p="5"><span class="skill-name">Shopify and Shopify CLI</span><span class="skill-note">themes, releases</span><span class="skill-pills"><a class="pill p5" href="projets/e-commerce.html">E-commerce</a></span></li>
-                <li class="skill" data-p="1 5 7"><span class="skill-name">Directing AI coding agents</span><span class="skill-note">Claude Code, Codex, Gemini: specify, assign, verify</span><span class="skill-pills"><a class="pill p1" href="projets/support-client.html">Client support</a><a class="pill p5" href="projets/e-commerce.html">E-commerce</a><a class="pill p7" href="#nouveaux">AI apps</a></span></li>
-              </ul>
-            </section>
-            <section class="skill-group" aria-label="Security and networks">
-              <header class="skill-group-head"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v6c0 4.2-3 7.7-7 9-4-1.3-7-4.8-7-9V6z M9 12l2 2 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/></svg><h3>Security and networks</h3><span>5 skills</span></header>
-              <ul class="skill-list">
-                <li class="skill" data-p="2 3 7"><span class="skill-name">Secure design</span><span class="skill-note">limited rights, reversibility</span><span class="skill-pills"><a class="pill p2" href="projets/inventaire-ocr.html">OCR inventory</a><a class="pill p3" href="projets/licences-flex.html">Licences</a><a class="pill p7" href="#nouveaux">AI apps</a></span></li>
-                <li class="skill" data-p="1 4 5 7"><span class="skill-name">Data protection</span><span class="skill-note">client and personal data</span><span class="skill-pills"><a class="pill p1" href="projets/support-client.html">Client support</a><a class="pill p4" href="projets/bordereaux-la-poste.html">Shipping slips</a><a class="pill p5" href="projets/e-commerce.html">E-commerce</a><a class="pill p7" href="#nouveaux">AI apps</a></span></li>
-                <li class="skill" data-p="6"><span class="skill-name">Reconnaissance and vulnerabilities</span><span class="skill-note">Kali Linux, nmap</span><span class="skill-pills"><span class="pill p6">ISEP coursework</span></span></li>
-                <li class="skill" data-p="6"><span class="skill-name">Networking</span><span class="skill-note">Cisco switching, VLAN</span><span class="skill-pills"><span class="pill p6">ISEP coursework</span></span></li>
-                <li class="skill" data-p="6"><span class="skill-name">Digital communications</span><span class="skill-note">MATLAB, signal processing</span><span class="skill-pills"><span class="pill p6">ISEP coursework</span></span></li>
-              </ul>
-            </section>
-            <section class="skill-group" aria-label="Project delivery">
-              <header class="skill-group-head"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 21V4m0 0h11l-2 4 2 4H5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/></svg><h3>Project delivery</h3><span>6 skills</span></header>
-              <ul class="skill-list">
-                <li class="skill" data-p="1 4 7"><span class="skill-name">Scoping and acceptance testing</span><span class="skill-note">with a sponsor</span><span class="skill-pills"><a class="pill p1" href="projets/support-client.html">Client support</a><a class="pill p4" href="projets/bordereaux-la-poste.html">Shipping slips</a><a class="pill p7" href="#nouveaux">AI apps</a></span></li>
-                <li class="skill" data-p="1 2 4"><span class="skill-name">Documentation for others</span><span class="skill-note">guides, decks, notes</span><span class="skill-pills"><a class="pill p1" href="projets/support-client.html">Client support</a><a class="pill p2" href="projets/inventaire-ocr.html">OCR inventory</a><a class="pill p4" href="projets/bordereaux-la-poste.html">Shipping slips</a></span></li>
-                <li class="skill" data-p="7"><span class="skill-name">Mobile UI/UX design</span><span class="skill-note">moments of use, visual system, accessibility</span><span class="skill-pills"><a class="pill p7" href="projets/sightline-mobile.html">AI apps</a></span></li>
-                <li class="skill" data-p="5"><span class="skill-name">Controlled releases</span><span class="skill-note">backup, log, rollback</span><span class="skill-pills"><a class="pill p5" href="projets/e-commerce.html">E-commerce</a></span></li>
-                <li class="skill" data-p="2"><span class="skill-name">Designing for the field</span><span class="skill-note">standing, one-handed use</span><span class="skill-pills"><a class="pill p2" href="projets/inventaire-ocr.html">OCR inventory</a></span></li>
-                <li class="skill" data-p="5"><span class="skill-name">AI-assisted visual creation</span><span class="skill-note">generated and edited videos and ads</span><span class="skill-pills"><a class="pill p5" href="projets/e-commerce.html">E-commerce</a></span></li>
-              </ul>
-            </section>
-          </div>
-          <p class="matrix-note">Each skill links to the projects where it was used. ISEP coursework covers lab work and school projects. Languages also practised in class: Python, Java, HTML and CSS.</p>
-        </div>
-      </div>
-    </section>
-
     <!-- ============ About ============ -->
     <section class="section" id="a-propos" aria-labelledby="a-propos-titre">
       <div class="wrap">
@@ -520,11 +515,12 @@
           <p>A role, an assignment, a question: write to me. The email subject already contains a ticket number, <span class="contact-ticket" data-ticket>T-000000</span>, just like in the support system I built.</p>
         </div>
         <ul class="contact-links">
-          <li>
-            <a href="mailto:pauleao02@gmail.com?subject=Getting%20in%20touch" data-mailto>
+          <li class="contact-mail">
+            <a class="contact-primary" href="mailto:pauleao02@gmail.com?subject=Getting%20in%20touch" data-mailto>
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v12H3z M3 7l9 6 9-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
               <span>Send an email<small>pauleao02@gmail.com</small></span>
             </a>
+            <button class="btn btn--quiet contact-copy" type="button" data-copy="pauleao02@gmail.com" hidden>Copy address</button>
           </li>
           <li>
             <a href="https://www.linkedin.com/in/morel-paul" target="_blank" rel="me noopener">
@@ -546,6 +542,7 @@
   <footer class="site-footer">
     <div class="wrap">
       <p>Paul Morel, 2026</p>
+      <p class="footer-contact"><a href="mailto:pauleao02@gmail.com" data-mailto>Email</a><span aria-hidden="true"> · </span><a href="https://www.linkedin.com/in/morel-paul" target="_blank" rel="me noopener">LinkedIn</a><span aria-hidden="true"> · </span><a href="../cv/Paul_Morel_CV.pdf" download>CV</a></p>
       <p>Static site, with no cookies or analytics. Clients and colleagues are not named.</p>
     </div>
   </footer>

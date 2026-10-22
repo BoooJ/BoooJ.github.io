@@ -9,8 +9,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=JetBrains+Mono:wght@400;500&family=Public+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
   <link rel="alternate" hreflang="fr" href="../../projets/sightline-mobile.html">
-  <link rel="stylesheet" href="../../assets/css/style.css?v=20261021c">
-  <script src="../../assets/js/main.js?v=20261021c"></script>
+  <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../assets/css/style.css?v=20261022">
+  <script src="../../assets/js/main.js?v=20261022"></script>
 </head>
 <body>
   <a class="skip-link" href="#contenu">Skip to content</a>
@@ -20,8 +21,9 @@
       <a class="wordmark" href="../index.html">Paul Morel</a>
       <nav class="site-nav" aria-label="Main navigation">
         <ul>
-          <li><a href="../index.html#projets" aria-current="page">Projects</a></li>
+          <li><a href="../index.html#nouveaux" aria-current="true">Projects</a></li>
           <li><a href="../index.html#competences">Skills</a></li>
+          <li><a href="../index.html#vitrine">Videos</a></li>
           <li><a href="../index.html#a-propos">About</a></li>
           <li><a href="../passions.html">Passions</a></li>
           <li><a href="../index.html#contact">Contact</a></li>
@@ -40,7 +42,7 @@
   <main id="contenu">
     <div class="wrap">
       <header class="case-head">
-        <p class="breadcrumb"><a href="../index.html#nouveaux">New projects</a></p>
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a> <span aria-hidden="true">›</span> <a href="../index.html#nouveaux">AI apps</a></nav>
         <p class="case-kind"><strong>Personal project</strong>, mobile app (installable web app and Android APK), designed as a UI/UX portfolio piece</p>
         <h1>Sightline mobile: a CS2 player's match notebook, in the pocket</h1>
         <p class="case-lede"><a href="sightline.html">Sightline</a> is used on a computer. But a player needs their information at other moments: before the match to prepare for the opponent, right after for the review, and during practice, with grenades in view next to the keyboard. I designed a mobile app for those moments, with the same accounts and data as the site. I had it built by AI agents in two days, from specification to release.</p>
@@ -58,7 +60,7 @@
         </aside>
 
         <div class="case-content">
-          <section>
+          <section id="quatre-moments-dans-la-semaine-d-un-joueur">
             <h2>Four moments in a player's week</h2>
             <p>I started from the moments when a player takes out their phone, not from the site's features. So the app does not copy all of Sightline: it answers four precise needs.</p>
             <div class="phone-grid">
@@ -72,7 +74,7 @@
             <p class="figure-note">Demo-mode screenshots at iPhone size: public professional matches (Team Vitality against MOUZ), dates recalculated to the day the app is opened. The interface is in French.</p>
           </section>
 
-          <section>
+          <section id="les-choix-d-interface-et-pourquoi">
             <h2>Interface choices, and why</h2>
             <ul class="feature-list">
               <li><strong>The home screen knows what moment it is.</strong> The next match comes first, with a countdown; a review under 24 hours old that has not been opened goes before everything. This rule is isolated and tested.</li>
@@ -87,12 +89,12 @@
             </ul>
           </section>
 
-          <section>
+          <section id="gratuit-sans-passer-par-un-store">
             <h2>Free, without an app store</h2>
             <p>Starting constraint: zero cost. Publishing on the App Store costs €99 a year, and Google Play a one-off $25. So the app ships as an installable web app (added to the home screen from the browser) and as an Android APK built for free in the cloud. Notifications go through the web, since native notifications need the paid Apple account on iPhone (and Firebase on Android). When the stores become useful, the code will not need to change.</p>
           </section>
 
-          <section>
+          <section id="ce-qu-il-y-a-sous-le-capot">
             <h2>Under the hood</h2>
             <ul class="feature-list">
               <li><strong>The same accounts as the site.</strong> The server now accepts token sign-in for the native app; on the web, the app keeps the site's secure session cookie and stores no token in the browser.</li>
@@ -103,7 +105,7 @@
             </ul>
           </section>
 
-          <section>
+          <section id="resultats-verifiables">
             <h2>Verifiable results</h2>
             <ul class="results">
               <li><span class="proof proof--count">Counted</span><span>Specification and plan written before the code, then 18 commits in the app's folder from 19 to 21 October 2026.</span></li>
@@ -113,7 +115,7 @@
             </ul>
           </section>
 
-          <section>
+          <section id="limites-connues">
             <h2>Known limits</h2>
             <ul>
               <li><strong>The native version has never run on a real phone.</strong> Only the installable web version was tested, in simulated browsers and on my iPhone.</li>
@@ -124,8 +126,8 @@
           </section>
 
           <nav class="case-next" aria-label="Other projects">
-            <a href="sightline.html"><span>Previous project</span><strong>Sightline, CS2 match analysis</strong></a>
-            <a href="caderno.html"><span>Next project</span><strong>Caderno, Portuguese notebook</strong></a>
+            <a href="sightline.html" rel="prev"><span><span aria-hidden="true">← </span>Previous project</span><strong>Sightline, CS2 match analysis</strong></a>
+            <a href="caderno.html" rel="next"><span>Next project<span aria-hidden="true"> →</span></span><strong>Caderno, Portuguese notebook</strong></a>
           </nav>
         </div>
       </div>
@@ -135,6 +137,7 @@
   <footer class="site-footer">
     <div class="wrap">
       <p>Paul Morel, AI engineer with a cybersecurity background (ISEP 2026)</p>
+      <p class="footer-contact"><a href="mailto:pauleao02@gmail.com" data-mailto>Email</a><span aria-hidden="true"> · </span><a href="https://www.linkedin.com/in/morel-paul" target="_blank" rel="me noopener">LinkedIn</a><span aria-hidden="true"> · </span><a href="../../cv/Paul_Morel_CV.pdf" download>CV</a></p>
       <p>The app's address is not published: it is limited to the team's accounts.</p>
     </div>
   </footer>

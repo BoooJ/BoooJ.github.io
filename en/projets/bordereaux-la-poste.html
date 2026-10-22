@@ -9,9 +9,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=JetBrains+Mono:wght@400;500&family=Public+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
   <link rel="alternate" hreflang="fr" href="../../projets/bordereaux-la-poste.html">
-  <link rel="stylesheet" href="../../assets/css/style.css?v=20261021c">
-  <script src="../../assets/js/main.js?v=20261021c"></script>
-  <script src="../../assets/js/sim-replay.js?v=20261021c" defer></script>
+  <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../assets/css/style.css?v=20261022">
+  <script src="../../assets/js/main.js?v=20261022"></script>
+  <script src="../../assets/js/sim-replay.js?v=20261022" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#contenu">Skip to content</a>
@@ -21,8 +22,9 @@
       <a class="wordmark" href="../index.html">Paul Morel</a>
       <nav class="site-nav" aria-label="Main navigation">
         <ul>
-          <li><a href="../index.html#projets" aria-current="page">Projects</a></li>
+          <li><a href="../index.html#nouveaux" aria-current="true">Projects</a></li>
           <li><a href="../index.html#competences">Skills</a></li>
+          <li><a href="../index.html#vitrine">Videos</a></li>
           <li><a href="../index.html#a-propos">About</a></li>
           <li><a href="../passions.html">Passions</a></li>
           <li><a href="../index.html#contact">Contact</a></li>
@@ -41,10 +43,11 @@
   <main id="contenu">
     <div class="wrap">
       <header class="case-head">
-        <p class="breadcrumb"><a href="../index.html#projets">All projects</a></p>
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a> <span aria-hidden="true">›</span> <a href="../index.html#projets">Automation</a></nav>
         <p class="case-kind"><strong>Second-year internship</strong>, assignment for the company, delivered</p>
         <h1>Shipping slips created through an API, with no re-keying</h1>
         <p class="case-lede">The Lost Recordings restores rare recordings and sells them on vinyl and CD worldwide. For its warehouse, I developed a Node.js service that creates La Poste drop-off shipping slips through the API and automatically links them to the shipments tracked in Airtable.</p>
+        <p class="case-jump"><a class="btn btn--quiet" href="#le-parcours-d-une-demande">Try the mock-up <span aria-hidden="true">↓</span></a></p>
       </header>
 
       <div class="case-body">
@@ -59,18 +62,18 @@
         </aside>
 
         <div class="case-content">
-          <section>
+          <section id="contexte-et-objectif">
             <h2>Context and goal</h2>
             <p>The company was growing fast, with sales on every continent, and was preparing for Black Friday and the release of new records. Shipments were tracked in Airtable, and producing La Poste drop-off shipping slips took time, effort and money.</p>
             <p>My assignment: code a stand-alone application that generates the shipping slip when an order is ready to go, and that fits in with the tools already in place. I was the company's first intern, and Node.js, which was required for the project, was new to me.</p>
           </section>
 
-          <section>
+          <section id="ce-que-j-ai-fait">
             <h2>What I did</h2>
             <h3>Understanding the API before writing code</h3>
             <p>I started by studying the Delivengo API: request types, error codes, response format. In parallel, I learnt Node.js and compared hosting and storage options. With the logistics manager, we then mapped out the exchanges between the application, Airtable, the host and the storage, and broke down the work: local code first, then retrieving the documents, sending them to Airtable, and finally hosting.</p>
 
-            <section class="sim" data-sim="replay" aria-labelledby="sim-r-title">
+            <section id="le-parcours-d-une-demande" class="sim" data-sim="replay" aria-labelledby="sim-r-title">
               <span class="sim-tag">Animated replay, fictitious data</span>
               <div class="sim-head">
                 <h2 id="sim-r-title">The journey of a request</h2>
@@ -146,7 +149,7 @@
             </ul>
           </section>
 
-          <section>
+          <section id="resultats-verifiables">
             <h2>Verifiable results</h2>
             <ul class="results">
               <li><span class="proof proof--fact">Recorded</span><span>Service delivered and hosted on Heroku, with documentation and a Git repository handed over to the company for maintenance.</span></li>
@@ -160,14 +163,14 @@
             </div>
           </section>
 
-          <section>
+          <section id="ce-que-ce-stage-m-a-appris">
             <h2>What this internship taught me</h2>
             <p>Reading API documentation and working out the right requests from it, learning a language on the job in a month, and designing a service meant to be maintained by others: it was the first time I had written professional documentation. Working fully remotely, with a single, often busy, point of contact, also made me look for answers on my own before asking.</p>
           </section>
 
           <nav class="case-next" aria-label="Other projects">
-            <a href="licences-flex.html"><span>Previous project</span><strong>Test licences assigned and reclaimed</strong></a>
-            <a href="e-commerce.html"><span>Next project</span><strong>E-commerce shops</strong></a>
+            <a href="licences-flex.html" rel="prev"><span><span aria-hidden="true">← </span>Previous project</span><strong>Test licences assigned and reclaimed</strong></a>
+            <a href="e-commerce.html" rel="next"><span>Next project<span aria-hidden="true"> →</span></span><strong>E-commerce shops</strong></a>
           </nav>
         </div>
       </div>
@@ -177,6 +180,7 @@
   <footer class="site-footer">
     <div class="wrap">
       <p>Paul Morel, AI engineer with a cybersecurity background (ISEP 2026)</p>
+      <p class="footer-contact"><a href="mailto:pauleao02@gmail.com" data-mailto>Email</a><span aria-hidden="true"> · </span><a href="https://www.linkedin.com/in/morel-paul" target="_blank" rel="me noopener">LinkedIn</a><span aria-hidden="true"> · </span><a href="../../cv/Paul_Morel_CV.pdf" download>CV</a></p>
       <p>Clients and colleagues are not named, for confidentiality.</p>
     </div>
   </footer>
