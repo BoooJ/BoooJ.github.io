@@ -9,8 +9,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=JetBrains+Mono:wght@400;500&family=Public+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
   <link rel="alternate" hreflang="en" href="../en/projets/sightline.html">
-  <link rel="stylesheet" href="../assets/css/style.css?v=20261014b">
-  <script src="../assets/js/main.js?v=20261014b"></script>
+  <link rel="stylesheet" href="../assets/css/style.css?v=20261021c">
+  <script src="../assets/js/main.js?v=20261021c"></script>
 </head>
 <body>
   <a class="skip-link" href="#contenu">Aller au contenu</a>
@@ -46,6 +46,21 @@
         <p class="case-lede">Dans Counter-Strike 2, chaque match peut être enregistré dans un fichier de démo qui contient tout : positions, tirs, grenades, argent. Sightline transforme ces fichiers en replay 2D, en statistiques et en outils de préparation pour une équipe. J'en ai construit la première version en trois jours en pilotant des agents IA, puis je l'ai enrichie jusqu'à couvrir l'essentiel d'un outil professionnel : je décide quoi construire et comment le vérifier, les agents écrivent le code.</p>
       </header>
 
+      <div class="media-pair" role="group" aria-label="Vidéos de présentation de Sightline">
+        <figure class="pitch">
+          <video controls playsinline preload="none" width="1920" height="1080" poster="../assets/video/sightline-film.jpg" aria-label="Film de présentation de Sightline, 32 secondes, avec musique">
+            <source src="../assets/video/sightline-film.mp4" type="video/mp4">
+          </video>
+          <figcaption>Film de présentation (32 s, avec musique) : replay 2D, heatmaps, grenades, tableau de bord, scouting et assistant IA.</figcaption>
+        </figure>
+        <figure class="pitch pitch--tall">
+          <video controls playsinline preload="none" width="720" height="1280" poster="../assets/video/sightline-reel.jpg" aria-label="Version verticale de la présentation de Sightline, 22 secondes, avec musique">
+            <source src="../assets/video/sightline-reel.mp4" type="video/mp4">
+          </video>
+          <figcaption>Version verticale, pour les réseaux sociaux (22 s).</figcaption>
+        </figure>
+      </div>
+
       <div class="case-body">
         <aside class="case-meta" aria-label="Fiche du projet">
           <dl>
@@ -67,9 +82,9 @@
             <h2>Le vibe coding, avec une méthode</h2>
             <p>Le vibe coding consiste à décrire en langage naturel ce que l'on veut et à laisser une IA écrire le code. C'est rapide, mais le risque est connu : on finit avec une application que personne ne comprend, pleine d'erreurs invisibles. Mon travail a été d'encadrer ces agents comme on encadre une équipe de développeurs.</p>
             <ol class="method">
-              <li><strong>Spécifier avant de coder.</strong> Chaque grande partie (import et replay, statistiques, grenades, heatmaps, annotations, espace d'équipe, scouting) a d'abord un document de conception qui fixe le résultat attendu. Il y en a 16.</li>
-              <li><strong>Découper et répartir.</strong> Quinze plans d'implémentation découpent le travail en petites tâches, confiées une à une à des agents, avec une relecture entre chaque tâche.</li>
-              <li><strong>Vérifier.</strong> 56 fichiers de tests automatiques, des tests sur de vraies démos de match, des parcours complets joués dans un navigateur et des parcours de « bêta-testeur » scriptés.</li>
+              <li><strong>Spécifier avant de coder.</strong> Chaque grande partie (import et replay, statistiques, grenades, heatmaps, annotations, espace d'équipe, scouting) a d'abord un document de conception qui fixe le résultat attendu. Avec les audits, cela fait 19 documents.</li>
+              <li><strong>Découper et répartir.</strong> Dix-huit plans d'implémentation découpent le travail en petites tâches, confiées une à une à des agents, avec une relecture entre chaque tâche.</li>
+              <li><strong>Vérifier.</strong> 81 fichiers de tests automatiques, des tests sur de vraies démos de match, des parcours complets joués dans un navigateur et des parcours de « bêta-testeur » scriptés.</li>
               <li><strong>Comparer et corriger.</strong> J'ai fait inventorier les 57 fonctions d'un outil professionnel du marché, Skybox EDGE, puis découper l'écart en treize sous-projets. Résultat : 42 fonctions couvertes, 11 partielles, 2 absentes, 2 hors de portée (elles demandent des serveurs de jeu). Des audits d'ergonomie et de rapidité suivent chaque grande étape.</li>
               <li><strong>Exploiter.</strong> L'application tourne dans un conteneur Docker sur mon serveur, en HTTPS, avec connexion obligatoire et une sauvegarde de la base chaque nuit, conservée 14 jours.</li>
             </ol>
@@ -90,7 +105,9 @@
               <li><strong>Préparer</strong> un adversaire : fiche de scouting sur plusieurs démos, rounds à revoir, simulateur de veto avec prédictions, dossier de préparation de match, playbook d'équipe et calendrier.</li>
               <li><strong>Débriefer</strong> comme un staff : où le match s'est joué par rapport à la forme habituelle, trois points à travailler, cinq rounds à revoir et des objectifs suivis d'un match à l'autre.</li>
               <li><strong>Apprendre</strong> un rôle en suivant un joueur professionnel étape par étape, avec un coach IA qui explique un round, et poser ses questions à un assistant qui lit les données du match sans pouvoir les modifier.</li>
+              <li><strong>Comprendre ses erreurs</strong> : pour chaque mort, où le joueur regardait au début du duel et s'il avait de l'aide ; les grenades achetées mais jamais lancées ; les rounds lents de l'adversaire découpés en phases. Dans le replay, la liste des grenades d'un round, avec de quoi les rejouer en jeu.</li>
               <li><strong>Être prévenu</strong> : notifications d'équipe en direct et sur Discord quand un match est prêt ou commenté.</li>
+              <li><strong>Garder Sightline dans la poche</strong> : une <a href="sightline-mobile.html">application mobile</a> pour le joueur, avec les mêmes comptes et les mêmes données.</li>
             </ul>
             <figure class="figure figure--wide">
               <div class="figure-frame figure-frame--flush">
@@ -195,10 +212,12 @@
           <section>
             <h2>Résultats vérifiables</h2>
             <ul class="results">
-              <li><span class="proof proof--count">Compté</span><span>162 commits du 10 au 14 octobre 2026, dans l'historique Git du projet, dont 93 pour la première version en trois jours.</span></li>
-              <li><span class="proof proof--count">Compté</span><span>16 documents de conception et 15 plans d'implémentation écrits avant le code.</span></li>
-              <li><span class="proof proof--count">Compté</span><span>56 fichiers de tests automatiques : 42 côté serveur, 14 côté interface.</span></li>
-              <li><span class="proof proof--fact">Constaté</span><span>Application en ligne sur mon serveur, en HTTPS ; sans session ouverte, l'API refuse toute requête.</span></li>
+              <li><span class="proof proof--count">Compté</span><span>Plus de 200 commits du 10 au 21 octobre 2026, dans l'historique Git du projet, dont 93 pour la première version en trois jours.</span></li>
+              <li><span class="proof proof--count">Compté</span><span>19 documents de conception et d'audit, et 18 plans d'implémentation.</span></li>
+              <li><span class="proof proof--count">Compté</span><span>81 fichiers de tests automatiques : 49 côté serveur, 17 côté interface, 15 pour l'application mobile. Au dernier passage enregistré, le 20 octobre : 205 tests serveur, 67 tests d'interface et 66 parcours complets dans un navigateur, tous au vert.</span></li>
+              <li><span class="proof proof--count">Compté</span><span>Mesuré pendant la conception sur la bibliothèque de démos (1 840 duels) : le joueur aidé par une flash ou une molotov gagne 63 % de ses duels, contre 47 % pour un duel « à sec ». C'est ce constat que l'analyse des duels met sous les yeux du joueur.</span></li>
+              <li><span class="proof proof--fact">Constaté</span><span>Passe de design sur tout le site : contraste des textes secondaires relevé à au moins 5:1 sur les quatre fonds, et un minimum de 11 px pour les textes de l'interface.</span></li>
+              <li><span class="proof proof--fact">Constaté</span><span>Application en ligne sur mon serveur, en HTTPS ; sans session ouverte, l'API refuse toute requête, hors connexion et liens de partage publics.</span></li>
               <li><span class="proof proof--fact">Constaté</span><span>D'après l'historique : import des démos rendu 2,5 fois plus rapide, puis encore 25 % plus rapide à données identiques ; code chargé au démarrage réduit de 105 à 85 Ko.</span></li>
               <li><span class="proof proof--fact">Constaté</span><span>Mesuré en ligne après un audit de rapidité : fiche de scouting de 950 à 250 ms, page joueur de 1 900 à 250 ms ; 250 ms correspond au temps du réseau lui-même.</span></li>
             </ul>
@@ -210,13 +229,13 @@
               <li><strong>Mon apport n'est pas la frappe du code.</strong> Il est dans la spécification, le découpage, la vérification et l'exploitation. Je sais expliquer l'architecture et chaque choix, pas réciter chaque ligne.</li>
               <li><strong>Une dépendance à surveiller.</strong> La lecture des démos repose sur la bibliothèque demoparser2, qui doit suivre chaque mise à jour du jeu. Le code est organisé pour qu'un seul fichier en dépende.</li>
               <li><strong>L'IA garde ses limites.</strong> Le contrôle ne voit pas un nombre inventé qui tombe par hasard sur une vraie valeur, et le juge se trompe parfois. C'est pourquoi le texte reste relié à ses faits et les remarques restent visibles.</li>
-              <li><strong>Pas de mesure d'usage publiée ici.</strong> Les captures montrent des matchs professionnels publics, pas les données d'une équipe.</li>
+              <li><strong>Pas de mesure d'usage publiée ici.</strong> Les captures d'écran de cette page montrent des matchs professionnels publics, pas les données d'une équipe.</li>
             </ul>
           </section>
 
           <nav class="case-next" aria-label="Autres projets">
             <a href="../index.html#nouveaux"><span>Retour</span><strong>Nouveaux projets</strong></a>
-            <a href="caderno.html"><span>Projet suivant</span><strong>Caderno, carnet de portugais</strong></a>
+            <a href="sightline-mobile.html"><span>Projet suivant</span><strong>Sightline mobile, l'app du joueur</strong></a>
           </nav>
         </div>
       </div>
@@ -225,7 +244,7 @@
 
   <footer class="site-footer">
     <div class="wrap">
-      <p>Paul Morel, ingénieur cloud et cybersécurité (ISEP 2026)</p>
+      <p>Paul Morel, ingénieur IA, formation en cybersécurité (ISEP 2026)</p>
       <p>L'adresse de l'application n'est pas publiée : elle est réservée aux comptes.</p>
     </div>
   </footer>

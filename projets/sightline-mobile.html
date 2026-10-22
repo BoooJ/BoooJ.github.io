@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sightline mobile, l'app du joueur · Paul Morel</title>
+  <meta name="description" content="Application mobile compagnon de Sightline pour un joueur de Counter-Strike 2 : préparer l'adversaire, relire son match, garder ses grenades sous les yeux, suivre sa progression. Conçue comme pièce de portfolio UI/UX, construite en deux jours en pilotant des agents IA.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=JetBrains+Mono:wght@400;500&family=Public+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+  <link rel="alternate" hreflang="en" href="../en/projets/sightline-mobile.html">
+  <link rel="stylesheet" href="../assets/css/style.css?v=20261021c">
+  <script src="../assets/js/main.js?v=20261021c"></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="wordmark" href="../index.html">Paul Morel</a>
+      <nav class="site-nav" aria-label="Navigation principale">
+        <ul>
+          <li><a href="../index.html#projets" aria-current="page">Projets</a></li>
+          <li><a href="../index.html#competences">Compétences</a></li>
+          <li><a href="../index.html#a-propos">À propos</a></li>
+          <li><a href="../passions.html">Passions</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a class="lang-switch" href="../en/projets/sightline-mobile.html" hreflang="en" lang="en" title="English version">EN</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Changer de thème">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>
+        </button>
+        <a class="btn" href="../cv/Paul_Morel_CV.pdf" download>CV (PDF)</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <div class="wrap">
+      <header class="case-head">
+        <p class="breadcrumb"><a href="../index.html#nouveaux">Nouveaux projets</a></p>
+        <p class="case-kind"><strong>Projet personnel</strong>, application mobile (web installable et APK Android), conçue comme pièce de portfolio UI/UX</p>
+        <h1>Sightline mobile : le carnet de match d'un joueur de CS2, dans la poche</h1>
+        <p class="case-lede"><a href="sightline.html">Sightline</a> se consulte sur ordinateur. Mais un joueur a besoin de ses informations à d'autres moments : avant le match pour préparer l'adversaire, juste après pour son bilan, et pendant l'entraînement, avec ses grenades sous les yeux à côté du clavier. J'ai conçu une application mobile pour ces moments-là, avec les mêmes comptes et les mêmes données que le site. Je l'ai fait construire par des agents IA en deux jours, de la spécification à la mise en ligne.</p>
+      </header>
+
+      <div class="case-body">
+        <aside class="case-meta" aria-label="Fiche du projet">
+          <dl>
+            <div><dt>Cadre</dt><dd>Projet personnel, compagnon de Sightline, pensé d'abord comme pièce de portfolio UI/UX</dd></div>
+            <div><dt>Période</dt><dd>Du 19 au 21 octobre 2026 : première version en deux jours, onglet Stratégies ajouté le 21</dd></div>
+            <div><dt>Mon rôle</dt><dd>Conception produit et UI/UX (moments d'usage, écrans, système visuel), spécification, vérification et mise en ligne. Le code est écrit par des agents IA (Claude Code).</dd></div>
+            <div><dt>Outils</dt><dd><ul><li>Expo SDK 58, React Native, expo-router</li><li>TypeScript, TanStack Query, Reanimated</li><li>Vitest</li><li>FastAPI (connexion par jeton, notifications web), Docker, EAS Build</li></ul></dd></div>
+            <div><dt>État</dt><dd><span class="status status--prod">En ligne</span> application web installable, APK Android, mode démo sans compte</dd></div>
+          </dl>
+        </aside>
+
+        <div class="case-content">
+          <section>
+            <h2>Quatre moments dans la semaine d'un joueur</h2>
+            <p>Je suis parti des moments où un joueur sort son téléphone, pas des fonctions du site. L'application ne reprend donc pas tout Sightline : elle répond à quatre besoins précis.</p>
+            <div class="phone-grid">
+              <figure class="app-phone"><img src="../assets/img/mobile/aujourdhui.webp" width="585" height="1266" loading="lazy" alt="Écran Aujourd'hui : carte « Ton bilan est prêt » contre MOUZ (16-12), carte « Prépare MOUZ » dans 2 jours avec les cartes jouées, forme récente avec une courbe, raccourci vers les grenades de Cache."><figcaption><strong>Aujourd'hui.</strong> L'écran remonte ce qui compte maintenant : le bilan d'hier, le prochain match.</figcaption></figure>
+              <figure class="app-phone"><img src="../assets/img/mobile/preparation.webp" width="585" height="1266" loading="lazy" alt="Préparation contre MOUZ sur Inferno : tuiles de chiffres (matchs gagnés, rounds gagnés en T et en CT, premier contact) et points à retenir, chacun avec un indicateur de fiabilité."><figcaption><strong>Avant le match.</strong> L'adversaire en chiffres, chacun avec sa fiabilité.</figcaption></figure>
+              <figure class="app-phone"><img src="../assets/img/mobile/bilan.webp" width="585" height="1266" loading="lazy" alt="Bilan d'un match Team Vitality contre MOUZ, 16-12 sur Dust II : rating, K-D, ADR et KAST comparés à la moyenne du joueur, puis « Tes 3 morts les plus chères » avec ce que chaque mort a coûté en chances de gagner le round."><figcaption><strong>Après le match.</strong> Sa ligne comparée à sa moyenne, et les morts qui ont coûté le plus cher.</figcaption></figure>
+              <figure class="app-phone"><img src="../assets/img/mobile/grenades.webp" width="585" height="1266" loading="lazy" alt="Grenades sur Inferno : filtres par type de grenade, par camp et par équipe, radar avec les points d'arrivée des smokes et liste des lineups lancés au moins deux fois."><figcaption><strong>À côté du clavier.</strong> Les lineups de la carte, l'écran reste allumé.</figcaption></figure>
+              <figure class="app-phone"><img src="../assets/img/mobile/lineup.webp" width="585" height="1266" loading="lazy" alt="Fiche d'un lineup « Smoke · T Ramp » depuis Arch : radar zoomé avec la trajectoire, angles vertical et horizontal, joueurs qui l'ont lancé et bouton « Copier la commande setpos »."><figcaption><strong>Un lineup.</strong> Trajectoire, angles et commande à copier pour s'entraîner en jeu.</figcaption></figure>
+              <figure class="app-phone"><img src="../assets/img/mobile/progres.webp" width="585" height="1266" loading="lazy" alt="Progrès : courbe du rating par match (trois matchs dans la démo) comparée à la moyenne, puis tuiles rating, ADR, KAST et morts par round."><figcaption><strong>Sur la durée.</strong> La progression, match après match.</figcaption></figure>
+            </div>
+            <p class="figure-note">Captures du mode démo, au format iPhone : matchs professionnels publics (Team Vitality contre MOUZ), dates recalculées au jour de l'ouverture.</p>
+          </section>
+
+          <section>
+            <h2>Les choix d'interface, et pourquoi</h2>
+            <ul class="feature-list">
+              <li><strong>L'écran d'accueil sait à quel moment on est.</strong> Le prochain match passe en premier, avec un compte à rebours ; un bilan de moins de 24 heures pas encore ouvert passe devant tout. Cette règle est isolée et testée.</li>
+              <li><strong>Dans la préparation, chaque chiffre affiche sa fiabilité</strong> (anecdotique, indicatif ou solide) et son effectif. Choix de conception assumé : ne jamais présenter deux rounds comme une tendance.</li>
+              <li><strong>Les grenades sont faites pour un téléphone posé près du clavier</strong> : l'écran reste allumé, les angles s'affichent en grand, la commande pour s'entraîner se copie en un geste (avec une légère vibration dans la version native).</li>
+              <li><strong>Une navigation pensée native</strong> : barre d'onglets du système et retour par glissement dans la version native (codée, pas encore testée sur un appareil) ; grands titres qui se replient au défilement et barre d'onglets au même dessin dans la version web.</li>
+              <li><strong>Un système visuel à part, « Carnet tactique »</strong> : fond sombre, une seule couleur d'accent, le bleu et l'ambre réservés aux deux camps du jeu ; police système pour le texte (dans la version native, elle suit la taille réglée sur le téléphone), Saira pour les titres, chiffres en police à chasse fixe pour qu'ils s'alignent ; grille de 4 points et cibles tactiles de 44 points.</li>
+              <li><strong>Du mouvement sobre</strong> : transitions de 100 à 220 ms et ressorts amortis, remplacés par de simples fondus si l'utilisateur a demandé moins d'animations ; la fiche d'un lineup suit le doigt et se referme selon l'élan du geste.</li>
+              <li><strong>Accessibilité</strong> : libellés pour le lecteur d'écran, et un résumé en phrase pour chaque graphique : la courbe de progression est lue comme une phrase qui dit si le rating monte ou baisse.</li>
+              <li><strong>Une démo sans compte</strong>, avec des données embarquées de matchs pros publics plutôt qu'un compte partagé : un compte public aurait exposé, et laissé modifier, les données de l'équipe.</li>
+              <li><strong>Un cinquième onglet, Stratégies</strong>, ajouté le 21 octobre : consulter sur le téléphone le cahier de stratégies de l'équipe (positions, grenades, plan), en lecture seule. La création reste sur PC, pour ne pas surcharger un petit écran.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Gratuit, sans passer par un store</h2>
+            <p>Contrainte de départ : 0 €. Publier sur l'App Store coûte 99 € par an, sur Google Play 25 $ une fois. L'application est donc distribuée comme application web installable (on l'ajoute à l'écran d'accueil depuis le navigateur) et comme APK Android compilé gratuitement dans le cloud. Les notifications passent par le web, car les notifications natives demandent le compte Apple payant sur iPhone (et Firebase sur Android). Le jour où les stores seront utiles, le code n'aura pas à changer.</p>
+          </section>
+
+          <section>
+            <h2>Ce qu'il y a sous le capot</h2>
+            <ul class="feature-list">
+              <li><strong>Les mêmes comptes que le site.</strong> Le serveur accepte désormais une connexion par jeton pour l'application native ; sur le web, l'application garde le cookie de session sécurisé du site et ne stocke aucun jeton dans le navigateur.</li>
+              <li><strong>Des notifications</strong> quand un match est analysé ou qu'un rapport de préparation est prêt. Le serveur n'accepte que les services de notification connus, pour qu'on ne puisse pas lui faire appeler n'importe quelle adresse.</li>
+              <li><strong>Un écran blanc sur iPhone, trouvé en test réel et corrigé.</strong> Sous Safari, le chargement simultané de plusieurs polices restait bloqué et l'application ne s'affichait jamais. Chaque police passe désormais par l'API FontFace, sans feuille de style partagée, et l'application n'attend plus ses polices plus de 4 secondes : si l'une échoue, elle s'affiche avec la police de secours.</li>
+              <li><strong>Le plein écran sur iPhone</strong> une fois l'application installée, en respectant l'encoche et la barre d'accueil (vérifié dans un navigateur qui simule l'iPhone).</li>
+              <li><strong>Une démo légère</strong> : environ 400 Ko de données embarquées, sous l'objectif de 1,5 Mo fixé dans la spécification.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Résultats vérifiables</h2>
+            <ul class="results">
+              <li><span class="proof proof--count">Compté</span><span>Spécification et plan écrits avant le code, puis 18 commits dans le dossier de l'application, du 19 au 21 octobre 2026.</span></li>
+              <li><span class="proof proof--count">Compté</span><span>66 tests de l'application au vert (15 fichiers) au dernier passage enregistré, le 21 octobre, et 7 tests côté serveur pour la connexion par jeton, l'application web et les notifications.</span></li>
+              <li><span class="proof proof--fact">Constaté</span><span>14 captures du mode démo dans Chrome au format iPhone (10 vues différentes) : aucun écran blanc, aucun chargement bloqué, aucune erreur.</span></li>
+              <li><span class="proof proof--fact">Constaté</span><span>En ligne en version web installable, avec un APK Android en plus.</span></li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Limites connues</h2>
+            <ul>
+              <li><strong>La version native n'a jamais tourné sur un vrai téléphone.</strong> Seule la version web installable a été testée, dans des navigateurs simulés et sur mon iPhone.</li>
+              <li><strong>Pas de mode hors connexion</strong> : l'application se met à jour à chaque déploiement, son service worker ne met rien en cache.</li>
+              <li><strong>Quelques cibles sous 44 points</strong> : les filtres font 36 points (zone de toucher élargie seulement dans la version native) et les sélecteurs segmentés 40 points.</li>
+              <li><strong>Français et thème sombre seulement</strong> ; l'onglet Stratégies sert à consulter, pas à modifier.</li>
+            </ul>
+          </section>
+
+          <nav class="case-next" aria-label="Autres projets">
+            <a href="sightline.html"><span>Projet précédent</span><strong>Sightline, analyse de matchs CS2</strong></a>
+            <a href="caderno.html"><span>Projet suivant</span><strong>Caderno, carnet de portugais</strong></a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Paul Morel, ingénieur IA, formation en cybersécurité (ISEP 2026)</p>
+      <p>L'adresse de l'application n'est pas publiée : elle est réservée aux comptes de l'équipe.</p>
+    </div>
+  </footer>
+</body>
+</html>

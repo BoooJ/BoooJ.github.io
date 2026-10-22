@@ -1589,7 +1589,7 @@ a.pill:hover { background: color-mix(in srgb, var(--pc) 22%, transparent); }
 .agent-steps strong { font-family: var(--font-display); font-size: var(--step-1); }
 .agent-steps span { font-size: var(--step--1); color: var(--ink-2); }
 .apps-grid { display: grid; gap: 1.5rem; }
-@media (min-width: 60rem) { .apps-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.apps-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr)); }
 .app-card { display: flex; flex-direction: column; text-decoration: none; color: inherit; border: 1px solid var(--rule); border-radius: 16px; overflow: hidden; background: var(--surface); transition: border-color 0.2s, transform 0.2s; }
 .app-card:hover { border-color: var(--ink-2); transform: translateY(-2px); }
 .app-card:focus-visible { outline: 2px solid var(--signal); outline-offset: 3px; }
@@ -1622,3 +1622,21 @@ a.pill:hover { background: color-mix(in srgb, var(--pc) 22%, transparent); }
 .data-table tbody th { font-weight: 600; white-space: nowrap; }
 .data-table td { font-variant-numeric: tabular-nums; }
 .figure-pair .figure-frame--flush img { aspect-ratio: 1568 / 698; object-fit: cover; object-position: left top; }
+
+/* Vidéos de présentation : film 16:9 et version verticale 9:16 à la même hauteur */
+.media-pair { display: grid; gap: 1.25rem; margin: 1.5rem 0 2rem; align-items: start; }
+@media (min-width: 48rem) { .media-pair { grid-template-columns: minmax(0, 3.16fr) minmax(0, 1fr); } }
+.pitch--tall video { aspect-ratio: 9 / 16; }
+@media (max-width: 47.99rem) { .pitch--tall { max-width: 20rem; } }
+
+/* Captures de l'application mobile */
+.phone-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem 1rem; margin: 1.5rem 0 0.75rem; }
+@media (min-width: 40rem) { .phone-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.app-phone { margin: 0; }
+.app-phone img { display: block; width: 100%; height: auto; border-radius: 1.4rem; border: 5px solid #262d34; background: #0c0f12; }
+.app-phone figcaption { font-size: var(--step--1); color: var(--ink-2); margin-top: 0.55rem; }
+.app-phone figcaption strong { color: var(--ink); }
+.figure-note { font-size: var(--step--1); color: var(--ink-2); max-width: 46rem; }
+
+/* Film de présentation seul en haut d'une étude de cas */
+.pitch--solo { margin: 1.5rem 0 2rem; max-width: 60rem; }

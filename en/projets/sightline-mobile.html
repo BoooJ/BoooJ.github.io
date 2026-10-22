@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sightline mobile, the player's app · Paul Morel</title>
+  <meta name="description" content="Companion mobile app to Sightline for a Counter-Strike 2 player: prepare for the opponent, review the match, keep grenades in view, follow progress. Designed as a UI/UX portfolio piece, built in two days by directing AI agents.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=JetBrains+Mono:wght@400;500&family=Public+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+  <link rel="alternate" hreflang="fr" href="../../projets/sightline-mobile.html">
+  <link rel="stylesheet" href="../../assets/css/style.css?v=20261021c">
+  <script src="../../assets/js/main.js?v=20261021c"></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="wordmark" href="../index.html">Paul Morel</a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="../index.html#projets" aria-current="page">Projects</a></li>
+          <li><a href="../index.html#competences">Skills</a></li>
+          <li><a href="../index.html#a-propos">About</a></li>
+          <li><a href="../passions.html">Passions</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a class="lang-switch" href="../../projets/sightline-mobile.html" hreflang="fr" lang="fr" title="Version française">FR</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Change theme">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>
+        </button>
+        <a class="btn" href="../../cv/Paul_Morel_CV.pdf" download>CV (PDF)</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <div class="wrap">
+      <header class="case-head">
+        <p class="breadcrumb"><a href="../index.html#nouveaux">New projects</a></p>
+        <p class="case-kind"><strong>Personal project</strong>, mobile app (installable web app and Android APK), designed as a UI/UX portfolio piece</p>
+        <h1>Sightline mobile: a CS2 player's match notebook, in the pocket</h1>
+        <p class="case-lede"><a href="sightline.html">Sightline</a> is used on a computer. But a player needs their information at other moments: before the match to prepare for the opponent, right after for the review, and during practice, with grenades in view next to the keyboard. I designed a mobile app for those moments, with the same accounts and data as the site. I had it built by AI agents in two days, from specification to release.</p>
+      </header>
+
+      <div class="case-body">
+        <aside class="case-meta" aria-label="Project sheet">
+          <dl>
+            <div><dt>Setting</dt><dd>Personal project, companion to Sightline, first meant as a UI/UX portfolio piece</dd></div>
+            <div><dt>Period</dt><dd>19 to 21 October 2026: first version in two days, Strategies tab added on the 21st</dd></div>
+            <div><dt>My role</dt><dd>Product and UI/UX design (moments of use, screens, visual system), specification, verification and release. The code is written by AI agents (Claude Code).</dd></div>
+            <div><dt>Tools</dt><dd><ul><li>Expo SDK 58, React Native, expo-router</li><li>TypeScript, TanStack Query, Reanimated</li><li>Vitest</li><li>FastAPI (token sign-in, web notifications), Docker, EAS Build</li></ul></dd></div>
+            <div><dt>Status</dt><dd><span class="status status--prod">Live</span> installable web app, Android APK, demo mode without an account</dd></div>
+          </dl>
+        </aside>
+
+        <div class="case-content">
+          <section>
+            <h2>Four moments in a player's week</h2>
+            <p>I started from the moments when a player takes out their phone, not from the site's features. So the app does not copy all of Sightline: it answers four precise needs.</p>
+            <div class="phone-grid">
+              <figure class="app-phone"><img src="../../assets/img/mobile/aujourdhui.webp" width="585" height="1266" loading="lazy" alt="Today screen: “your review is ready” card against MOUZ (16-12), “prepare MOUZ” card in 2 days with the maps, recent form with a curve, shortcut to Cache grenades."><figcaption><strong>Today.</strong> The screen surfaces what matters now: yesterday's review, the next match.</figcaption></figure>
+              <figure class="app-phone"><img src="../../assets/img/mobile/preparation.webp" width="585" height="1266" loading="lazy" alt="Prep against MOUZ on Inferno: stat tiles (matches won, rounds won as T and CT, first contact) and key points, each with a reliability indicator."><figcaption><strong>Before the match.</strong> The opponent in figures, each with its reliability.</figcaption></figure>
+              <figure class="app-phone"><img src="../../assets/img/mobile/bilan.webp" width="585" height="1266" loading="lazy" alt="Review of a Team Vitality vs MOUZ match, 16-12 on Dust II: rating, K-D, ADR and KAST against the player's average, then “your 3 costliest deaths” with the round-win chance each death cost."><figcaption><strong>After the match.</strong> Your line against your average, and the deaths that cost the most.</figcaption></figure>
+              <figure class="app-phone"><img src="../../assets/img/mobile/grenades.webp" width="585" height="1266" loading="lazy" alt="Grenades on Inferno: filters by grenade type, side and team, radar with smoke landing points and a list of lineups thrown at least twice."><figcaption><strong>Next to the keyboard.</strong> The map's lineups, with the screen kept awake.</figcaption></figure>
+              <figure class="app-phone"><img src="../../assets/img/mobile/lineup.webp" width="585" height="1266" loading="lazy" alt="Lineup sheet “Smoke · T Ramp” from Arch: zoomed radar with the trajectory, vertical and horizontal angles, players who threw it and a “copy setpos command” button."><figcaption><strong>One lineup.</strong> Trajectory, angles and a command to copy for in-game practice.</figcaption></figure>
+              <figure class="app-phone"><img src="../../assets/img/mobile/progres.webp" width="585" height="1266" loading="lazy" alt="Progress: rating-per-match curve (three matches in the demo) against the average, then rating, ADR, KAST and deaths-per-round tiles."><figcaption><strong>Over time.</strong> Progress, match after match.</figcaption></figure>
+            </div>
+            <p class="figure-note">Demo-mode screenshots at iPhone size: public professional matches (Team Vitality against MOUZ), dates recalculated to the day the app is opened. The interface is in French.</p>
+          </section>
+
+          <section>
+            <h2>Interface choices, and why</h2>
+            <ul class="feature-list">
+              <li><strong>The home screen knows what moment it is.</strong> The next match comes first, with a countdown; a review under 24 hours old that has not been opened goes before everything. This rule is isolated and tested.</li>
+              <li><strong>In the prep, every figure shows its reliability</strong> (anecdotal, indicative or solid) and its sample size. A deliberate design choice: never present two rounds as a trend.</li>
+              <li><strong>Grenades are made for a phone lying next to the keyboard</strong>: the screen stays on, angles are shown large, and the practice command is copied in one gesture (with a light vibration in the native build).</li>
+              <li><strong>Navigation designed as native</strong>: system tab bar and swipe back in the native build (written, not yet tested on a device); large titles that collapse on scroll and a tab bar with the same design in the web version.</li>
+              <li><strong>A visual system of its own, “Carnet tactique”</strong>: dark background, a single accent colour, blue and amber reserved for the two game sides; the system font for text (in the native build it follows the size set on the phone), Saira for titles, fixed-width figures so they line up; a 4-point grid and 44-point touch targets.</li>
+              <li><strong>Restrained motion</strong>: transitions of 100 to 220 ms and damped springs, replaced by simple fades when the user asks for reduced motion; a lineup sheet follows the finger and closes according to the gesture's momentum.</li>
+              <li><strong>Accessibility</strong>: screen-reader labels, and a one-sentence summary for every chart: the progress curve is read out as a sentence saying whether the rating is going up or down.</li>
+              <li><strong>A demo without an account</strong>, with embedded data from public pro matches rather than a shared account: a public account would have exposed, and let people change, the team's data.</li>
+              <li><strong>A fifth tab, Strategies</strong>, added on 21 October: view the team's strategy book on the phone (positions, grenades, plan), read-only. Creating stays on PC, so as not to overload a small screen.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Free, without an app store</h2>
+            <p>Starting constraint: zero cost. Publishing on the App Store costs €99 a year, and Google Play a one-off $25. So the app ships as an installable web app (added to the home screen from the browser) and as an Android APK built for free in the cloud. Notifications go through the web, since native notifications need the paid Apple account on iPhone (and Firebase on Android). When the stores become useful, the code will not need to change.</p>
+          </section>
+
+          <section>
+            <h2>Under the hood</h2>
+            <ul class="feature-list">
+              <li><strong>The same accounts as the site.</strong> The server now accepts token sign-in for the native app; on the web, the app keeps the site's secure session cookie and stores no token in the browser.</li>
+              <li><strong>Notifications</strong> when a match is analysed or a prep report is ready. The server only accepts known notification services, so it cannot be made to call any address.</li>
+              <li><strong>A blank screen on iPhone, found in a real test and fixed.</strong> Under Safari, loading several fonts at once got stuck and the app never appeared. Each font now goes through the FontFace API, with no shared stylesheet, and the app no longer waits more than 4 seconds for its fonts: if one fails, it shows with the fallback font.</li>
+              <li><strong>Full screen on iPhone</strong> once installed, respecting the notch and the home bar (checked in a browser simulating an iPhone).</li>
+              <li><strong>A light demo</strong>: about 400 KB of embedded data, under the 1.5 MB target set in the specification.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Verifiable results</h2>
+            <ul class="results">
+              <li><span class="proof proof--count">Counted</span><span>Specification and plan written before the code, then 18 commits in the app's folder from 19 to 21 October 2026.</span></li>
+              <li><span class="proof proof--count">Counted</span><span>66 app tests passing (15 files) at the last recorded run, on 21 October, plus 7 server tests for token sign-in, the web app and notifications.</span></li>
+              <li><span class="proof proof--fact">Recorded</span><span>14 demo-mode captures in Chrome at iPhone size (10 distinct views): no blank screen, no stuck loading, no error.</span></li>
+              <li><span class="proof proof--fact">Recorded</span><span>Live as an installable web app, with an Android APK as well.</span></li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Known limits</h2>
+            <ul>
+              <li><strong>The native version has never run on a real phone.</strong> Only the installable web version was tested, in simulated browsers and on my iPhone.</li>
+              <li><strong>No offline mode</strong>: the app updates with every deployment and its service worker caches nothing.</li>
+              <li><strong>A few targets under 44 points</strong>: filters are 36 points (enlarged touch area in the native build only) and segmented controls 40 points.</li>
+              <li><strong>French and dark theme only</strong>; the Strategies tab is for viewing, not editing.</li>
+            </ul>
+          </section>
+
+          <nav class="case-next" aria-label="Other projects">
+            <a href="sightline.html"><span>Previous project</span><strong>Sightline, CS2 match analysis</strong></a>
+            <a href="caderno.html"><span>Next project</span><strong>Caderno, Portuguese notebook</strong></a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Paul Morel, AI engineer with a cybersecurity background (ISEP 2026)</p>
+      <p>The app's address is not published: it is limited to the team's accounts.</p>
+    </div>
+  </footer>
+</body>
+</html>
