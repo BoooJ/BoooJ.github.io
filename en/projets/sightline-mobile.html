@@ -10,8 +10,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=JetBrains+Mono:wght@400;500&family=Public+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
   <link rel="alternate" hreflang="fr" href="../../projets/sightline-mobile.html">
   <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="../../assets/css/style.css?v=20261022">
-  <script src="../../assets/js/main.js?v=20261022"></script>
+  <link rel="stylesheet" href="../../assets/css/style.css?v=20261023b">
+  <script src="../../assets/js/main.js?v=20261023b"></script>
 </head>
 <body>
   <a class="skip-link" href="#contenu">Skip to content</a>
@@ -41,12 +41,22 @@
 
   <main id="contenu">
     <div class="wrap">
-      <header class="case-head">
-        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a> <span aria-hidden="true">›</span> <a href="../index.html#nouveaux">AI apps</a></nav>
-        <p class="case-kind"><strong>Personal project</strong>, mobile app (installable web app and Android APK), designed as a UI/UX portfolio piece</p>
-        <h1>Sightline mobile: a CS2 player's match notebook, in the pocket</h1>
-        <p class="case-lede"><a href="sightline.html">Sightline</a> is used on a computer. But a player needs their information at other moments: before the match to prepare for the opponent, right after for the review, and during practice, with grenades in view next to the keyboard. I designed a mobile app for those moments, with the same accounts and data as the site. I had it built by AI agents in two days, from specification to release.</p>
-      </header>
+      <div class="case-intro case-intro--phone">
+        <header class="case-head">
+          <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a> <span aria-hidden="true">›</span> <a href="../index.html#nouveaux">AI apps</a></nav>
+          <p class="case-kind"><strong>Personal project</strong>, mobile app (installable web app and Android APK), designed as a UI/UX portfolio piece</p>
+          <h1>Sightline mobile: a CS2 player's match notebook, in the pocket</h1>
+          <p class="case-lede"><a href="sightline.html">Sightline</a> is used on a computer. But a player needs their information at other moments: before the match to prepare for the opponent, right after for the review, and during practice, with grenades in view next to the keyboard. I designed a mobile app for those moments, with the same accounts and data as the site. I had it built by AI agents in two days, from specification to release.</p>
+          <p class="case-jump"><a class="btn btn--quiet" href="#film">Watch the video <span aria-hidden="true">↓</span></a></p>
+        </header>
+
+        <figure class="pitch pitch--tall pitch--phone" id="film">
+          <video controls playsinline preload="none" width="720" height="1280" poster="../../assets/video/sightline-reel.jpg" aria-label="Sightline presentation in phone format, 22 seconds, with music">
+            <source src="../../assets/video/sightline-reel.mp4" type="video/mp4">
+          </video>
+          <figcaption>The Sightline presentation in phone format (22 s, with music, in French): 2D replay, heatmaps, grenades, dashboard, scouting and AI assistant. It shows the web app that the mobile app accompanies.</figcaption>
+        </figure>
+      </div>
 
       <div class="case-body">
         <aside class="case-meta" aria-label="Project sheet">

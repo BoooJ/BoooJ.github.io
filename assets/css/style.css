@@ -1800,3 +1800,14 @@ a.pill:hover { background: color-mix(in srgb, var(--pc) 22%, transparent); }
 @media print {
   .to-top, .lightbox, .case-toc, .case-jump, .contact-copy { display: none !important; }
 }
+
+/* Vidéo verticale au format téléphone (page de l'app mobile), cadrée comme les captures .app-phone */
+.pitch--phone { margin: 1.5rem 0 2rem; max-width: 20rem; }
+.pitch--phone video { border-radius: 1.4rem; border: 5px solid #262d34; background: #0c0f12; }
+.pitch--phone figcaption { max-width: 20rem; }
+/* Sur ordinateur, la vidéo au format téléphone se place à droite de l'en-tête de l'étude de cas */
+@media (min-width: 64rem) {
+  .case-intro--phone { display: grid; grid-template-columns: minmax(0, 1fr) 20rem; gap: 2rem 4rem; align-items: start; }
+  .case-intro--phone .pitch--phone { margin: 2.5rem 0 0; }
+  .case-intro--phone .case-jump { display: none; }
+}
