@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Paul Morel · Ingénieur IA, formation en cybersécurité</title>
-  <meta name="description" content="Portfolio de Paul Morel, ingénieur IA formé en cybersécurité (ISEP 2026) : applications construites en pilotant des agents IA, automatisations Google Workspace, services Node.js et API, avec des maquettes interactives de chaque projet.">
+  <meta name="description" content="Portfolio de Paul Morel, ingénieur IA formé en cybersécurité (ISEP 2026) : applications construites en pilotant des agents IA, automatisations Google Workspace et n8n, services Node.js et API, avec des maquettes interactives de chaque projet.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=JetBrains+Mono:wght@400;500&family=Public+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
@@ -97,13 +97,13 @@
             <div class="app-body">
               <p class="project-kind"><strong>Projet personnel</strong> En ligne, accès par compte</p>
               <h3 id="app-sightline">Sightline, l'analyse de matchs Counter‑Strike 2</h3>
-              <p>Une application web qui transforme l'enregistrement d'un match en replay 2D, statistiques, scouting et débrief d'équipe, avec un rapport rédigé par l'IA puis vérifié chiffre par chiffre. Première version en trois jours.</p>
+              <p>Une application web qui transforme l'enregistrement d'un match en replay 2D, statistiques, scouting et débrief d'équipe, avec un rapport rédigé par l'IA puis vérifié chiffre par chiffre. Première version en trois jours, puis reliée à n8n pour que les démos arrivent seules et que l'équipe reçoive un débrief sur Discord.</p>
               <ul class="app-facts">
-                <li><b>200+</b> commits en 12 jours</li>
-                <li><b>19</b> documents de conception et d'audit</li>
-                <li><b>81</b> fichiers de tests</li>
+                <li><b>239</b> commits en 14 jours</li>
+                <li><b>4</b> workflows n8n</li>
+                <li><b>92</b> fichiers de tests</li>
               </ul>
-              <p class="project-tools">Python, FastAPI, React, TypeScript, Docker</p>
+              <p class="project-tools">Python, FastAPI, React, TypeScript, Docker, n8n</p>
             </div>
           </a>
           <a class="app-card" href="projets/sightline-mobile.html" aria-labelledby="app-sightline-mobile">
@@ -111,11 +111,11 @@
             <div class="app-body">
               <p class="project-kind"><strong>Projet personnel</strong> En ligne, web installable et APK</p>
               <h3 id="app-sightline-mobile">Sightline mobile, l'app du joueur</h3>
-              <p>Le compagnon de Sightline dans la poche : préparer l'adversaire, relire son match, garder ses grenades sous les yeux. Conçue comme pièce UI/UX et mise en ligne en deux jours.</p>
+              <p>Le compagnon de Sightline dans la poche : préparer l'adversaire, relire son match, garder ses grenades sous les yeux, prendre des notes. Conçue comme pièce UI/UX et mise en ligne en deux jours.</p>
               <ul class="app-facts">
                 <li><b>2</b> jours de la spécification à la mise en ligne</li>
                 <li><b>0</b> € (sans store)</li>
-                <li><b>66</b> tests de l'app</li>
+                <li><b>79</b> tests de l'app</li>
               </ul>
               <p class="project-tools">Expo, React Native, TypeScript</p>
             </div>
@@ -279,7 +279,7 @@
           <p class="skills-summary" data-skills-summary aria-live="polite"></p>
           <div class="skill-groups">
             <section class="skill-group" aria-label="Automatisation et cloud">
-              <header class="skill-group-head"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18h10a4 4 0 0 0 .6-7.96A6 6 0 0 0 6.2 9.1 4.5 4.5 0 0 0 7 18z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><h3>Automatisation et cloud</h3><span>10 compétences</span></header>
+              <header class="skill-group-head"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18h10a4 4 0 0 0 .6-7.96A6 6 0 0 0 6.2 9.1 4.5 4.5 0 0 0 7 18z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><h3>Automatisation et cloud</h3><span>11 compétences</span></header>
               <ul class="skill-list">
                 <li class="skill" data-p="1 3"><span class="skill-name">Google Apps Script</span><span class="skill-note">JavaScript côté Google</span><span class="skill-pills"><a class="pill p1" href="projets/support-client.html">Support client</a><a class="pill p3" href="projets/licences-flex.html">Licences</a></span></li>
                 <li class="skill" data-p="2"><span class="skill-name">AppSheet et OCR</span><span class="skill-note">application sans code</span><span class="skill-pills"><a class="pill p2" href="projets/inventaire-ocr.html">Inventaire OCR</a></span></li>
@@ -288,16 +288,18 @@
                 <li class="skill" data-p="3 4"><span class="skill-name">API REST</span><span class="skill-note">La Poste, Airtable, Google</span><span class="skill-pills"><a class="pill p3" href="projets/licences-flex.html">Licences</a><a class="pill p4" href="projets/bordereaux-la-poste.html">Bordereaux</a></span></li>
                 <li class="skill" data-p="4"><span class="skill-name">Stockage et hébergement cloud</span><span class="skill-note">Google Cloud Storage, Heroku</span><span class="skill-pills"><a class="pill p4" href="projets/bordereaux-la-poste.html">Bordereaux</a></span></li>
                 <li class="skill" data-p="7"><span class="skill-name">Mise en ligne sur serveur Linux</span><span class="skill-note">Docker, Caddy, HTTPS, sauvegardes</span><span class="skill-pills"><a class="pill p7" href="#nouveaux">Apps IA</a></span></li>
+                <li class="skill" data-p="7"><span class="skill-name">n8n</span><span class="skill-note">workflows, webhooks signés, extension Chrome, Discord</span><span class="skill-pills"><a class="pill p7" href="projets/sightline.html#automatiser-avec-n8n">Apps IA</a></span></li>
                 <li class="skill" data-p="7"><span class="skill-name">Évaluation et contrôle de l'IA</span><span class="skill-note">contrôle des chiffres, juge, coût par modèle</span><span class="skill-pills"><a class="pill p7" href="projets/sightline.html">Apps IA</a></span></li>
                 <li class="skill" data-p="5"><span class="skill-name">Shopify et Shopify CLI</span><span class="skill-note">thèmes, mises en ligne</span><span class="skill-pills"><a class="pill p5" href="projets/e-commerce.html">E-commerce</a></span></li>
                 <li class="skill" data-p="1 5 7"><span class="skill-name">Pilotage d'agents IA de code</span><span class="skill-note">Claude Code, Codex, Gemini : spécifier, répartir, vérifier</span><span class="skill-pills"><a class="pill p1" href="projets/support-client.html">Support client</a><a class="pill p5" href="projets/e-commerce.html">E-commerce</a><a class="pill p7" href="#nouveaux">Apps IA</a></span></li>
               </ul>
             </section>
             <section class="skill-group" aria-label="Sécurité et réseaux">
-              <header class="skill-group-head"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v6c0 4.2-3 7.7-7 9-4-1.3-7-4.8-7-9V6z M9 12l2 2 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/></svg><h3>Sécurité et réseaux</h3><span>5 compétences</span></header>
+              <header class="skill-group-head"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v6c0 4.2-3 7.7-7 9-4-1.3-7-4.8-7-9V6z M9 12l2 2 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/></svg><h3>Sécurité et réseaux</h3><span>6 compétences</span></header>
               <ul class="skill-list">
                 <li class="skill" data-p="2 3 7"><span class="skill-name">Conception sûre</span><span class="skill-note">droits limités, réversibilité</span><span class="skill-pills"><a class="pill p2" href="projets/inventaire-ocr.html">Inventaire OCR</a><a class="pill p3" href="projets/licences-flex.html">Licences</a><a class="pill p7" href="#nouveaux">Apps IA</a></span></li>
                 <li class="skill" data-p="1 4 5 7"><span class="skill-name">Protection des données</span><span class="skill-note">données client et personnelles</span><span class="skill-pills"><a class="pill p1" href="projets/support-client.html">Support client</a><a class="pill p4" href="projets/bordereaux-la-poste.html">Bordereaux</a><a class="pill p5" href="projets/e-commerce.html">E-commerce</a><a class="pill p7" href="#nouveaux">Apps IA</a></span></li>
+                <li class="skill" data-p="7"><span class="skill-name">Intégrations sécurisées</span><span class="skill-note">clés d'API à droits limités, jetons signés (JWT)</span><span class="skill-pills"><a class="pill p7" href="projets/sightline.html#automatiser-avec-n8n">Apps IA</a></span></li>
                 <li class="skill" data-p="6"><span class="skill-name">Reconnaissance et vulnérabilités</span><span class="skill-note">Kali Linux, nmap</span><span class="skill-pills"><span class="pill p6">Formation ISEP</span></span></li>
                 <li class="skill" data-p="6"><span class="skill-name">Réseaux</span><span class="skill-note">commutation Cisco, VLAN</span><span class="skill-pills"><span class="pill p6">Formation ISEP</span></span></li>
                 <li class="skill" data-p="6"><span class="skill-name">Communications numériques</span><span class="skill-note">MATLAB, traitement du signal</span><span class="skill-pills"><span class="pill p6">Formation ISEP</span></span></li>

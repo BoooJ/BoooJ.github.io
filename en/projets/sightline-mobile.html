@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sightline mobile, the player's app · Paul Morel</title>
-  <meta name="description" content="Companion mobile app to Sightline for a Counter-Strike 2 player: prepare for the opponent, review the match, keep grenades in view, follow progress. Designed as a UI/UX portfolio piece, built in two days by directing AI agents.">
+  <meta name="description" content="Companion mobile app to Sightline for a Counter-Strike 2 player: prepare for the opponent, review the match, keep grenades in view, follow progress, take notes. Designed as a UI/UX portfolio piece, built in two days by directing AI agents.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=JetBrains+Mono:wght@400;500&family=Public+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
@@ -62,7 +62,7 @@
         <aside class="case-meta" aria-label="Project sheet">
           <dl>
             <div><dt>Setting</dt><dd>Personal project, companion to Sightline, first meant as a UI/UX portfolio piece</dd></div>
-            <div><dt>Period</dt><dd>19 to 21 October 2026: first version in two days, Strategies tab added on the 21st</dd></div>
+            <div><dt>Period</dt><dd>19 to 22 October 2026: first version in two days, Strategies tab on the 21st, notes on the 22nd (version 0.2.0)</dd></div>
             <div><dt>My role</dt><dd>Product and UI/UX design (moments of use, screens, visual system), specification, verification and release. The code is written by AI agents (Claude Code).</dd></div>
             <div><dt>Tools</dt><dd><ul><li>Expo SDK 58, React Native, expo-router</li><li>TypeScript, TanStack Query, Reanimated</li><li>Vitest</li><li>FastAPI (token sign-in, web notifications), Docker, EAS Build</li></ul></dd></div>
             <div><dt>Status</dt><dd><span class="status status--prod">Live</span> installable web app, Android APK, demo mode without an account</dd></div>
@@ -95,7 +95,7 @@
               <li><strong>Restrained motion</strong>: transitions of 100 to 220 ms and damped springs, replaced by simple fades when the user asks for reduced motion; a lineup sheet follows the finger and closes according to the gesture's momentum.</li>
               <li><strong>Accessibility</strong>: screen-reader labels, and a one-sentence summary for every chart: the progress curve is read out as a sentence saying whether the rating is going up or down.</li>
               <li><strong>A demo without an account</strong>, with embedded data from public pro matches rather than a shared account: a public account would have exposed, and let people change, the team's data.</li>
-              <li><strong>A fifth tab, Strategies</strong>, added on 21 October: view the team's strategy book on the phone (positions, grenades, plan), read-only. Creating stays on PC, so as not to overload a small screen.</li>
+              <li><strong>A fifth tab, Carnet (notebook)</strong> (21 and 22 October): the team's strategy book (positions, grenades, plan), read-only since creating stays on PC so as not to overload a small screen, and notes. A note is written on a map, can be attached to a match, an opponent or a strategy, and stays private or is shared with the team; a teammate's note can be read but not edited. Today shows how many notes to re-read before the next opponent, and the site reads and writes notes too.</li>
             </ul>
           </section>
 
@@ -118,10 +118,10 @@
           <section id="resultats-verifiables">
             <h2>Verifiable results</h2>
             <ul class="results">
-              <li><span class="proof proof--count">Counted</span><span>Specification and plan written before the code, then 18 commits in the app's folder from 19 to 21 October 2026.</span></li>
-              <li><span class="proof proof--count">Counted</span><span>66 app tests passing (15 files) at the last recorded run, on 21 October, plus 7 server tests for token sign-in, the web app and notifications.</span></li>
+              <li><span class="proof proof--count">Counted</span><span>Specifications and plans written before the code, then 22 commits in the app's folder from 19 to 22 October 2026.</span></li>
+              <li><span class="proof proof--count">Counted</span><span>79 app tests passing (17 files), rerun on 23 October, plus 7 server tests for token sign-in, the web app and notifications, and 5 for notes.</span></li>
               <li><span class="proof proof--fact">Recorded</span><span>14 demo-mode captures in Chrome at iPhone size (10 distinct views): no blank screen, no stuck loading, no error.</span></li>
-              <li><span class="proof proof--fact">Recorded</span><span>Live as an installable web app, with an Android APK as well.</span></li>
+              <li><span class="proof proof--fact">Recorded</span><span>Live as an installable web app, with an Android APK as well, at version 0.2.0 since 22 October.</span></li>
             </ul>
           </section>
 
@@ -131,7 +131,7 @@
               <li><strong>The native version has never run on a real phone.</strong> Only the installable web version was tested, in simulated browsers and on my iPhone.</li>
               <li><strong>No offline mode</strong>: the app updates with every deployment and its service worker caches nothing.</li>
               <li><strong>A few targets under 44 points</strong>: filters are 36 points (enlarged touch area in the native build only) and segmented controls 40 points.</li>
-              <li><strong>French and dark theme only</strong>; the Strategies tab is for viewing, not editing.</li>
+              <li><strong>French and dark theme only</strong>; in the Carnet tab, strategies can be viewed but not edited, only notes can be written.</li>
             </ul>
           </section>
 

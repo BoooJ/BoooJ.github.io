@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Paul Morel · AI engineer, cybersecurity background</title>
-  <meta name="description" content="Portfolio of Paul Morel, AI engineer with a cybersecurity background (ISEP 2026): apps built by directing AI agents, Google Workspace automations, Node.js services and APIs, with an interactive mock-up of each project.">
+  <meta name="description" content="Portfolio of Paul Morel, AI engineer with a cybersecurity background (ISEP 2026): apps built by directing AI agents, Google Workspace and n8n automations, Node.js services and APIs, with an interactive mock-up of each project.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=JetBrains+Mono:wght@400;500&family=Public+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
@@ -97,13 +97,13 @@
             <div class="app-body">
               <p class="project-kind"><strong>Personal project</strong> Live, account access</p>
               <h3 id="app-sightline">Sightline, Counter‑Strike 2 match analysis</h3>
-              <p>A web app that turns the recording of a match into a 2D replay, statistics, scouting and team debriefs, with an AI-written report checked figure by figure. First version in three days.</p>
+              <p>A web app that turns the recording of a match into a 2D replay, statistics, scouting and team debriefs, with an AI-written report checked figure by figure. First version in three days, then linked to n8n so that demos arrive on their own and the team gets a debrief on Discord.</p>
               <ul class="app-facts">
-                <li><b>200+</b> commits in 12 days</li>
-                <li><b>19</b> design and audit documents</li>
-                <li><b>81</b> test files</li>
+                <li><b>239</b> commits in 14 days</li>
+                <li><b>4</b> n8n workflows</li>
+                <li><b>92</b> test files</li>
               </ul>
-              <p class="project-tools">Python, FastAPI, React, TypeScript, Docker</p>
+              <p class="project-tools">Python, FastAPI, React, TypeScript, Docker, n8n</p>
             </div>
           </a>
           <a class="app-card" href="projets/sightline-mobile.html" aria-labelledby="app-sightline-mobile">
@@ -111,11 +111,11 @@
             <div class="app-body">
               <p class="project-kind"><strong>Personal project</strong> Live, installable web app and APK</p>
               <h3 id="app-sightline-mobile">Sightline mobile, the player's app</h3>
-              <p>Sightline's companion in the pocket: prepare for the opponent, review the match, keep grenades in view. Designed as a UI/UX piece and released in two days.</p>
+              <p>Sightline's companion in the pocket: prepare for the opponent, review the match, keep grenades in view, take notes. Designed as a UI/UX piece and released in two days.</p>
               <ul class="app-facts">
                 <li><b>2</b> days from specification to release</li>
                 <li><b>€0</b> (no app store)</li>
-                <li><b>66</b> app tests</li>
+                <li><b>79</b> app tests</li>
               </ul>
               <p class="project-tools">Expo, React Native, TypeScript</p>
             </div>
@@ -279,7 +279,7 @@
           <p class="skills-summary" data-skills-summary aria-live="polite"></p>
           <div class="skill-groups">
             <section class="skill-group" aria-label="Automation and cloud">
-              <header class="skill-group-head"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18h10a4 4 0 0 0 .6-7.96A6 6 0 0 0 6.2 9.1 4.5 4.5 0 0 0 7 18z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><h3>Automation and cloud</h3><span>10 skills</span></header>
+              <header class="skill-group-head"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18h10a4 4 0 0 0 .6-7.96A6 6 0 0 0 6.2 9.1 4.5 4.5 0 0 0 7 18z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><h3>Automation and cloud</h3><span>11 skills</span></header>
               <ul class="skill-list">
                 <li class="skill" data-p="1 3"><span class="skill-name">Google Apps Script</span><span class="skill-note">JavaScript on Google</span><span class="skill-pills"><a class="pill p1" href="projets/support-client.html">Client support</a><a class="pill p3" href="projets/licences-flex.html">Licences</a></span></li>
                 <li class="skill" data-p="2"><span class="skill-name">AppSheet and OCR</span><span class="skill-note">no-code app</span><span class="skill-pills"><a class="pill p2" href="projets/inventaire-ocr.html">OCR inventory</a></span></li>
@@ -288,16 +288,18 @@
                 <li class="skill" data-p="3 4"><span class="skill-name">REST APIs</span><span class="skill-note">La Poste, Airtable, Google</span><span class="skill-pills"><a class="pill p3" href="projets/licences-flex.html">Licences</a><a class="pill p4" href="projets/bordereaux-la-poste.html">Shipping slips</a></span></li>
                 <li class="skill" data-p="4"><span class="skill-name">Cloud storage and hosting</span><span class="skill-note">Google Cloud Storage, Heroku</span><span class="skill-pills"><a class="pill p4" href="projets/bordereaux-la-poste.html">Shipping slips</a></span></li>
                 <li class="skill" data-p="7"><span class="skill-name">Release on a Linux server</span><span class="skill-note">Docker, Caddy, HTTPS, backups</span><span class="skill-pills"><a class="pill p7" href="#nouveaux">AI apps</a></span></li>
+                <li class="skill" data-p="7"><span class="skill-name">n8n</span><span class="skill-note">workflows, signed webhooks, Chrome extension, Discord</span><span class="skill-pills"><a class="pill p7" href="projets/sightline.html#automatiser-avec-n8n">AI apps</a></span></li>
                 <li class="skill" data-p="7"><span class="skill-name">AI evaluation and guardrails</span><span class="skill-note">number checks, judge model, cost per model</span><span class="skill-pills"><a class="pill p7" href="projets/sightline.html">AI apps</a></span></li>
                 <li class="skill" data-p="5"><span class="skill-name">Shopify and Shopify CLI</span><span class="skill-note">themes, releases</span><span class="skill-pills"><a class="pill p5" href="projets/e-commerce.html">E-commerce</a></span></li>
                 <li class="skill" data-p="1 5 7"><span class="skill-name">Directing AI coding agents</span><span class="skill-note">Claude Code, Codex, Gemini: specify, assign, verify</span><span class="skill-pills"><a class="pill p1" href="projets/support-client.html">Client support</a><a class="pill p5" href="projets/e-commerce.html">E-commerce</a><a class="pill p7" href="#nouveaux">AI apps</a></span></li>
               </ul>
             </section>
             <section class="skill-group" aria-label="Security and networks">
-              <header class="skill-group-head"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v6c0 4.2-3 7.7-7 9-4-1.3-7-4.8-7-9V6z M9 12l2 2 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/></svg><h3>Security and networks</h3><span>5 skills</span></header>
+              <header class="skill-group-head"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v6c0 4.2-3 7.7-7 9-4-1.3-7-4.8-7-9V6z M9 12l2 2 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/></svg><h3>Security and networks</h3><span>6 skills</span></header>
               <ul class="skill-list">
                 <li class="skill" data-p="2 3 7"><span class="skill-name">Secure design</span><span class="skill-note">limited rights, reversibility</span><span class="skill-pills"><a class="pill p2" href="projets/inventaire-ocr.html">OCR inventory</a><a class="pill p3" href="projets/licences-flex.html">Licences</a><a class="pill p7" href="#nouveaux">AI apps</a></span></li>
                 <li class="skill" data-p="1 4 5 7"><span class="skill-name">Data protection</span><span class="skill-note">client and personal data</span><span class="skill-pills"><a class="pill p1" href="projets/support-client.html">Client support</a><a class="pill p4" href="projets/bordereaux-la-poste.html">Shipping slips</a><a class="pill p5" href="projets/e-commerce.html">E-commerce</a><a class="pill p7" href="#nouveaux">AI apps</a></span></li>
+                <li class="skill" data-p="7"><span class="skill-name">Secure integrations</span><span class="skill-note">scoped API keys, signed tokens (JWT)</span><span class="skill-pills"><a class="pill p7" href="projets/sightline.html#automatiser-avec-n8n">AI apps</a></span></li>
                 <li class="skill" data-p="6"><span class="skill-name">Reconnaissance and vulnerabilities</span><span class="skill-note">Kali Linux, nmap</span><span class="skill-pills"><span class="pill p6">ISEP coursework</span></span></li>
                 <li class="skill" data-p="6"><span class="skill-name">Networking</span><span class="skill-note">Cisco switching, VLAN</span><span class="skill-pills"><span class="pill p6">ISEP coursework</span></span></li>
                 <li class="skill" data-p="6"><span class="skill-name">Digital communications</span><span class="skill-note">MATLAB, signal processing</span><span class="skill-pills"><span class="pill p6">ISEP coursework</span></span></li>

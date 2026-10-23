@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sightline, Counter-Strike 2 match analysis · Paul Morel</title>
-  <meta name="description" content="Web app that analyses Counter-Strike 2 demos (2D replay, statistics, heatmaps, team tools), built in three days by directing AI coding agents and hosted on my own server.">
+  <meta name="description" content="Web app that analyses Counter-Strike 2 demos (2D replay, statistics, heatmaps, team tools), built in three days by directing AI coding agents, hosted on my own server and linked to n8n to import demos and notify the team on Discord.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=JetBrains+Mono:wght@400;500&family=Public+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
@@ -45,7 +45,7 @@
         <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a> <span aria-hidden="true">›</span> <a href="../index.html#nouveaux">AI apps</a></nav>
         <p class="case-kind"><strong>Personal project</strong>, live web app, built by directing AI agents</p>
         <h1>Sightline: analysing a Counter‑Strike 2 match like a professional staff</h1>
-        <p class="case-lede">In Counter-Strike 2, every match can be recorded in a demo file that holds everything: positions, shots, grenades, money. Sightline turns these files into a 2D replay, statistics and preparation tools for a team. I built the first version in three days by directing AI agents, then grew it until it covers most of a professional tool: I decide what to build and how to check it, the agents write the code.</p>
+        <p class="case-lede">In Counter-Strike 2, every match can be recorded in a demo file that holds everything: positions, shots, grenades, money. Sightline turns these files into a 2D replay, statistics and preparation tools for a team. I built the first version in three days by directing AI agents, then grew it until it covers most of a professional tool: I decide what to build and how to check it, the agents write the code. I then linked it to n8n, so that demos arrive on their own and the team gets a debrief on Discord.</p>
         <p class="case-jump"><a class="btn btn--quiet" href="#film">Watch the video <span aria-hidden="true">↓</span></a></p>
       </header>
 
@@ -68,9 +68,9 @@
         <aside class="case-meta" aria-label="Project sheet">
           <dl>
             <div><dt>Setting</dt><dd>Personal project, tied to my own Counter-Strike play (<a href="../passions.html">level 10 on FACEIT</a>)</dd></div>
-            <div><dt>Period</dt><dd>Since 10 October 2026; first version in three days</dd></div>
+            <div><dt>Period</dt><dd>Since 10 October 2026; first version in three days, n8n automations on 22 and 23 October</dd></div>
             <div><dt>My role</dt><dd>Project lead and architect: needs, specifications, technical choices, splitting the work, verification, release and operations. The code is written by AI agents (Claude Code).</dd></div>
-            <div><dt>Tools</dt><dd><ul><li>Python, FastAPI, demoparser2, SQLite</li><li>React, TypeScript, Vite</li><li>Docker, Caddy, Linux VPS</li><li>Claude API (Haiku, Sonnet, Opus) and Gemini</li></ul></dd></div>
+            <div><dt>Tools</dt><dd><ul><li>Python, FastAPI, demoparser2, SQLite</li><li>React, TypeScript, Vite</li><li>Docker, Caddy, Linux VPS</li><li>Self-hosted n8n, signed webhooks (JWT), Discord</li><li>Chrome extension (Manifest V3)</li><li>Claude API (Haiku, Sonnet, Opus) and Gemini</li></ul></dd></div>
             <div><dt>Status</dt><dd><span class="status status--prod">Live</span> access limited to app accounts</dd></div>
           </dl>
         </aside>
@@ -85,9 +85,9 @@
             <h2>Vibe coding, with a method</h2>
             <p>Vibe coding means describing what you want in plain language and letting an AI write the code. It is fast, but the risk is well known: you end up with an app nobody understands, full of invisible mistakes. My job was to manage these agents the way you would manage a team of developers.</p>
             <ol class="method">
-              <li><strong>Specify before coding.</strong> Each major part (import and replay, statistics, grenades, heatmaps, annotations, team space, scouting) first gets a design document that sets the expected result. With the audits, that makes 19 documents.</li>
-              <li><strong>Split and assign.</strong> Eighteen implementation plans break the work into small tasks, handed one at a time to agents, with a review between tasks.</li>
-              <li><strong>Verify.</strong> 81 automated test files, tests on real match demos, full user journeys played in a browser and scripted “beta tester” journeys.</li>
+              <li><strong>Specify before coding.</strong> Each major part (import and replay, statistics, grenades, heatmaps, annotations, team space, scouting) first gets a design document that sets the expected result. With the audits, that makes 21 documents.</li>
+              <li><strong>Split and assign.</strong> Twenty implementation plans break the work into small tasks, handed one at a time to agents, with a review between tasks.</li>
+              <li><strong>Verify.</strong> 92 automated test files, tests on real match demos, full user journeys played in a browser and scripted “beta tester” journeys.</li>
               <li><strong>Compare and fix.</strong> I had the 57 features of a professional product on the market, Skybox EDGE, inventoried, then the gap split into thirteen sub-projects. Result: 42 features covered, 11 partial, 2 missing, 2 out of reach (they need game servers). Ergonomics and speed audits follow every major step.</li>
               <li><strong>Operate.</strong> The app runs in a Docker container on my server, over HTTPS, with mandatory sign-in and a nightly database backup kept for 14 days.</li>
             </ol>
@@ -102,14 +102,15 @@
               <figcaption>The 2D replay of a round: each player's position, health, money and weapons, shots, flashes and grenade trajectories. The screenshots show public professional matches, here MOUZ against Team Vitality.</figcaption>
             </figure>
             <ul class="feature-list">
-              <li><strong>Import</strong> a folder of demos, a file dropped into the window or a FACEIT link.</li>
+              <li><strong>Import</strong> a folder of demos, a file dropped into the window or a FACEIT link; <a href="#automatiser-avec-n8n">n8n</a> is wired to fetch practice-match demos on its own.</li>
               <li><strong>Replay</strong> every round in 2D, with smokes pierced by grenades and bullets, synchronised voice comms and a group review where a leader drives the replay for everyone.</li>
               <li><strong>Analyse</strong> the round-by-round win probability, the economy, heatmaps, highlights (clutches, multi-kills) and player leaderboards.</li>
               <li><strong>Prepare</strong> for an opponent: a scouting sheet across several demos, rounds to review, a veto simulator with predictions, a match prep file, a team playbook and a calendar.</li>
               <li><strong>Debrief</strong> like a staff: where the match was decided compared with usual form, three points to work on, five rounds to review and goals tracked from one match to the next.</li>
               <li><strong>Learn</strong> a role by following a professional player step by step, with an AI coach that explains a round, and ask questions to an assistant that reads the match data without being able to change it.</li>
               <li><strong>Understand mistakes</strong>: for each death, where the player was looking when the duel started and whether they had help; grenades bought but never thrown; the opponent's slow rounds broken into phases. In the replay, the list of a round's grenades, with what is needed to replay them in game.</li>
-              <li><strong>Get notified</strong>: live team notifications, also on Discord, when a match is ready or commented on.</li>
+              <li><strong>Take notes</strong> on a map, a match, an opponent or a strategy, for yourself or for the team, on the site as well as in the mobile app.</li>
+              <li><strong>Get notified</strong>: live team notifications, also on Discord, when a match is ready or commented on; for one of the team's matches, a three-line debrief written by the AI.</li>
               <li><strong>Keep Sightline in the pocket</strong>: a <a href="sightline-mobile.html">mobile app</a> for the player, with the same accounts and data.</li>
             </ul>
             <figure class="figure figure--wide">
@@ -212,15 +213,86 @@
             <p><strong>Decision drawn from the measurement:</strong> the user picks the model when writing. Haiku for a routine report, Opus before an important match, as it makes the fewest meaning errors. The judge rereads every report for about one cent. The full evaluation cost about $3.20.</p>
           </section>
 
+          <section id="automatiser-avec-n8n">
+            <h2>Automating around the app with n8n</h2>
+            <p>The team plays its practice matches on PRACC, the platform where it organises them and finds their demos. I wanted those demos to reach Sightline on their own, and the team to get a Discord debrief of every new match without opening the site.</p>
+            <p>I put n8n at the centre. Sightline does not know about n8n: it only exposes protected entry points, and all the integration logic lives in workflows that read as diagrams, with the run history. Adding a destination, such as another messaging app or a spreadsheet, does not require touching the app's code. The core (API keys, webhooks, workflows W0 to W2) followed the same method as the rest, on 22 October 2026: specification, a nine-task plan, a review after each task, then a review of the whole before going to production. The extension, the form and the debrief fixes were added on the 23rd, tested, but without that final review.</p>
+            <figure class="figure figure--wide">
+              <div class="figure-frame">
+                <svg class="diagram" viewBox="0 0 760 214" role="img" aria-labelledby="n8-title n8-desc">
+                  <title id="n8-title">n8n links PRACC, Sightline, Claude and Discord</title>
+                  <desc id="n8-desc">First chain: a Chrome extension reads the team's demos on PRACC, n8n picks the ones to import and Sightline imports them without duplicates. Second chain: Sightline sends a signed event, n8n routes it, Claude Haiku sums up the match and the message goes to the team's Discord channel.</desc>
+                  <defs>
+                    <marker id="n8-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="head" d="M0,0 L10,5 L0,10 z"/></marker>
+                  </defs>
+                  <text class="t t--b" x="8" y="20">Fetching the demos (W1)</text>
+                  <rect class="box" x="8" y="32" width="156" height="60" rx="8"/>
+                  <text class="t t--b" x="86" y="58" text-anchor="middle">PRACC</text>
+                  <text class="t--s" x="86" y="76" text-anchor="middle">practice matches</text>
+                  <path class="line" d="M164,62 H200" marker-end="url(#n8-arrow)"/>
+                  <rect class="box" x="204" y="32" width="156" height="60" rx="8"/>
+                  <text class="t t--b" x="282" y="58" text-anchor="middle">Chrome extension</text>
+                  <text class="t--s" x="282" y="76" text-anchor="middle">reads with my session</text>
+                  <path class="line" d="M360,62 H396" marker-end="url(#n8-arrow)"/>
+                  <rect class="box--key" x="400" y="32" width="156" height="60" rx="8"/>
+                  <text class="t--inv" x="478" y="58" text-anchor="middle">n8n · W1</text>
+                  <text class="t--inv-s" x="478" y="76" text-anchor="middle">sorts, 3 demos max</text>
+                  <path class="line" d="M556,62 H592" marker-end="url(#n8-arrow)"/>
+                  <rect class="box--ok" x="596" y="32" width="156" height="60" rx="8"/>
+                  <text class="t t--b" x="674" y="58" text-anchor="middle">Sightline</text>
+                  <text class="t--s" x="674" y="76" text-anchor="middle">imports, no duplicates</text>
+                  <text class="t t--b" x="8" y="134">Notifying the team (W2)</text>
+                  <rect class="box--ok" x="8" y="146" width="156" height="60" rx="8"/>
+                  <text class="t t--b" x="86" y="172" text-anchor="middle">Sightline</text>
+                  <text class="t--s" x="86" y="190" text-anchor="middle">signed event (JWT)</text>
+                  <path class="line" d="M164,176 H200" marker-end="url(#n8-arrow)"/>
+                  <rect class="box--key" x="204" y="146" width="156" height="60" rx="8"/>
+                  <text class="t--inv" x="282" y="172" text-anchor="middle">n8n · W2</text>
+                  <text class="t--inv-s" x="282" y="190" text-anchor="middle">routes the event</text>
+                  <path class="line" d="M360,176 H396" marker-end="url(#n8-arrow)"/>
+                  <rect class="box" x="400" y="146" width="156" height="60" rx="8"/>
+                  <text class="t t--b" x="478" y="172" text-anchor="middle">Claude Haiku</text>
+                  <text class="t--s" x="478" y="190" text-anchor="middle">sums up in 3 lines</text>
+                  <path class="line" d="M556,176 H592" marker-end="url(#n8-arrow)"/>
+                  <rect class="box" x="596" y="146" width="156" height="60" rx="8"/>
+                  <text class="t t--b" x="674" y="172" text-anchor="middle">Discord</text>
+                  <text class="t--s" x="674" y="190" text-anchor="middle">team channel</text>
+                </svg>
+              </div>
+              <figcaption>Two more workflows complete the chain: an import form for teammates (W4) and a Discord alert when a workflow crashes (W0).</figcaption>
+            </figure>
+            <h3>Four workflows</h3>
+            <ul class="feature-list">
+              <li><strong>W1, from PRACC to Sightline.</strong> Every 30 minutes, a Chrome extension reads the list of the team's demos on PRACC, with the session open in the browser, and sends it to n8n. n8n keeps only new, available demos, asks Sightline which ones it already has, then has at most three imported per round, filed with their date and opponent. No imports during the server's nightly backup.</li>
+              <li><strong>W2, from Sightline to Discord.</strong> Sightline sends a signed event when a demo arrives, when a match is analysed for the first time or when an import fails, and n8n posts the message to the team's channel. For one of our team's matches, n8n reads the debrief and statistics in Sightline, then Claude Haiku turns them into three lines from our point of view: the key fact, what worked, what cost us rounds, instructed to use only figures present in the data.</li>
+              <li><strong>W4, an import form.</strong> An n8n page protected by a team login, where a teammate without an account drops a demo, up to 1 GB. It follows the same path, without duplicates, and n8n keeps neither the file nor the run.</li>
+              <li><strong>W0, monitoring.</strong> If a workflow crashes, n8n posts the workflow name, the step and the error message on Discord.</li>
+            </ul>
+            <h3>What Sightline exposes, and how it is protected</h3>
+            <ul>
+              <li><strong>API keys with limited rights</strong>: import demos, or read matches, players and teams, never settings or accounts. Each key is stored as a hash, shown only once and revocable; an action outside its rights is refused.</li>
+              <li><strong>Signed events</strong>: each delivery carries a JWT signed with the webhook's secret and valid for 5 minutes, which n8n checks itself. Three attempts, a delivery log, and the destination address checked again before each delivery, to refuse internal addresses.</li>
+              <li><strong>Imports without duplicates</strong>: a demo is imported only once per identifier, a file already present is attached to its demo, and a broken demo is dropped at the third failure instead of coming back every 30 minutes.</li>
+              <li><strong>An isolated n8n</strong>: in its own container, reachable over HTTPS only, without system commands, with encrypted credentials. The exported workflows contain no secret: I paste every key into n8n myself.</li>
+            </ul>
+            <h3>What going live taught me</h3>
+            <ul>
+              <li><strong>PRACC ties the session to the IP address.</strong> Copied to the server, it was refused, and PRACC signed me out. Hence the extension: reading happens in my browser, the session never leaves Chrome, and n8n keeps every decision.</li>
+              <li><strong>The first debrief on a real match revealed three defects, fixed the same day.</strong> n8n&nbsp;2's AI agent no longer ran the HTTP tools I had given it: it is replaced by a single call to Claude, one call instead of three or four. The model used up its answer thinking and returned an empty summary. And the summary read the debrief of the match's first team, here the opponent, instead of ours.</li>
+            </ul>
+          </section>
+
           <section id="resultats-verifiables">
             <h2>Verifiable results</h2>
             <ul class="results">
-              <li><span class="proof proof--count">Counted</span><span>More than 200 commits from 10 to 21 October 2026, in the project's Git history, including 93 for the first version in three days.</span></li>
-              <li><span class="proof proof--count">Counted</span><span>19 design and audit documents, and 18 implementation plans.</span></li>
-              <li><span class="proof proof--count">Counted</span><span>81 automated test files: 49 for the server, 17 for the interface, 15 for the mobile app. At the last recorded run, on 20 October: 205 server tests, 67 interface tests and 66 full browser journeys, all passing.</span></li>
+              <li><span class="proof proof--count">Counted</span><span>239 commits from 10 to 23 October 2026, in the project's Git history, including 93 for the first version in three days and 30 for the n8n automations, on 22 and 23 October.</span></li>
+              <li><span class="proof proof--count">Counted</span><span>21 design and audit documents, and 20 implementation plans.</span></li>
+              <li><span class="proof proof--count">Counted</span><span>92 automated test files: 56 for the server, 17 for the interface, 17 for the mobile app, 2 for the n8n workflows and the Chrome extension. Latest runs, all passing: 247 server tests on 23 October; 21 workflow tests, 9 extension tests and 79 mobile app tests, rerun on 23 October; 67 interface tests and 66 full browser journeys on 20 October.</span></li>
               <li><span class="proof proof--count">Counted</span><span>Measured during design on the demo library (1,840 duels): a player helped by a flash or molotov wins 63% of duels, against 47% for a “dry” duel. This is the finding the duel analysis puts in front of the player.</span></li>
               <li><span class="proof proof--fact">Recorded</span><span>Design pass across the whole site: secondary text contrast raised to at least 5:1 on all four backgrounds, and an 11 px minimum for interface text.</span></li>
               <li><span class="proof proof--fact">Recorded</span><span>App live on my server over HTTPS; without an open session, the API refuses every request, except sign-in and public share links.</span></li>
+              <li><span class="proof proof--fact">Recorded</span><span>In production on 23 October: a round from the Chrome extension to Sightline through n8n, with no new demo to import, and the AI debrief of a real team match posted on Discord, by replaying an already analysed match.</span></li>
+              <li><span class="proof proof--fact">Recorded</span><span>Review of the whole n8n core before its first production deployment: 4 important defects found and fixed, including a redirect that could have sent the PRACC cookie to another site.</span></li>
               <li><span class="proof proof--fact">Recorded</span><span>From the history: demo import made 2.5 times faster, then a further 25% faster with identical data; code loaded at start-up cut from 105 to 85 KB.</span></li>
               <li><span class="proof proof--fact">Recorded</span><span>Measured live after a speed audit: scouting sheet from 950 to 250 ms, player page from 1,900 to 250 ms; 250 ms is the network round trip itself.</span></li>
             </ul>
@@ -232,6 +304,8 @@
               <li><strong>My contribution is not typing the code.</strong> It lies in the specification, the splitting, the verification and the operations. I can explain the architecture and every choice, not recite every line.</li>
               <li><strong>A dependency to watch.</strong> Reading demos relies on the demoparser2 library, which has to follow every game update. The code is organised so that a single file depends on it.</li>
               <li><strong>AI keeps its limits.</strong> The check cannot see an invented number that happens to match a real value, and the judge is sometimes wrong. That is why the text stays tied to its facts and the remarks stay visible.</li>
+              <li><strong>Automation that depends on an open browser.</strong> PRACC only accepts the session from the address where it was opened: the extension runs only while Chrome is open on my PC. Nothing is lost, it catches up on missed demos at start-up, three per round, and a teammate can install the same extension to take over.</li>
+              <li><strong>A very recent launch.</strong> As of 23 October, no new practice match had been played yet: each link is verified separately, but not yet the import of a real demo end to end. The import form is live but has not received a demo yet.</li>
               <li><strong>No usage figures published here.</strong> The screenshots on this page show public professional matches, not a team's data.</li>
             </ul>
           </section>
