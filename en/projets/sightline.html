@@ -68,7 +68,7 @@
         <aside class="case-meta" aria-label="Project sheet">
           <dl>
             <div><dt>Setting</dt><dd>Personal project, tied to my own Counter-Strike play (<a href="../passions.html">level 10 on FACEIT</a>)</dd></div>
-            <div><dt>Period</dt><dd>Since 10 October 2026; first version in three days, n8n automations on 22 and 23 October</dd></div>
+            <div><dt>Period</dt><dd>Since 10 October 2026; first version in three days, n8n automations in service since 23 October</dd></div>
             <div><dt>My role</dt><dd>Project lead and architect: needs, specifications, technical choices, splitting the work, verification, release and operations. The code is written by AI agents (Claude Code).</dd></div>
             <div><dt>Tools</dt><dd><ul><li>Python, FastAPI, demoparser2, SQLite</li><li>React, TypeScript, Vite</li><li>Docker, Caddy, Linux VPS</li><li>Self-hosted n8n, signed webhooks (JWT), Discord</li><li>Chrome extension (Manifest V3)</li><li>Claude API (Haiku, Sonnet, Opus) and Gemini</li></ul></dd></div>
             <div><dt>Status</dt><dd><span class="status status--prod">Live</span> access limited to app accounts</dd></div>
@@ -102,7 +102,7 @@
               <figcaption>The 2D replay of a round: each player's position, health, money and weapons, shots, flashes and grenade trajectories. The screenshots show public professional matches, here MOUZ against Team Vitality.</figcaption>
             </figure>
             <ul class="feature-list">
-              <li><strong>Import</strong> a folder of demos, a file dropped into the window or a FACEIT link; <a href="#automatiser-avec-n8n">n8n</a> is wired to fetch practice-match demos on its own.</li>
+              <li><strong>Import</strong> a folder of demos, a file dropped into the window or a FACEIT link; <a href="#automatiser-avec-n8n">n8n</a>, in service since 23 October, fetches practice-match demos on its own.</li>
               <li><strong>Replay</strong> every round in 2D, with smokes pierced by grenades and bullets, synchronised voice comms and a group review where a leader drives the replay for everyone.</li>
               <li><strong>Analyse</strong> the round-by-round win probability, the economy, heatmaps, highlights (clutches, multi-kills) and player leaderboards.</li>
               <li><strong>Prepare</strong> for an opponent: a scouting sheet across several demos, rounds to review, a veto simulator with predictions, a match prep file, a team playbook and a calendar.</li>
@@ -216,7 +216,7 @@
           <section id="automatiser-avec-n8n">
             <h2>Automating around the app with n8n</h2>
             <p>The team plays its practice matches on PRACC, the platform where it organises them and finds their demos. I wanted those demos to reach Sightline on their own, and the team to get a Discord debrief of every new match without opening the site.</p>
-            <p>I put n8n at the centre. Sightline does not know about n8n: it only exposes protected entry points, and all the integration logic lives in workflows that read as diagrams, with the run history. Adding a destination, such as another messaging app or a spreadsheet, does not require touching the app's code. The core (API keys, webhooks, workflows W0 to W2) followed the same method as the rest, on 22 October 2026: specification, a nine-task plan, a review after each task, then a review of the whole before going to production. The extension, the form and the debrief fixes were added on the 23rd, tested, but without that final review.</p>
+            <p>I put n8n at the centre. Sightline does not know about n8n: it only exposes protected entry points, and all the integration logic lives in workflows that read as diagrams, with the run history. Adding a destination, such as another messaging app or a spreadsheet, does not require touching the app's code. The core (API keys, webhooks, workflows W0 to W2) followed the same method as the rest, on 22 October 2026: specification, a nine-task plan, a review after each task, then a review of the whole before going to production. The extension, the form and the debrief fixes were added on the 23rd, tested, but without that final review. The whole chain has been in service since 23 October: the extension runs a round every 30 minutes and n8n posts to the team's channel.</p>
             <figure class="figure figure--wide">
               <div class="figure-frame">
                 <svg class="diagram" viewBox="0 0 760 214" role="img" aria-labelledby="n8-title n8-desc">
@@ -305,7 +305,6 @@
               <li><strong>A dependency to watch.</strong> Reading demos relies on the demoparser2 library, which has to follow every game update. The code is organised so that a single file depends on it.</li>
               <li><strong>AI keeps its limits.</strong> The check cannot see an invented number that happens to match a real value, and the judge is sometimes wrong. That is why the text stays tied to its facts and the remarks stay visible.</li>
               <li><strong>Automation that depends on an open browser.</strong> PRACC only accepts the session from the address where it was opened: the extension runs only while Chrome is open on my PC. Nothing is lost, it catches up on missed demos at start-up, three per round, and a teammate can install the same extension to take over.</li>
-              <li><strong>A very recent launch.</strong> As of 23 October, no new practice match had been played yet: each link is verified separately, but not yet the import of a real demo end to end. The import form is live but has not received a demo yet.</li>
               <li><strong>No usage figures published here.</strong> The screenshots on this page show public professional matches, not a team's data.</li>
             </ul>
           </section>

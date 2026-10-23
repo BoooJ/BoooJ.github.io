@@ -68,7 +68,7 @@
         <aside class="case-meta" aria-label="Fiche du projet">
           <dl>
             <div><dt>Cadre</dt><dd>Projet personnel, lié à ma pratique de Counter-Strike (<a href="../passions.html">niveau 10 sur FACEIT</a>)</dd></div>
-            <div><dt>Période</dt><dd>Depuis le 10 octobre 2026 ; première version en trois jours, automatisations n8n les 22 et 23 octobre</dd></div>
+            <div><dt>Période</dt><dd>Depuis le 10 octobre 2026 ; première version en trois jours, automatisations n8n en service depuis le 23 octobre</dd></div>
             <div><dt>Mon rôle</dt><dd>Chef de projet et architecte : besoin, spécifications, choix techniques, découpage du travail, vérification, mise en ligne et exploitation. Le code est écrit par des agents IA (Claude Code).</dd></div>
             <div><dt>Outils</dt><dd><ul><li>Python, FastAPI, demoparser2, SQLite</li><li>React, TypeScript, Vite</li><li>Docker, Caddy, serveur VPS Linux</li><li>n8n auto-hébergé, webhooks signés (JWT), Discord</li><li>Extension Chrome (Manifest V3)</li><li>API Claude (Haiku, Sonnet, Opus) et Gemini</li></ul></dd></div>
             <div><dt>État</dt><dd><span class="status status--prod">En ligne</span> accès réservé aux comptes de l'application</dd></div>
@@ -102,7 +102,7 @@
               <figcaption>Le replay 2D d'un round : positions, vie, argent et armes de chaque joueur, tirs, flashs et trajectoires des grenades. Les captures montrent des matchs professionnels publics, ici MOUZ contre Team Vitality.</figcaption>
             </figure>
             <ul class="feature-list">
-              <li><strong>Importer</strong> un dossier de démos, un fichier glissé dans la fenêtre ou un lien FACEIT ; <a href="#automatiser-avec-n8n">n8n</a> est branché pour récupérer seul les démos des matchs d'entraînement.</li>
+              <li><strong>Importer</strong> un dossier de démos, un fichier glissé dans la fenêtre ou un lien FACEIT ; <a href="#automatiser-avec-n8n">n8n</a>, en service depuis le 23 octobre, récupère seul les démos des matchs d'entraînement.</li>
               <li><strong>Revoir</strong> chaque round en 2D, avec les fumées percées par les grenades et les balles, les communications vocales synchronisées et une revue en groupe où un meneur pilote le replay pour tous.</li>
               <li><strong>Analyser</strong> la probabilité de victoire round par round, l'économie, les heatmaps, les moments forts (clutchs, multi-kills) et les classements de joueurs.</li>
               <li><strong>Préparer</strong> un adversaire : fiche de scouting sur plusieurs démos, rounds à revoir, simulateur de veto avec prédictions, dossier de préparation de match, playbook d'équipe et calendrier.</li>
@@ -216,7 +216,7 @@
           <section id="automatiser-avec-n8n">
             <h2>Automatiser autour de l'application avec n8n</h2>
             <p>L'équipe joue ses matchs d'entraînement sur PRACC, la plateforme où elle les organise et en retrouve les démos. Je voulais que ces démos arrivent seules dans Sightline, et que l'équipe reçoive sur Discord un débrief de chaque nouveau match, sans ouvrir le site.</p>
-            <p>J'ai mis n8n au centre. Sightline ne connaît pas n8n : il expose seulement des points d'entrée protégés, et toute la logique d'intégration vit dans des workflows lisibles sous forme de schémas, avec l'historique des exécutions. Ajouter une destination, une autre messagerie ou un tableur par exemple, ne demande pas de toucher au code de l'application. Le socle (clés d'API, webhooks, workflows W0 à W2) a suivi la même méthode que le reste, le 22 octobre 2026 : spécification, plan en neuf tâches, relecture après chacune, puis revue de l'ensemble avant la mise en production. L'extension, le formulaire et les corrections du débrief ont été ajoutés le 23, testés, mais sans cette revue finale.</p>
+            <p>J'ai mis n8n au centre. Sightline ne connaît pas n8n : il expose seulement des points d'entrée protégés, et toute la logique d'intégration vit dans des workflows lisibles sous forme de schémas, avec l'historique des exécutions. Ajouter une destination, une autre messagerie ou un tableur par exemple, ne demande pas de toucher au code de l'application. Le socle (clés d'API, webhooks, workflows W0 à W2) a suivi la même méthode que le reste, le 22 octobre 2026 : spécification, plan en neuf tâches, relecture après chacune, puis revue de l'ensemble avant la mise en production. L'extension, le formulaire et les corrections du débrief ont été ajoutés le 23, testés, mais sans cette revue finale. L'ensemble est en service depuis le 23 octobre : l'extension fait un tour toutes les 30 minutes et n8n poste sur le salon de l'équipe.</p>
             <figure class="figure figure--wide">
               <div class="figure-frame">
                 <svg class="diagram" viewBox="0 0 760 214" role="img" aria-labelledby="n8-title n8-desc">
@@ -305,7 +305,6 @@
               <li><strong>Une dépendance à surveiller.</strong> La lecture des démos repose sur la bibliothèque demoparser2, qui doit suivre chaque mise à jour du jeu. Le code est organisé pour qu'un seul fichier en dépende.</li>
               <li><strong>L'IA garde ses limites.</strong> Le contrôle ne voit pas un nombre inventé qui tombe par hasard sur une vraie valeur, et le juge se trompe parfois. C'est pourquoi le texte reste relié à ses faits et les remarques restent visibles.</li>
               <li><strong>Une automatisation qui dépend d'un navigateur ouvert.</strong> PRACC n'accepte la session que depuis l'adresse où elle a été ouverte : l'extension ne tourne que lorsque Chrome est lancé sur mon PC. Rien n'est perdu, elle rattrape les démos manquées au démarrage, trois par tour, et un coéquipier peut installer la même extension pour prendre le relais.</li>
-              <li><strong>Une mise en service toute récente.</strong> Au 23 octobre, aucun nouveau match d'entraînement n'avait encore été joué : chaque maillon est vérifié séparément, mais pas encore l'import d'une vraie démo de bout en bout. Le formulaire d'import est en ligne, mais n'a pas encore reçu de démo.</li>
               <li><strong>Pas de mesure d'usage publiée ici.</strong> Les captures d'écran de cette page montrent des matchs professionnels publics, pas les données d'une équipe.</li>
             </ul>
           </section>
