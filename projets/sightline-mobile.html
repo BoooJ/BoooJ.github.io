@@ -62,7 +62,7 @@
         <aside class="case-meta" aria-label="Fiche du projet">
           <dl>
             <div><dt>Cadre</dt><dd>Projet personnel, compagnon de Sightline, pensé d'abord comme pièce de portfolio UI/UX</dd></div>
-            <div><dt>Période</dt><dd>Du 19 au 22 octobre 2026 : première version en deux jours, onglet Stratégies le 21, notes le 22 (version 0.2.0)</dd></div>
+            <div><dt>Période</dt><dd>Du 19 au 24 octobre 2026 : première version en deux jours, onglet Stratégies le 21, notes le 22 (version 0.2.0), heures locales et cartes probables le 23, entrée sans démo et pseudo TeamSpeak le 24</dd></div>
             <div><dt>Mon rôle</dt><dd>Conception produit et UI/UX (moments d'usage, écrans, système visuel), spécification, vérification et mise en ligne. Le code est écrit par des agents IA (Claude Code).</dd></div>
             <div><dt>Outils</dt><dd><ul><li>Expo SDK 58, React Native, expo-router</li><li>TypeScript, TanStack Query, Reanimated</li><li>Vitest</li><li>FastAPI (connexion par jeton, notifications web), Docker, EAS Build</li></ul></dd></div>
             <div><dt>État</dt><dd><span class="status status--prod">En ligne</span> application web installable, APK Android, mode démo sans compte</dd></div>
@@ -96,6 +96,7 @@
               <li><strong>Accessibilité</strong> : libellés pour le lecteur d'écran, et un résumé en phrase pour chaque graphique : la courbe de progression est lue comme une phrase qui dit si le rating monte ou baisse.</li>
               <li><strong>Une démo sans compte</strong>, avec des données embarquées de matchs pros publics plutôt qu'un compte partagé : un compte public aurait exposé, et laissé modifier, les données de l'équipe.</li>
               <li><strong>Un cinquième onglet, Carnet</strong> (21 et 22 octobre) : le cahier de stratégies de l'équipe (positions, grenades, plan), en lecture seule car la création reste sur PC pour ne pas surcharger un petit écran, et des notes. Une note s'écrit sur une carte, se rattache si besoin à un match, un adversaire ou une stratégie, et reste privée ou se partage avec l'équipe ; celle d'un coéquipier se lit sans se modifier. Aujourd'hui indique combien de notes relire contre le prochain adversaire, et le site lit et écrit les notes aussi.</li>
+              <li><strong>Les prochains matchs, avec leurs cartes probables</strong> (23 et 24 octobre) : l'encart « Prépare… » et la liste « À venir » affichent chaque match à l'heure locale de chacun, car l'équipe est répartie sur plusieurs fuseaux, avec les cartes probables de l'adversaire. Un membre qui n'apparaît encore dans aucune démo peut entrer avec son SteamID ou choisir « Plus tard », et le pseudo TeamSpeak se règle dans Compte, pour ranger les comms sous le bon joueur.</li>
             </ul>
           </section>
 
@@ -118,8 +119,8 @@
           <section id="resultats-verifiables">
             <h2>Résultats vérifiables</h2>
             <ul class="results">
-              <li><span class="proof proof--count">Compté</span><span>Spécifications et plans écrits avant le code, puis 22 commits dans le dossier de l'application, du 19 au 22 octobre 2026.</span></li>
-              <li><span class="proof proof--count">Compté</span><span>79 tests de l'application au vert (17 fichiers), relancés le 23 octobre, et côté serveur 7 tests pour la connexion par jeton, l'application web et les notifications, et 5 pour les notes.</span></li>
+              <li><span class="proof proof--count">Compté</span><span>Spécifications et plans écrits avant le code, puis 27 commits dans le dossier de l'application, du 19 au 24 octobre 2026.</span></li>
+              <li><span class="proof proof--count">Compté</span><span>84 tests de l'application au vert (18 fichiers) au dernier passage enregistré, le 24 octobre, et côté serveur 7 tests pour la connexion par jeton, l'application web et les notifications, et 5 pour les notes.</span></li>
               <li><span class="proof proof--fact">Constaté</span><span>14 captures du mode démo dans Chrome au format iPhone (10 vues différentes) : aucun écran blanc, aucun chargement bloqué, aucune erreur.</span></li>
               <li><span class="proof proof--fact">Constaté</span><span>En ligne en version web installable, avec un APK Android en plus, en version 0.2.0 depuis le 22 octobre.</span></li>
             </ul>
@@ -132,6 +133,7 @@
               <li><strong>Pas de mode hors connexion</strong> : l'application se met à jour à chaque déploiement, son service worker ne met rien en cache.</li>
               <li><strong>Quelques cibles sous 44 points</strong> : les filtres font 36 points (zone de toucher élargie seulement dans la version native) et les sélecteurs segmentés 40 points.</li>
               <li><strong>Français et thème sombre seulement</strong> ; dans le Carnet, les stratégies se consultent sans se modifier, seules les notes s'écrivent.</li>
+              <li><strong>Un APK en retard sur la version web</strong> : la version web est reconstruite à chaque déploiement du serveur, mais les nouveautés depuis le 22 octobre (cartes probables, heures locales, entrée sans démo, pseudo TeamSpeak) manquent à l'APK, qui n'a pas été recompilé.</li>
             </ul>
           </section>
 

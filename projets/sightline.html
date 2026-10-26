@@ -45,7 +45,7 @@
         <nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="../index.html">Accueil</a> <span aria-hidden="true">›</span> <a href="../index.html#nouveaux">Applications IA</a></nav>
         <p class="case-kind"><strong>Projet personnel</strong>, application web en ligne, construite en pilotant des agents IA</p>
         <h1>Sightline : analyser un match de Counter‑Strike 2 comme un staff professionnel</h1>
-        <p class="case-lede">Dans Counter-Strike 2, chaque match peut être enregistré dans un fichier de démo qui contient tout : positions, tirs, grenades, argent. Sightline transforme ces fichiers en replay 2D, en statistiques et en outils de préparation pour une équipe. J'en ai construit la première version en trois jours en pilotant des agents IA, puis je l'ai enrichie jusqu'à couvrir l'essentiel d'un outil professionnel : je décide quoi construire et comment le vérifier, les agents écrivent le code. Je l'ai ensuite reliée à n8n, pour que les démos arrivent seules et que l'équipe reçoive un débrief sur Discord.</p>
+        <p class="case-lede">Dans Counter-Strike 2, chaque match peut être enregistré dans un fichier de démo qui contient tout : positions, tirs, grenades, argent. Sightline transforme ces fichiers en replay 2D, en statistiques et en outils de préparation pour une équipe. J'en ai construit la première version en trois jours en pilotant des agents IA, puis je l'ai enrichie jusqu'à couvrir l'essentiel d'un outil professionnel : je décide quoi construire et comment le vérifier, les agents écrivent le code. Je l'ai ensuite reliée à n8n et à Discord : calendrier de l'équipe, prép d'avant-match, démos importées seules et débriefs écrits par l'IA.</p>
         <p class="case-jump"><a class="btn btn--quiet" href="#film">Voir la vidéo <span aria-hidden="true">↓</span></a></p>
       </header>
 
@@ -68,9 +68,9 @@
         <aside class="case-meta" aria-label="Fiche du projet">
           <dl>
             <div><dt>Cadre</dt><dd>Projet personnel, lié à ma pratique de Counter-Strike (<a href="../passions.html">niveau 10 sur FACEIT</a>)</dd></div>
-            <div><dt>Période</dt><dd>Depuis le 10 octobre 2026 ; première version en trois jours, automatisations n8n en service depuis le 23 octobre</dd></div>
+            <div><dt>Période</dt><dd>Depuis le 10 octobre 2026 ; première version en trois jours, automatisations n8n en service depuis le 23 octobre, plugin TeamSpeak en cours</dd></div>
             <div><dt>Mon rôle</dt><dd>Chef de projet et architecte : besoin, spécifications, choix techniques, découpage du travail, vérification, mise en ligne et exploitation. Le code est écrit par des agents IA (Claude Code).</dd></div>
-            <div><dt>Outils</dt><dd><ul><li>Python, FastAPI, demoparser2, SQLite</li><li>React, TypeScript, Vite</li><li>Docker, Caddy, serveur VPS Linux</li><li>n8n auto-hébergé, webhooks signés (JWT), Discord</li><li>Extension Chrome (Manifest V3)</li><li>API Claude (Haiku, Sonnet, Opus) et Gemini</li></ul></dd></div>
+            <div><dt>Outils</dt><dd><ul><li>Python, FastAPI, demoparser2, SQLite</li><li>React, TypeScript, Vite</li><li>Docker, Caddy, serveur VPS Linux</li><li>n8n auto-hébergé, webhooks signés (JWT), bot Discord, API FACEIT</li><li>Extension Chrome (Manifest V3)</li><li>C++17, CMake, Opus : plugin TeamSpeak 3</li><li>API Claude (Haiku, Sonnet, Opus) et Gemini</li></ul></dd></div>
             <div><dt>État</dt><dd><span class="status status--prod">En ligne</span> accès réservé aux comptes de l'application</dd></div>
           </dl>
         </aside>
@@ -85,9 +85,9 @@
             <h2>Le vibe coding, avec une méthode</h2>
             <p>Le vibe coding consiste à décrire en langage naturel ce que l'on veut et à laisser une IA écrire le code. C'est rapide, mais le risque est connu : on finit avec une application que personne ne comprend, pleine d'erreurs invisibles. Mon travail a été d'encadrer ces agents comme on encadre une équipe de développeurs.</p>
             <ol class="method">
-              <li><strong>Spécifier avant de coder.</strong> Chaque grande partie (import et replay, statistiques, grenades, heatmaps, annotations, espace d'équipe, scouting) a d'abord un document de conception qui fixe le résultat attendu. Avec les audits, cela fait 21 documents.</li>
-              <li><strong>Découper et répartir.</strong> Vingt plans d'implémentation découpent le travail en petites tâches, confiées une à une à des agents, avec une relecture entre chaque tâche.</li>
-              <li><strong>Vérifier.</strong> 92 fichiers de tests automatiques, des tests sur de vraies démos de match, des parcours complets joués dans un navigateur et des parcours de « bêta-testeur » scriptés.</li>
+              <li><strong>Spécifier avant de coder.</strong> Chaque grande partie (import et replay, statistiques, grenades, heatmaps, annotations, espace d'équipe, scouting) a d'abord un document de conception qui fixe le résultat attendu. Avec les audits, cela fait 22 documents.</li>
+              <li><strong>Découper et répartir.</strong> Vingt-deux plans d'implémentation découpent le travail en petites tâches, confiées une à une à des agents, avec une relecture entre chaque tâche.</li>
+              <li><strong>Vérifier.</strong> 96 fichiers de tests automatiques, des tests sur de vraies démos de match, des parcours complets joués dans un navigateur et des parcours de « bêta-testeur » scriptés.</li>
               <li><strong>Comparer et corriger.</strong> J'ai fait inventorier les 57 fonctions d'un outil professionnel du marché, Skybox EDGE, puis découper l'écart en treize sous-projets. Résultat : 42 fonctions couvertes, 11 partielles, 2 absentes, 2 hors de portée (elles demandent des serveurs de jeu). Des audits d'ergonomie et de rapidité suivent chaque grande étape.</li>
               <li><strong>Exploiter.</strong> L'application tourne dans un conteneur Docker sur mon serveur, en HTTPS, avec connexion obligatoire et une sauvegarde de la base chaque nuit, conservée 14 jours.</li>
             </ol>
@@ -102,10 +102,11 @@
               <figcaption>Le replay 2D d'un round : positions, vie, argent et armes de chaque joueur, tirs, flashs et trajectoires des grenades. Les captures montrent des matchs professionnels publics, ici MOUZ contre Team Vitality.</figcaption>
             </figure>
             <ul class="feature-list">
-              <li><strong>Importer</strong> un dossier de démos, un fichier glissé dans la fenêtre ou un lien FACEIT ; <a href="#automatiser-avec-n8n">n8n</a>, en service depuis le 23 octobre, récupère seul les démos des matchs d'entraînement.</li>
-              <li><strong>Revoir</strong> chaque round en 2D, avec les fumées percées par les grenades et les balles, les communications vocales synchronisées et une revue en groupe où un meneur pilote le replay pour tous.</li>
+              <li><strong>Importer</strong> un dossier de démos, un fichier glissé dans la fenêtre ou un lien FACEIT ; <a href="#automatiser-avec-n8n">n8n</a> récupère seul les démos des matchs d'entraînement et celles des prochains adversaires, et un bot Discord permet d'en demander à la volée.</li>
+              <li><strong>Revoir</strong> chaque round en 2D, avec les fumées percées par les grenades et les balles, les communications vocales calées sur le replay (à la main pour l'instant, calage automatique <a href="#comms-teamspeak">en cours</a>) et une revue en groupe où un meneur pilote le replay pour tous.</li>
               <li><strong>Analyser</strong> la probabilité de victoire round par round, l'économie, les heatmaps, les moments forts (clutchs, multi-kills) et les classements de joueurs.</li>
-              <li><strong>Préparer</strong> un adversaire : fiche de scouting sur plusieurs démos, rounds à revoir, simulateur de veto avec prédictions, dossier de préparation de match, playbook d'équipe et calendrier.</li>
+              <li><strong>Préparer</strong> un adversaire : fiche de scouting sur plusieurs démos, rounds à revoir, simulateur de veto avec prédictions, dossier de préparation de match, playbook d'équipe, et un calendrier synchronisé avec PRACC et FACEIT, avec les cartes probables des adversaires de championnat.</li>
+              <li><strong>Organiser ses stratégies</strong> dans un Stratbook sur une seule page (liste, carte, panneau Plan · Joueurs · Grenades · Notes), avec des calques et un focus sur un joueur, et des zones de callouts que l'équipe peut redessiner elle-même : leurs noms s'appliquent alors à toutes les analyses.</li>
               <li><strong>Débriefer</strong> comme un staff : où le match s'est joué par rapport à la forme habituelle, trois points à travailler, cinq rounds à revoir et des objectifs suivis d'un match à l'autre.</li>
               <li><strong>Apprendre</strong> un rôle en suivant un joueur professionnel étape par étape, avec un coach IA qui explique un round, et poser ses questions à un assistant qui lit les données du match sans pouvoir les modifier.</li>
               <li><strong>Comprendre ses erreurs</strong> : pour chaque mort, où le joueur regardait au début du duel et s'il avait de l'aide ; les grenades achetées mais jamais lancées ; les rounds lents de l'adversaire découpés en phases. Dans le replay, la liste des grenades d'un round, avec de quoi les rejouer en jeu.</li>
@@ -215,20 +216,20 @@
 
           <section id="automatiser-avec-n8n">
             <h2>Automatiser autour de l'application avec n8n</h2>
-            <p>L'équipe joue ses matchs d'entraînement sur PRACC, la plateforme où elle les organise et en retrouve les démos. Je voulais que ces démos arrivent seules dans Sightline, et que l'équipe reçoive sur Discord un débrief de chaque nouveau match, sans ouvrir le site.</p>
-            <p>J'ai mis n8n au centre. Sightline ne connaît pas n8n : il expose seulement des points d'entrée protégés, et toute la logique d'intégration vit dans des workflows lisibles sous forme de schémas, avec l'historique des exécutions. Ajouter une destination, une autre messagerie ou un tableur par exemple, ne demande pas de toucher au code de l'application. Le socle (clés d'API, webhooks, workflows W0 à W2) a suivi la même méthode que le reste, le 22 octobre 2026 : spécification, plan en neuf tâches, relecture après chacune, puis revue de l'ensemble avant la mise en production. L'extension, le formulaire et les corrections du débrief ont été ajoutés le 23, testés, mais sans cette revue finale. L'ensemble est en service depuis le 23 octobre : l'extension fait un tour toutes les 30 minutes et n8n poste sur le salon de l'équipe.</p>
+            <p>L'équipe joue ses matchs d'entraînement sur PRACC et ses matchs officiels sur FACEIT. Je voulais que les démos arrivent seules dans Sightline, que le calendrier de l'équipe se tienne à jour sans saisie, et que l'équipe reçoive sur Discord une prép avant chaque match et un débrief après, sans ouvrir le site.</p>
+            <p>J'ai mis n8n au centre. Sightline ne connaît pas n8n : il expose seulement des points d'entrée protégés, et toute la logique d'intégration vit dans des workflows lisibles sous forme de schémas, avec l'historique des exécutions. Ajouter une destination, une autre messagerie ou un tableur par exemple, ne demande pas de toucher au code de l'application. Le socle (clés d'API, webhooks, workflows W0 à W2) a suivi la même méthode que le reste, le 22 octobre 2026 : spécification, plan en neuf tâches, relecture après chacune, puis revue de l'ensemble avant la mise en production. L'extension, le formulaire et les corrections du débrief ont été ajoutés le 23, testés, mais sans cette revue finale. Le calendrier, la prép d'avant-match, les matchs FACEIT et un bot Discord ont suivi les 23 et 24 octobre. Le socle est en service depuis le 23 octobre, le reste depuis le 24 : six workflows tournent sur mon serveur, et l'extension fait un tour toutes les 30 minutes.</p>
             <figure class="figure figure--wide">
               <div class="figure-frame">
-                <svg class="diagram" viewBox="0 0 760 214" role="img" aria-labelledby="n8-title n8-desc">
-                  <title id="n8-title">n8n relie PRACC, Sightline, Claude et Discord</title>
-                  <desc id="n8-desc">Première chaîne : une extension Chrome lit les démos de l'équipe sur PRACC, n8n choisit celles à importer et Sightline les importe sans doublon. Seconde chaîne : Sightline envoie un événement signé, n8n l'aiguille, Claude Haiku résume le match et le message part sur le salon Discord de l'équipe.</desc>
+                <svg class="diagram" viewBox="0 0 760 328" role="img" aria-labelledby="n8-title n8-desc">
+                  <title id="n8-title">n8n relie PRACC, FACEIT, Sightline, Claude et Discord</title>
+                  <desc id="n8-desc">Première chaîne : une extension Chrome lit les démos de l'équipe sur PRACC et celles des adversaires sur FACEIT, n8n trie les démos PRACC à importer, Sightline choisit les démos adverses à demander, et Sightline importe le tout sans doublon. Deuxième chaîne : Sightline envoie un événement signé, n8n l'aiguille, Claude Haiku résume le match et le message part sur le salon Discord de l'équipe. Troisième chaîne : toutes les 15 minutes, n8n demande à Sightline de lire les matchs FACEIT de l'équipe, Sightline met à jour le calendrier et les cartes probables, et la prép part sur Discord 24 heures avant le match.</desc>
                   <defs>
                     <marker id="n8-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="head" d="M0,0 L10,5 L0,10 z"/></marker>
                   </defs>
                   <text class="t t--b" x="8" y="20">Récupérer les démos (W1)</text>
                   <rect class="box" x="8" y="32" width="156" height="60" rx="8"/>
-                  <text class="t t--b" x="86" y="58" text-anchor="middle">PRACC</text>
-                  <text class="t--s" x="86" y="76" text-anchor="middle">matchs d'entraînement</text>
+                  <text class="t t--b" x="86" y="58" text-anchor="middle">PRACC · FACEIT</text>
+                  <text class="t--s" x="86" y="76" text-anchor="middle">pracs, démos adverses</text>
                   <path class="line" d="M164,62 H200" marker-end="url(#n8-arrow)"/>
                   <rect class="box" x="204" y="32" width="156" height="60" rx="8"/>
                   <text class="t t--b" x="282" y="58" text-anchor="middle">Extension Chrome</text>
@@ -257,21 +258,43 @@
                   <rect class="box" x="596" y="146" width="156" height="60" rx="8"/>
                   <text class="t t--b" x="674" y="172" text-anchor="middle">Discord</text>
                   <text class="t--s" x="674" y="190" text-anchor="middle">salon de l'équipe</text>
+                  <text class="t t--b" x="8" y="248">Préparer le match (W6, W5)</text>
+                  <rect class="box--key" x="8" y="260" width="156" height="60" rx="8"/>
+                  <text class="t--inv" x="86" y="286" text-anchor="middle">n8n · W6</text>
+                  <text class="t--inv-s" x="86" y="304" text-anchor="middle">toutes les 15 min</text>
+                  <path class="line" d="M164,290 H200" marker-end="url(#n8-arrow)"/>
+                  <rect class="box--ok" x="204" y="260" width="156" height="60" rx="8"/>
+                  <text class="t t--b" x="282" y="286" text-anchor="middle">Sightline</text>
+                  <text class="t--s" x="282" y="304" text-anchor="middle">lit l'API FACEIT</text>
+                  <path class="line" d="M360,290 H396" marker-end="url(#n8-arrow)"/>
+                  <rect class="box" x="400" y="260" width="156" height="60" rx="8"/>
+                  <text class="t t--b" x="478" y="286" text-anchor="middle">Calendrier</text>
+                  <text class="t--s" x="478" y="304" text-anchor="middle">cartes probables</text>
+                  <path class="line" d="M556,290 H592" marker-end="url(#n8-arrow)"/>
+                  <rect class="box" x="596" y="260" width="156" height="60" rx="8"/>
+                  <text class="t t--b" x="674" y="286" text-anchor="middle">Discord</text>
+                  <text class="t--s" x="674" y="304" text-anchor="middle">prép 24 h avant (W5)</text>
                 </svg>
               </div>
-              <figcaption>Deux autres workflows complètent la chaîne : un formulaire d'import pour les coéquipiers (W4) et une alerte sur Discord quand un workflow plante (W0).</figcaption>
+              <figcaption>Deux autres workflows complètent la chaîne : un formulaire d'import pour les coéquipiers (W4) et une alerte sur Discord quand un workflow plante (W0). Un bot Discord permet aussi de demander des démos à la volée.</figcaption>
             </figure>
-            <h3>Quatre workflows</h3>
+            <h3>Six workflows et un bot</h3>
             <ul class="feature-list">
-              <li><strong>W1, de PRACC à Sightline.</strong> Toutes les 30 minutes, une extension Chrome lit la liste des démos de l'équipe sur PRACC, avec la session ouverte dans le navigateur, et l'envoie à n8n. n8n ne garde que les démos nouvelles et disponibles, demande à Sightline lesquelles il a déjà, puis en fait importer trois au plus par tour, rangées avec leur date et leur adversaire. Aucun import pendant la sauvegarde nocturne du serveur.</li>
+              <li><strong>W1, de PRACC et FACEIT à Sightline.</strong> Toutes les 30 minutes, une extension Chrome lit les démos et le calendrier de l'équipe sur PRACC, avec la session ouverte dans le navigateur, et les envoie à n8n. n8n ne garde que les démos nouvelles et disponibles, demande à Sightline lesquelles il a déjà, puis en fait importer trois au plus par tour, rangées avec leur date et leur adversaire, jamais pendant la sauvegarde nocturne du serveur. Toutes les 5 minutes, l'extension récupère aussi les démos FACEIT demandées, depuis la page du match, dans le navigateur connecté : le serveur, lui, ne peut pas les télécharger.</li>
               <li><strong>W2, de Sightline à Discord.</strong> Sightline envoie un événement signé quand une démo arrive, quand un match est analysé pour la première fois ou quand un import échoue, et n8n poste le message sur le salon de l'équipe. Pour un match de notre équipe, n8n lit le débrief et les statistiques dans Sightline, puis Claude Haiku en tire trois lignes de notre point de vue : le fait marquant, ce qui a marché, ce qui a coûté des rounds, avec pour consigne de n'utiliser que des chiffres présents dans les données.</li>
+              <li><strong>W6, le calendrier FACEIT.</strong> Toutes les 15 minutes, le serveur lit nos matchs de championnat sur l'API de FACEIT, sans dépendre d'un PC, et retrouve notre équipe grâce aux comptes Steam liés. Un nouveau match entre au calendrier, affiché à l'heure locale de chacun, et un horaire déplacé est mis à jour et annoncé sur Discord. Pour chaque adversaire, Sightline calcule ses cartes probables et met en file deux démos de ses matchs, d'abord sur ces cartes.</li>
+              <li><strong>Les cartes probables.</strong> Pour chaque carte, sa fréquence chez l'adversaire est multipliée par sa fréquence chez nous, sur les matchs ESEA, avec un lissage. C'est une tendance, pas une prédiction : FACEIT ne donne pas l'ordre des bans, et un avertissement s'affiche quand l'adversaire a moins de cinq matchs ESEA. Elles apparaissent sur Discord, sur le site et dans l'app mobile.</li>
+              <li><strong>W5, la prép d'avant-match.</strong> Vingt-quatre heures avant chaque match, prac ou tournoi, n8n poste sur Discord l'heure du match, notre bilan contre l'adversaire avec un lien vers les trois derniers matchs, les cartes sur lesquelles on l'a déjà vu jouer et, pour un match officiel, ses cartes probables.</li>
+              <li><strong>Le bot Discord /demos.</strong> Un membre du serveur Discord de l'équipe tape /demos pour demander les démos d'un adversaire, deux par défaut et cinq au plus. Sightline les importe et les analyse, puis elles sont annoncées sur le salon. Une démo demandée correspond à une carte, les plus probables d'abord.</li>
               <li><strong>W4, un formulaire d'import.</strong> Une page n8n protégée par un identifiant d'équipe, où un coéquipier sans compte dépose une démo, jusqu'à 1 Go. Elle suit le même chemin, sans doublon, et n8n ne garde ni le fichier ni l'exécution.</li>
-              <li><strong>W0, la surveillance.</strong> Si un workflow plante, n8n poste sur Discord le nom du workflow, l'étape et le message d'erreur.</li>
+              <li><strong>W0, la surveillance.</strong> Si l'un des workflows plante, n8n poste sur Discord le nom du workflow, l'étape et le message d'erreur.</li>
             </ul>
             <h3>Ce que Sightline expose, et comment c'est protégé</h3>
             <ul>
               <li><strong>Des clés d'API à droits limités</strong> : importer des démos, ou lire les matchs, les joueurs et les équipes, jamais les réglages ni les comptes. Chaque clé est stockée sous forme d'empreinte, montrée une seule fois et révocable ; une action hors de ses droits est refusée.</li>
               <li><strong>Des événements signés</strong> : chaque envoi porte un jeton JWT signé avec le secret du webhook et valable 5 minutes, que n8n vérifie lui-même. Trois essais, un journal des envois, et l'adresse de destination revérifiée avant chaque envoi, pour refuser les adresses internes.</li>
+              <li><strong>Un bot vérifié</strong> : Discord signe chaque requête en Ed25519 ; Sightline vérifie la signature avec la clé publique de l'application et refuse toute requête vieille de plus de 5 minutes. Le jeton du bot reste sur le serveur, et ses réponses ne peuvent mentionner personne.</li>
+              <li><strong>Une file de démos encadrée</strong> : aucun import sous 3 Go libres, trois essais par demande, et des liens reçus contrôlés (adresses internes refusées, fichier de démo attendu, cinq au plus, seulement pour une demande en cours).</li>
               <li><strong>Un import sans doublon</strong> : une démo n'est importée qu'une fois par identifiant, un fichier déjà présent est rattaché à sa démo, et une démo cassée est abandonnée au troisième échec au lieu de revenir toutes les 30 minutes.</li>
               <li><strong>Un n8n isolé</strong> : dans son propre conteneur, joignable seulement en HTTPS, sans commandes système, avec des identifiants chiffrés. Les workflows exportés ne contiennent aucun secret : je colle moi-même chaque clé dans n8n.</li>
             </ul>
@@ -279,19 +302,34 @@
             <ul>
               <li><strong>PRACC lie la session à l'adresse IP.</strong> Copiée sur le serveur, elle était refusée, et PRACC me déconnectait. D'où l'extension : la lecture se fait dans mon navigateur, la session ne quitte jamais Chrome, et n8n garde toutes les décisions.</li>
               <li><strong>Le premier débrief sur un vrai match a révélé trois défauts, corrigés le jour même.</strong> L'agent IA de n8n&nbsp;2 n'exécutait plus les outils HTTP que je lui avais donnés : il est remplacé par un seul appel à Claude, un appel au lieu de trois ou quatre. Le modèle épuisait sa réponse à réfléchir et rendait un résumé vide. Et le résumé lisait le débrief de la première équipe du match, ici l'adversaire, au lieu du nôtre.</li>
+              <li><strong>Le premier import d'office, dans la nuit du 23 au 24 octobre, a demandé deux correctifs sur le moment.</strong> Une page FACEIT cachée ne donnait aucun lien : l'extension ouvre maintenant la page dans une petite fenêtre visible, puis clique une seconde fois si besoin. Les quatre démos de deux adversaires étaient prêtes 35 minutes après leur mise en file, analysées et annoncées sur Discord.</li>
+              <li><strong>L'usage réel a fait remonter trois autres défauts, corrigés le jour même.</strong> Un BO3 demandé ramenait toutes ses cartes : une demande vaut désormais une carte. Chaque démo analysée postait deux messages sur Discord : l'ancien message de Sightline laisse la place à celui de n8n. Et Chrome préremplissait le champ du jeton du bot avec le mot de passe du site, qui serait parti chez Discord : les champs de jeton et de clé d'IA ne se préremplissent plus.</li>
             </ul>
+          </section>
+
+          <section id="comms-teamspeak">
+            <h2>Caler les comms TeamSpeak sur le replay (en cours)</h2>
+            <p>Revoir un round avec les comms de l'équipe aide à comprendre ce qui s'est dit au moment clé. Sightline savait déjà lire une piste audio par joueur dans le replay, mais il fallait la caler à la main. Les 24 et 25 octobre, j'ai piloté la conception et la construction, par des agents, d'une chaîne conçue pour enregistrer les comms et les caler seule, sur n'importe quel serveur de jeu.</p>
+            <ul class="feature-list">
+              <li><strong>Un plugin TeamSpeak 3 maison</strong>, en C++17, en 32 et 64 bits. Il écrit une piste Ogg Opus par voix, avant mixage, et toutes les pistes partent du même instant ; il lit aussi la Game State Integration de CS2 pour démarrer et s'arrêter avec la map et noter le début de chaque round. Il suffira qu'un seul coéquipier l'installe, et un message dans le salon TeamSpeak annonce l'enregistrement.</li>
+              <li><strong>Un envoi conçu pour ne rien perdre</strong> : en fin de map, la session part vers Sightline ; après un échec, elle reste dans une file sur disque et repart au démarrage de TeamSpeak, puis toutes les 10 minutes. La clé est chiffrée pour le compte Windows (DPAPI), et l'adresse du site est validée strictement.</li>
+              <li><strong>Côté Sightline, en ligne depuis le 25 octobre</strong> : une clé dédiée qui n'ouvre que la route de réception des comms, des sessions validées et limitées (200 Mo, 12 pistes), et un rattachement automatique au bon match d'après la carte, le score, le joueur qui enregistre et la date d'import de la démo. Le décalage est la médiane des écarts mesurés round par round, et les rounds aberrants sont écartés. Chaque voix est rangée sous son joueur grâce au pseudo TeamSpeak que chacun saisit dans Sightline, sur le site ou dans l'app.</li>
+              <li><strong>Vérifié par des tests</strong> : 5 suites du plugin au vert en 32 et 64 bits, un essai d'envoi complet sans TeamSpeak, avec deux voix synthétiques reçues par un Sightline local, et 15 tests côté serveur. Le plugin a été construit par des agents, tâche par tâche (dix tâches livrées sur les douze du plan), chacune relue : les relectures ont trouvé au moins douze défauts importants, dont un débordement de taille en 32 bits et un enregistrement sans fin quand CS2 se ferme.</li>
+            </ul>
+            <p><strong>Pas encore en service.</strong> Le paquet d'installation n'est pas terminé, et aucune vraie session n'a été enregistrée. L'essai réel, une map jouée avec l'équipe, doit vérifier un calage à une demi-seconde près. Aucun enregistrement réel n'existe encore ; quand il y en aura, ils ne seront pas publiés ici : ce sont les voix de mes coéquipiers.</p>
           </section>
 
           <section id="resultats-verifiables">
             <h2>Résultats vérifiables</h2>
             <ul class="results">
-              <li><span class="proof proof--count">Compté</span><span>239 commits du 10 au 23 octobre 2026, dans l'historique Git du projet, dont 93 pour la première version en trois jours et 30 pour les automatisations n8n, les 22 et 23 octobre.</span></li>
-              <li><span class="proof proof--count">Compté</span><span>21 documents de conception et d'audit, et 20 plans d'implémentation.</span></li>
-              <li><span class="proof proof--count">Compté</span><span>92 fichiers de tests automatiques : 56 côté serveur, 17 côté interface, 17 pour l'application mobile, 2 pour les workflows n8n et l'extension Chrome. Derniers passages, tous au vert : 247 tests serveur le 23 octobre ; 21 tests des workflows, 9 de l'extension et 79 de l'application mobile, relancés le 23 octobre ; 67 tests d'interface et 66 parcours complets dans un navigateur le 20 octobre.</span></li>
+              <li><span class="proof proof--count">Compté</span><span>287 commits du 10 au 25 octobre 2026, dans l'historique Git du projet, dont 93 pour la première version en trois jours, 40 pour les automatisations n8n et Discord et 15 pour le plugin TeamSpeak.</span></li>
+              <li><span class="proof proof--count">Compté</span><span>22 documents de conception et d'audit, et 22 plans d'implémentation.</span></li>
+              <li><span class="proof proof--count">Compté</span><span>96 fichiers de tests automatiques : 59 côté serveur, 17 côté interface, 18 pour l'application mobile, 2 pour les workflows n8n et l'extension Chrome, plus 10 fichiers en C++ pour le plugin TeamSpeak. Derniers passages, tous au vert : 279 tests serveur, 68 tests d'interface et 71 parcours complets dans un navigateur le 25 octobre ; 84 tests de l'application mobile le 24 ; 26 tests des workflows et 12 de l'extension, relancés le 26 ; les 5 suites du plugin, en 32 et 64 bits, le 25.</span></li>
               <li><span class="proof proof--count">Compté</span><span>Mesuré pendant la conception sur la bibliothèque de démos (1 840 duels) : le joueur aidé par une flash ou une molotov gagne 63 % de ses duels, contre 47 % pour un duel « à sec ». C'est ce constat que l'analyse des duels met sous les yeux du joueur.</span></li>
               <li><span class="proof proof--fact">Constaté</span><span>Passe de design sur tout le site : contraste des textes secondaires relevé à au moins 5:1 sur les quatre fonds, et un minimum de 11 px pour les textes de l'interface.</span></li>
               <li><span class="proof proof--fact">Constaté</span><span>Application en ligne sur mon serveur, en HTTPS ; sans session ouverte, l'API refuse toute requête, hors connexion et liens de partage publics.</span></li>
               <li><span class="proof proof--fact">Constaté</span><span>En production le 23 octobre : un tour de l'extension Chrome à Sightline en passant par n8n, sans nouvelle démo à importer, et le débrief IA d'un vrai match de l'équipe posté sur Discord, en rejouant un match déjà analysé.</span></li>
+              <li><span class="proof proof--fact">Constaté</span><span>En production les 23 et 24 octobre : les matchs FACEIT de l'équipe arrivés seuls au calendrier, leurs cartes probables calculées sur l'historique réel, et 10 démos adverses récupérées par l'extension, analysées et annoncées sur Discord sans import à la main, pour 7 demandes (6 mises en file d'office, 1 par /demos) ; 3 d'entre elles étaient des cartes de BO3 en trop, d'où le correctif « une demande, une carte ».</span></li>
               <li><span class="proof proof--fact">Constaté</span><span>Revue de l'ensemble du socle n8n avant sa première mise en production : 4 défauts importants relevés et corrigés, dont une redirection qui aurait pu envoyer le cookie PRACC à un autre site.</span></li>
               <li><span class="proof proof--fact">Constaté</span><span>D'après l'historique : import des démos rendu 2,5 fois plus rapide, puis encore 25 % plus rapide à données identiques ; code chargé au démarrage réduit de 105 à 85 Ko.</span></li>
               <li><span class="proof proof--fact">Constaté</span><span>Mesuré en ligne après un audit de rapidité : fiche de scouting de 950 à 250 ms, page joueur de 1 900 à 250 ms ; 250 ms correspond au temps du réseau lui-même.</span></li>
@@ -304,9 +342,11 @@
               <li><strong>Mon apport n'est pas la frappe du code.</strong> Il est dans la spécification, le découpage, la vérification et l'exploitation. Je sais expliquer l'architecture et chaque choix, pas réciter chaque ligne.</li>
               <li><strong>Une dépendance à surveiller.</strong> La lecture des démos repose sur la bibliothèque demoparser2, qui doit suivre chaque mise à jour du jeu. Le code est organisé pour qu'un seul fichier en dépende.</li>
               <li><strong>L'IA garde ses limites.</strong> Le contrôle ne voit pas un nombre inventé qui tombe par hasard sur une vraie valeur, et le juge se trompe parfois. C'est pourquoi le texte reste relié à ses faits et les remarques restent visibles.</li>
-              <li><strong>Une automatisation qui dépend d'un navigateur ouvert.</strong> PRACC n'accepte la session que depuis l'adresse où elle a été ouverte : l'extension ne tourne que lorsque Chrome est lancé sur mon PC. Rien n'est perdu, elle rattrape les démos manquées au démarrage, trois par tour, et un coéquipier peut installer la même extension pour prendre le relais.</li>
+              <li><strong>Une automatisation qui dépend d'un navigateur ouvert.</strong> PRACC n'accepte la session que depuis l'adresse où elle a été ouverte, et FACEIT ne laisse pas le serveur télécharger ses démos : l'extension ne tourne que lorsque Chrome est lancé sur mon PC. Rien n'est perdu : elle rattrape les démos manquées au démarrage, et un coéquipier peut installer la même extension pour prendre le relais.</li>
+              <li><strong>Des voix à protéger.</strong> Le plugin TeamSpeak enregistre des coéquipiers : il annonce l'enregistrement dans le salon TeamSpeak, mais l'accord de chacun et la durée de conservation des pistes restent à définir avant l'usage réel.</li>
               <li><strong>Pas de mesure d'usage publiée ici.</strong> Les captures d'écran de cette page montrent des matchs professionnels publics, pas les données d'une équipe.</li>
             </ul>
+            <p><strong>Prochaine étape :</strong> un replay 3D dans le navigateur, avec les hauteurs, la vue du joueur et les grenades en 3D. Il a été conçu le 25 octobre et planifié le 26 ; son développement a commencé le même jour sur une branche à part, et rien n'est encore en ligne.</p>
           </section>
 
           <nav class="case-next" aria-label="Autres projets">
