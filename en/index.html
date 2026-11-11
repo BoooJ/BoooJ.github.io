@@ -10,9 +10,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=JetBrains+Mono:wght@400;500&family=Public+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
   <link rel="alternate" hreflang="fr" href="../index.html">
   <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="../assets/css/style.css?v=20261023b">
-  <script src="../assets/js/main.js?v=20261023b"></script>
-  <script src="../assets/js/flowmap.js?v=20261023b" defer></script>
+  <link rel="stylesheet" href="../assets/css/style.css?v=20261111">
+  <script src="../assets/js/main.js?v=20261111"></script>
+  <script src="../assets/js/flowmap.js?v=20261111" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#contenu">Skip to content</a>
@@ -43,7 +43,7 @@
   <main id="contenu">
 
     <!-- ============ Introduction and flow map ============ -->
-    <section class="hero" aria-labelledby="nom">
+    <section class="hero" data-dotfield aria-labelledby="nom">
       <div class="wrap hero-grid">
         <div>
           <p class="hero-role">AI engineer — cybersecurity background</p>
@@ -82,11 +82,26 @@
       </div>
     </section>
 
+    <!-- ============ By the numbers ============ -->
+    <section class="section section--tight figures-band" aria-labelledby="chiffres-titre">
+      <div class="wrap">
+        <h2 class="eyebrow eyebrow--index" id="chiffres-titre">By the numbers</h2>
+        <ul class="figures xframe">
+          <li><a href="projets/sightline.html#resultats-verifiables"><span class="fig-label" aria-hidden="true">Fig. 01 / Commits</span><b class="fig-num" data-count="287">287</b><span class="fig-text">commits in 16 days on Sightline, 93 of them for the first version</span><span class="fig-src">Sightline<span aria-hidden="true"> →</span></span></a></li>
+          <li><a href="projets/sightline.html#resultats-verifiables"><span class="fig-label" aria-hidden="true">Fig. 02 / Tests</span><b class="fig-num" data-count="279">279</b><span class="fig-text">server tests passing on Sightline, at the last run on 25 October</span><span class="fig-src">Sightline<span aria-hidden="true"> →</span></span></a></li>
+          <li><a href="projets/sightline.html#automatiser-avec-n8n"><span class="fig-label" aria-hidden="true">Fig. 03 / Workflows</span><b class="fig-num" data-count="6">6</b><span class="fig-text">n8n workflows running on my server, from PRACC and FACEIT to Discord</span><span class="fig-src">Sightline · n8n<span aria-hidden="true"> →</span></span></a></li>
+          <li><a href="projets/sightline.html#rendre-l-ia-fiable-un-rapport-de-scouting-verifie"><span class="fig-label" aria-hidden="true">Fig. 04 / AI judge</span><b class="fig-num">10/12</b><span class="fig-text">injected meaning errors caught by the AI judge on a test bench, with 2 alerts on the intact report</span><span class="fig-src">Scouting report<span aria-hidden="true"> →</span></span></a></li>
+          <li><a href="projets/support-client.html#resultats-verifiables"><span class="fig-label" aria-hidden="true">Fig. 05 / Tickets</span><b class="fig-num" data-count="21">21</b><span class="fig-text">real tickets triaged for one client in the days after go-live</span><span class="fig-src">Client support<span aria-hidden="true"> →</span></span></a></li>
+          <li><a href="projets/caderno.html#resultats-verifiables"><span class="fig-label" aria-hidden="true">Fig. 06 / Checked</span><b class="fig-num" data-count="765">765</b><span class="fig-text">verb forms checked one by one against the reference conjugation</span><span class="fig-src">Caderno<span aria-hidden="true"> →</span></span></a></li>
+        </ul>
+      </div>
+    </section>
+
     <!-- ============ New projects: apps built by directing AI agents ============ -->
     <section class="section" id="nouveaux" aria-labelledby="nouveaux-titre">
       <div class="wrap">
         <div class="section-head">
-          <p class="eyebrow">October 2026</p>
+          <p class="eyebrow eyebrow--index">01 / AI apps · October 2026</p>
           <h2 id="nouveaux-titre">Apps built by directing AI agents</h2>
           <p>This is called vibe coding: describing what you want in plain language and letting an AI write the code. On its own it is fast but fragile. My part is what makes the result reliable: deciding what to build, splitting the work, having everything checked, then running the app live on my own server.</p>
         </div>
@@ -164,6 +179,7 @@
     <section class="section" id="projets" data-spy="nouveaux" aria-labelledby="projets-titre">
       <div class="wrap">
         <div class="section-head">
+          <p class="eyebrow eyebrow--index">02 / At work</p>
           <h2 id="projets-titre">Automation at work</h2>
           <p>Five pieces of work, chosen for what they prove. Each page sets out the context, my exact role, what is measured and what is not, with a mock-up you can try.</p>
         </div>
@@ -228,10 +244,60 @@
       </div>
     </section>
 
+    <!-- ============ Secure by design ============ -->
+    <section class="section" id="securite" data-spy="nouveaux" aria-labelledby="securite-titre">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow eyebrow--index">03 / Security</p>
+          <h2 id="securite-titre">Secure by design</h2>
+          <p>My background is in cybersecurity. Here are six measures taken in my projects, each linked to the case study that details it, limits included.</p>
+        </div>
+        <ul class="secure-grid xframe">
+          <li>
+            <p class="fig-label">01 / Least privilege</p>
+            <h3>Limited rights</h3>
+            <p>Sightline's API keys only open the routes of their rights (importing demos, reading matches, receiving comms), never settings or accounts; each is stored as a hash, shown only once and revocable. The TeamSpeak plugin has its own key, which only opens the comms upload route.</p>
+            <p class="secure-links"><a href="projets/sightline.html#automatiser-avec-n8n">Sightline</a> <a href="projets/sightline.html#comms-teamspeak">TeamSpeak comms</a></p>
+          </li>
+          <li>
+            <p class="fig-label">02 / Signatures</p>
+            <h3>Signed messages</h3>
+            <p>Every event Sightline sends to n8n carries a signed JWT, valid for 5 minutes, which n8n checks itself. Every request Discord sends to the bot is signed with Ed25519: Sightline checks the signature and refuses any request older than 5 minutes.</p>
+            <p class="secure-links"><a href="projets/sightline.html#automatiser-avec-n8n">Sightline</a></p>
+          </li>
+          <li>
+            <p class="fig-label">03 / Outgoing requests</p>
+            <h3>No requests to internal addresses</h3>
+            <p>Sightline refuses internal addresses in the demo links it receives, and checks each webhook's address again before every delivery: a protection against server-side request forgery (SSRF).</p>
+            <p class="secure-links"><a href="projets/sightline.html#automatiser-avec-n8n">Sightline</a></p>
+          </li>
+          <li>
+            <p class="fig-label">04 / Access</p>
+            <h3>Protected access</h3>
+            <p>Caderno: password, protected session cookie, request origin check and a limit on sign-in attempts. At launch, the dependency audit reported no vulnerability.</p>
+            <p class="secure-links"><a href="projets/caderno.html#resultats-verifiables">Caderno</a></p>
+          </li>
+          <li>
+            <p class="fig-label">05 / Data</p>
+            <h3>No client data in AI tools</h3>
+            <p>At Good iD, internal rules prohibited submitting client data to generative AI (Gemini): I described the problems in abstract terms, with fictitious data. This portfolio names neither clients nor colleagues.</p>
+            <p class="secure-links"><a href="projets/support-client.html#limites-et-ce-que-je-ferais-ensuite">Client support</a></p>
+          </li>
+          <li>
+            <p class="fig-label">06 / Reversibility</p>
+            <h3>Being able to roll back</h3>
+            <p>Test licences are reclaimed every night, automatically. Before touching a shop's live theme: a full copy of the theme, then a before/after log per file, with the rollback command.</p>
+            <p class="secure-links"><a href="projets/licences-flex.html#ce-que-j-ai-fait">Test licences</a> <a href="projets/e-commerce.html#deleguer-l-ecriture-pas-la-mise-en-ligne">E-commerce</a></p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
     <!-- ============ Intro video ============ -->
     <section class="section" id="en-une-minute" aria-labelledby="video-titre">
       <div class="wrap">
         <div class="section-head">
+          <p class="eyebrow eyebrow--index">04 / Introduction</p>
           <h2 id="video-titre">My work on video</h2>
           <p>Eight projects explained simply: the problem, what I built, the result. With music and sound effects.</p>
         </div>
@@ -261,6 +327,7 @@
     <section class="section" id="competences" aria-labelledby="competences-titre">
       <div class="wrap">
         <div class="section-head">
+          <p class="eyebrow eyebrow--index">05</p>
           <h2 id="competences-titre">Skills</h2>
           <p>No gauges, no percentages: each skill links to the projects that prove it. Pick a project to see what it called on.</p>
         </div>
@@ -326,6 +393,7 @@
     <section class="section" id="vitrine" aria-labelledby="vitrine-titre">
       <div class="wrap">
         <div class="section-head">
+          <p class="eyebrow eyebrow--index">06 / Videos and ads</p>
           <h2 id="vitrine-titre">Videos and ads</h2>
           <p>My work for my online shops: AI-generated videos made under my direction, then edited. They start playing, muted, when they appear on screen or on hover.</p>
         </div>
@@ -369,6 +437,7 @@
     <section class="section" id="aussi" aria-labelledby="aussi-titre">
       <div class="wrap">
         <div class="section-head">
+          <p class="eyebrow eyebrow--index">07</p>
           <h2 id="aussi-titre">Also done</h2>
           <p>Shorter assignments and school work, in brief.</p>
         </div>
@@ -451,7 +520,13 @@
     <section class="section" id="a-propos" aria-labelledby="a-propos-titre">
       <div class="wrap">
         <div class="section-head">
+          <p class="eyebrow eyebrow--index">08</p>
           <h2 id="a-propos-titre">About</h2>
+        </div>
+
+        <div class="manifesto-block">
+          <h3 class="eyebrow">What my internships taught me</h3>
+          <p class="manifesto" data-manifesto>I write the success criteria before I start developing, not after. A script validated in test is only truly validated once it has run in the real environment. I automate the execution of a task, not the judgement behind it. A tool is only as good as what remains after I leave: someone to take it over, documentation, a maintenance note. The time AI saves me when writing code, I put back into testing.</p>
         </div>
 
         <div class="about-grid">
@@ -460,14 +535,6 @@
             <p>I am an engineering student at ISEP in Paris, on the cybersecurity track, and I graduate in October 2026. I spent my final semester of classes on Erasmus at ISCTE in Lisbon, studying machine learning and computer science, after an international preparatory cycle that included six months in Prague.</p>
             <p>During my internships I mostly built tools, and I came to enjoy what comes afterwards: testing, documentation, handover. I want to design systems that last, in software, the cloud or security.</p>
 
-            <h3>What my internships taught me</h3>
-            <ul class="lessons">
-              <li>I write the success criteria before I start developing, not after.</li>
-              <li>A script validated in test is only truly validated once it has run in the real environment.</li>
-              <li>I automate the execution of a task, not the judgement behind it.</li>
-              <li>A tool is only as good as what remains after I leave: someone to take it over, documentation, a maintenance note.</li>
-              <li>The time AI saves me when writing code, I put back into testing.</li>
-            </ul>
 
             <h3>Outside work</h3>
             <p>Competitive Counter-Strike (level 10 on FACEIT), rock on the guitar, Chopin and Rachmaninoff on the piano. <a href="passions.html">It is all on my Passions page: my FACEIT stats, the esports scene and a reflex test to try.</a></p>
@@ -513,6 +580,7 @@
     <section class="section" id="contact" aria-labelledby="contact-titre">
       <div class="wrap contact">
         <div>
+          <p class="eyebrow eyebrow--index">09</p>
           <h2 id="contact-titre">Open a ticket</h2>
           <p>A role, an assignment, a question: write to me. The email subject already contains a ticket number, <span class="contact-ticket" data-ticket>T-000000</span>, just like in the support system I built.</p>
         </div>

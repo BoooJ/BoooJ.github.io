@@ -3,7 +3,8 @@
 // 4. Plan de câblage        5. Vidéos qui se lancent à l'écran   6. Filtre des compétences
 // 7. Section en cours dans le menu (accueil)   8. Sommaire des études de cas
 // 9. Langue : garder la position   10. Retour en haut   11. Visionneuse d'images
-// 12. Copier l'adresse e-mail
+// 12. Copier l'adresse e-mail   13. Chiffres qui montent   14. Manifeste éclairé au défilement
+// 15. Champ de points qui suit le pointeur (accueil)
 (function () {
   var root = document.documentElement;
   var KEY = "pm-theme";
@@ -496,5 +497,104 @@
         });
       });
     }
+    // 13. Accueil : les chiffres montent jusqu'à leur valeur quand ils apparaissent (sauf mouvement réduit)
+    var counters = document.querySelectorAll("[data-count]");
+    if (counters.length && !reduceMotion && "IntersectionObserver" in window) {
+      var countUp = function (el) {
+        var target = parseInt(el.getAttribute("data-count"), 10);
+        var start = null;
+        var step = function (now) {
+          if (start === null) start = now;
+          var t = Math.min(1, (now - start) / 900);
+          el.textContent = String(Math.round(target * (1 - Math.pow(1 - t, 3))));
+          if (t < 1) window.requestAnimationFrame(step);
+        };
+        window.requestAnimationFrame(step);
+      };
+      var countIo = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          countIo.unobserve(entry.target);
+          countUp(entry.target);
+        });
+      }, { threshold: 0.6 });
+      counters.forEach(function (el) {
+        // Valeur stable pour les lecteurs d'écran ; le chiffre animé est masqué
+        var sr = document.createElement("span");
+        sr.className = "visually-hidden";
+        sr.textContent = el.textContent;
+        el.setAttribute("aria-hidden", "true");
+        el.parentNode.insertBefore(sr, el);
+        // Déjà à l'écran au chargement : pas d'animation, donc pas de clignotement
+        var r = el.getBoundingClientRect();
+        if (r.bottom > 0 && r.top < window.innerHeight) return;
+        el.textContent = "0";
+        countIo.observe(el);
+      });
+    }
+
+    // 14. Accueil : le manifeste s'éclaire mot à mot au fil du défilement (texte plein sans JS ou en mouvement réduit)
+    var manifesto = document.querySelector("[data-manifesto]");
+    if (manifesto && !reduceMotion) {
+      var words = [];
+      var full = manifesto.textContent;
+      var parts = full.split(/(\s+)/);
+      manifesto.textContent = "";
+      // Le texte entier reste lu d'un bloc par les aides techniques ; les mots découpés sont masqués
+      var srText = document.createElement("span");
+      srText.className = "visually-hidden";
+      srText.textContent = full;
+      var shown = document.createElement("span");
+      shown.setAttribute("aria-hidden", "true");
+      manifesto.appendChild(srText);
+      manifesto.appendChild(shown);
+      parts.forEach(function (part) {
+        if (!part) return;
+        if (/^\s+$/.test(part)) { shown.appendChild(document.createTextNode(part)); return; }
+        var span = document.createElement("span");
+        span.className = "w";
+        span.textContent = part;
+        shown.appendChild(span);
+        words.push(span);
+      });
+      manifesto.classList.add("is-armed");
+      var lit = -1;
+      var paintPending = false;
+      var paint = function () {
+        paintPending = false;
+        var r = manifesto.getBoundingClientRect();
+        var vh = window.innerHeight || 800;
+        var progress = (vh * 0.85 - r.top) / (r.height + vh * 0.3);
+        var n = Math.round(Math.max(0, Math.min(1, progress)) * words.length);
+        if (n === lit) return;
+        words.forEach(function (w, i) { w.classList.toggle("is-lit", i < n); });
+        lit = n;
+      };
+      var requestPaint = function () {
+        if (paintPending) return;
+        paintPending = true;
+        window.requestAnimationFrame(paint);
+      };
+      window.addEventListener("scroll", requestPaint, { passive: true });
+      window.addEventListener("resize", requestPaint);
+      paint();
+    }
+
+    // 15. Accueil : la lueur du champ de points suit le pointeur (souris seulement, sauf mouvement réduit)
+    var dotfield = document.querySelector("[data-dotfield]");
+    if (dotfield && !reduceMotion && window.matchMedia && window.matchMedia("(pointer: fine)").matches) {
+      dotfield.addEventListener("pointermove", function (e) {
+        var r = dotfield.getBoundingClientRect();
+        dotfield.style.setProperty("--gx", Math.round(e.clientX - r.left) + "px");
+        dotfield.style.setProperty("--gy", Math.round(e.clientY - r.top) + "px");
+        dotfield.classList.add("is-tracking");
+      });
+      dotfield.addEventListener("pointerleave", function () {
+        dotfield.classList.remove("is-tracking");
+        dotfield.style.removeProperty("--gx");
+        dotfield.style.removeProperty("--gy");
+      });
+    }
+
   });
 })();

@@ -1811,3 +1811,156 @@ a.pill:hover { background: color-mix(in srgb, var(--pc) 22%, transparent); }
   .case-intro--phone .pitch--phone { margin: 2.5rem 0 0; }
   .case-intro--phone .case-jump { display: none; }
 }
+
+
+/* ==========================================================================
+   Repères techniques, chiffres, sécurité par conception, manifeste (accueil)
+   Idées tirées d'Inspora : figures de labo (Pacer), grille quadrillée (Greptile),
+   champ de points (Unkey), texte éclairé au défilement (Graham McDonnell).
+   ========================================================================== */
+
+:root {
+  --cross: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M6 0v12M0 6h12' stroke='%23000' stroke-width='1.2'/%3E%3C/svg%3E");
+}
+
+/* Étiquettes de section numérotées, entre crochets */
+.eyebrow--index::before { content: "[ " / ""; }
+.eyebrow--index::after { content: " ]" / ""; }
+h2.eyebrow, h3.eyebrow { font-family: var(--font-code); font-weight: 400; line-height: 1.5; letter-spacing: 0.08em; }
+
+/* Croix aux quatre angles d'une grille, comme sur un plan */
+.xframe { position: relative; }
+.xframe::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  pointer-events: none;
+  background: var(--wire);
+  -webkit-mask: var(--cross) left top / 12px 12px no-repeat, var(--cross) right top / 12px 12px no-repeat,
+    var(--cross) left bottom / 12px 12px no-repeat, var(--cross) right bottom / 12px 12px no-repeat;
+  mask: var(--cross) left top / 12px 12px no-repeat, var(--cross) right top / 12px 12px no-repeat,
+    var(--cross) left bottom / 12px 12px no-repeat, var(--cross) right bottom / 12px 12px no-repeat;
+}
+
+/* Champ de points derrière la présentation. Sur grand écran, une lueur longe la marge
+   gauche, hors du texte, ou suit la souris ; sur petit écran, seuls les points restent. */
+@property --gx { syntax: "<length-percentage>"; inherits: true; initial-value: 3%; }
+@property --gy { syntax: "<length-percentage>"; inherits: true; initial-value: 45%; }
+.hero { position: relative; isolation: isolate; }
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: radial-gradient(circle, currentColor 1px, transparent 1.4px);
+  background-size: 22px 22px;
+}
+.hero::before {
+  color: var(--rule);
+  -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent);
+  mask-image: linear-gradient(to bottom, #000 55%, transparent);
+}
+.hero::after {
+  color: var(--signal);
+  background-image: radial-gradient(circle, currentColor 1.4px, transparent 1.9px),
+    radial-gradient(circle 8rem at var(--gx) var(--gy), color-mix(in srgb, var(--signal) 9%, transparent), transparent 75%);
+  background-size: 22px 22px, 100% 100%;
+  -webkit-mask-image: radial-gradient(circle 8rem at var(--gx) var(--gy), #000, transparent 72%);
+  mask-image: radial-gradient(circle 8rem at var(--gx) var(--gy), #000, transparent 72%);
+}
+@media (max-width: 65.99rem) { .hero::after { display: none; } }
+/* La lueur automatique n'apparaît que si la marge gauche peut la contenir ; le suivi de la souris reste possible */
+@media (max-width: 89.99rem) { .hero:not(.is-tracking)::after { display: none; } }
+@keyframes dot-drift {
+  0% { --gx: 2%; --gy: 20%; }
+  50% { --gx: 4%; --gy: 80%; }
+  100% { --gx: 2%; --gy: 50%; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero::after { animation: dot-drift 20s ease-in-out infinite alternate; }
+  .hero.is-tracking::after { animation: none; }
+}
+
+/* Bandeau de chiffres, façon fiche de labo */
+.section--tight { padding-block: clamp(2rem, 1.25rem + 2.5vw, 3.25rem); }
+.figures-band .eyebrow { margin-bottom: 1.25rem; }
+.figures {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  border-top: 1px solid var(--rule);
+  border-left: 1px solid var(--rule);
+}
+@media (min-width: 36rem) { .figures { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 60rem) { .figures { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.figures li { border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+.figures a {
+  display: grid;
+  gap: 0.35rem;
+  height: 100%;
+  padding: 1.1rem 1.25rem 1.25rem;
+  text-decoration: none;
+  color: inherit;
+  transition: background-color 0.2s;
+}
+.figures a:hover { background: var(--surface); }
+.figures a:hover .fig-src { text-decoration: underline; }
+.fig-label { font-family: var(--font-code); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-2); margin: 0; }
+.fig-num {
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 1.8rem + 2.6vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+  font-variation-settings: "wdth" 80;
+  margin-top: 0.4rem;
+}
+.fig-text { font-size: var(--step--1); color: var(--ink-2); max-width: 22rem; }
+.fig-src { font-family: var(--font-code); font-size: 0.75rem; color: var(--signal); margin-top: 0.25rem; }
+@media (prefers-reduced-motion: reduce) { .figures a { transition: none; } }
+
+/* Sécurité par conception : grille quadrillée de six mesures */
+.secure-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  border-top: 1px solid var(--rule);
+  border-left: 1px solid var(--rule);
+}
+@media (min-width: 40rem) { .secure-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 64rem) { .secure-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.secure-grid li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.25rem 1.25rem 1.4rem;
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.secure-grid h3 { font-size: var(--step-1); }
+.secure-grid p { margin: 0; }
+.secure-grid li > p:not(.fig-label):not(.secure-links) { font-size: var(--step--1); color: var(--ink-2); }
+.secure-links { margin-top: auto !important; padding-top: 0.4rem; display: flex; flex-wrap: wrap; gap: 0.4rem 1rem; font-family: var(--font-code); font-size: 0.75rem; }
+.secure-links a { color: var(--signal); }
+
+/* Manifeste : les mots s'éclairent au fil du défilement */
+.manifesto-block { margin-bottom: clamp(2.5rem, 1.5rem + 3vw, 4rem); }
+.manifesto {
+  font-family: var(--font-display);
+  font-size: var(--step-3);
+  font-weight: 600;
+  line-height: 1.22;
+  letter-spacing: -0.015em;
+  max-width: 54rem;
+  margin: 0;
+  text-wrap: pretty;
+}
+.manifesto.is-armed .w { color: color-mix(in srgb, var(--ink) 55%, var(--paper)); transition: color 0.3s; }
+.manifesto.is-armed .w.is-lit { color: var(--ink); }
