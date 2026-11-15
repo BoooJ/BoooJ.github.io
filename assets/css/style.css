@@ -1964,3 +1964,16 @@ h2.eyebrow, h3.eyebrow { font-family: var(--font-code); font-weight: 400; line-h
 }
 .manifesto.is-armed .w { color: color-mix(in srgb, var(--ink) 55%, var(--paper)); transition: color 0.3s; }
 .manifesto.is-armed .w.is-lit { color: var(--ink); }
+
+/* ---------- Accueil : sections repliables (« Voir plus ») ----------
+   Sans JavaScript, tout reste affiché et le bouton masqué ; main.js replie au chargement. */
+.more-toggle[hidden] { display: none; }
+.more-toggle::after {
+  content: "";
+  width: 0.4rem;
+  height: 0.4rem;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: translateY(-0.1rem) rotate(45deg);
+}
+.more-region:focus { outline: none; }

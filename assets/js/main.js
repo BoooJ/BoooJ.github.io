@@ -4,7 +4,7 @@
 // 7. Section en cours dans le menu (accueil)   8. Sommaire des études de cas
 // 9. Langue : garder la position   10. Retour en haut   11. Visionneuse d'images
 // 12. Copier l'adresse e-mail   13. Chiffres qui montent   14. Manifeste éclairé au défilement
-// 15. Champ de points qui suit le pointeur (accueil)
+// 15. Champ de points qui suit le pointeur (accueil)   16. Sections repliables (accueil)
 (function () {
   var root = document.documentElement;
   var KEY = "pm-theme";
@@ -578,6 +578,58 @@
       window.addEventListener("scroll", requestPaint, { passive: true });
       window.addEventListener("resize", requestPaint);
       paint();
+    }
+
+    // 16. Accueil : sections repliables. Le contenu reste dans le DOM ; sans JavaScript, tout est affiché.
+    // Une ancre (menu, lien, adresse) qui vise la section ou un élément replié l'ouvre avant le défilement.
+    var moreToggles = Array.prototype.slice.call(document.querySelectorAll("[data-collapse-toggle]"));
+    if (moreToggles.length) {
+      var regionOf = function (btn) { return document.getElementById(btn.getAttribute("aria-controls")); };
+      var expand = function (btn) {
+        var region = regionOf(btn);
+        if (!region || !region.hasAttribute("hidden")) return false;
+        region.removeAttribute("hidden");
+        btn.setAttribute("aria-expanded", "true");
+        btn.hidden = true;
+        return true;
+      };
+      // Ouvre la section repliée qui contient la cible (ou qui est la cible) ; renvoie la cible si une section s'est ouverte
+      var openFor = function (id) {
+        var target = id ? document.getElementById(id) : null;
+        if (!target) return null;
+        var opened = false;
+        moreToggles.forEach(function (btn) {
+          var region = regionOf(btn);
+          if (region && (region.contains(target) || target.contains(btn)) && expand(btn)) opened = true;
+        });
+        return opened ? target : null;
+      };
+      var initial = idOf(window.location.hash);
+      var initialTarget = initial ? document.getElementById(initial) : null;
+      moreToggles.forEach(function (btn) {
+        var region = regionOf(btn);
+        if (!region) return;
+        btn.addEventListener("click", function () {
+          if (!expand(btn)) return;
+          region.setAttribute("tabindex", "-1");
+          try { region.focus({ preventScroll: true }); } catch (e) { region.focus(); }
+        });
+        // Recherche dans la page (Chrome) : le texte replié reste trouvable et s'ouvre de lui-même
+        region.addEventListener("beforematch", function () { expand(btn); });
+        if (initialTarget && (region.contains(initialTarget) || initialTarget.contains(btn))) return;
+        region.setAttribute("hidden", "until-found");
+        btn.setAttribute("aria-expanded", "false");
+        btn.hidden = false;
+      });
+      document.addEventListener("click", function (e) {
+        var a = e.target.closest ? e.target.closest('a[href^="#"]') : null;
+        if (a) openFor(idOf(a.getAttribute("href")));
+      }, true);
+      window.addEventListener("hashchange", function () {
+        var target = openFor(idOf(window.location.hash));
+        if (target) target.scrollIntoView();
+      });
+      window.addEventListener("beforeprint", function () { moreToggles.forEach(expand); });
     }
 
     // 15. Accueil : la lueur du champ de points suit le pointeur (souris seulement, sauf mouvement réduit)
