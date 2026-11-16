@@ -2045,3 +2045,41 @@ h2.eyebrow, h3.eyebrow { font-family: var(--font-code); font-weight: 400; line-h
   .hero .flowmap-scenarios::-webkit-scrollbar { display: none; }
   .hero .fm-chip { flex: none; }
 }
+
+/* ---------- Accueil, téléphone (≤ 600 px) : cibles tactiles d'au moins 44 × 44 px ----------
+   La zone cliquable grandit par min-height ; l'aspect des pastilles de compétences ne change pas
+   (leur forme est dessinée par ::after, centrée dans la zone). */
+@media (max-width: 37.5rem) {
+  .skills-filter .seg,
+  .hero .fm-chip { min-height: 2.75rem; }
+  .secure-links a,
+  .reel-note a,
+  .hero .flowmap-result a { display: inline-flex; align-items: center; min-height: 2.75rem; }
+  .skill-pills { gap: 0 0.35rem; }
+  .skill-pills a.pill {
+    position: relative;
+    isolation: isolate;
+    min-height: 2.75rem;
+    min-width: 2.75rem;
+    padding-block: 0;
+    background: none;
+    border-color: transparent;
+  }
+  .skill-pills a.pill::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 1.5rem;
+    transform: translateY(-50%);
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--pc) 12%, transparent);
+    border: 1px solid color-mix(in srgb, var(--pc) 35%, transparent);
+  }
+  .skill-pills a.pill:hover::after { background: color-mix(in srgb, var(--pc) 22%, transparent); }
+  .skill-pills a.p6.pill::after { border-style: dashed; }
+  .skills.is-filtered .skill.is-match .skill-pills a.pill.is-match { background: none; border-color: transparent; }
+  .skills.is-filtered .skill.is-match .skill-pills a.pill.is-match::after { background: var(--pc); border-color: var(--pc); }
+}
