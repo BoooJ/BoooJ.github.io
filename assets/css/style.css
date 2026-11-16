@@ -1972,7 +1972,6 @@ h2.eyebrow, h3.eyebrow { font-family: var(--font-code); font-weight: 400; line-h
   margin: 0;
   text-wrap: pretty;
 }
-.manifesto-rest { margin: 1rem 0 0; }
 
 /* ---------- Accueil : sections repliables (« Voir plus ») ----------
    Sans JavaScript, tout reste affiché et le bouton masqué ; main.js replie au chargement. */
