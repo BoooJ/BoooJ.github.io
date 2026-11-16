@@ -365,7 +365,9 @@ code {
 .fm-edge.is-active { stroke: color-mix(in srgb, var(--map-signal) 50%, var(--map-line)); stroke-width: 2; }
 .fm-edge.is-hot { stroke: var(--map-signal); stroke-width: 2.5; filter: drop-shadow(0 0 4px rgba(103, 209, 177, 0.55)); }
 .fm-edge.is-hot.is-night { stroke: var(--map-amber); filter: drop-shadow(0 0 4px rgba(240, 180, 94, 0.55)); }
-.flowmap.is-playing .fm-edge:not(.is-active) { opacity: 0.22; }
+/* Pendant un scénario, les lignes inactives restent lisibles (contraste ≥ 4,5:1) : grises et en pointillés plutôt qu'estompées */
+.flowmap.is-playing .fm-edge.is-active { stroke: var(--map-signal); }
+.flowmap.is-playing .fm-edge:not(.is-active) { stroke: var(--map-dim); stroke-width: 1; stroke-dasharray: 2 4; }
 
 .fm-node { transition: opacity 0.3s; }
 .fm-node rect { stroke-width: 1.25; transition: stroke 0.3s, fill 0.3s; }
@@ -376,7 +378,14 @@ code {
 .fm-node--build .fm-label { font-weight: 650; }
 .fm-node--system rect { fill: var(--map-surface); stroke: var(--map-line); }
 .fm-node--trigger, .fm-node--build { cursor: pointer; }
-.flowmap.is-playing .fm-node:not(.is-active) { opacity: 0.3; }
+.flowmap.is-playing .fm-node.is-active rect { stroke: var(--map-signal); }
+.flowmap.is-playing .fm-node:not(.is-active) rect { stroke: var(--map-dim); }
+.flowmap.is-playing .fm-node:not(.is-active) .fm-label { fill: var(--map-dim); font-weight: 400; }
+/* Une ligne du circuit (déclencheur et construction) est un bouton : bordure menthe au survol et au focus clavier */
+.fm-row { cursor: pointer; }
+.fm-row:focus { outline: none; }
+.flowmap .fm-row:hover .fm-node rect,
+.flowmap .fm-row:focus-visible .fm-node rect { stroke: var(--map-signal); stroke-width: 2; stroke-dasharray: none; }
 .fm-node.is-hit rect { animation: fm-hit 0.7s ease-out; }
 @keyframes fm-hit {
   0% { stroke: var(--map-signal); stroke-width: 4; }

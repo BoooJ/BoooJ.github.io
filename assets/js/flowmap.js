@@ -186,18 +186,40 @@
     });
   });
 
+  // Les lignes du circuit sont des boutons : la carte devient un groupe nommé par son titre,
+  // ses parties décoratives restent masquées aux aides techniques.
+  var title = root.querySelector(".flowmap-head h2");
+  svg.removeAttribute("aria-hidden");
+  svg.removeAttribute("focusable");
+  svg.setAttribute("role", "group");
+  if (title) {
+    title.id = title.id || "fm-title";
+    svg.setAttribute("aria-labelledby", title.id);
+  }
+
   var COLS = UI.cols;
-  el("text", { class: "fm-col-label", x: GEO.trigger.x, y: 16 }, svg).textContent = COLS[0];
-  el("text", { class: "fm-col-label", x: GEO.build.x, y: 16 }, svg).textContent = COLS[1];
-  el("text", { class: "fm-col-label", x: GEO.system.x, y: 16 }, svg).textContent = COLS[2];
-  var defs = el("defs", {}, svg);
+  el("text", { class: "fm-col-label", x: GEO.trigger.x, y: 16, "aria-hidden": "true" }, svg).textContent = COLS[0];
+  el("text", { class: "fm-col-label", x: GEO.build.x, y: 16, "aria-hidden": "true" }, svg).textContent = COLS[1];
+  el("text", { class: "fm-col-label", x: GEO.system.x, y: 16, "aria-hidden": "true" }, svg).textContent = COLS[2];
+  var defs = el("defs", { "aria-hidden": "true" }, svg);
   var mk = el("marker", { id: "fm-col-head", viewBox: "0 0 10 10", refX: 9, refY: 5, markerWidth: 6, markerHeight: 6, orient: "auto" }, defs);
   el("path", { d: "M0,0 L10,5 L0,10 z", fill: "#34505e" }, mk);
-  el("path", { class: "fm-col-arrow", d: "M" + (GEO.trigger.x + 96) + ",12 H" + (GEO.build.x - 12), "marker-end": "url(#fm-col-head)" }, svg);
-  el("path", { class: "fm-col-arrow", d: "M" + (GEO.build.x + 168) + ",12 H" + (GEO.system.x - 12), "marker-end": "url(#fm-col-head)" }, svg);
+  el("path", { class: "fm-col-arrow", d: "M" + (GEO.trigger.x + 96) + ",12 H" + (GEO.build.x - 12), "marker-end": "url(#fm-col-head)", "aria-hidden": "true" }, svg);
+  el("path", { class: "fm-col-arrow", d: "M" + (GEO.build.x + 168) + ",12 H" + (GEO.system.x - 12), "marker-end": "url(#fm-col-head)", "aria-hidden": "true" }, svg);
 
-  var edgesLayer = el("g", {}, svg);
+  var edgesLayer = el("g", { "aria-hidden": "true" }, svg);
   var nodesLayer = el("g", {}, svg);
+
+  // Une ligne = le déclencheur et ce que j'ai construit pour un scénario : focalisable, Entrée ou Espace la joue.
+  var rowEls = {};
+  SCENARIOS.forEach(function (sc) {
+    var row = el("g", { class: "fm-row", "data-row": sc.id, tabindex: "0", role: "button", "aria-pressed": "false", "aria-label": sc.chip }, nodesLayer);
+    row.addEventListener("click", function () { play(sc.id, { user: true }); });
+    row.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); play(sc.id, { user: true }); }
+    });
+    rowEls[sc.id] = row;
+  });
   var edges = {};
 
   function edgeKey(a, b) {
@@ -222,7 +244,9 @@
   var nodeEls = {};
   Object.keys(NODES).forEach(function (id) {
     var n = NODES[id], b = box(id);
-    var g = el("g", { class: "fm-node fm-node--" + n.type, "data-node": id }, nodesLayer);
+    var parent = scenarioOf[id] ? rowEls[scenarioOf[id]] : nodesLayer;
+    var g = el("g", { class: "fm-node fm-node--" + n.type, "data-node": id }, parent);
+    if (!scenarioOf[id]) g.setAttribute("aria-hidden", "true");
     el("rect", { x: b.x, y: b.y, width: b.w, height: b.h, rx: n.type === "trigger" ? 23 : 8 }, g);
     var tx = n.type === "system" ? b.x + 14 : b.cx;
     var anchor = n.type === "system" ? "start" : "middle";
@@ -232,14 +256,11 @@
     } else {
       el("text", { class: "fm-label", x: tx, y: b.cy + 4.5, "text-anchor": anchor }, g).textContent = n.label;
     }
-    if (scenarioOf[id]) {
-      g.addEventListener("click", function () { play(scenarioOf[id], { user: true }); });
-    }
     nodeEls[id] = g;
   });
 
-  var halo = el("circle", { class: "fm-packet-halo", r: 11, cx: -50, cy: -50 }, svg);
-  var packet = el("circle", { class: "fm-packet", r: 5, cx: -50, cy: -50 }, svg);
+  var halo = el("circle", { class: "fm-packet-halo", r: 11, cx: -50, cy: -50, "aria-hidden": "true" }, svg);
+  var packet = el("circle", { class: "fm-packet", r: 5, cx: -50, cy: -50, "aria-hidden": "true" }, svg);
 
   // ---------- Boutons de scénario ----------
 
@@ -356,6 +377,7 @@
     if (opts.user) logEl.setAttribute("aria-live", "polite");
     reset();
     Object.keys(chips).forEach(function (k) { chips[k].setAttribute("aria-pressed", String(k === id)); });
+    Object.keys(rowEls).forEach(function (k) { rowEls[k].setAttribute("aria-pressed", String(k === id)); });
     root.classList.add("is-playing");
 
     var ticket = window.pmTicket ? window.pmTicket() : "T-482913";
