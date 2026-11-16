@@ -5,6 +5,7 @@
 // 9. Langue : garder la position   10. Retour en haut   11. Visionneuse d'images
 // 12. Copier l'adresse e-mail   13. Chiffres qui montent   14. Manifeste éclairé au défilement
 // 15. Champ de points qui suit le pointeur (accueil)   16. Sections repliables (accueil)
+// 17. Menu de navigation sur téléphone (accueil)
 (function () {
   var root = document.documentElement;
   var KEY = "pm-theme";
@@ -578,6 +579,27 @@
       window.addEventListener("scroll", requestPaint, { passive: true });
       window.addEventListener("resize", requestPaint);
       paint();
+    }
+
+    // 17. Accueil, téléphone : menu de navigation derrière un bouton (Échap et clic sur un lien le referment)
+    var menuButton = document.querySelector("[data-menu-toggle]");
+    var menuHeader = menuButton ? menuButton.closest(".site-header") : null;
+    var menuNav = menuButton ? document.getElementById(menuButton.getAttribute("aria-controls")) : null;
+    if (menuButton && menuHeader && menuNav) {
+      menuHeader.classList.add("has-menu");
+      menuButton.hidden = false;
+      var isMenuOpen = function () { return menuButton.getAttribute("aria-expanded") === "true"; };
+      var setMenu = function (open, returnFocus) {
+        menuHeader.classList.toggle("is-open", open);
+        menuButton.setAttribute("aria-expanded", String(open));
+        if (!open && returnFocus) menuButton.focus();
+      };
+      menuButton.addEventListener("click", function () { setMenu(!isMenuOpen()); });
+      menuNav.addEventListener("click", function (e) { if (e.target.closest && e.target.closest("a")) setMenu(false); });
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && isMenuOpen()) setMenu(false, menuNav.contains(document.activeElement) || document.activeElement === menuButton);
+      });
+      document.addEventListener("click", function (e) { if (isMenuOpen() && !menuHeader.contains(e.target)) setMenu(false); });
     }
 
     // 16. Accueil : sections repliables. Le contenu reste dans le DOM ; sans JavaScript, tout est affiché.

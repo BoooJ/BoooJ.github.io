@@ -1977,3 +1977,62 @@ h2.eyebrow, h3.eyebrow { font-family: var(--font-code); font-weight: 400; line-h
   transform: translateY(-0.1rem) rotate(45deg);
 }
 .more-region:focus { outline: none; }
+
+/* ---------- Accueil, téléphone (≤ 600 px) : en-tête sur une ligne avec menu, carte des flux sous l'accroche ----------
+   Le bouton de menu n'apparaît que si main.js a ajouté .has-menu ; sans JavaScript, l'en-tête garde sa mise en page. */
+.menu-toggle, .nav-extra { display: none; }
+@media (max-width: 37.5rem) {
+  .site-header.has-menu .wrap { flex-wrap: nowrap; gap: 0.5rem; min-height: 0; height: 3.4375rem; padding-block: 0; }
+  .has-menu .wordmark { margin-right: auto; }
+  .has-menu .header-actions { order: 2; }
+  .has-menu .header-actions .lang-switch,
+  .has-menu .header-actions .btn { display: none; }
+  .has-menu .menu-toggle {
+    order: 3;
+    display: grid;
+    place-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    appearance: none;
+    border: 1px solid var(--rule);
+    border-radius: 50%;
+    background: transparent;
+    color: var(--ink-2);
+    cursor: pointer;
+  }
+  .has-menu .menu-toggle:hover,
+  .has-menu .menu-toggle[aria-expanded="true"] { color: var(--ink); border-color: var(--ink); }
+  .has-menu .menu-toggle svg { width: 1.15rem; height: 1.15rem; }
+  .has-menu .site-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: auto;
+    background: var(--paper);
+    border-bottom: 1px solid var(--rule);
+    padding: 0.25rem var(--gutter) 0.75rem;
+  }
+  .has-menu.is-open .site-nav { display: block; }
+  .has-menu .site-nav ul { flex-direction: column; flex-wrap: nowrap; gap: 0; font-size: var(--step-0); }
+  .has-menu .site-nav a { display: flex; align-items: center; min-height: 2.75rem; }
+  .has-menu .nav-extra { display: list-item; }
+  .has-menu .nav-extra .lang-switch { border: 0; border-radius: 0; padding: 0; font: inherit; }
+
+  /* Carte des flux juste sous l'accroche, en aperçu réduit (même composant, mis à l'échelle) */
+  .hero-grid { gap: 0; grid-template-columns: minmax(0, 1fr); }
+  .hero-grid > :first-child { display: contents; }
+  .hero-role { order: 1; }
+  .hero-name { order: 2; }
+  .hero-lede { order: 3; }
+  .hero .flowmap { order: 4; margin: 0.25rem 0 1.75rem; min-width: 0; }
+  .hero-sub { order: 5; }
+  .hero-actions { order: 6; }
+  .hero-video { order: 7; }
+  .hero-facts { order: 8; }
+  .hero .flowmap-canvas { display: block; }
+  .hero .flowmap-scenarios { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; padding-block: 2px; }
+  .hero .flowmap-scenarios::-webkit-scrollbar { display: none; }
+  .hero .fm-chip { flex: none; }
+}
